@@ -155,7 +155,7 @@ Drop Table Paises
 /* PAISES */
 Insert into Paises (Pais_Id, Pais_Nombre) select distinct Cli_Pais_Codigo, Cli_Pais_Desc from gd_esquema.Maestra
 /* TIPOS DE DOCUMENTO */
-Insert into Tipo_De_Doc (Tipo_Doc_Desc) select distinct Cli_Tipo_Doc_Desc from gd_esquema.Maestra
+Insert into Tipo_De_Doc (Tipo_Doc_Id, Tipo_Doc_Desc) select distinct Cli_Tipo_Doc_Cod, Cli_Tipo_Doc_Desc from gd_esquema.Maestra
 /* CLIENTES */
 Insert into Clientes	(Cliente_Nombre, Cliente_Apellido, 
 						Cliente_Dom_Calle, Cliente_Dom_Nro, Cliente_Dom_Piso,
@@ -169,6 +169,9 @@ Insert into Clientes	(Cliente_Tipo_Doc) select Tipo_Doc_Id from Tipo_De_Doc
 						
 Insert into Clientes	(Cliente_Pais) select Pais_Id from Paises
 						where Paises.Pais_Nombre = gd_esquema.Maestra.Cli_Pais_Desc
+/* CLIENTES */
+
+
 
 
 				/************************************************
@@ -178,3 +181,5 @@ Insert into Clientes	(Cliente_Pais) select Pais_Id from Paises
 				*************************************************/
 						
 select *from dbo.Paises
+select *from gd_esquema.Maestra
+select *from Tipo_De_Doc
