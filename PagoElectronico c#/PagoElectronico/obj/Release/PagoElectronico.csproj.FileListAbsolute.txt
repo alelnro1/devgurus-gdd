@@ -1,0 +1,15 @@
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.ABM_Rol.Form1.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Login.Ingresar.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Release\PagoElectronico.exe.config
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Login.resources
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\bin\Release\PagoElectronico.exe
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\bin\Release\PagoElectronico.pdb
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Login.resources
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.exe
+D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.pdb
