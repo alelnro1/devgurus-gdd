@@ -329,3 +329,5 @@ INSERT INTO Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_C
                         Maestro.Deposito_Codigo IS NOT NULL AND
                         Tarjetas.Tarjeta_Nro = Maestro.Tarjeta_Numero AND
                         Cuentas.Cuenta_Nro = Maestro.Cuenta_Numero
+                        
+                    
