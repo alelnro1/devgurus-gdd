@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ComboBox comboPreSec;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewUser));
+            this.comboPreSec = new System.Windows.Forms.ComboBox();
             this.combo_Rol = new System.Windows.Forms.ComboBox();
             this.text_Pass = new System.Windows.Forms.TextBox();
             this.text_User = new System.Windows.Forms.TextBox();
@@ -56,25 +56,25 @@
             this.richTextTermino = new System.Windows.Forms.RichTextBox();
             this.checkTermino = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.text_Pass_Conf = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            comboPreSec = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // comboPreSec
             // 
-            comboPreSec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            comboPreSec.Items.AddRange(new object[] {
+            this.comboPreSec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPreSec.FormattingEnabled = true;
+            this.comboPreSec.Items.AddRange(new object[] {
             "¿Cual es el apellido de tu abuela materna?",
             "¿Cual es tu comida favorita?",
             "¿Como se llamaba tu primer mascota?",
             "¿Cuantos años tenias cuando diste tu primer beso?",
             "¿Cula era la marca de tu primer automovil?",
             "¿Cual es tu equipo de futbol de la infancia?"});
-            comboPreSec.Location = new System.Drawing.Point(28, 362);
-            comboPreSec.Name = "comboPreSec";
-            comboPreSec.Size = new System.Drawing.Size(296, 21);
-            comboPreSec.TabIndex = 17;
+            this.comboPreSec.Location = new System.Drawing.Point(28, 362);
+            this.comboPreSec.Name = "comboPreSec";
+            this.comboPreSec.Size = new System.Drawing.Size(296, 21);
+            this.comboPreSec.TabIndex = 17;
             // 
             // combo_Rol
             // 
@@ -148,6 +148,7 @@
             this.button_Enviar.TabIndex = 20;
             this.button_Enviar.Text = "Enviar solicitud";
             this.button_Enviar.UseVisualStyleBackColor = true;
+            this.button_Enviar.Click += new System.EventHandler(this.button_Enviar_Click);
             // 
             // label1
             // 
@@ -315,13 +316,13 @@
             this.label13.TabIndex = 42;
             this.label13.Text = "Terminos y condiciones";
             // 
-            // textBox1
+            // text_Pass_Conf
             // 
-            this.textBox1.Location = new System.Drawing.Point(163, 273);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 15;
+            this.text_Pass_Conf.Location = new System.Drawing.Point(163, 273);
+            this.text_Pass_Conf.Name = "text_Pass_Conf";
+            this.text_Pass_Conf.PasswordChar = '*';
+            this.text_Pass_Conf.Size = new System.Drawing.Size(120, 20);
+            this.text_Pass_Conf.TabIndex = 15;
             // 
             // label14
             // 
@@ -336,13 +337,13 @@
             // NewUser
             // 
             this.ClientSize = new System.Drawing.Size(566, 532);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.text_Pass_Conf);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.checkTermino);
             this.Controls.Add(this.richTextTermino);
             this.Controls.Add(this.textRtaSec);
-            this.Controls.Add(comboPreSec);
+            this.Controls.Add(this.comboPreSec);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.datePicker);
@@ -381,7 +382,8 @@
         private System.Windows.Forms.RichTextBox richTextTermino;
         private System.Windows.Forms.CheckBox checkTermino;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox text_Pass_Conf;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboPreSec;
     }
 }

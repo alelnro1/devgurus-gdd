@@ -132,6 +132,9 @@
             // 
             this.combo_Roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Roles.FormattingEnabled = true;
+            this.combo_Roles.Items.AddRange(new object[] {
+            "Cliente",
+            "Administrador"});
             this.combo_Roles.Location = new System.Drawing.Point(109, 177);
             this.combo_Roles.Name = "combo_Roles";
             this.combo_Roles.Size = new System.Drawing.Size(120, 21);

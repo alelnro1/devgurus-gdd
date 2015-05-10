@@ -38,9 +38,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void validarUsuario(Usuario_Bean usuario)
         {
-
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuarios_Pass], [Usuarios_Rol], [Usuarios_Estado] from " + ConstantesBD.t_usuarios +
-            " where [Usuarios_Name] = '" + usuario.getUser_Name() + "';");
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuario_Pass], [Usuario_Rol], [Usuario_Estado] from " + ConstantesBD.t_usuarios +
+            " where [Usuario_Name] = '" + usuario.getUser_Name() + "';");
             if (!lector.HasRows)
             { this.lanzarMensaje("El usuario ingresado no existe", lector); }
             else

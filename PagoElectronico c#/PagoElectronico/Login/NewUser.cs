@@ -44,7 +44,28 @@ namespace PagoElectronico
             {
                 Application.Exit();
             }
+
         }
 
+        private void button_Enviar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool formulario_Completo()
+        {
+            if ((String.IsNullOrEmpty(textNombre.Text)) || (String.IsNullOrEmpty(textApellido.Text)) ||
+              (String.IsNullOrEmpty(comboTipoDoc.Text)) || (String.IsNullOrEmpty(textNroDoc.Text)) ||
+              (String.IsNullOrEmpty(datePicker.Text)) || (String.IsNullOrEmpty(text_User.Text)) ||
+              (String.IsNullOrEmpty(text_Pass.Text)) || (String.IsNullOrEmpty(text_Pass_Conf.Text)) ||
+              (String.IsNullOrEmpty(combo_Rol.Text)) || (String.IsNullOrEmpty(comboPreSec.Text)) ||
+              (String.IsNullOrEmpty(textRtaSec.Text)))
+            { return true; }
+            else return false;
+        }
+
+        /*private bool terminosYCondiciones()
+        {    if 
+        }*/
     }
 }

@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="comboPreSec.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <data name="richTextTermino.Text" xml:space="preserve">
     <value>Acepto los terminos de uso y licencia provistos por el administrador de este aplicativo
 me entrego totalmente a todo lo que pase y prometo ser fiel a la materia.

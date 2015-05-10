@@ -7,3 +7,12 @@ C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\Pa
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
