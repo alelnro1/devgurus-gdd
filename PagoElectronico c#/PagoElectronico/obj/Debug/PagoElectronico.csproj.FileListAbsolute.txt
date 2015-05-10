@@ -6,11 +6,4 @@ C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\Pa
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
-D:\UTN\Gdd\tp parte c\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources

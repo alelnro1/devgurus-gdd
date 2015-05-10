@@ -89,5 +89,13 @@ namespace PagoElectronico
                 usuarioDAO.validarUsuario(usuario);
             }
          }
+
+        private void boton_NewCliente_Click(object sender, EventArgs e)
+        {
+            NewUser nuevoUsuario = new NewUser();
+            nuevoUsuario.Show();
+            this.Hide();
+        }
+        
    }
 }

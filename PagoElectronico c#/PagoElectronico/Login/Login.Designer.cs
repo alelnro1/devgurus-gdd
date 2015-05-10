@@ -46,7 +46,7 @@
             this.button_Ingreso.Location = new System.Drawing.Point(33, 241);
             this.button_Ingreso.Name = "button_Ingreso";
             this.button_Ingreso.Size = new System.Drawing.Size(94, 25);
-            this.button_Ingreso.TabIndex = 0;
+            this.button_Ingreso.TabIndex = 6;
             this.button_Ingreso.Text = "Ingresar";
             this.button_Ingreso.UseVisualStyleBackColor = true;
             this.button_Ingreso.Click += new System.EventHandler(this.button_Ingreso_Click);
@@ -56,7 +56,7 @@
             this.boton_Salir.Location = new System.Drawing.Point(235, 243);
             this.boton_Salir.Name = "boton_Salir";
             this.boton_Salir.Size = new System.Drawing.Size(94, 23);
-            this.boton_Salir.TabIndex = 1;
+            this.boton_Salir.TabIndex = 7;
             this.boton_Salir.Text = "Salir";
             this.boton_Salir.UseVisualStyleBackColor = true;
             this.boton_Salir.Click += new System.EventHandler(this.boton_Salir_Click);
@@ -107,16 +107,17 @@
             this.boton_NewCliente.Location = new System.Drawing.Point(235, 68);
             this.boton_NewCliente.Name = "boton_NewCliente";
             this.boton_NewCliente.Size = new System.Drawing.Size(94, 23);
-            this.boton_NewCliente.TabIndex = 6;
+            this.boton_NewCliente.TabIndex = 2;
             this.boton_NewCliente.Text = "Nuevo Usuario";
             this.boton_NewCliente.UseVisualStyleBackColor = true;
+            this.boton_NewCliente.Click += new System.EventHandler(this.boton_NewCliente_Click);
             // 
             // text_User
             // 
             this.text_User.Location = new System.Drawing.Point(109, 70);
             this.text_User.Name = "text_User";
             this.text_User.Size = new System.Drawing.Size(120, 20);
-            this.text_User.TabIndex = 7;
+            this.text_User.TabIndex = 1;
             // 
             // text_Pass
             // 
@@ -124,16 +125,17 @@
             this.text_Pass.Name = "text_Pass";
             this.text_Pass.PasswordChar = '*';
             this.text_Pass.Size = new System.Drawing.Size(120, 20);
-            this.text_Pass.TabIndex = 8;
+            this.text_Pass.TabIndex = 3;
             this.text_Pass.TextChanged += new System.EventHandler(this.text_Pass_TextChanged);
             // 
             // combo_Roles
             // 
+            this.combo_Roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Roles.FormattingEnabled = true;
             this.combo_Roles.Location = new System.Drawing.Point(109, 177);
             this.combo_Roles.Name = "combo_Roles";
             this.combo_Roles.Size = new System.Drawing.Size(120, 21);
-            this.combo_Roles.TabIndex = 9;
+            this.combo_Roles.TabIndex = 5;
             // 
             // link_Recover
             // 
@@ -141,7 +143,7 @@
             this.link_Recover.Location = new System.Drawing.Point(233, 125);
             this.link_Recover.Name = "link_Recover";
             this.link_Recover.Size = new System.Drawing.Size(113, 13);
-            this.link_Recover.TabIndex = 10;
+            this.link_Recover.TabIndex = 4;
             this.link_Recover.TabStop = true;
             this.link_Recover.Text = "Recuperar contraseña";
             this.link_Recover.VisitedLinkColor = System.Drawing.Color.Blue;

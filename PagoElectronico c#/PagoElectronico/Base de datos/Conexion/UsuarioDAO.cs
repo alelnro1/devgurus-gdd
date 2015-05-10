@@ -56,8 +56,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                     if (lector["Usuarios_Pass"].ToString() != usuario.getUser_Pass())
                     {
                         this.lanzarMensaje("La contraseña ingresada es incorrecta", lector);
-                        //this.GD1C2015.ejecutarProcedimiento("EXECUTE Almacenar_Login_Incorrecto '" + usuario.getUser_Name() +
-                        //"', '" + usuario.getUser_Pass() + "' GO", );
+                        //this.GD1C2015.ejecutarSentenciaSinRetorno("EXECUTE Almacenar_Login_Incorrecto '" + usuario.getUser_Name() +
+                        //"', '" + usuario.getUser_Pass() + "' GO");
                     }
                     else
                     {
