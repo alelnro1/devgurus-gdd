@@ -64,11 +64,13 @@ Create Table Tipo_De_Cuentas(	Tipo_De_Cuentas_Id numeric(18,0) PRIMARY KEY,
 								Tipo_De_Cuentas_Nombre varchar(255),
 								Tipo_De_Cuentas_Duracion numeric (18,0),
 								Tipo_De_Cuentas_Costo numeric (18,2))
-	
+
+Create Table Tipo_De_Moneda(	Tipo_De_Moneda_Id numeric(18,0) PRIMARY KEY,
+								Tipo_De_Moneda_Nombre varchar(255))	
 							
 Create Table Cuentas (		Cuenta_Nro numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
 							Cuenta_Estado numeric(1,0),
-							Cuenta_Moneda varchar(255) default 'Dolar',
+							Cuenta_Moneda numeric(18,0) FOREIGN KEY REFERENCES Tipo_De_Moneda(Tipo_De_Moneda_Id),
 							Cuenta_Tipo numeric(18,0) FOREIGN KEY REFERENCES Tipo_De_Cuentas(Tipo_De_Cuentas_Id),
 							Cuenta_PaisOrigen numeric (18,0) FOREIGN KEY REFERENCES Paises(Pais_Id),
 							Cuenta_PaisAsignado numeric (18,0) FOREIGN KEY REFERENCES Paises(Pais_Id),
