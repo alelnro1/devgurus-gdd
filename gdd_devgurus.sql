@@ -23,25 +23,27 @@ Create Table Tipo_De_Doc (	Tipo_Doc_Id numeric (18,0) PRIMARY KEY NOT NULL,
 Create Table Usuarios	(	Usuarios_Id numeric(18,0) Identity(1,1) Primary key NOT NULL,
 							Usuarios_Name varchar(255) UNIQUE NOT NULL,
 							Usuarios_Pass varchar(255) NOT NULL,
-							Usuarios_Rol numeric(18,0) FOREIGN KEY REFERENCES Rol_X_Usuario(Rol_X_Usuario_Usuario) NOT NULL,
 							Usuarios_FechaCreacion datetime NOT NULL,
 							Usuarios_FechaUltimaModificacion datetime NOT NULL,
 							Usuarios_PreguntaSecreta varchar(255) NOT NULL,
 							Usuarios_RespuestaSecreta varchar (255) NOT NULL)
+
+Create Table Funciones	(	Funcion_Id numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
+							Funcion_Desc varchar(255) NOT NULL)
+							
+Create Table Roles		(	Rol_Id numeric (18,0) PRIMARY KEY NOT NULL,
+							Rol_Desc varchar(255),
+							Rol_Estado varchar (20) NOT NULL,
+							Rol_Funcion numeric (18,0) FOREIGN KEY REFERENCES Funciones(Funcion_Id) NOT NULL)
 
 Create Table Rol_X_Usuario(	Rol_X_Usuario_Usuario numeric (18,0) NOT NULL FOREIGN KEY REFERENCES Usuarios(Usuarios_Id),
 							Rol_X_Usuario_Rol numeric (18,0)  NOT NULL FOREIGN KEY REFERENCES Roles(Rol_Id),
 							CONSTRAINT Pk_Rol_X_Usuario PRIMARY KEY (Rol_X_Usuario_Usuario,Rol_X_Usuario_Rol))
 							
 							
-Create Table Roles		(	Rol_Id numeric (18,0) PRIMARY KEY NOT NULL,
-							Rol_Desc varchar(255),
-							Rol_Estado varchar (20) NOT NULL,
-							Rol_Funcion numeric (18,0) FOREIGN KEY REFERENCES Funciones(Funcion_Id) NOT NULL)
+
 							
-Create Table Funciones	(	Funcion_Id numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
-							Funcion_Desc varchar(255) NOT NULL)
-							
+
 														
 Create Table Clientes (		Cliente_Id numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
 							Cliente_Nombre varchar(255),
