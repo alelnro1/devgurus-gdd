@@ -1,0 +1,23 @@
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\lbenitez\Desktop\Gestion de datos\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
+C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
