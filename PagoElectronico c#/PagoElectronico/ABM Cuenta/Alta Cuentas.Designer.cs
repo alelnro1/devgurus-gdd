@@ -28,59 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_pais_origen = new System.Windows.Forms.Label();
             this.combo_moneda = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.text_tipo = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label_moneda = new System.Windows.Forms.Label();
+            this.combo_tipo_cuenta = new System.Windows.Forms.ComboBox();
+            this.label_tipo_cuenta = new System.Windows.Forms.Label();
             this.button_dar_alta = new System.Windows.Forms.Button();
-            this.pais_origen_seleccionador = new System.Windows.Forms.ComboBox();
+            this.combo_pais_origen = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // label2
+            // label_pais_origen
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Pais origen";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label_pais_origen.AutoSize = true;
+            this.label_pais_origen.Location = new System.Drawing.Point(44, 68);
+            this.label_pais_origen.Name = "label_pais_origen";
+            this.label_pais_origen.Size = new System.Drawing.Size(59, 13);
+            this.label_pais_origen.TabIndex = 2;
+            this.label_pais_origen.Text = "Pais origen";
+            this.label_pais_origen.Click += new System.EventHandler(this.label2_Click);
             // 
             // combo_moneda
             // 
+            this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
             this.combo_moneda.Location = new System.Drawing.Point(169, 96);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(100, 21);
             this.combo_moneda.TabIndex = 3;
             // 
-            // label3
+            // label_moneda
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Moneda";
+            this.label_moneda.AutoSize = true;
+            this.label_moneda.Location = new System.Drawing.Point(44, 99);
+            this.label_moneda.Name = "label_moneda";
+            this.label_moneda.Size = new System.Drawing.Size(46, 13);
+            this.label_moneda.TabIndex = 5;
+            this.label_moneda.Text = "Moneda";
+            this.label_moneda.Click += new System.EventHandler(this.label3_Click);
             // 
-            // text_tipo
+            // combo_tipo_cuenta
             // 
-            this.text_tipo.FormattingEnabled = true;
-            this.text_tipo.Location = new System.Drawing.Point(169, 169);
-            this.text_tipo.Name = "text_tipo";
-            this.text_tipo.Size = new System.Drawing.Size(121, 21);
-            this.text_tipo.TabIndex = 9;
-            this.text_tipo.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.combo_tipo_cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_tipo_cuenta.FormattingEnabled = true;
+            this.combo_tipo_cuenta.Location = new System.Drawing.Point(169, 169);
+            this.combo_tipo_cuenta.Name = "combo_tipo_cuenta";
+            this.combo_tipo_cuenta.Size = new System.Drawing.Size(121, 21);
+            this.combo_tipo_cuenta.TabIndex = 9;
+            this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // label5
+            // label_tipo_cuenta
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 172);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Tipo de cuenta";
+            this.label_tipo_cuenta.AutoSize = true;
+            this.label_tipo_cuenta.Location = new System.Drawing.Point(44, 172);
+            this.label_tipo_cuenta.Name = "label_tipo_cuenta";
+            this.label_tipo_cuenta.Size = new System.Drawing.Size(79, 13);
+            this.label_tipo_cuenta.TabIndex = 10;
+            this.label_tipo_cuenta.Text = "Tipo de cuenta";
             // 
             // button_dar_alta
             // 
@@ -92,29 +95,28 @@
             this.button_dar_alta.UseVisualStyleBackColor = true;
             this.button_dar_alta.Click += new System.EventHandler(this.button_dar_alta_Click);
             // 
-            // pais_origen_seleccionador
+            // combo_pais_origen
             // 
-            this.pais_origen_seleccionador.AllowDrop = true;
-            this.pais_origen_seleccionador.FormattingEnabled = true;
-            this.pais_origen_seleccionador.Items.AddRange(new object[] {
-            "1"});
-            this.pais_origen_seleccionador.Location = new System.Drawing.Point(169, 68);
-            this.pais_origen_seleccionador.Name = "pais_origen_seleccionador";
-            this.pais_origen_seleccionador.Size = new System.Drawing.Size(121, 21);
-            this.pais_origen_seleccionador.TabIndex = 12;
+            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_pais_origen.FormattingEnabled = true;
+            this.combo_pais_origen.Location = new System.Drawing.Point(169, 69);
+            this.combo_pais_origen.Name = "combo_pais_origen";
+            this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
+            this.combo_pais_origen.TabIndex = 13;
+            this.combo_pais_origen.SelectedIndexChanged += new System.EventHandler(this.combo_pais_origen_SelectedIndexChanged);
             // 
             // AltaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 280);
-            this.Controls.Add(this.pais_origen_seleccionador);
+            this.Controls.Add(this.combo_pais_origen);
             this.Controls.Add(this.button_dar_alta);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.text_tipo);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_tipo_cuenta);
+            this.Controls.Add(this.combo_tipo_cuenta);
+            this.Controls.Add(this.label_moneda);
             this.Controls.Add(this.combo_moneda);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_pais_origen);
             this.Name = "AltaCuentas";
             this.Text = "Alta de Cuentas";
             this.Load += new System.EventHandler(this.Cuentas_Load);
@@ -125,14 +127,14 @@
 
         #endregion
 
-   
-    
-        private System.Windows.Forms.Label label2;
+
+
+        private System.Windows.Forms.Label label_pais_origen;
         private System.Windows.Forms.ComboBox combo_moneda;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox text_tipo;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label_moneda;
+        private System.Windows.Forms.ComboBox combo_tipo_cuenta;
+        private System.Windows.Forms.Label label_tipo_cuenta;
         private System.Windows.Forms.Button button_dar_alta;
-        private System.Windows.Forms.ComboBox pais_origen_seleccionador;
+        private System.Windows.Forms.ComboBox combo_pais_origen;
     }
 }
