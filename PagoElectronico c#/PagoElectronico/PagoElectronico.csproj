@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM Cuenta\Alta Cuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cuenta\Alta Cuentas.Designer.cs">
+      <DependentUpon>Alta Cuentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,7 @@
       <DependentUpon>EditarRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Base de datos\Conexion\AbmRolDAO.cs" />
+    <Compile Include="Base de datos\Conexion\CuentaDAO.cs" />
     <Compile Include="Base de datos\Conexion\DevgurusDAO.cs" />
     <Compile Include="Base de datos\Conexion\ClienteDAO.cs" />
     <Compile Include="Base de datos\Conexion\Constantes BD.cs" />
@@ -89,6 +96,7 @@
     <Compile Include="Base de datos\Conexion\SQLServerBD.cs" />
     <Compile Include="Base de datos\Conexion\UsuarioDAO.cs" />
     <Compile Include="Base de datos\Entidades\Cliente_Bean.cs" />
+    <Compile Include="Base de datos\Entidades\Cuenta_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Rol_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Usuario_Bean.cs" />
     <Compile Include="Excepciones\CierreConexionFallidaException.cs" />
@@ -195,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM Cliente\" />
-    <Folder Include="ABM Cuenta\" />
     <Folder Include="ABM de Usuario\" />
     <Folder Include="Consulta Saldos\" />
     <Folder Include="Depositos\" />

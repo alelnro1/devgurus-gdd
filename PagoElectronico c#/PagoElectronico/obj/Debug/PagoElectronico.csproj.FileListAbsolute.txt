@@ -21,3 +21,16 @@ C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectron
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb

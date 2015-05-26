@@ -20,3 +20,14 @@ C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectr
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.Busqueda_Rol.resources
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.EditRol.resources
 C:\Users\lbenitez\Desktop\PagoElectronico\PagoElectronico\obj\Release\PagoElectronico.EditarRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Busqueda_Rol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarRol.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Login.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.NewUser.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.MenuPrincipal.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.exe
+D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.pdb
