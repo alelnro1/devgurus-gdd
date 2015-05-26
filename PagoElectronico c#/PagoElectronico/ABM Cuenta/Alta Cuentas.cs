@@ -13,11 +13,13 @@ namespace PagoElectronico.ABM_Cuenta
 
     public partial class AltaCuentas : Form
     {   
-        private Usuario_Bean usuario = new Usuario_Bean();
-        private UsuarioDAO usuarioDAO;
-        
+
+        private Cuenta_Bean cuenta = new Cuenta_Bean();
+        private CuentaDAO cuenta_DAO = new CuentaDAO();
+
         public AltaCuentas()
         {
+
             InitializeComponent();
         }
 
@@ -36,31 +38,34 @@ namespace PagoElectronico.ABM_Cuenta
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-      
-        private void button_alta_Click(object sender, EventArgs e)
+        private void button_dar_alta_Click(object sender, EventArgs e)
         {
-            if ((String.IsNullOrEmpty(text_Nro.Text)) ||
-               (String.IsNullOrEmpty(text_pais_origen.Text)) ||
+            if (
+               (String.IsNullOrEmpty(pais_origen_seleccionador.Text)) ||
                (String.IsNullOrEmpty(combo_moneda.Text))||
-               (String.IsNullOrEmpty(dateTime_apertura.Text))||
                (String.IsNullOrEmpty(text_tipo.Text)))
 
             {
                 DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                if (String.IsNullOrEmpty(text_User.Text)) { text_User.Focus(); };
-                if (String.IsNullOrEmpty(text_Pass.Text)) { text_Pass.Focus(); };
-                if (String.IsNullOrEmpty(combo_Roles.Text)) { combo_Roles.Focus(); };
+
+                if (String.IsNullOrEmpty(pais_origen_seleccionador.Text)) { pais_origen_seleccionador.Focus(); };
+                if (String.IsNullOrEmpty(combo_moneda.Text)) { combo_moneda.Focus(); };
+                
+                if (String.IsNullOrEmpty(text_tipo.Text)) { text_tipo.Focus(); };
             }
             else
-            {
-                usuario.setUser_Name(text_User.Text);
-                usuario.setUser_Pass(text_Pass.Text);
-                usuario.setUser_Rol(combo_Roles.Text);
-                usuarioDAO.validarUsuario(usuario);
+            { 
+                cuenta.set_estado("0");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
+                cuenta.get_tipo_moneda(combo_moneda.Text);
+                cuenta.set_tipo_cuenta(text_tipo.Text);
+                cuenta.set_pais_origen(pais_origen_seleccionador.Text);
+                cuenta.set_paisAsignado("null");
+                cuenta.set_fec_Creacion("null");
+                cuenta.set_fec_Cierre("null");
+                cuenta.set_Cliente("null");
+                cuenta_DAO.altaCuenta(cuenta);
+                
             }
 
         }
@@ -69,5 +74,13 @@ namespace PagoElectronico.ABM_Cuenta
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
     }
 }

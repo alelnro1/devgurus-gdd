@@ -28,35 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.text_Nro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.combo_moneda = new System.Windows.Forms.ComboBox();
-            this.text_pais_origen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTime_apertura = new System.Windows.Forms.DateTimePicker();
             this.text_tipo = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button_dar_alta = new System.Windows.Forms.Button();
+            this.pais_origen_seleccionador = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Numero de cuenta";
-            // 
-            // text_Nro
-            // 
-            this.text_Nro.Location = new System.Drawing.Point(169, 28);
-            this.text_Nro.Name = "text_Nro";
-            this.text_Nro.Size = new System.Drawing.Size(100, 20);
-            this.text_Nro.TabIndex = 1;
-            this.text_Nro.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -76,14 +55,6 @@
             this.combo_moneda.Size = new System.Drawing.Size(100, 21);
             this.combo_moneda.TabIndex = 3;
             // 
-            // text_pais_origen
-            // 
-            this.text_pais_origen.Location = new System.Drawing.Point(169, 65);
-            this.text_pais_origen.Name = "text_pais_origen";
-            this.text_pais_origen.Size = new System.Drawing.Size(100, 20);
-            this.text_pais_origen.TabIndex = 4;
-            this.text_pais_origen.TextChanged += new System.EventHandler(this.text_Pais_origen_TextChanged);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -92,22 +63,6 @@
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Moneda";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Fecha de apertura";
-            // 
-            // dateTime_apertura
-            // 
-            this.dateTime_apertura.Location = new System.Drawing.Point(169, 130);
-            this.dateTime_apertura.Name = "dateTime_apertura";
-            this.dateTime_apertura.Size = new System.Drawing.Size(223, 20);
-            this.dateTime_apertura.TabIndex = 8;
             // 
             // text_tipo
             // 
@@ -135,23 +90,31 @@
             this.button_dar_alta.TabIndex = 11;
             this.button_dar_alta.Text = "Dar Alta ";
             this.button_dar_alta.UseVisualStyleBackColor = true;
+            this.button_dar_alta.Click += new System.EventHandler(this.button_dar_alta_Click);
+            // 
+            // pais_origen_seleccionador
+            // 
+            this.pais_origen_seleccionador.AllowDrop = true;
+            this.pais_origen_seleccionador.FormattingEnabled = true;
+            this.pais_origen_seleccionador.Items.AddRange(new object[] {
+            "1"});
+            this.pais_origen_seleccionador.Location = new System.Drawing.Point(169, 68);
+            this.pais_origen_seleccionador.Name = "pais_origen_seleccionador";
+            this.pais_origen_seleccionador.Size = new System.Drawing.Size(121, 21);
+            this.pais_origen_seleccionador.TabIndex = 12;
             // 
             // AltaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 280);
+            this.Controls.Add(this.pais_origen_seleccionador);
             this.Controls.Add(this.button_dar_alta);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.text_tipo);
-            this.Controls.Add(this.dateTime_apertura);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.text_pais_origen);
             this.Controls.Add(this.combo_moneda);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.text_Nro);
-            this.Controls.Add(this.label1);
             this.Name = "AltaCuentas";
             this.Text = "Alta de Cuentas";
             this.Load += new System.EventHandler(this.Cuentas_Load);
@@ -162,16 +125,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox text_Nro;
+   
+    
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox combo_moneda;
-        private System.Windows.Forms.TextBox text_pais_origen;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTime_apertura;
         private System.Windows.Forms.ComboBox text_tipo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button_dar_alta;
+        private System.Windows.Forms.ComboBox pais_origen_seleccionador;
     }
 }

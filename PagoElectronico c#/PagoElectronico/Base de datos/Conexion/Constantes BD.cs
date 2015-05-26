@@ -14,6 +14,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String Param_Conexion_nombreBD;
         public static String t_usuarios = "dbo.Usuarios";
         public static String t_roles = "dbo.Roles";
+        public static String t_cuentas = "dbo.Cuentas";
 
         // Recibe una fecha en formato DD/MM/AAAA y lo convierte a formato de BD: AAAAMMDD 00:00:00.00
         public static String cambiarFormatoFecha(String fecha)
