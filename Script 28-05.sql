@@ -67,9 +67,12 @@ Create Table Tarjetas (		Tarjeta_Nro varchar(16) PRIMARY KEY NOT NULL,
 							Tarjeta_Cod_Seg varchar(3),
 							Tarjeta_Emisor_Desc varchar (255))
 
+Create Table Tipo_De_Moneda(	Tipo_De_Moneda_Id tinyint identity (1,1) PRIMARY KEY,
+								Tipo_De_Moneda_Nombre varchar(255))	
+								
 Create Table Cuentas (		Cuenta_Nro numeric (18,0) PRIMARY KEY NOT NULL,
 							Cuenta_Estado varchar(255) default 'Habilitado',
-							Cuenta_Moneda varchar(255) default 'Dolar',
+							Cuenta_Moneda tinyint FOREIGN KEY REFERENCES Tipo_De_Moneda(Tipo_De_Moneda_Id) default 1,
 							Cuenta_Tipo tinyint FOREIGN KEY REFERENCES Tipo_De_Cuentas(Tipo_De_Cuentas_Id),
 							Cuenta_PaisOrigen numeric (18,0) FOREIGN KEY REFERENCES Paises(Pais_Id),
 							Cuenta_PaisAsignado numeric (18,0) FOREIGN KEY REFERENCES Paises(Pais_Id),
@@ -155,6 +158,7 @@ Drop Table Usuarios
 Drop Table Roles
 Drop Table Tipo_De_Doc
 Drop Table Paises
+Drop Table Tipo_De_Moneda
 */
 
 				/************************************************
@@ -170,6 +174,11 @@ Insert into Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codigo, Cli_P
 													where	Cli_Pais_Codigo <> NULL and
 															Cuenta_Pais_Codigo <> NULL and
 															Cuenta_Dest_Pais_Codigo <> NULL
+
+/*TIPOS DE MONEDA*/
+
+
+Insert into Tipo_De_Moneda(Tipo_De_Moneda_Nombre) values ('Dolar');
 
 /* TIPOS DE DOCUMENTO */
 Insert into Tipo_De_Doc (Tipo_Doc_Id, Tipo_Doc_Desc) select distinct Cli_Tipo_Doc_Cod, Cli_Tipo_Doc_Desc from gd_esquema.Maestra
@@ -268,3 +277,5 @@ values ('lbenitez', '1558', GETDATE(), GETDATE(), '¿Como se llamaba tu primer ma
 								CONSULTAS
 				*************************************************
 				*************************************************/
+				
+select *from Tipo_De_Cuentas
