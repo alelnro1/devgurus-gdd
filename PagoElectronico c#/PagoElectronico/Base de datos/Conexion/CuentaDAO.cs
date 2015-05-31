@@ -83,7 +83,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         }
 
-        public void crearObjetoConIdNombre(String columna_id, String columna_nombre, String tabla,System.Windows.Forms.ComboBox comboBox)
+        public void crearObjetoConIdNombre(String columna_id, String columna_nombre, String tabla, System.Windows.Forms.ComboBox comboBox)
         { //creamos un objeto con un id y un nombre en String, de una tabla determinada.
             String columna_Id_nombre = "([" + columna_id + "]),([" + columna_nombre +"])";
             SqlDataReader lector = this.dameLosCamposDeLaTabla(columna_Id_nombre, tabla); //pedimos de la tabla el id y el nombre
@@ -104,10 +104,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 vector_objeto_id_nombre[i] = new ObjetoIdNombre(); //creamos el objeto en el vector para luego asignarle el id y el nombre
                 vector_objeto_id_nombre[i].set_id(lector[columna_id].ToString()); //asignamos el id como un STRING en el objeto  que vamos a asignarle al vector
                 vector_objeto_id_nombre[i].set_nombre(lector[columna_nombre].ToString()); //asignamos el nombre como un STRING en el objeto que vamos a asignarle al vector
-                comboBox.Items.Add(vector_objeto_id_nombre[i].get_id());
+                comboBox.Items.Add(vector_objeto_id_nombre[i]);
                 i++;
             }
             lector.Close();
+ 
         }
 
 

@@ -20,7 +20,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private Cuenta_Bean cuenta;
         private CuentaDAO cuenta_DAO;
-       
+        private ObjetoIdNombre[] vector;
 
         public AltaCuentas()
         {
@@ -68,11 +68,17 @@ namespace PagoElectronico.ABM_Cuenta
                }
                else*/
             { //seteamos los campos de cuenta en string
+                
+                
                 cuenta.set_estado("'inhabilitado'");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
                 cuenta.set_tipo_cuenta("null");
                 cuenta.set_tipo_moneda("null");
                 cuenta.set_paisAsignado("null");
-                cuenta.set_pais_origen(combo_pais_origen.Text);
+               
+                cuenta.set_pais_origen(((ObjetoIdNombre)(combo_pais_origen.SelectedItem)).get_id());
+                //cuenta.set_pais_origen(combo_pais_origen.Text);
+               // cuenta.set_pais_origen((vector[combo_pais_origen.SelectedIndex]).get_id());
+                //cuenta.set_pais_origen((vector[combo_pais_origen.SelectedIndex]).get_id());
                 cuenta.set_fec_Creacion("null");
                 cuenta.set_fec_Cierre("null");
                 cuenta.set_Cliente("null");
@@ -82,6 +88,7 @@ namespace PagoElectronico.ABM_Cuenta
             }
 
         }
+
         
 
      
@@ -126,7 +133,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void combo_pais_origen_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
 
