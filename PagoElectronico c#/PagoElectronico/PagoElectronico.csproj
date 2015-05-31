@@ -92,6 +92,7 @@
     <Compile Include="Base de datos\Conexion\DevgurusDAO.cs" />
     <Compile Include="Base de datos\Conexion\ClienteDAO.cs" />
     <Compile Include="Base de datos\Conexion\Constantes BD.cs" />
+    <Compile Include="Base de datos\Conexion\ObjetoIdNombre.cs" />
     <Compile Include="Base de datos\Conexion\RolDAO.cs" />
     <Compile Include="Base de datos\Conexion\SQLServerBD.cs" />
     <Compile Include="Base de datos\Conexion\UsuarioDAO.cs" />
