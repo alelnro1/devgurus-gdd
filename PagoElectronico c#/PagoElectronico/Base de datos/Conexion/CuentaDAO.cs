@@ -68,6 +68,22 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             lector.Close();
             MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
         }
+        public SqlDataReader dameLosTiposDeMonedas()
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Tipo_De_Moneda_Nombre] from " + ConstantesBD.t_tipo_de_moneda + ";");
+            return lector;
+
+        }
+
+
+       /* public String dameElIdDelPais(String Pais_Nombre)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Pais_Id] from dbo.Paises where Pais_Nombre = '"+ Pais_Nombre +"'");
+
+            return lector;
+        }*/
+       
+
        }
 
      

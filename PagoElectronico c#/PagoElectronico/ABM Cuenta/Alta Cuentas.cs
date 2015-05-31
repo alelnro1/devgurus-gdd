@@ -29,8 +29,9 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta = new Cuenta_Bean();
             cuenta_DAO = new CuentaDAO();
             InitializeComponent();
-            setearPaisesEnComboBox();
-            setearTiposDeCuentasEnComboBox();
+           setearPaisesEnComboBox();
+          // setearTiposDeCuentasEnComboBox();
+           //setearTipoDeMonedaEnComboBox();
 
         }
 
@@ -52,25 +53,23 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void button_dar_alta_Click(object sender, EventArgs e)
         {
-            if (
+           if (
                (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
-               (String.IsNullOrEmpty(combo_moneda.Text)) ||
+               (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
                (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
             {
                 DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (String.IsNullOrEmpty(combo_pais_origen.Text)) { combo_pais_origen.Focus(); };
-                if (String.IsNullOrEmpty(combo_moneda.Text)) { combo_moneda.Focus(); };
+                if (String.IsNullOrEmpty(combo_tipo_moneda.Text)) { combo_tipo_moneda.Focus(); };
 
                 if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
             }
             else
             {
                 cuenta.set_estado("0");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
-                cuenta.get_tipo_moneda(combo_moneda.Text);
-                cuenta.set_tipo_cuenta(combo_tipo_cuenta.Text);
-                cuenta.set_pais_origen(combo_pais_origen.Text);
-                cuenta.set_tipo_cuenta(combo_tipo_cuenta.Text);
+                //cuenta.get_tipo_cuenta("null");
+                cuenta.get_tipo_moneda(combo_pais_origen.Text);
                 cuenta.set_paisAsignado("null");
                 cuenta.set_fec_Creacion("null");
                 cuenta.set_fec_Cierre("null");
@@ -99,6 +98,15 @@ namespace PagoElectronico.ABM_Cuenta
             lector.Close();
         }
 
+          private void setearTipoDeMonedaEnComboBox()
+        {
+            SqlDataReader lector = cuenta_DAO.dameLosTiposDeMonedas();
+            while (lector.Read())
+            { combo_tipo_moneda.Items.Add(lector["Tipo_De_Moneda_Nombre"]); }
+            lector.Close();
+        }
+
+    
 
         private void label1_Click(object sender, EventArgs e)
         {
