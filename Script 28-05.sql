@@ -70,7 +70,7 @@ Create Table Tarjetas (		Tarjeta_Nro varchar(16) PRIMARY KEY NOT NULL,
 Create Table Tipo_De_Moneda(	Tipo_De_Moneda_Id tinyint identity (1,1) PRIMARY KEY,
 								Tipo_De_Moneda_Nombre varchar(255))	
 								
-Create Table Cuentas (		Cuenta_Nro numeric (18,0) PRIMARY KEY NOT NULL,
+Create Table Cuentas (		Cuenta_Nro numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
 							Cuenta_Estado varchar(255) default 'Habilitado',
 							Cuenta_Moneda tinyint FOREIGN KEY REFERENCES Tipo_De_Moneda(Tipo_De_Moneda_Id) default 1,
 							Cuenta_Tipo tinyint FOREIGN KEY REFERENCES Tipo_De_Cuentas(Tipo_De_Cuentas_Id),
@@ -208,6 +208,7 @@ Insert into Clientes(	Cliente_Nombre, Cliente_Apellido, Cliente_Estado, Cliente_
 						where US.Usuarios_Name = Cli_Apellido + Cli_Nombre
 
 /* TIPO_DE_CUENTAS */
+SET IDENTITY_INSERT Cuentas ON
 Insert into Tipo_De_Cuentas (Tipo_De_Cuentas_Nombre, Tipo_De_Cuentas_Duracion_Dias, Tipo_De_Cuentas_Costo)
 values	('Oro', 100, 29.99),
 		('Plata', 60, 19.99),
