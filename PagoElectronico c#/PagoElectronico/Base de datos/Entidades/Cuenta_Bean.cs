@@ -17,6 +17,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String fecha_creacion;
         private static String fecha_cierre;
         private static String cliente;
+        private static String tarjeta;
 
         public String get_nro_cuenta()
         {
@@ -72,6 +73,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             return cliente;
         }
+        public String get_Tarjeta()
+        {
+            return tarjeta;
+        }
 
         //empiezan los set..son 11//
 
@@ -85,7 +90,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return Cuenta_Bean.pais_origen = pais_origen;
         }
 
-        public String get_tipo_moneda(String tipo_moneda)
+        public String set_tipo_moneda(String tipo_moneda)
         {
             return Cuenta_Bean.tipo_moneda = tipo_moneda;
         }
@@ -126,6 +131,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public String set_Cliente(String valor_cliente)
         {
             return cliente = valor_cliente;
+        }
+        public String set_Tarjeta(String valor_tarjeta)
+        {
+            return tarjeta = valor_tarjeta;
         }
 
 
