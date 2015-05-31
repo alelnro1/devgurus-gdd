@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label_pais_origen = new System.Windows.Forms.Label();
-            this.combo_moneda = new System.Windows.Forms.ComboBox();
+            this.combo_tipo_moneda = new System.Windows.Forms.ComboBox();
             this.label_moneda = new System.Windows.Forms.Label();
             this.combo_tipo_cuenta = new System.Windows.Forms.ComboBox();
             this.label_tipo_cuenta = new System.Windows.Forms.Label();
@@ -47,14 +47,14 @@
             this.label_pais_origen.Text = "Pais origen";
             this.label_pais_origen.Click += new System.EventHandler(this.label2_Click);
             // 
-            // combo_moneda
+            // combo_tipo_moneda
             // 
-            this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_moneda.FormattingEnabled = true;
-            this.combo_moneda.Location = new System.Drawing.Point(169, 96);
-            this.combo_moneda.Name = "combo_moneda";
-            this.combo_moneda.Size = new System.Drawing.Size(100, 21);
-            this.combo_moneda.TabIndex = 3;
+            this.combo_tipo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_tipo_moneda.FormattingEnabled = true;
+            this.combo_tipo_moneda.Location = new System.Drawing.Point(169, 96);
+            this.combo_tipo_moneda.Name = "combo_tipo_moneda";
+            this.combo_tipo_moneda.Size = new System.Drawing.Size(100, 21);
+            this.combo_tipo_moneda.TabIndex = 3;
             // 
             // label_moneda
             // 
@@ -97,7 +97,6 @@
             // 
             // combo_pais_origen
             // 
-            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pais_origen.FormattingEnabled = true;
             this.combo_pais_origen.Location = new System.Drawing.Point(169, 69);
             this.combo_pais_origen.Name = "combo_pais_origen";
@@ -115,7 +114,7 @@
             this.Controls.Add(this.label_tipo_cuenta);
             this.Controls.Add(this.combo_tipo_cuenta);
             this.Controls.Add(this.label_moneda);
-            this.Controls.Add(this.combo_moneda);
+            this.Controls.Add(this.combo_tipo_moneda);
             this.Controls.Add(this.label_pais_origen);
             this.Name = "AltaCuentas";
             this.Text = "Alta de Cuentas";
@@ -130,7 +129,7 @@
 
 
         private System.Windows.Forms.Label label_pais_origen;
-        private System.Windows.Forms.ComboBox combo_moneda;
+        private System.Windows.Forms.ComboBox combo_tipo_moneda;
         private System.Windows.Forms.Label label_moneda;
         private System.Windows.Forms.ComboBox combo_tipo_cuenta;
         private System.Windows.Forms.Label label_tipo_cuenta;
