@@ -28,9 +28,9 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta = new Cuenta_Bean();
             cuenta_DAO = new CuentaDAO();
 
-            //InitializeComponent();
+            InitializeComponent();
           // setearPaisesEnComboBox();
-           //cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
+           cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
             //setearTiposDeCuentasEnComboBox();
            //setearTipoDeMonedaEnComboBox();
 
@@ -54,28 +54,29 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void button_dar_alta_Click(object sender, EventArgs e)
         {
-           if (
-               (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
-               (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
-               (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
-            {
-                DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            /*  if (
+                  (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
+                  (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
+                  (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
+               {
+                   DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                if (String.IsNullOrEmpty(combo_pais_origen.Text)) { combo_pais_origen.Focus(); };
-                if (String.IsNullOrEmpty(combo_tipo_moneda.Text)) { combo_tipo_moneda.Focus(); };
+                   if (String.IsNullOrEmpty(combo_pais_origen.Text)) { combo_pais_origen.Focus(); };
+                   if (String.IsNullOrEmpty(combo_tipo_moneda.Text)) { combo_tipo_moneda.Focus(); };
 
-                if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
-            }
-            else
+                   if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
+               }
+               else*/
             { //seteamos los campos de cuenta en string
-                cuenta.set_estado("0");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
+                cuenta.set_estado("'inhabilitado'");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
                 cuenta.set_tipo_cuenta("null");
                 cuenta.set_tipo_moneda("null");
                 cuenta.set_paisAsignado("null");
-                cuenta.set_pais_origen("null");
+                cuenta.set_pais_origen(combo_pais_origen.Text);
                 cuenta.set_fec_Creacion("null");
                 cuenta.set_fec_Cierre("null");
                 cuenta.set_Cliente("null");
+                cuenta.set_Tarjeta("null");
                 cuenta_DAO.altaCuenta(cuenta);
 
             }

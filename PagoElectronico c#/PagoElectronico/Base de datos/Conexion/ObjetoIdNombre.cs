@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PagoElectronico.BaseDeDatos.Conexion
 {
-        private class  ObjetoIdNombre { 
+        public class  ObjetoIdNombre { 
             private static String id;
             private static String nombre;
             
@@ -18,14 +18,14 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             {
                 return ObjetoIdNombre.nombre;
             }
-            public String set_id(String pais_origen)
+            public String set_id(String id)
             {
-                return ObjetoIdNombre.id = pais_origen;
+                return ObjetoIdNombre.id = id;
             }
 
             public String set_nombre(String nombre)
             {
-                return ObjetoIdNombre.id = nombre;
+                return ObjetoIdNombre.nombre = nombre;
             }
         }
 }
