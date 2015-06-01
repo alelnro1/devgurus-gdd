@@ -20,7 +20,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private Cuenta_Bean cuenta;
         private CuentaDAO cuenta_DAO;
-       
+
 
         public AltaCuentas()
         {
@@ -29,10 +29,10 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_DAO = new CuentaDAO();
 
             InitializeComponent();
-          // setearPaisesEnComboBox();
-           cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
+            setearPaisesEnComboBox();
+            //cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
             //setearTiposDeCuentasEnComboBox();
-           //setearTipoDeMonedaEnComboBox();
+            //setearTipoDeMonedaEnComboBox();
 
         }
 
@@ -82,11 +82,11 @@ namespace PagoElectronico.ABM_Cuenta
             }
 
         }
-        
 
-     
 
-        /*
+
+
+
         private void setearPaisesEnComboBox()
         {
             SqlDataReader lector = cuenta_DAO.dameLosPaises();
@@ -94,7 +94,7 @@ namespace PagoElectronico.ABM_Cuenta
             { combo_pais_origen.Items.Add(lector["Pais_Nombre"]); }
             lector.Close();
         }
-        */
+
 
         private void setearTiposDeCuentasEnComboBox()
         {
@@ -104,7 +104,7 @@ namespace PagoElectronico.ABM_Cuenta
             lector.Close();
         }
 
-          private void setearTipoDeMonedaEnComboBox()
+        private void setearTipoDeMonedaEnComboBox()
         {
             SqlDataReader lector = cuenta_DAO.dameLosTiposDeMonedas();
             while (lector.Read())
@@ -112,7 +112,7 @@ namespace PagoElectronico.ABM_Cuenta
             lector.Close();
         }
 
-    
+
 
         private void label1_Click(object sender, EventArgs e)
         {
