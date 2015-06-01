@@ -47,3 +47,5 @@ C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoEl
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
