@@ -103,7 +103,6 @@
             this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
             this.combo_pais_origen.TabIndex = 13;
             this.combo_pais_origen.SelectedIndexChanged += new System.EventHandler(this.combo_pais_origen_SelectedIndexChanged);
-            
             // 
             // AltaCuentas
             // 
