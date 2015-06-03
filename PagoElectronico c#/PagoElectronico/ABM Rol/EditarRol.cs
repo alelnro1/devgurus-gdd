@@ -36,13 +36,13 @@ namespace PagoElectronico
             lector.Read();
             rol_Name.Text = lector["ROL_DESC"].ToString();
             combo_Estado.Text = lector["ROL_ESTADO"].ToString();
-            if (lector["Func_Extraer"].Equals("Activo")) { check_Extraer.Checked = true; };
-            if (lector["Func_Transferir"].Equals("Activo")) { check_Transf.Checked = true; };
-            if (lector["Func_Depositar"].Equals("Activo")) { check_Depos.Checked = true; };
-            if (lector["Func_ABM_Roles"].Equals("Activo")) { check_ABM_Roles.Checked = true; };
-            if (lector["Func_ABM_Clientes"].Equals("Activo")) { check_ABM_User.Checked = true; };
-            if (lector["Func_ABM_Usuarios"].Equals("Activo")) { check_ABM_Client.Checked = true; };
-            if (lector["Func_ABM_Cuentas"].Equals("Activo")) { check_ABM_Cuentas.Checked = true; };
+            if (lector["Func_Extraer"].Equals("Habilitado")) { check_Extraer.Checked = true; };
+            if (lector["Func_Transferir"].Equals("Habilitado")) { check_Transf.Checked = true; };
+            if (lector["Func_Depositar"].Equals("Habilitado")) { check_Depos.Checked = true; };
+            if (lector["Func_ABM_Roles"].Equals("Habilitado")) { check_ABM_Roles.Checked = true; };
+            if (lector["Func_ABM_Clientes"].Equals("Habilitado")) { check_ABM_User.Checked = true; };
+            if (lector["Func_ABM_Usuarios"].Equals("Habilitado")) { check_ABM_Client.Checked = true; };
+            if (lector["Func_ABM_Cuentas"].Equals("Habilitado")) { check_ABM_Cuentas.Checked = true; };
 
         }
 
