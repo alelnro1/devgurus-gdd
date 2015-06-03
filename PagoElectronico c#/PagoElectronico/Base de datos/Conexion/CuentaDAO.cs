@@ -7,6 +7,7 @@ using PagoElectronico.Conexion;
 using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
+using System.Collections;
 
 namespace PagoElectronico.BaseDeDatos.Conexion
 {
@@ -46,41 +47,15 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
             MessageBox.Show("Cuenta " + cuenta.get_nro_cuenta() + " creada correctamente", "Atención!", MessageBoxButtons.OK);
 
-
         }
 
-        //this.lanzarMensaje("La cuenta fue creada correctamente", lector);
-        //this.GD1C2015.ejecutarProcedimiento("EXECUTE Almacenar_Login_Incorrecto '" + usuario.getUser_Name() +
-        //"', '" + usuario.getUser_Pass() + "' GO", );
-
-
-
-
-        public SqlDataReader dameLosPaises()
-        {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Pais_Nombre] from " + ConstantesBD.t_paises + ";");
-            return lector;
-
-        }
-
-
-        public SqlDataReader dameLosTiposDeCuenta()
-        {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Tipo_De_Cuentas_Nombre] from " + ConstantesBD.t_tipos_cuentas + ";");
-            return lector;
-        }
 
         protected void lanzarMensaje(String mensaje, SqlDataReader lector)
         {
             lector.Close();
             MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
         }
-        public SqlDataReader dameLosTiposDeMonedas()
-        {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Tipo_De_Moneda_Nombre] from " + ConstantesBD.t_tipo_de_moneda + ";");
-            return lector;
-
-        }
+      
 
         public SqlDataReader dameLosCamposDeLaTabla(String campos, String tabla)
         {
@@ -125,18 +100,32 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
 
 
-        /*
-        public String dameElIdDelPais(String Pais_Nombre)
+
+        public SqlDataReader buscarCuentas(List<String> filtros)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Pais_Id] from dbo.Paises where Pais_Nombre =' China'");
-            lector.Read();
-            String pais=lector["Pais_Id"].ToString();
+            String sentenciaSQL = "select * from " + ConstantesBD.t_cuentas;
+            IEnumerator enumerador = filtros.GetEnumerator();
+            if (enumerador.MoveNext())
+            {
+                sentenciaSQL = sentenciaSQL + " where " + enumerador.Current;
+
+                while (enumerador.MoveNext())
+                {
+                    sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
+                }
+            }
+            return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
+        }
+
+
+
+        public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo,String parametro,String columna,String tabla)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [" + columna + "] from " + tabla);
+            while (lector.Read())
+            { combo.Items.Add(lector[parametro]); }
             lector.Close();
-
-            return pais;
-
-        }*/
-
+        }
 
     }
 

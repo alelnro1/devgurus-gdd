@@ -29,10 +29,11 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_DAO = new CuentaDAO();
 
             InitializeComponent();
-            setearPaisesEnComboBox();
-            //cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
-            setearTiposDeCuentasEnComboBox();
-            setearTipoDeMonedaEnComboBox();
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_origen, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_cuenta, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
+             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_moneda,"Tipo_De_Moneda_Nombre","Tipo_De_Moneda_Nombre",ConstantesBD.t_tipo_de_moneda);
+            
+        
 
         }
 
@@ -54,21 +55,21 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void button_dar_alta_Click(object sender, EventArgs e)
         {
-              if (
-                  (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
-                  (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
-                  (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
-               {
-                   DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (
+                    (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
+                    (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
+                    (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
+                 {
+                     DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                   if (String.IsNullOrEmpty(combo_pais_origen.Text)) { combo_pais_origen.Focus(); };
-                   if (String.IsNullOrEmpty(combo_tipo_moneda.Text)) { combo_tipo_moneda.Focus(); };
+                     if (String.IsNullOrEmpty(combo_pais_origen.Text)) { combo_pais_origen.Focus(); };
+                     if (String.IsNullOrEmpty(combo_tipo_moneda.Text)) { combo_tipo_moneda.Focus(); };
 
-                   if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
-               }
-               else
+                     if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
+                 }
+                 else 
             { //seteamos los campos de cuenta en string
-                cuenta.set_estado("'Pendiente'");
+              cuenta.set_estado("'Pendiente'");
                 cuenta.set_tipo_cuenta(combo_tipo_cuenta.Text);
                 cuenta.set_tipo_moneda(combo_tipo_moneda.Text);
                 cuenta.set_paisAsignado("null");
@@ -82,35 +83,6 @@ namespace PagoElectronico.ABM_Cuenta
 
             }
 
-        }
-
-
-
-
-
-        private void setearPaisesEnComboBox()
-        {
-            SqlDataReader lector = cuenta_DAO.dameLosPaises();
-            while (lector.Read())
-            { combo_pais_origen.Items.Add(lector["Pais_Nombre"]); }
-            lector.Close();
-        }
-
-
-        private void setearTiposDeCuentasEnComboBox()
-        {
-            SqlDataReader lector = cuenta_DAO.dameLosTiposDeCuenta();
-            while (lector.Read())
-            { combo_tipo_cuenta.Items.Add(lector["Tipo_De_Cuentas_Nombre"]); }
-            lector.Close();
-        }
-
-        private void setearTipoDeMonedaEnComboBox()
-        {
-            SqlDataReader lector = cuenta_DAO.dameLosTiposDeMonedas();
-            while (lector.Read())
-            { combo_tipo_moneda.Items.Add(lector["Tipo_De_Moneda_Nombre"]); }
-            lector.Close();
         }
 
 
