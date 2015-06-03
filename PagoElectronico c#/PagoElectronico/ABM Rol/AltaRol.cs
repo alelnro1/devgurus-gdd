@@ -33,8 +33,16 @@ namespace PagoElectronico
             {
                 rol.setRol_Desc(rol_Name.Text);
                 rol.setRol_Estado(combo_Estado.Text);
+                if (check_Extraer.Checked == true) {rol.setRol_Func_Extraer("Habilitado");};
+                if (check_Transf.Checked == true) {rol.setRol_Func_Transferir("Habilitado");};
+                if (check_Depos.Checked == true) {rol.setRol_Func_Depositar("Habilitado");};
+                if (check_ABM_Roles.Checked == true) {rol.setRol_Func_ABM_Roles("Habilitado");};
+                if (check_ABM_User.Checked == true) {rol.setRol_Func_ABM_Usuarios("Habilitado");};
+                if (check_ABM_Client.Checked == true) {rol.setRol_Func_ABM_Clientes("Habilitado");};
+                if (check_ABM_Cuentas.Checked == true) {rol.setRol_Func_ABM_Cuentas("Habilitado");};
 
-            }
+                rolDAO.insertaUnRol(rol);
+            }   
         }
 
         private void boton_Cancelar_Click(object sender, EventArgs e)
