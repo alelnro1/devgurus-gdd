@@ -31,8 +31,8 @@ namespace PagoElectronico.ABM_Cuenta
             InitializeComponent();
             setearPaisesEnComboBox();
             //cuenta_DAO.crearObjetoConIdNombre("Pais_Id", "Pais_Nombre","dbo.paises", combo_pais_origen);
-            //setearTiposDeCuentasEnComboBox();
-            //setearTipoDeMonedaEnComboBox();
+            setearTiposDeCuentasEnComboBox();
+            setearTipoDeMonedaEnComboBox();
 
         }
 
@@ -54,7 +54,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void button_dar_alta_Click(object sender, EventArgs e)
         {
-            /*  if (
+              if (
                   (String.IsNullOrEmpty(combo_pais_origen.Text)) ||
                   (String.IsNullOrEmpty(combo_tipo_moneda.Text)) ||
                   (String.IsNullOrEmpty(combo_tipo_cuenta.Text)))
@@ -66,17 +66,18 @@ namespace PagoElectronico.ABM_Cuenta
 
                    if (String.IsNullOrEmpty(combo_tipo_cuenta.Text)) { combo_tipo_cuenta.Focus(); };
                }
-               else*/
+               else
             { //seteamos los campos de cuenta en string
-                cuenta.set_estado("'inhabilitado'");//SE MANDA EN 0 POR QUE EN 0 ES DESABILITADO Y POR DEFAULT ESTAN DESABILITADAS
-                cuenta.set_tipo_cuenta("null");
-                cuenta.set_tipo_moneda("null");
+                cuenta.set_estado("'Pendiente'");
+                cuenta.set_tipo_cuenta(combo_tipo_cuenta.Text);
+                cuenta.set_tipo_moneda(combo_tipo_moneda.Text);
                 cuenta.set_paisAsignado("null");
                 cuenta.set_pais_origen(combo_pais_origen.Text);
-                cuenta.set_fec_Creacion("null");
+                
                 cuenta.set_fec_Cierre("null");
-                cuenta.set_Cliente("null");
+                cuenta.set_Cliente("null");//ACA HAY QUE MANDAR EL ID DEL CLIENTE QUE SUPUESTAMENTE VA A SER GLOBAL
                 cuenta.set_Tarjeta("null");
+                
                 cuenta_DAO.altaCuenta(cuenta);
 
             }
@@ -125,6 +126,11 @@ namespace PagoElectronico.ABM_Cuenta
         }
 
         private void combo_pais_origen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void combo_tipo_moneda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

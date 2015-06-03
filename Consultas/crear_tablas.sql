@@ -79,7 +79,9 @@ Create Table Cuentas (		Cuenta_Nro numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT 
 							Cuenta_Fec_Cre datetime,
 							Cuenta_Fec_Cierre datetime,
 							Cuenta_Cliente integer FOREIGN KEY REFERENCES Clientes(Cliente_Id),
-							cuenta_Tarjeta varchar(16) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Nro))
+							cuenta_Tarjeta varchar(16) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Nro),
+							Cuenta_Saldo float default 0)
+
 														
 Create Table Depositos (	Deposito_Id numeric (18,0) PRIMARY KEY NOT NULL,
 							Deposito_Fecha datetime,

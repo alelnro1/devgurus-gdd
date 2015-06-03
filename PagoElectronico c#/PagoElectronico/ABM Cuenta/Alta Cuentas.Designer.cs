@@ -55,6 +55,7 @@
             this.combo_tipo_moneda.Name = "combo_tipo_moneda";
             this.combo_tipo_moneda.Size = new System.Drawing.Size(100, 21);
             this.combo_tipo_moneda.TabIndex = 3;
+            this.combo_tipo_moneda.SelectedIndexChanged += new System.EventHandler(this.combo_tipo_moneda_SelectedIndexChanged);
             // 
             // label_moneda
             // 
@@ -97,6 +98,7 @@
             // 
             // combo_pais_origen
             // 
+            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pais_origen.FormattingEnabled = true;
             this.combo_pais_origen.Location = new System.Drawing.Point(169, 69);
             this.combo_pais_origen.Name = "combo_pais_origen";

@@ -27,18 +27,21 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public void altaCuenta(Cuenta_Bean cuenta)
         {
             string pais = cuenta.get_pais_origen();
-
-            this.GD1C2015.ejecutarSentenciaSinRetorno("exec insertarEnCuentas" + "' " + pais.Trim() + "'"
+            string tipo_moneda_nombre = cuenta.get_tipo_moneda();
+            string tipo_de_cuenta = cuenta.get_tipo_cuenta();
+            this.GD1C2015.ejecutarSentenciaSinRetorno("exec insertarEnCuentas" + "'" + pais.Trim() + "'"
 
 
               + "," + cuenta.get_estado()
-              + "," + cuenta.get_tipo_moneda()
-              + "," + cuenta.get_tipo_cuenta()
-              + "," + cuenta.get_paisAsignado()
-              + "," + cuenta.get_fec_Creacion()
+              + ",'" + tipo_moneda_nombre.Trim()
+              + "','" + tipo_de_cuenta.Trim()
+              + "'," + cuenta.get_paisAsignado()
+              
               + "," + cuenta.get_fec_Cierre()
               + "," + cuenta.get_Cliente()
-              + "," + cuenta.get_Tarjeta());
+              + "," + cuenta.get_Tarjeta()
+              
+              );
 
 
             MessageBox.Show("Cuenta " + cuenta.get_nro_cuenta() + " creada correctamente", "Atención!", MessageBoxButtons.OK);

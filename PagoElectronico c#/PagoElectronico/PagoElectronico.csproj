@@ -69,6 +69,12 @@
     <Compile Include="ABM Cuenta\Alta Cuentas.Designer.cs">
       <DependentUpon>Alta Cuentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cuenta\Modificar Cuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cuenta\Modificar Cuentas.Designer.cs">
+      <DependentUpon>Modificar Cuentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABM Cuenta\Alta Cuentas.resx">
+      <DependentUpon>Alta Cuentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,7 +209,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\PagoElectronico.vshost.exe.manifest" />
     <None Include="Resources\Pago electronico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ArchivoDeConfiguracion.txt" />
+    <Content Include="bin\Debug\PagoElectronico.exe" />
+    <Content Include="bin\Debug\PagoElectronico.pdb" />
+    <Content Include="bin\Debug\PagoElectronico.vshost.exe" />
+    <Content Include="bin\Release\PagoElectronico.exe" />
+    <Content Include="bin\Release\PagoElectronico.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM Cliente\" />
