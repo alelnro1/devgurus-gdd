@@ -17,12 +17,12 @@ namespace PagoElectronico
 {
     public partial class Busqueda_Rol : Form
     {
-        private RolDAO rolDAO;
+        private AbmRolDAO abmRolDAO;
 
         public Busqueda_Rol()
         {
             InitializeComponent();
-            rolDAO = new RolDAO();
+            abmRolDAO = new AbmRolDAO();
         }
 
         private void boton_Volver_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace PagoElectronico
             if (check_ABM_User.Checked == true) filtros.Add("[Func_ABM_Cuentas] = 'Activo'");
             if (check_ABM_Client.Checked == true) filtros.Add("[Func_ABM_Clientes] = 'Activo'");
             if (check_ABM_Cuentas.Checked == true) filtros.Add("[Func_ABM_Usuarios] = 'Activo'");
-            SqlDataReader lector = rolDAO.buscarRoles(filtros);
+            SqlDataReader lector = abmRolDAO.buscarRoles(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
             Object[] columnas = new Object[10];
 
@@ -111,25 +111,6 @@ namespace PagoElectronico
         private void boton_Limpiar_Click(object sender, EventArgs e)
         {
             lista_Roles.Rows.Clear();
-        }
-
-        private void boton_Eliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DataGridViewRow fila = lista_Roles.SelectedRows[0];
-                String id_Rol;
-                id_Rol = (fila.Cells[0].Value.ToString());
-                                
-                if (MessageBox.Show("Estas seguro que desas eliminar", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    rolDAO.eliminarElRol(id_Rol);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Debe seleccionar un rol primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 }

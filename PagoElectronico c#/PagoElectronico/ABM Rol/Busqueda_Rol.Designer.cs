@@ -45,6 +45,9 @@
             this.boton_Buscar = new System.Windows.Forms.Button();
             this.boton_Limpiar = new System.Windows.Forms.Button();
             this.lista_Roles = new System.Windows.Forms.DataGridView();
+            this.boton_Editar = new System.Windows.Forms.Button();
+            this.boton_Volver = new System.Windows.Forms.Button();
+            this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.ID_Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,10 +58,6 @@
             this.FuncionABMCuentas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FuncionABMClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FuncionABMUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boton_Editar = new System.Windows.Forms.Button();
-            this.boton_Volver = new System.Windows.Forms.Button();
-            this.boton_Reestablecer = new System.Windows.Forms.Button();
-            this.boton_Eliminar = new System.Windows.Forms.Button();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
@@ -257,6 +256,36 @@
             this.lista_Roles.Size = new System.Drawing.Size(503, 134);
             this.lista_Roles.TabIndex = 223277;
             // 
+            // boton_Editar
+            // 
+            this.boton_Editar.Location = new System.Drawing.Point(350, 428);
+            this.boton_Editar.Name = "boton_Editar";
+            this.boton_Editar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Editar.TabIndex = 223279;
+            this.boton_Editar.Text = "Editar";
+            this.boton_Editar.UseVisualStyleBackColor = true;
+            this.boton_Editar.Click += new System.EventHandler(this.boton_Editar_Click);
+            // 
+            // boton_Volver
+            // 
+            this.boton_Volver.Location = new System.Drawing.Point(64, 428);
+            this.boton_Volver.Name = "boton_Volver";
+            this.boton_Volver.Size = new System.Drawing.Size(128, 23);
+            this.boton_Volver.TabIndex = 223278;
+            this.boton_Volver.Text = "Volver";
+            this.boton_Volver.UseVisualStyleBackColor = true;
+            this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click);
+            // 
+            // boton_Reestablecer
+            // 
+            this.boton_Reestablecer.Location = new System.Drawing.Point(207, 236);
+            this.boton_Reestablecer.Name = "boton_Reestablecer";
+            this.boton_Reestablecer.Size = new System.Drawing.Size(128, 23);
+            this.boton_Reestablecer.TabIndex = 223280;
+            this.boton_Reestablecer.Text = "Reestablecer";
+            this.boton_Reestablecer.UseVisualStyleBackColor = true;
+            this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
+            // 
             // ID_Rol
             // 
             this.ID_Rol.HeaderText = "ID_Rol";
@@ -315,52 +344,11 @@
             this.FuncionABMUsuarios.HeaderText = "ABM Usuarios";
             this.FuncionABMUsuarios.Name = "FuncionABMUsuarios";
             // 
-            // boton_Editar
-            // 
-            this.boton_Editar.Location = new System.Drawing.Point(350, 428);
-            this.boton_Editar.Name = "boton_Editar";
-            this.boton_Editar.Size = new System.Drawing.Size(128, 23);
-            this.boton_Editar.TabIndex = 223279;
-            this.boton_Editar.Text = "Editar";
-            this.boton_Editar.UseVisualStyleBackColor = true;
-            this.boton_Editar.Click += new System.EventHandler(this.boton_Editar_Click);
-            // 
-            // boton_Volver
-            // 
-            this.boton_Volver.Location = new System.Drawing.Point(64, 428);
-            this.boton_Volver.Name = "boton_Volver";
-            this.boton_Volver.Size = new System.Drawing.Size(128, 23);
-            this.boton_Volver.TabIndex = 223278;
-            this.boton_Volver.Text = "Volver";
-            this.boton_Volver.UseVisualStyleBackColor = true;
-            this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click);
-            // 
-            // boton_Reestablecer
-            // 
-            this.boton_Reestablecer.Location = new System.Drawing.Point(207, 236);
-            this.boton_Reestablecer.Name = "boton_Reestablecer";
-            this.boton_Reestablecer.Size = new System.Drawing.Size(128, 23);
-            this.boton_Reestablecer.TabIndex = 223280;
-            this.boton_Reestablecer.Text = "Reestablecer";
-            this.boton_Reestablecer.UseVisualStyleBackColor = true;
-            this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
-            // 
-            // boton_Eliminar
-            // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(207, 428);
-            this.boton_Eliminar.Name = "boton_Eliminar";
-            this.boton_Eliminar.Size = new System.Drawing.Size(128, 23);
-            this.boton_Eliminar.TabIndex = 223281;
-            this.boton_Eliminar.Text = "Eliminar";
-            this.boton_Eliminar.UseVisualStyleBackColor = true;
-            this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
-            // 
             // Busqueda_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 476);
-            this.Controls.Add(this.boton_Eliminar);
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Editar);
             this.Controls.Add(this.boton_Volver);
@@ -409,6 +397,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMCuentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMUsuarios;
-        private System.Windows.Forms.Button boton_Eliminar;
     }
 }
