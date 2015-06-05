@@ -50,6 +50,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
 
 
+
+
         protected void lanzarMensaje(String mensaje, SqlDataReader lector)
         {
             lector.Close();
@@ -102,13 +104,17 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
 
         public SqlDataReader buscarCuentas(List<String> filtros)
-        {
-            String sentenciaSQL = "select * from " + ConstantesBD.t_cuentas;
+        {   
+
+            String sentenciaSQL = " select CU.Cuenta_Nro, PA.Pais_Id Pais_Origen, PA.Pais_Nombre from Cuentas CU, Paises PA ";
+            
             IEnumerator enumerador = filtros.GetEnumerator();
             if (enumerador.MoveNext())
             {
                 sentenciaSQL = sentenciaSQL + " where " + enumerador.Current;
 
+                sentenciaSQL = sentenciaSQL + "and CU.Cuenta_PaisOrigen = PA.Pais_Id"; 
+                
                 while (enumerador.MoveNext())
                 {
                     sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
@@ -117,6 +123,26 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
         }
 
+
+        public String dameElIdDelPais(String nombrePais)
+        {   
+            SqlDataReader idPaisDeCuentaSql = this.GD1C2015.ejecutarSentenciaConRetorno("exec dameIdDelPais " + "'" + nombrePais + "'");
+            String idPais;
+
+            idPaisDeCuentaSql.Read();
+            idPais = idPaisDeCuentaSql.ToString();
+                       
+            return idPais;
+
+        }
+
+        public SqlDataReader ejecutarMetodo() {
+
+            return this.GD1C2015.ejecutarSentenciaConRetorno("select CU.Cuenta_Nro, PA.Pais_Id, PA.Pais_Nombre from Cuentas CU, Paises PA ");
+        }
+
+            
+            
 
 
         public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo,String parametro,String columna,String tabla)
