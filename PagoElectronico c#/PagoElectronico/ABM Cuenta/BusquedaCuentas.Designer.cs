@@ -30,7 +30,7 @@
         {
             this.combo_pais_origen = new System.Windows.Forms.ComboBox();
             this.combo_Nro_Cuenta = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.combo_tipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.combo_Tipo_Cuenta = new System.Windows.Forms.Label();
@@ -45,15 +45,19 @@
             this.boton_Editar = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.label_estado = new System.Windows.Forms.Label();
-            this.lista_cuentas = new System.Windows.Forms.DataGridView();
             this.combo_Tipo_Moneda = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.ID_Cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pais_Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FunciónExtraer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combo_moneda = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.IdCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FunciónTransferir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.lista_cuentas)).BeginInit();
+            this.Moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tarjeta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // combo_pais_origen
@@ -73,13 +77,13 @@
             this.combo_Nro_Cuenta.TabIndex = 1;
             this.combo_Nro_Cuenta.SelectedIndexChanged += new System.EventHandler(this.combo_Nro_Cuenta_SelectedIndexChanged);
             // 
-            // comboBox3
+            // combo_tipo
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(175, 132);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 2;
+            this.combo_tipo.FormattingEnabled = true;
+            this.combo_tipo.Location = new System.Drawing.Point(175, 132);
+            this.combo_tipo.Name = "combo_tipo";
+            this.combo_tipo.Size = new System.Drawing.Size(121, 21);
+            this.combo_tipo.TabIndex = 2;
             // 
             // label1
             // 
@@ -214,23 +218,6 @@
             this.label_estado.TabIndex = 223287;
             this.label_estado.Text = "Estado";
             // 
-            // lista_cuentas
-            // 
-            this.lista_cuentas.AllowUserToAddRows = false;
-            this.lista_cuentas.AllowUserToDeleteRows = false;
-            this.lista_cuentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lista_cuentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID_Cuenta,
-            this.Pais_Origen,
-            this.FunciónExtraer,
-            this.Estado,
-            this.FunciónTransferir});
-            this.lista_cuentas.Location = new System.Drawing.Point(161, 305);
-            this.lista_cuentas.Name = "lista_cuentas";
-            this.lista_cuentas.Size = new System.Drawing.Size(450, 117);
-            this.lista_cuentas.TabIndex = 223288;
-            this.lista_cuentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_cuentas_CellContentClick);
-            // 
             // combo_Tipo_Moneda
             // 
             this.combo_Tipo_Moneda.AutoSize = true;
@@ -240,51 +227,87 @@
             this.combo_Tipo_Moneda.TabIndex = 223289;
             this.combo_Tipo_Moneda.Text = "Moneda";
             // 
-            // comboBox4
+            // combo_moneda
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(175, 182);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 223290;
+            this.combo_moneda.FormattingEnabled = true;
+            this.combo_moneda.Location = new System.Drawing.Point(175, 182);
+            this.combo_moneda.Name = "combo_moneda";
+            this.combo_moneda.Size = new System.Drawing.Size(121, 21);
+            this.combo_moneda.TabIndex = 223290;
             // 
-            // ID_Cuenta
+            // dataGridView1
             // 
-            this.ID_Cuenta.HeaderText = "ID_Cuenta";
-            this.ID_Cuenta.Name = "ID_Cuenta";
-            this.ID_Cuenta.ReadOnly = true;
-            this.ID_Cuenta.Visible = false;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdCuenta,
+            this.Estado,
+            this.Moneda,
+            this.TipoCuenta,
+            this.p,
+            this.FechaCreacion,
+            this.IdCliente,
+            this.Tarjeta,
+            this.Saldo});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 304);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(741, 150);
+            this.dataGridView1.TabIndex = 223291;
             // 
-            // Pais_Origen
+            // IdCuenta
             // 
-            this.Pais_Origen.HeaderText = "Pais_Origen";
-            this.Pais_Origen.Name = "Pais_Origen";
-            // 
-            // FunciónExtraer
-            // 
-            this.FunciónExtraer.HeaderText = "Tipo Cuenta";
-            this.FunciónExtraer.Name = "FunciónExtraer";
-            this.FunciónExtraer.ReadOnly = true;
+            this.IdCuenta.HeaderText = "Id Cuenta";
+            this.IdCuenta.Name = "IdCuenta";
             // 
             // Estado
             // 
-            this.Estado.HeaderText = "Moneda";
+            this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             // 
-            // FunciónTransferir
+            // Moneda
             // 
-            this.FunciónTransferir.HeaderText = "Estado";
-            this.FunciónTransferir.Name = "FunciónTransferir";
-            this.FunciónTransferir.ReadOnly = true;
+            this.Moneda.HeaderText = "Moneda";
+            this.Moneda.Name = "Moneda";
+            // 
+            // TipoCuenta
+            // 
+            this.TipoCuenta.HeaderText = "Tipo Cuenta";
+            this.TipoCuenta.Name = "TipoCuenta";
+            // 
+            // p
+            // 
+            this.p.HeaderText = "Pais Origen";
+            this.p.Name = "p";
+            // 
+            // FechaCreacion
+            // 
+            this.FechaCreacion.HeaderText = "Fecha Creacion";
+            this.FechaCreacion.Name = "FechaCreacion";
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.HeaderText = "Cliente";
+            this.IdCliente.Name = "IdCliente";
+            // 
+            // Tarjeta
+            // 
+            this.Tarjeta.HeaderText = "Tarjeta";
+            this.Tarjeta.Name = "Tarjeta";
+            // 
+            // Saldo
+            // 
+            this.Saldo.HeaderText = "Saldo";
+            this.Saldo.Name = "Saldo";
             // 
             // BusquedaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 500);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.combo_moneda);
             this.Controls.Add(this.combo_Tipo_Moneda);
-            this.Controls.Add(this.lista_cuentas);
             this.Controls.Add(this.label_estado);
             this.Controls.Add(this.boton_Eliminar);
             this.Controls.Add(this.boton_Editar);
@@ -299,12 +322,12 @@
             this.Controls.Add(this.combo_Tipo_Cuenta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.combo_tipo);
             this.Controls.Add(this.combo_Nro_Cuenta);
             this.Controls.Add(this.combo_pais_origen);
             this.Name = "BusquedaCuentas";
             this.Text = "BusquedaCuentas";
-            ((System.ComponentModel.ISupportInitialize)(this.lista_cuentas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +337,7 @@
 
         private System.Windows.Forms.ComboBox combo_pais_origen;
         private System.Windows.Forms.ComboBox combo_Nro_Cuenta;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox combo_tipo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label combo_Tipo_Cuenta;
@@ -329,13 +352,17 @@
         private System.Windows.Forms.Button boton_Editar;
         private System.Windows.Forms.Button boton_Volver;
         private System.Windows.Forms.Label label_estado;
-        private System.Windows.Forms.DataGridView lista_cuentas;
         private System.Windows.Forms.Label combo_Tipo_Moneda;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_Cuenta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pais_Origen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FunciónExtraer;
+        private System.Windows.Forms.ComboBox combo_moneda;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FunciónTransferir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Moneda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoCuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn p;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tarjeta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
     }
 }
