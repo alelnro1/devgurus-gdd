@@ -45,13 +45,13 @@ namespace PagoElectronico
                 if (check_Activo.Checked == true) filtros.Add("[ROL_ESTADO] = 'Activo'");
                 if (check_No_Activo.Checked == true) filtros.Add("[ROL_ESTADO] = 'No Activo'");
             }
-            if (check_Extraer.Checked == true) filtros.Add("[Func_Extraer] = 'Activo'");
-            if (check_Transf.Checked == true) filtros.Add("[Func_Transferir] = 'Activo'");
-            if (check_Depos.Checked == true) filtros.Add("[Func_Depositar] = 'Activo'");
-            if (check_ABM_Roles.Checked == true) filtros.Add("[Func_ABM_Roles] = 'Activo'");
-            if (check_ABM_User.Checked == true) filtros.Add("[Func_ABM_Cuentas] = 'Activo'");
-            if (check_ABM_Client.Checked == true) filtros.Add("[Func_ABM_Clientes] = 'Activo'");
-            if (check_ABM_Cuentas.Checked == true) filtros.Add("[Func_ABM_Usuarios] = 'Activo'");
+            if (check_Extraer.Checked == true) filtros.Add("[Func_Extraer] = 'Habilitado'");
+            if (check_Transf.Checked == true) filtros.Add("[Func_Transferir] = 'Habilitado'");
+            if (check_Depos.Checked == true) filtros.Add("[Func_Depositar] = 'Habilitado'");
+            if (check_ABM_Roles.Checked == true) filtros.Add("[Func_ABM_Roles] = 'Habilitado'");
+            if (check_ABM_User.Checked == true) filtros.Add("[Func_ABM_Cuentas] = 'Habilitado'");
+            if (check_ABM_Client.Checked == true) filtros.Add("[Func_ABM_Clientes] = 'Habilitado'");
+            if (check_ABM_Cuentas.Checked == true) filtros.Add("[Func_ABM_Usuarios] = 'Habilitado'");
             SqlDataReader lector = abmRolDAO.buscarRoles(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
             Object[] columnas = new Object[10];

@@ -32,7 +32,7 @@ namespace PagoElectronico.ABM_Cuenta
             InitializeComponent();
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_origen, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
-            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
+          //  cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
 
             
         }
@@ -106,7 +106,7 @@ namespace PagoElectronico.ABM_Cuenta
            */
 
                   filas.Add(new DataGridViewRow()); //agrega una fila por cada registro encontrado en la tabla
-                filas[filas.Count - 1].CreateCells(dataGridView1,lector); //crea tantas "Cells" en las filas como columnas tenga, con el respectivo registro
+                filas[filas.Count - 1].CreateCells(dataGridView1,columnas); //crea tantas "Cells" en las filas como columnas tenga, con el respectivo registro
             }
             lector.Close(); //cierro el lector
             dataGridView1.Rows.AddRange(filas.ToArray()); //mando como parametro a las filas de la vista, a las filas cargadas convertidas a un array
