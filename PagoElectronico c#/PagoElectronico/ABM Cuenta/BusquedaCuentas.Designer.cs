@@ -57,19 +57,22 @@
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tarjeta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // combo_pais_origen
             // 
+            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pais_origen.FormattingEnabled = true;
-            this.combo_pais_origen.Location = new System.Drawing.Point(175, 83);
+            this.combo_pais_origen.Location = new System.Drawing.Point(175, 240);
             this.combo_pais_origen.Name = "combo_pais_origen";
             this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
             this.combo_pais_origen.TabIndex = 0;
             // 
             // combo_Nro_Cuenta
             // 
+            this.combo_Nro_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Nro_Cuenta.FormattingEnabled = true;
             this.combo_Nro_Cuenta.Location = new System.Drawing.Point(175, 37);
             this.combo_Nro_Cuenta.Name = "combo_Nro_Cuenta";
@@ -79,6 +82,7 @@
             // 
             // combo_tipo
             // 
+            this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FormattingEnabled = true;
             this.combo_tipo.Location = new System.Drawing.Point(175, 132);
             this.combo_tipo.Name = "combo_tipo";
@@ -162,6 +166,7 @@
             this.boton_Reestablecer.TabIndex = 223283;
             this.boton_Reestablecer.Text = "Reestablecer";
             this.boton_Reestablecer.UseVisualStyleBackColor = true;
+            this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
             // 
             // boton_Limpiar
             // 
@@ -171,6 +176,7 @@
             this.boton_Limpiar.TabIndex = 223282;
             this.boton_Limpiar.Text = "Limpiar busqueda";
             this.boton_Limpiar.UseVisualStyleBackColor = true;
+            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
             // 
             // boton_Buscar
             // 
@@ -229,6 +235,7 @@
             // 
             // combo_moneda
             // 
+            this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
             this.combo_moneda.Location = new System.Drawing.Point(175, 182);
             this.combo_moneda.Name = "combo_moneda";
@@ -300,11 +307,21 @@
             this.Saldo.HeaderText = "Saldo";
             this.Saldo.Name = "Saldo";
             // 
+            // combo_pais_origen2
+            // 
+            this.combo_pais_origen2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_pais_origen2.FormattingEnabled = true;
+            this.combo_pais_origen2.Location = new System.Drawing.Point(175, 83);
+            this.combo_pais_origen2.Name = "combo_pais_origen2";
+            this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
+            this.combo_pais_origen2.TabIndex = 223292;
+            // 
             // BusquedaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 500);
+            this.Controls.Add(this.combo_pais_origen2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.combo_moneda);
             this.Controls.Add(this.combo_Tipo_Moneda);
@@ -364,5 +381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tarjeta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
+        private System.Windows.Forms.ComboBox combo_pais_origen2;
     }
 }
