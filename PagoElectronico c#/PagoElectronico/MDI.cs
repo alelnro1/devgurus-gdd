@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace PagoElectronico
 {
-    public partial class Form1 : Form
+    public partial class MDI : Form
     {
         ABM_Cuenta.AltaCuentas Form_AltaCuentas;
         ABM_Cliente.AltaCliente Form_AltaCliente;
 
-        public Form1()
+        public MDI()
         {
             InitializeComponent();
         }
@@ -73,6 +73,11 @@ namespace PagoElectronico
             {
                 Form_AltaCuentas.Activate();
             }
+        }
+
+        private void MDI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

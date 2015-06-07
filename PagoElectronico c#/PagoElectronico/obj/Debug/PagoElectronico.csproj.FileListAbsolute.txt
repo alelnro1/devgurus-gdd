@@ -52,3 +52,21 @@ C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoE
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.AltaCuentas.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliente.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.BusquedaCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliente.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.AltaCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.BusquedaCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources

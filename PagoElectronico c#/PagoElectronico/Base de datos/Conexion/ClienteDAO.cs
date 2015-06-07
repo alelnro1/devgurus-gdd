@@ -57,7 +57,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public void altaCliente(Cliente_Bean cliente)
         {
             //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
-            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "'," + cliente.getCliente_Calle() + "'" + cliente.getCliente_Dpto() + "," + cliente.getCliente_FecNac() + "," + cliente.getCliente_Mail() + "," + cliente.getCliente_Nacionalidad() + "," + cliente.getCliente_Name() + "," + cliente.getCliente_NroDoc() + "," + cliente.getCliente_Pais() + "," + cliente.getCliente_Piso() + "," + cliente.getCliente_TipoDoc();
+            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "'," + cliente.getCliente_Calle() + "'" + cliente.getCliente_Dpto() + "," + cliente.getCliente_FecNac() + "," + cliente.getCliente_Mail() + "," + cliente.getCliente_Name() + "," + cliente.getCliente_NroDoc() + "," + cliente.getCliente_Pais() + "," + cliente.getCliente_Piso() + "," + cliente.getCliente_TipoDoc();
             this.GD1C2015.ejecutarSentenciaSinRetorno("exec insertarNuevoCliente " + cliente);
         }
 

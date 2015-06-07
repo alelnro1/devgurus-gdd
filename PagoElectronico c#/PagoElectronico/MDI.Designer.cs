@@ -1,6 +1,6 @@
 ﻿namespace PagoElectronico
 {
-    partial class Form1
+    partial class MDI
     {
         /// <summary>
         /// Required designer variable.
@@ -113,8 +113,9 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "MDI";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MDI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
