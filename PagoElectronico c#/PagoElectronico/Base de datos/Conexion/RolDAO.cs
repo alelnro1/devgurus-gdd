@@ -31,22 +31,62 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return lector;
         }
 
-        public void insertaUnRol(Rol_Bean rol)
+        public void insertarUnRol(Rol_Bean rol)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("AQUI DEBE IR EL PROCEDIMIENTO QUE INSERTA ROLES");
-            if (lector.HasRows)
-            { MessageBox.Show("El Rol " + rol.getRol_Desc() + " fue creado correctamente", "Atención!", MessageBoxButtons.OK); }
-            else
-            { MessageBox.Show("Ha ocurrido un error al crearse el Rol", "Atención!", MessageBoxButtons.OK); }
+            String sentencia = "insert into " + ConstantesBD.t_roles + " (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas) values ('" +
+            rol.getRol_Desc() + "', '" +
+            rol.getRol_Estado() + "', '" +
+            rol.getRol_Func_Extraer() + "', '" +
+            rol.getRol_Func_Transferir() + "', '" +
+            rol.getRol_Func_Depositar() + "', '" +
+            rol.getRol_Func_ABM_Roles() + "', '" +
+            rol.getRol_Func_ABM_Clientes() + "', '" +
+            rol.getRol_Func_ABM_Usuarios() + "', '" +
+            rol.getRol_Func_ABM_Cuentas() + "')";
+
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sentencia);
         }
 
+        public void modificarUnRol(Rol_Bean rol)
+        {
+            String consulta = "update " + ConstantesBD.t_roles + " set " +
+                            "Rol_Desc = '" + rol.getRol_Desc() + "', " +
+                            "Rol_Estado = '" + rol.getRol_Estado() + "', " +
+                            "Func_Extraer = '" + rol.getRol_Func_Extraer() + "', " +
+                            "Func_Transferir = '" + rol.getRol_Func_Transferir() + "', " +
+                            "Func_Depositar = '" + rol.getRol_Func_Depositar() + "', " +
+                            "Func_ABM_Roles = '" + rol.getRol_Func_ABM_Roles() + "', " +
+                            "Func_ABM_Clientes = '" + rol.getRol_Func_ABM_Clientes() + "', " +
+                            "Func_ABM_Usuarios = '" + rol.getRol_Func_ABM_Usuarios() + "', " +
+                            "Func_ABM_Cuentas = '" + rol.getRol_Func_ABM_Cuentas() + "' " +
+                            "where Rol_Id = '" + rol.getRol_Id() + "'";
+
+            this.GD1C2015.ejecutarSentenciaSinRetorno(consulta);
+
+         }
+        
         public void eliminarElRol(String id_rol)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("AQUI DEBE IR EL PROCEDIMIENTO QUE ELIMINA EL ROL");
-            if (lector.HasRows)
-            { MessageBox.Show("El Rol se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK); }
+            if (id_rol == "1")
+            { MessageBox.Show("No se puede eliminar este Rol - Administrador", "Atención!", MessageBoxButtons.OK); }
             else
-            { MessageBox.Show("Ha ocurrido un error al eliminar el Rol", "Atención!", MessageBoxButtons.OK); }
+            {
+                try
+                {
+                    List<SqlParameter> parametros = new List<SqlParameter>();
+                    SqlParameter parametro;
+
+                    parametro = new SqlParameter("@Id_Rol", id_rol);
+                    parametros.Add(parametro);
+                    this.GD1C2015.ejecutarProcedimiento(ConstantesBD.proc_eliminar_Rol, parametros).Close();
+                    MessageBox.Show("El Rol se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK);
+                }
+                catch
+                {
+                    MessageBox.Show("No ha sido posible eliminar el Rol", "Atención!", MessageBoxButtons.OK);
+                }
+            }
+            
         }
 
         public SqlDataReader buscarRoles(List<String> filtros)
