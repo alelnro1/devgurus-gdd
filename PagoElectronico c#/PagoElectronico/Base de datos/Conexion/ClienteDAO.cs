@@ -37,22 +37,34 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                    }
          }
 
+        // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
+        public bool docTipoEmailSinDuplicar(Cliente_Bean cliente){
+            String sql = "SELECT id FROM Clientes WHERE " +
+                            "Cliente_Nro_Doc = '" + cliente.getCliente_NroDoc() + "'" +
+                            "AND Cliente_Tipo_Doc  = '" + cliente.getCliente_TipoDoc() + "' " +
+                            "AND Cliente_Mail = '" + cliente.getCliente_Mail() + "' ";
+            SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            return datos.HasRows;
+        }
+
         public void asignaleElUsuario(Cliente_Bean cliente)
         {
  //     AQUI SE DEBE HACER UN UPDATE DEL CLIENTE QUE TOMA COMO PARAMETRO Y CARGARLE EL ID DE USUARIO
  //     BUSCAR POR NUMERO DE DOCUMENTO (INFALIBLE)
         }
 
+        public void altaCliente(Cliente_Bean cliente)
+        {
+            //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
+            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "'," + cliente.getCliente_Calle() + "'" + cliente.getCliente_Dpto() + "," + cliente.getCliente_FecNac() + "," + cliente.getCliente_Mail() + "," + cliente.getCliente_Nacionalidad() + "," + cliente.getCliente_Name() + "," + cliente.getCliente_NroDoc() + "," + cliente.getCliente_Pais() + "," + cliente.getCliente_Piso() + "," + cliente.getCliente_TipoDoc();
+            this.GD1C2015.ejecutarSentenciaSinRetorno("exec insertarNuevoCliente " + cliente);
+        }
+
         protected void lanzarExcepcion(String mensajeError, SqlDataReader lector)
         {
             lector.Close();
             throw new ValidacionErroneaUsuarioException(mensajeError);
-        }
-
-        protected void lanzarMensaje(String mensaje, SqlDataReader lector)
-        {
-            lector.Close();
-            MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
         }
     }
 }

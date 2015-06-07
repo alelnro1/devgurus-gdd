@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using PagoElectronico.Conexion;
 
@@ -19,6 +20,20 @@ namespace PagoElectronico.Conexion
                 PagoElectronico.BaseDeDatos.Conexion.ConstantesBD.Param_Conexion_contraseña,
                 PagoElectronico.BaseDeDatos.Conexion.ConstantesBD.Param_Conexion_nombreBD, "true", "15");
             this.GD1C2015.abrir();
+        }
+
+        public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo, String parametro, String columna, String tabla)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [" + columna + "] from " + tabla);
+            while (lector.Read())
+            { combo.Items.Add(lector[parametro]); }
+            lector.Close();
+        }
+
+        public void lanzarMensaje(String mensaje, SqlDataReader lector)
+        {
+            lector.Close();
+            MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
         }
 
         public void finalizar()

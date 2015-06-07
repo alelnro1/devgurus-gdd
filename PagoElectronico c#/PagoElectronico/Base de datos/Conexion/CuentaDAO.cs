@@ -49,9 +49,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         }
 
-
-
-
         protected void lanzarMensaje(String mensaje, SqlDataReader lector)
         {
             lector.Close();
@@ -139,18 +136,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public SqlDataReader ejecutarMetodo() {
 
             return this.GD1C2015.ejecutarSentenciaConRetorno("select CU.Cuenta_Nro, PA.Pais_Id, PA.Pais_Nombre from Cuentas CU, Paises PA ");
-        }
-
-            
-            
-
-
-        public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo,String parametro,String columna,String tabla)
-        {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [" + columna + "] from " + tabla);
-            while (lector.Read())
-            { combo.Items.Add(lector[parametro]); }
-            lector.Close();
         }
 
     }
