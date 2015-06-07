@@ -55,6 +55,7 @@
             this.boton_Crear.TabIndex = 223279;
             this.boton_Crear.Text = "Guardar cambios";
             this.boton_Crear.UseVisualStyleBackColor = true;
+            this.boton_Crear.Click += new System.EventHandler(this.boton_Crear_Click);
             // 
             // boton_Cancelar
             // 

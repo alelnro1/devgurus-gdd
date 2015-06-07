@@ -33,6 +33,26 @@ namespace PagoElectronico
             {
                 rol.setRol_Desc(rol_Name.Text);
                 rol.setRol_Estado(combo_Estado.Text);
+                if (check_Extraer.Checked == true) rol.setRol_Func_Extraer("Habilitado");
+                else { rol.setRol_Func_Extraer("Inhabilitado"); }
+                if (check_Transf.Checked == true) rol.setRol_Func_Transferir("Habilitado");
+                else { rol.setRol_Func_Transferir("Inhabilitado"); }
+                if (check_Depos.Checked == true) rol.setRol_Func_Depositar("Habilitado");
+                else { rol.setRol_Func_Depositar("Inhabilitado"); }
+                if (check_ABM_Roles.Checked == true) rol.setRol_Func_ABM_Roles("Habilitado");
+                else { rol.setRol_Func_ABM_Roles("Inhabilitado"); }
+                if (check_ABM_User.Checked == true) rol.setRol_Func_ABM_Usuarios("Habilitado");
+                else { rol.setRol_Func_ABM_Usuarios("Inhabilitado"); }
+                if (check_ABM_Client.Checked == true) rol.setRol_Func_ABM_Clientes("Habilitado");
+                else { rol.setRol_Func_ABM_Clientes("Inhabilitado"); }
+                if (check_ABM_Cuentas.Checked == true) rol.setRol_Func_ABM_Cuentas("Habilitado");
+                else { rol.setRol_Func_ABM_Cuentas("Inhabilitado"); }
+
+                rolDAO.insertarUnRol(rol);
+                DialogResult alerta = MessageBox.Show("El Rol se ha creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MenuPrincipal nuevoMenu = new MenuPrincipal();
+                nuevoMenu.Show();
+                this.Close();
 
             }
         }
@@ -41,7 +61,7 @@ namespace PagoElectronico
         {
             MenuPrincipal nuevoMenu = new MenuPrincipal();
             nuevoMenu.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }
