@@ -63,11 +63,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM Cliente\AltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Cuenta\Alta Cuentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Cuenta\Alta Cuentas.Designer.cs">
       <DependentUpon>Alta Cuentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Cuenta\BusquedaCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cuenta\BusquedaCuentas.Designer.cs">
+      <DependentUpon>BusquedaCuentas.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Cuenta\Modificar Cuentas.cs">
       <SubType>Form</SubType>
@@ -132,8 +144,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABM Cliente\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Cuenta\Alta Cuentas.resx">
       <DependentUpon>Alta Cuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cuenta\BusquedaCuentas.resx">
+      <DependentUpon>BusquedaCuentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
@@ -221,7 +239,6 @@
     <Content Include="bin\Release\PagoElectronico.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ABM Cliente\" />
     <Folder Include="ABM de Usuario\" />
     <Folder Include="Consulta Saldos\" />
     <Folder Include="Depositos\" />

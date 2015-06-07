@@ -53,11 +53,15 @@
             this.Moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.p = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pais_asignado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_cierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tarjeta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,14 +257,17 @@
             this.Moneda,
             this.TipoCuenta,
             this.p,
+            this.Pais_asignado,
             this.FechaCreacion,
+            this.fecha_cierre,
             this.IdCliente,
             this.Tarjeta,
             this.Saldo});
             this.dataGridView1.Location = new System.Drawing.Point(12, 304);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(741, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(786, 150);
             this.dataGridView1.TabIndex = 223291;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // IdCuenta
             // 
@@ -287,10 +294,20 @@
             this.p.HeaderText = "Pais Origen";
             this.p.Name = "p";
             // 
+            // Pais_asignado
+            // 
+            this.Pais_asignado.HeaderText = "Pais Asignado";
+            this.Pais_asignado.Name = "Pais_asignado";
+            // 
             // FechaCreacion
             // 
             this.FechaCreacion.HeaderText = "Fecha Creacion";
             this.FechaCreacion.Name = "FechaCreacion";
+            // 
+            // fecha_cierre
+            // 
+            this.fecha_cierre.HeaderText = "Fecha Cierre";
+            this.fecha_cierre.Name = "fecha_cierre";
             // 
             // IdCliente
             // 
@@ -316,11 +333,31 @@
             this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
             this.combo_pais_origen2.TabIndex = 223292;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(73, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 223293;
+            this.label3.Text = "Pais Asignado";
+            // 
+            // pais_asignado_combo
+            // 
+            this.pais_asignado_combo.FormattingEnabled = true;
+            this.pais_asignado_combo.Location = new System.Drawing.Point(175, 111);
+            this.pais_asignado_combo.Name = "pais_asignado_combo";
+            this.pais_asignado_combo.Size = new System.Drawing.Size(121, 21);
+            this.pais_asignado_combo.TabIndex = 223294;
+            this.pais_asignado_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // BusquedaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 500);
+            this.ClientSize = new System.Drawing.Size(819, 500);
+            this.Controls.Add(this.pais_asignado_combo);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.combo_pais_origen2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.combo_moneda);
@@ -343,7 +380,8 @@
             this.Controls.Add(this.combo_Nro_Cuenta);
             this.Controls.Add(this.combo_pais_origen);
             this.Name = "BusquedaCuentas";
-            this.Text = "BusquedaCuentas";
+            this.Text = "w";
+            this.Load += new System.EventHandler(this.BusquedaCuentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -372,15 +410,19 @@
         private System.Windows.Forms.Label combo_Tipo_Moneda;
         private System.Windows.Forms.ComboBox combo_moneda;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox combo_pais_origen2;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Moneda;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn p;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pais_asignado;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha_cierre;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tarjeta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
-        private System.Windows.Forms.ComboBox combo_pais_origen2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox pais_asignado_combo;
     }
 }

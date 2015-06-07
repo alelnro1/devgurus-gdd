@@ -51,13 +51,13 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
 
 
-
+        /*
         protected void lanzarMensaje(String mensaje, SqlDataReader lector)
         {
             lector.Close();
             MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
         }
-      
+      */
 
         public SqlDataReader dameLosCamposDeLaTabla(String campos, String tabla)
         {
@@ -126,18 +126,20 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public SqlDataReader buscarCuentas(List<String> filtros)
         {
 
-            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PA.Pais_Nombre from Cuentas CU, Paises PA ,  Tipo_De_Cuentas TC";
+            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.cuenta_Tarjeta, CU.Cuenta_Saldo from Cuentas CU, Paises PO ,  Tipo_De_Cuentas TC,Tipo_De_Moneda TM, Paises PA";
           //  String sentenciaSQL = " select CU.Cuenta_Nro,CU.Cuenta_Estado,TC.Tipo_De_Cuentas_Nombre, PA.Pais_Nombre PaisAsignado_Nombre,CU.Cuenta_Fec_Cre,CU.Cuenta_Cliente ,CU.cuenta_Tarjeta,CU.Cuenta_Saldo from Cuentas CU, Paises PA , Tipo_De_Cuentas TC";
 
             IEnumerator enumerador = filtros.GetEnumerator();
+            sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado =PA.Pais_Id";
             if (enumerador.MoveNext())
             {
-                sentenciaSQL = sentenciaSQL + " where " + enumerador.Current;
+                sentenciaSQL = sentenciaSQL + " and "+ enumerador.Current;
 
                 while (enumerador.MoveNext())
                 {
                     sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
                 }
+                
             }
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
         }

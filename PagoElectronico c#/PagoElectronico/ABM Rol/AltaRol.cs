@@ -48,7 +48,7 @@ namespace PagoElectronico
                 if (check_ABM_Cuentas.Checked == true) rol.setRol_Func_ABM_Cuentas("Habilitado");
                 else { rol.setRol_Func_ABM_Cuentas("Inhabilitado"); }
 
-                rolDAO.insertarUnRol(rol);
+                rolDAO.insertaUnRol(rol);
                 DialogResult alerta = MessageBox.Show("El Rol se ha creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 MenuPrincipal nuevoMenu = new MenuPrincipal();
                 nuevoMenu.Show();

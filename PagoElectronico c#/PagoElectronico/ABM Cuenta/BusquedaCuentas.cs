@@ -33,7 +33,7 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_origen2, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
-
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(pais_asignado_combo, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
             
         }
 
@@ -62,15 +62,16 @@ namespace PagoElectronico.ABM_Cuenta
             //////agrego las condiciones de "where" que se van a meter en SQL*///////
 
 
-            /*   if (combo_moneda.Text != "")
+               if (combo_moneda.Text != "")
                {
-                   filtros.Add("[Tipo_De_Moneda_Nombre] = '" + combo_moneda.Text+"'");
-               }*/
+                   filtros.Add("TM.Tipo_De_Moneda_Nombre = '" + combo_moneda.Text+"'");
+               }
 
              if (combo_tipo.Text != "")
-            { filtros.Add("TC.Tipo_De_Cuentas_Nombre = '" + combo_tipo.Text + "' and CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id");  }
+            { filtros.Add("TC.Tipo_De_Cuentas_Nombre = '" + combo_tipo.Text + "'");  }
             
-            if (combo_pais_origen2.Text != "") { filtros.Add("PA.Pais_Nombre ='" + combo_pais_origen2.Text + "' and CU.Cuenta_PaisOrigen = PA.Pais_Id"); }
+            if (combo_pais_origen2.Text != "") { filtros.Add("PO.Pais_Nombre ='" + combo_pais_origen2.Text + "'"); }
+            if (pais_asignado_combo.Text != "") { filtros.Add("PA.Pais_Nombre ='" + pais_asignado_combo.Text + "'"); }
 
             if (check_Habilitado.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Habilitado'"); }
             if (check_Deshabilitado.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Inhabilitado'"); }
@@ -82,23 +83,23 @@ namespace PagoElectronico.ABM_Cuenta
 
             List<DataGridViewRow> filas = new List<DataGridViewRow>(); //creo lista de  filas
 
-            Object[] columnas = new Object[3];//creo el vector con la cantidad de columnas en la vista de busqueda 
+            Object[] columnas = new Object[11];//creo el vector con la cantidad de columnas en la vista de busqueda 
             while (lector.Read()) //mientras haya registros en la tabla que se esta leyendo que lo asigne a una columna, donde la posicion  que esta indexada en vector "columna[i]" coincide con la posicion de numero de columna (de izq a derecha), y guarda el registro encontrado en dicha columna
             {
 
 
                 columnas[0] = lector["Cuenta_Nro"];
-                 columnas[1] = lector["Tipo_De_Cuentas_Nombre"];
-                 columnas[2] = lector["Pais_Nombre"];
+                columnas[1] = lector["Cuenta_Estado"];
+                columnas[2] = lector["Tipo_De_Moneda_Nombre"];
+                 columnas[3] = lector["Tipo_De_Cuentas_Nombre"];
+                 columnas[4] = lector["Pais_Origen"];
+                 columnas[5] = lector["Pais_Asignado"];      
+                 columnas[6] = lector["Cuenta_Fec_Cre"];
+                 columnas[7] = lector["Cuenta_Fec_Cierre"];
+                 columnas[8] = lector["Cuenta_Cliente"];
+                 columnas[9] = lector["cuenta_Tarjeta"];
+                 columnas[10] = lector["Cuenta_Saldo"];
 
-              //  columnas[1] = "NULL";//lector["Cuenta_Estado"]; 
-               // columnas[2] = "NULL";//lector["Cuenta_Moneda"];
-                //columnas[3] = lector["Tipo_De_Cuentas_Nombre"];
-               // columnas[4] = lector["Pais_Nombre"];
-                //columnas[5] = "NULL";//lector["Cuenta_Fec_Cre"];
-                //columnas[6] = "NULL";//lector["Cuenta_Cliente"];
-                //columnas[7] = "NULL";//lector["cuenta_Tarjeta"];
-                //columnas[8] = "NULL";//lector["Cuenta_Saldo"];
         
 
                 filas.Add(new DataGridViewRow()); //agrega una fila por cada registro encontrado en la tabla
@@ -133,6 +134,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void boton_Reestablecer_Click(object sender, EventArgs e)
         {
+            pais_asignado_combo.SelectedIndex = -1;
             combo_tipo.SelectedIndex = -1;
             combo_moneda.SelectedIndex = -1;
             combo_pais_origen2.SelectedIndex = -1;
@@ -141,6 +143,21 @@ namespace PagoElectronico.ABM_Cuenta
             check_Cerrada.Checked = false;
             check_Pendiente.Checked = false;
             
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BusquedaCuentas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
