@@ -175,6 +175,38 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             lector.Close();
         }
 
+        public SqlDataReader dameLaCuenta(String id_Cuenta)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Cuenta_Nro], [Cuenta_Estado], [Cuenta_Moneda], [Cuenta_Tipo], [Cuenta_PaisOrigen], [Cuenta_PaisAsignado], [Cuenta_Fec_Cre], [Cuenta_Fec_Cierre], [Cuenta_Cliente], [cuenta_Tarjeta] ,[Cuenta_Saldo] from " +
+                ConstantesBD.t_cuentas + " where [Cuenta_Nro] = '" + id_Cuenta + "';");
+            return lector;
+        }
+
+        public void eliminarLaCuenta(String id_Cuenta)
+        {
+            if (id_Cuenta == "1")
+            { MessageBox.Show("No se puede eliminar este Rol - Administrador", "Atención!", MessageBoxButtons.OK); }
+            else
+            {
+                try
+                {
+                    List<SqlParameter> parametros = new List<SqlParameter>();
+                    SqlParameter parametro;
+
+                    parametro = new SqlParameter("@Id_Cuenta", id_Cuenta);
+                    parametros.Add(parametro);
+                    this.GD1C2015.ejecutarProcedimiento(ConstantesBD.proc_eliminar_Cuenta, parametros).Close();
+                    MessageBox.Show("El Rol se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK);
+                }
+                catch
+                {
+                    MessageBox.Show("No ha sido posible eliminar el Rol", "Atención!", MessageBoxButtons.OK);
+                }
+            }
+
+        }
+
+
     }
 
 

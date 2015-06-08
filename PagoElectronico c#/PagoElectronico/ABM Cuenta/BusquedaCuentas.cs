@@ -17,14 +17,10 @@ using PagoElectronico.BaseDeDatos.Conexion;
 namespace PagoElectronico.ABM_Cuenta
 {
     public partial class BusquedaCuentas : Form
-
-        
+                
     {
-
         private CuentaDAO cuenta_DAO;
         
-
-
         public BusquedaCuentas()
         {
             cuenta_DAO = new CuentaDAO();
@@ -160,5 +156,44 @@ namespace PagoElectronico.ABM_Cuenta
 
         }
 
+        private void boton_Eliminar_Click(object sender, EventArgs e)
+        {
+             try
+            {
+                DataGridViewRow fila = dataGridView1.SelectedRows[0];
+                String id_Cuenta;
+                id_Cuenta = (fila.Cells[0].Value.ToString());
+                if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cuenta_DAO.eliminarLaCuenta(id_Cuenta);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar una Cuenta primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void boton_Editar_Click(object sender, EventArgs e)
+        {
+               try
+            {
+                DataGridViewRow fila = dataGridView1.SelectedRows[0];
+                String id_Cuenta;
+
+                id_Cuenta = (fila.Cells[0].Value.ToString());
+                EditarCuentas editarCuenta = new EditarCuentas(id_Cuenta, this);
+                editarCuenta.Show();
+                this.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar una Cuenta primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        
+        }
+        }
+
     }
 }
+
