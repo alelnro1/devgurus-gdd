@@ -70,11 +70,14 @@ namespace PagoElectronico.ABM_Cuenta
             
             if (combo_pais_origen2.Text != "") { filtros.Add("PO.Pais_Nombre ='" + combo_pais_origen2.Text + "'"); }
             if (pais_asignado_combo.Text != "") { filtros.Add("PA.Pais_Nombre ='" + pais_asignado_combo.Text + "'"); }
-
+            if (combo_estado.Text != "") { filtros.Add("CU.Cuenta_Estado ='" + combo_estado.Text + "'"); }
+            
+            
+            /*
             if (check_Habilitado.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Habilitado'"); }
             if (check_Deshabilitado.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Inhabilitado'"); }
             if (check_Pendiente.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Pendiente'"); }
-            if (check_Cerrada.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Cerrado'"); }
+            if (check_Cerrada.Checked == true) { filtros.Add("[Cuenta_Estado] = 'Cerrado'"); }*/
 
 
             SqlDataReader lector = cuenta_DAO.buscarCuentas(filtros); //le mando los filtros a la funcion buscarCuentas, para que le agregue select de la tabla y un where con criterio del filtro y un and si es mas de un filtro, y traigo el resultado de la consulta y se lo guardo a lector
@@ -136,10 +139,13 @@ namespace PagoElectronico.ABM_Cuenta
             combo_tipo.SelectedIndex = -1;
             combo_moneda.SelectedIndex = -1;
             combo_pais_origen2.SelectedIndex = -1;
+            combo_estado.SelectedIndex = -1;
+            /*
             check_Habilitado.Checked = false;
             check_Deshabilitado.Checked = false;
             check_Cerrada.Checked = false;
             check_Pendiente.Checked = false;
+            */
             
         }
 

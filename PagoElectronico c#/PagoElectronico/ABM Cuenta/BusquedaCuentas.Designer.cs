@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.combo_pais_origen = new System.Windows.Forms.ComboBox();
             this.combo_Nro_Cuenta = new System.Windows.Forms.ComboBox();
             this.combo_tipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.combo_Tipo_Cuenta = new System.Windows.Forms.Label();
-            this.check_Habilitado = new System.Windows.Forms.CheckBox();
-            this.check_Deshabilitado = new System.Windows.Forms.CheckBox();
-            this.check_Pendiente = new System.Windows.Forms.CheckBox();
-            this.check_Cerrada = new System.Windows.Forms.CheckBox();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Limpiar = new System.Windows.Forms.Button();
             this.boton_Buscar = new System.Windows.Forms.Button();
@@ -62,17 +57,10 @@
             this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
+            this.combo_pais_origen = new System.Windows.Forms.ComboBox();
+            this.combo_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // combo_pais_origen
-            // 
-            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_pais_origen.FormattingEnabled = true;
-            this.combo_pais_origen.Location = new System.Drawing.Point(175, 240);
-            this.combo_pais_origen.Name = "combo_pais_origen";
-            this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
-            this.combo_pais_origen.TabIndex = 0;
             // 
             // combo_Nro_Cuenta
             // 
@@ -121,48 +109,6 @@
             this.combo_Tipo_Cuenta.TabIndex = 5;
             this.combo_Tipo_Cuenta.Text = "Tipo Cuenta";
             // 
-            // check_Habilitado
-            // 
-            this.check_Habilitado.AutoSize = true;
-            this.check_Habilitado.Location = new System.Drawing.Point(492, 53);
-            this.check_Habilitado.Name = "check_Habilitado";
-            this.check_Habilitado.Size = new System.Drawing.Size(73, 17);
-            this.check_Habilitado.TabIndex = 7;
-            this.check_Habilitado.Text = "Habilitado";
-            this.check_Habilitado.UseVisualStyleBackColor = true;
-            this.check_Habilitado.CheckedChanged += new System.EventHandler(this.check_Habilitado_CheckedChanged);
-            // 
-            // check_Deshabilitado
-            // 
-            this.check_Deshabilitado.AutoSize = true;
-            this.check_Deshabilitado.Location = new System.Drawing.Point(492, 91);
-            this.check_Deshabilitado.Name = "check_Deshabilitado";
-            this.check_Deshabilitado.Size = new System.Drawing.Size(90, 17);
-            this.check_Deshabilitado.TabIndex = 8;
-            this.check_Deshabilitado.Text = "Deshabilitado";
-            this.check_Deshabilitado.UseVisualStyleBackColor = true;
-            this.check_Deshabilitado.CheckedChanged += new System.EventHandler(this.check_Deshabilitado_CheckedChanged);
-            // 
-            // check_Pendiente
-            // 
-            this.check_Pendiente.AutoSize = true;
-            this.check_Pendiente.Location = new System.Drawing.Point(492, 129);
-            this.check_Pendiente.Name = "check_Pendiente";
-            this.check_Pendiente.Size = new System.Drawing.Size(74, 17);
-            this.check_Pendiente.TabIndex = 9;
-            this.check_Pendiente.Text = "Pendiente";
-            this.check_Pendiente.UseVisualStyleBackColor = true;
-            // 
-            // check_Cerrada
-            // 
-            this.check_Cerrada.AutoSize = true;
-            this.check_Cerrada.Location = new System.Drawing.Point(492, 167);
-            this.check_Cerrada.Name = "check_Cerrada";
-            this.check_Cerrada.Size = new System.Drawing.Size(63, 17);
-            this.check_Cerrada.TabIndex = 10;
-            this.check_Cerrada.Text = "Cerrada";
-            this.check_Cerrada.UseVisualStyleBackColor = true;
-            // 
             // boton_Reestablecer
             // 
             this.boton_Reestablecer.Location = new System.Drawing.Point(318, 239);
@@ -175,7 +121,7 @@
             // 
             // boton_Limpiar
             // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(461, 239);
+            this.boton_Limpiar.Location = new System.Drawing.Point(451, 145);
             this.boton_Limpiar.Name = "boton_Limpiar";
             this.boton_Limpiar.Size = new System.Drawing.Size(128, 23);
             this.boton_Limpiar.TabIndex = 223282;
@@ -356,11 +302,35 @@
             this.pais_asignado_combo.TabIndex = 223294;
             this.pais_asignado_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // combo_pais_origen
+            // 
+            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_pais_origen.FormattingEnabled = true;
+            this.combo_pais_origen.Location = new System.Drawing.Point(175, 240);
+            this.combo_pais_origen.Name = "combo_pais_origen";
+            this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
+            this.combo_pais_origen.TabIndex = 0;
+            // 
+            // combo_estado
+            // 
+            this.combo_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_estado.FormattingEnabled = true;
+            this.combo_estado.Items.AddRange(new object[] {
+            "Habilitado",
+            "Deshabilitado",
+            "Cerrado",
+            "Pendiente"});
+            this.combo_estado.Location = new System.Drawing.Point(521, 54);
+            this.combo_estado.Name = "combo_estado";
+            this.combo_estado.Size = new System.Drawing.Size(121, 21);
+            this.combo_estado.TabIndex = 223295;
+            // 
             // BusquedaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 500);
+            this.Controls.Add(this.combo_estado);
             this.Controls.Add(this.pais_asignado_combo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.combo_pais_origen2);
@@ -374,10 +344,6 @@
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Limpiar);
             this.Controls.Add(this.boton_Buscar);
-            this.Controls.Add(this.check_Cerrada);
-            this.Controls.Add(this.check_Pendiente);
-            this.Controls.Add(this.check_Deshabilitado);
-            this.Controls.Add(this.check_Habilitado);
             this.Controls.Add(this.combo_Tipo_Cuenta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -395,16 +361,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox combo_pais_origen;
         private System.Windows.Forms.ComboBox combo_Nro_Cuenta;
         private System.Windows.Forms.ComboBox combo_tipo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label combo_Tipo_Cuenta;
-        private System.Windows.Forms.CheckBox check_Habilitado;
-        private System.Windows.Forms.CheckBox check_Deshabilitado;
-        private System.Windows.Forms.CheckBox check_Pendiente;
-        private System.Windows.Forms.CheckBox check_Cerrada;
         private System.Windows.Forms.Button boton_Reestablecer;
         private System.Windows.Forms.Button boton_Limpiar;
         private System.Windows.Forms.Button boton_Buscar;
@@ -429,5 +390,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox pais_asignado_combo;
+        private System.Windows.Forms.ComboBox combo_pais_origen;
+        private System.Windows.Forms.ComboBox combo_estado;
     }
 }
