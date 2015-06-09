@@ -206,11 +206,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                     parametro = new SqlParameter("@Id_Cuenta", id_Cuenta);
                     parametros.Add(parametro);
                     this.GD1C2015.ejecutarProcedimiento(ConstantesBD.proc_eliminar_Cuenta, parametros).Close();
-                    MessageBox.Show("El Rol se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK);
+                    MessageBox.Show("La Cuenta se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK);
                 }
                 catch
                 {
-                    MessageBox.Show("No ha sido posible eliminar el Rol", "Atención!", MessageBoxButtons.OK);
+                    MessageBox.Show("No ha sido posible eliminar la Cuenta", "Atención!", MessageBoxButtons.OK);
                 }
             }
 
