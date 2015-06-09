@@ -7,6 +7,7 @@ using PagoElectronico.Conexion;
 using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
+using System.Collections;
 
 namespace PagoElectronico.BaseDeDatos.Conexion
 {
@@ -66,5 +67,27 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             lector.Close();
             throw new ValidacionErroneaUsuarioException(mensajeError);
         }
+
+
+        public SqlDataReader buscarClientes(List<String> filtros)
+        {
+
+            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.cuenta_Tarjeta, CU.Cuenta_Saldo from Cuentas CU, Paises PO ,  Tipo_De_Cuentas TC,Tipo_De_Moneda TM, Paises PA";
+          
+            IEnumerator enumerador = filtros.GetEnumerator();
+           // sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado =PA.Pais_Id";
+            if (enumerador.MoveNext())
+            {
+                sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
+
+                while (enumerador.MoveNext())
+                {
+                    sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
+                }
+
+            }
+            return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
+        }
+
     }
 }
