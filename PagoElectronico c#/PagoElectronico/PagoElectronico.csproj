@@ -69,11 +69,35 @@
     <Compile Include="ABM Cliente\AltaCliente.Designer.cs">
       <DependentUpon>AltaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM Cliente\Asociar Tarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\Asociar Tarjeta.Designer.cs">
+      <DependentUpon>Asociar Tarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Cliente\BusquedaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ABM Cliente\BusquedaClientes.Designer.cs">
       <DependentUpon>BusquedaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Cliente\Desasociar Tarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\Desasociar Tarjeta.Designer.cs">
+      <DependentUpon>Desasociar Tarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Cliente\EditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\EditarCliente.Designer.cs">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Cliente\Modificar Tarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Cliente\Modificar Tarjeta.Designer.cs">
+      <DependentUpon>Modificar Tarjeta.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Cuenta\Alta Cuentas.cs">
       <SubType>Form</SubType>
@@ -163,8 +187,20 @@
     <EmbeddedResource Include="ABM Cliente\AltaCliente.resx">
       <DependentUpon>AltaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\Asociar Tarjeta.resx">
+      <DependentUpon>Asociar Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABM Cliente\BusquedaClientes.resx">
       <DependentUpon>BusquedaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\Desasociar Tarjeta.resx">
+      <DependentUpon>Desasociar Tarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\EditarCliente.resx">
+      <DependentUpon>EditarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Cliente\Modificar Tarjeta.resx">
+      <DependentUpon>Modificar Tarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cuenta\Alta Cuentas.resx">
       <DependentUpon>Alta Cuentas.cs</DependentUpon>
