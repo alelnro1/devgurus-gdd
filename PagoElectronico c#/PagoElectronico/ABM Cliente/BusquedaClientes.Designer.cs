@@ -43,20 +43,23 @@
             this.boton_Editar = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
-            this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nro_identificacion_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pais_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilio_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.calle_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.piso_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depto_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidad_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nacionalidad_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha_nac_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boton_Limpiar = new System.Windows.Forms.Button();
             this.boton_Buscar = new System.Windows.Forms.Button();
+            this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_doc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nro_identificacion_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pais_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidad_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.calle_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilio_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.piso_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depto_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nacionalidad_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha_nac_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,82 +202,25 @@
             this.lista_clientes.AllowUserToDeleteRows = false;
             this.lista_clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lista_clientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id_cliente,
             this.nombre_cliente,
             this.apellido_cliente,
+            this.tipo_doc,
             this.nro_identificacion_cliente,
-            this.mail,
             this.pais_cliente,
-            this.domicilio_cliente,
+            this.localidad_cliente,
             this.calle_cliente,
+            this.domicilio_num,
             this.piso_cliente,
             this.depto_cliente,
-            this.localidad_cliente,
             this.nacionalidad_cliente,
-            this.fecha_nac_cliente});
-            this.lista_clientes.Location = new System.Drawing.Point(36, 308);
+            this.fecha_nac_cliente,
+            this.mail,
+            this.cliente_usuario});
+            this.lista_clientes.Location = new System.Drawing.Point(12, 318);
             this.lista_clientes.Name = "lista_clientes";
-            this.lista_clientes.Size = new System.Drawing.Size(1245, 189);
+            this.lista_clientes.Size = new System.Drawing.Size(1490, 189);
             this.lista_clientes.TabIndex = 223284;
-            // 
-            // nombre_cliente
-            // 
-            this.nombre_cliente.HeaderText = "Nombre";
-            this.nombre_cliente.Name = "nombre_cliente";
-            // 
-            // apellido_cliente
-            // 
-            this.apellido_cliente.HeaderText = "Apellido";
-            this.apellido_cliente.Name = "apellido_cliente";
-            // 
-            // nro_identificacion_cliente
-            // 
-            this.nro_identificacion_cliente.HeaderText = "Nro Identificacion";
-            this.nro_identificacion_cliente.Name = "nro_identificacion_cliente";
-            // 
-            // mail
-            // 
-            this.mail.HeaderText = "Email";
-            this.mail.Name = "mail";
-            // 
-            // pais_cliente
-            // 
-            this.pais_cliente.HeaderText = "Pais";
-            this.pais_cliente.Name = "pais_cliente";
-            // 
-            // domicilio_cliente
-            // 
-            this.domicilio_cliente.HeaderText = "Domicilio";
-            this.domicilio_cliente.Name = "domicilio_cliente";
-            // 
-            // calle_cliente
-            // 
-            this.calle_cliente.HeaderText = "Calle";
-            this.calle_cliente.Name = "calle_cliente";
-            // 
-            // piso_cliente
-            // 
-            this.piso_cliente.HeaderText = "Piso";
-            this.piso_cliente.Name = "piso_cliente";
-            // 
-            // depto_cliente
-            // 
-            this.depto_cliente.HeaderText = "Depto";
-            this.depto_cliente.Name = "depto_cliente";
-            // 
-            // localidad_cliente
-            // 
-            this.localidad_cliente.HeaderText = "Localidad";
-            this.localidad_cliente.Name = "localidad_cliente";
-            // 
-            // nacionalidad_cliente
-            // 
-            this.nacionalidad_cliente.HeaderText = "Nacionalidad";
-            this.nacionalidad_cliente.Name = "nacionalidad_cliente";
-            // 
-            // fecha_nac_cliente
-            // 
-            this.fecha_nac_cliente.HeaderText = "Fecha Nacimiento";
-            this.fecha_nac_cliente.Name = "fecha_nac_cliente";
             // 
             // boton_Limpiar
             // 
@@ -296,11 +242,86 @@
             this.boton_Buscar.UseVisualStyleBackColor = true;
             this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
             // 
+            // id_cliente
+            // 
+            this.id_cliente.HeaderText = "Cliente Id";
+            this.id_cliente.Name = "id_cliente";
+            // 
+            // nombre_cliente
+            // 
+            this.nombre_cliente.HeaderText = "Nombre";
+            this.nombre_cliente.Name = "nombre_cliente";
+            // 
+            // apellido_cliente
+            // 
+            this.apellido_cliente.HeaderText = "Apellido";
+            this.apellido_cliente.Name = "apellido_cliente";
+            // 
+            // tipo_doc
+            // 
+            this.tipo_doc.HeaderText = "Tipo Documento";
+            this.tipo_doc.Name = "tipo_doc";
+            // 
+            // nro_identificacion_cliente
+            // 
+            this.nro_identificacion_cliente.HeaderText = "Nro Identificacion";
+            this.nro_identificacion_cliente.Name = "nro_identificacion_cliente";
+            // 
+            // pais_cliente
+            // 
+            this.pais_cliente.HeaderText = "Pais";
+            this.pais_cliente.Name = "pais_cliente";
+            // 
+            // localidad_cliente
+            // 
+            this.localidad_cliente.HeaderText = "Localidad";
+            this.localidad_cliente.Name = "localidad_cliente";
+            // 
+            // calle_cliente
+            // 
+            this.calle_cliente.HeaderText = "Calle";
+            this.calle_cliente.Name = "calle_cliente";
+            // 
+            // domicilio_num
+            // 
+            this.domicilio_num.HeaderText = "Nro Domicilio";
+            this.domicilio_num.Name = "domicilio_num";
+            // 
+            // piso_cliente
+            // 
+            this.piso_cliente.HeaderText = "Piso";
+            this.piso_cliente.Name = "piso_cliente";
+            // 
+            // depto_cliente
+            // 
+            this.depto_cliente.HeaderText = "Depto";
+            this.depto_cliente.Name = "depto_cliente";
+            // 
+            // nacionalidad_cliente
+            // 
+            this.nacionalidad_cliente.HeaderText = "Nacionalidad";
+            this.nacionalidad_cliente.Name = "nacionalidad_cliente";
+            // 
+            // fecha_nac_cliente
+            // 
+            this.fecha_nac_cliente.HeaderText = "Fecha Nacimiento";
+            this.fecha_nac_cliente.Name = "fecha_nac_cliente";
+            // 
+            // mail
+            // 
+            this.mail.HeaderText = "Email";
+            this.mail.Name = "mail";
+            // 
+            // cliente_usuario
+            // 
+            this.cliente_usuario.HeaderText = "Usuario";
+            this.cliente_usuario.Name = "cliente_usuario";
+            // 
             // BusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1309, 538);
+            this.ClientSize = new System.Drawing.Size(1506, 535);
             this.Controls.Add(this.boton_Eliminar);
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Editar);
@@ -320,6 +341,7 @@
             this.Controls.Add(this.combo_nombre);
             this.Name = "BusquedaClientes";
             this.Text = "BusquedaClientes";
+            this.Load += new System.EventHandler(this.BusquedaClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -345,17 +367,20 @@
         private System.Windows.Forms.DataGridView lista_clientes;
         private System.Windows.Forms.Button boton_Limpiar;
         private System.Windows.Forms.Button boton_Buscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_doc;
         private System.Windows.Forms.DataGridViewTextBoxColumn nro_identificacion_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn pais_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domicilio_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidad_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn calle_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domicilio_num;
         private System.Windows.Forms.DataGridViewTextBoxColumn piso_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn depto_cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidad_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nacionalidad_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_nac_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente_usuario;
     }
 }

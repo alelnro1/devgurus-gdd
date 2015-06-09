@@ -72,10 +72,14 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public SqlDataReader buscarClientes(List<String> filtros)
         {
 
-            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.cuenta_Tarjeta, CU.Cuenta_Saldo from Cuentas CU, Paises PO ,  Tipo_De_Cuentas TC,Tipo_De_Moneda TM, Paises PA";
+            String sentenciaSQL = "select CLI.Cliente_Id, CLI.Cliente_Nombre, CLI.Cliente_Apellido,"+
+                                  "TD.Tipo_Doc_Desc,CLI.Cliente_Nro_Doc, P.Pais_Nombre,CLI.Cliente_Dom_Calle,CLI.Cliente_Dom_Nro," +
+	                              "CLI.Cliente_Dom_Piso, CLI.Cliente_Dom_Depto, Cliente_Fecha_Nac,CLI.Cliente_Mail,"+
+                                  "CLI.Cliente_User, CLI.Cliente_Nacionalidad, CLI.Cliente_Localidad" +
+	                              " FROM Clientes CLI, Tipo_De_Doc TD, Paises P" ;
           
             IEnumerator enumerador = filtros.GetEnumerator();
-           // sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado =PA.Pais_Id";
+            sentenciaSQL = sentenciaSQL + " WHERE CLI.Cliente_Tipo_Doc = TD.Tipo_Doc_Id and CLI.Cliente_Pais = P.Pais_Id  ";
             if (enumerador.MoveNext())
             {
                 sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;
@@ -89,5 +93,30 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
         }
 
+        public void eliminarCliente(String id_cliente)
+        {
+            if (id_cliente == "1")
+            { MessageBox.Show("No se puede eliminar este cliente - Administrador", "Atención!", MessageBoxButtons.OK); }
+            else
+            {
+                try
+                {
+                    List<SqlParameter> parametros = new List<SqlParameter>();
+                    SqlParameter parametro;
+
+                    parametro = new SqlParameter("@Id_Cliente", id_cliente);
+                    parametros.Add(parametro);
+                    this.GD1C2015.ejecutarProcedimiento(ConstantesBD.proc_eliminar_Cliente, parametros).Close();
+                    MessageBox.Show("El cliente se ha eliminado correctamente", "Atención!", MessageBoxButtons.OK);
+                }
+                catch
+                {
+                    MessageBox.Show("No ha sido posible eliminar el cliente", "Atención!", MessageBoxButtons.OK);
+                }
+            }
+
+        }
+
     }
 }
+

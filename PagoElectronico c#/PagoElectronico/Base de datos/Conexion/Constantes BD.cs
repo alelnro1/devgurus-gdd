@@ -19,9 +19,12 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String t_paises = "dbo.paises";
         public static String t_tipos_cuentas = "dbo.Tipo_De_Cuentas";
         public static String t_tipo_de_moneda = "dbo.Tipo_De_Moneda";
+        public static String t_tipo_doc = "dbo.Tipo_De_Doc";
+
 
         public static String proc_eliminar_Rol = "dbo.eliminar_Rol";
         public static String proc_eliminar_Cuenta = "dbo.eliminar_Cuenta";
+        public static String proc_eliminar_Cliente = "dbo.eliminar_Cliente";
 
         // Recibe una fecha en formato DD/MM/AAAA y lo convierte a formato de BD: AAAAMMDD 00:00:00.00
         public static String cambiarFormatoFecha(String fecha)

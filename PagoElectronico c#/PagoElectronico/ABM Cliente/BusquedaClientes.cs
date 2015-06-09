@@ -39,29 +39,30 @@ namespace PagoElectronico.ABM_Cliente
 
             if (combo_nombre.Text != "") { filtros.Add("Cliente_Nombre like  '%" + combo_nombre.Text + "%'"); }
             if (combo_apellido.Text != "") { filtros.Add("Cliente_Apellido like  '%" + combo_apellido.Text + "%'"); }
-            if (combo_tipo_doc.Text != "") { filtros.Add("Cliente_Nombre ='" + combo_tipo_doc.Text + "'"); }
-            if (combo_nro_doc.Text != "") { filtros.Add("Cliente_Nombre ='" + combo_nro_doc.Text + "'"); }
+            if (combo_tipo_doc.Text != "") { filtros.Add("TD.Tipo_Doc_Desc ='" + combo_tipo_doc.Text + "'"); }
+            if (combo_nro_doc.Text != "") { filtros.Add("Cliente_Nro_Doc ='" + combo_nro_doc.Text + "'"); }
             if (combo_email.Text != "") { filtros.Add("Cliente_Mail ='" + combo_email.Text + "'"); }
 
             SqlDataReader lector = clienteDAO.buscarClientes(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
-            Object[] columnas = new Object[14];
+            Object[] columnas = new Object[15];
             while (lector.Read()) {
 
                 columnas[0] = lector["Cliente_Id"];
                 columnas[1] = lector["Cliente_Nombre"];
                 columnas[2] = lector["Cliente_Apellido"];
-                columnas[3] = lector["Cliente_Estado"];
-                columnas[4] = " ";    //columnas[4] = lector["Cliente_Tipo_Doc"]; HAY QUE TRAERLO DE LA TABLA DE TIPOS DE DOC
-                columnas[5] = lector["Cliente_Nro_Doc"];
-                columnas[6]= " ";  //  columnas[6] = lector["Cliente_Pais"];      HAY QUE TRAERLO DE LA TABLA DE PAISES
+                columnas[3] = lector["Tipo_Doc_Desc"]; 
+                columnas[4] = lector["Cliente_Nro_Doc"];
+                columnas[5] = lector["Pais_Nombre"];
+                columnas[6] = lector["Cliente_Localidad"]; 
                 columnas[7] = lector["Cliente_Dom_Calle"];
                 columnas[8] = lector["Cliente_Dom_Nro"];
                 columnas[9] = lector["Cliente_Dom_Piso"];
                 columnas[10] = lector["Cliente_Dom_Depto"];
-                columnas[11] = lector["Cliente_Fecha_Nac"];
-                columnas[12] = lector["Cliente_Mail"];
-                columnas[13] = lector["Cliente_User"];
+                columnas[11] = lector["Cliente_Nacionalidad"];
+                columnas[12] = lector["Cliente_Fecha_Nac"];
+                columnas[13] = lector["Cliente_Mail"];
+                columnas[14] = lector["Cliente_User"];
 
                 filas.Add(new DataGridViewRow());
                 filas[filas.Count - 1].CreateCells(lista_clientes, columnas);
@@ -100,13 +101,18 @@ namespace PagoElectronico.ABM_Cliente
                 id_Cliente = (fila.Cells[0].Value.ToString());
                 if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                 //   clienteDAO.eliminarLaCuenta(id_Cliente);
+                 clienteDAO.eliminarCliente(id_Cliente);
                 }
             }
             catch
             {
                 MessageBox.Show("Debe seleccionar una Cuenta primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void BusquedaClientes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
