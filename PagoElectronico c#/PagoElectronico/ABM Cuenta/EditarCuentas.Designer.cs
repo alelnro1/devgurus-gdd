@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.combo_tipo_cuenta = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.boton_Crear = new System.Windows.Forms.Button();
             this.boton_Cancelar = new System.Windows.Forms.Button();
@@ -44,13 +44,15 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Cambiar Categoria Cuenta";
             // 
-            // comboBox1
+            // combo_tipo_cuenta
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(162, 35);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 31;
+            this.combo_tipo_cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_tipo_cuenta.FormattingEnabled = true;
+            this.combo_tipo_cuenta.Location = new System.Drawing.Point(162, 35);
+            this.combo_tipo_cuenta.Name = "combo_tipo_cuenta";
+            this.combo_tipo_cuenta.Size = new System.Drawing.Size(121, 21);
+            this.combo_tipo_cuenta.TabIndex = 31;
+            this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -89,7 +91,7 @@
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.combo_tipo_cuenta);
             this.Controls.Add(this.label4);
             this.Name = "EditarCuentas";
             this.Text = "EditarCuentas";
@@ -101,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox combo_tipo_cuenta;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button boton_Crear;
         private System.Windows.Forms.Button boton_Cancelar;

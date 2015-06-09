@@ -76,9 +76,10 @@
             // 
             // combo_Nro_Cuenta
             // 
-            this.combo_Nro_Cuenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_Nro_Cuenta.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combo_Nro_Cuenta.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_Nro_Cuenta.FormattingEnabled = true;
-            this.combo_Nro_Cuenta.Location = new System.Drawing.Point(175, 37);
+            this.combo_Nro_Cuenta.Location = new System.Drawing.Point(176, 30);
             this.combo_Nro_Cuenta.Name = "combo_Nro_Cuenta";
             this.combo_Nro_Cuenta.Size = new System.Drawing.Size(121, 21);
             this.combo_Nro_Cuenta.TabIndex = 1;
@@ -88,7 +89,7 @@
             // 
             this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FormattingEnabled = true;
-            this.combo_tipo.Location = new System.Drawing.Point(175, 132);
+            this.combo_tipo.Location = new System.Drawing.Point(175, 137);
             this.combo_tipo.Name = "combo_tipo";
             this.combo_tipo.Size = new System.Drawing.Size(121, 21);
             this.combo_tipo.TabIndex = 2;
@@ -96,7 +97,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 37);
+            this.label1.Location = new System.Drawing.Point(74, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 3;
@@ -105,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 83);
+            this.label2.Location = new System.Drawing.Point(74, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -114,7 +115,7 @@
             // combo_Tipo_Cuenta
             // 
             this.combo_Tipo_Cuenta.AutoSize = true;
-            this.combo_Tipo_Cuenta.Location = new System.Drawing.Point(73, 140);
+            this.combo_Tipo_Cuenta.Location = new System.Drawing.Point(73, 145);
             this.combo_Tipo_Cuenta.Name = "combo_Tipo_Cuenta";
             this.combo_Tipo_Cuenta.Size = new System.Drawing.Size(65, 13);
             this.combo_Tipo_Cuenta.TabIndex = 5;
@@ -123,7 +124,7 @@
             // check_Habilitado
             // 
             this.check_Habilitado.AutoSize = true;
-            this.check_Habilitado.Location = new System.Drawing.Point(548, 56);
+            this.check_Habilitado.Location = new System.Drawing.Point(492, 53);
             this.check_Habilitado.Name = "check_Habilitado";
             this.check_Habilitado.Size = new System.Drawing.Size(73, 17);
             this.check_Habilitado.TabIndex = 7;
@@ -134,7 +135,7 @@
             // check_Deshabilitado
             // 
             this.check_Deshabilitado.AutoSize = true;
-            this.check_Deshabilitado.Location = new System.Drawing.Point(548, 94);
+            this.check_Deshabilitado.Location = new System.Drawing.Point(492, 91);
             this.check_Deshabilitado.Name = "check_Deshabilitado";
             this.check_Deshabilitado.Size = new System.Drawing.Size(90, 17);
             this.check_Deshabilitado.TabIndex = 8;
@@ -145,7 +146,7 @@
             // check_Pendiente
             // 
             this.check_Pendiente.AutoSize = true;
-            this.check_Pendiente.Location = new System.Drawing.Point(548, 132);
+            this.check_Pendiente.Location = new System.Drawing.Point(492, 129);
             this.check_Pendiente.Name = "check_Pendiente";
             this.check_Pendiente.Size = new System.Drawing.Size(74, 17);
             this.check_Pendiente.TabIndex = 9;
@@ -155,7 +156,7 @@
             // check_Cerrada
             // 
             this.check_Cerrada.AutoSize = true;
-            this.check_Cerrada.Location = new System.Drawing.Point(548, 170);
+            this.check_Cerrada.Location = new System.Drawing.Point(492, 167);
             this.check_Cerrada.Name = "check_Cerrada";
             this.check_Cerrada.Size = new System.Drawing.Size(63, 17);
             this.check_Cerrada.TabIndex = 10;
@@ -224,7 +225,7 @@
             // label_estado
             // 
             this.label_estado.AutoSize = true;
-            this.label_estado.Location = new System.Drawing.Point(467, 57);
+            this.label_estado.Location = new System.Drawing.Point(411, 54);
             this.label_estado.Name = "label_estado";
             this.label_estado.Size = new System.Drawing.Size(40, 13);
             this.label_estado.TabIndex = 223287;
@@ -233,7 +234,7 @@
             // combo_Tipo_Moneda
             // 
             this.combo_Tipo_Moneda.AutoSize = true;
-            this.combo_Tipo_Moneda.Location = new System.Drawing.Point(76, 182);
+            this.combo_Tipo_Moneda.Location = new System.Drawing.Point(76, 187);
             this.combo_Tipo_Moneda.Name = "combo_Tipo_Moneda";
             this.combo_Tipo_Moneda.Size = new System.Drawing.Size(46, 13);
             this.combo_Tipo_Moneda.TabIndex = 223289;
@@ -243,7 +244,7 @@
             // 
             this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
-            this.combo_moneda.Location = new System.Drawing.Point(175, 182);
+            this.combo_moneda.Location = new System.Drawing.Point(175, 187);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(121, 21);
             this.combo_moneda.TabIndex = 223290;
@@ -330,15 +331,16 @@
             // 
             this.combo_pais_origen2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pais_origen2.FormattingEnabled = true;
-            this.combo_pais_origen2.Location = new System.Drawing.Point(175, 83);
+            this.combo_pais_origen2.Location = new System.Drawing.Point(176, 64);
             this.combo_pais_origen2.Name = "combo_pais_origen2";
             this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
             this.combo_pais_origen2.TabIndex = 223292;
+            this.combo_pais_origen2.SelectedIndexChanged += new System.EventHandler(this.combo_pais_origen2_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 110);
+            this.label3.Location = new System.Drawing.Point(73, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 223293;
@@ -346,8 +348,9 @@
             // 
             // pais_asignado_combo
             // 
+            this.pais_asignado_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.pais_asignado_combo.FormattingEnabled = true;
-            this.pais_asignado_combo.Location = new System.Drawing.Point(175, 111);
+            this.pais_asignado_combo.Location = new System.Drawing.Point(175, 99);
             this.pais_asignado_combo.Name = "pais_asignado_combo";
             this.pais_asignado_combo.Size = new System.Drawing.Size(121, 21);
             this.pais_asignado_combo.TabIndex = 223294;
@@ -382,7 +385,7 @@
             this.Controls.Add(this.combo_Nro_Cuenta);
             this.Controls.Add(this.combo_pais_origen);
             this.Name = "BusquedaCuentas";
-            this.Text = "w";
+            this.Text = "Busqueda Cuentas";
             this.Load += new System.EventHandler(this.BusquedaCuentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

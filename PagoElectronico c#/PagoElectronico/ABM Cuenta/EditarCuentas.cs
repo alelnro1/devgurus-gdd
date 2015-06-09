@@ -26,13 +26,16 @@ namespace PagoElectronico.ABM_Cuenta
             InitializeComponent();
             cuenta_Bean = new Cuenta_Bean();
             cuenta_DAO = new CuentaDAO();
-            cargaLosDatosDeLaCuenta(id_Cuenta);
+            cuenta_Bean.set_nro_cuenta(id_Cuenta);
+
+            //cargaLosDatosDeLaCuenta(id_Cuenta);
             menuBusquedaCuentas = busqueda;
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_cuenta, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
         }
 
 
 
-        public void cargaLosDatosDeLaCuenta(String id_Cuenta)
+        /*public void cargaLosDatosDeLaCuenta(String id_Cuenta)
         {
             SqlDataReader lector = cuenta_DAO.dameLaCuenta(id_Cuenta);
             lector.Read();
@@ -41,8 +44,8 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_Bean.set_nro_cuenta(id_Cuenta);
            
             lector.Close();
-        }
-
+        }*/
+       
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -52,9 +55,18 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void boton_Crear_Click(object sender, EventArgs e)
         {
+            cuenta_Bean.set_tipo_cuenta(combo_tipo_cuenta.Text);
             this.Close();
             this.menuBusquedaCuentas.Enabled = true;
             this.menuBusquedaCuentas.BringToFront();
+                      
+            cuenta_DAO.modificarUnaCuenta(cuenta_Bean);
+        }
+
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

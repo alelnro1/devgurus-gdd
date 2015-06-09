@@ -30,7 +30,7 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(pais_asignado_combo, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
-            
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_Nro_Cuenta, "Cuenta_Nro", "Cuenta_Nro", ConstantesBD.t_cuentas);
         }
 
         private void combo_Nro_Cuenta_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,6 +65,8 @@ namespace PagoElectronico.ABM_Cuenta
 
              if (combo_tipo.Text != "")
             { filtros.Add("TC.Tipo_De_Cuentas_Nombre = '" + combo_tipo.Text + "'");  }
+             if (combo_Nro_Cuenta.Text != "")
+             { filtros.Add("CU.Cuenta_Nro = '" + combo_Nro_Cuenta.Text + "'"); }
             
             if (combo_pais_origen2.Text != "") { filtros.Add("PO.Pais_Nombre ='" + combo_pais_origen2.Text + "'"); }
             if (pais_asignado_combo.Text != "") { filtros.Add("PA.Pais_Nombre ='" + pais_asignado_combo.Text + "'"); }
@@ -192,8 +194,13 @@ namespace PagoElectronico.ABM_Cuenta
             }
         
         }
+
+        private void combo_pais_origen2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
         }
 
     }
-}
+
 

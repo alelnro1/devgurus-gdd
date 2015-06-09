@@ -182,6 +182,16 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return lector;
         }
 
+
+        public void modificarUnaCuenta(Cuenta_Bean una_cuenta)
+        {
+            String consulta = "exec actualizar_tipo_de_cuenta "+ una_cuenta.get_nro_cuenta().Trim() +" , "+ " '" + una_cuenta.get_tipo_cuenta().Trim()+ "' ";
+
+            this.GD1C2015.ejecutarSentenciaSinRetorno(consulta);
+
+        }
+        
+
         public void eliminarLaCuenta(String id_Cuenta)
         {
             if (id_Cuenta == "1")
