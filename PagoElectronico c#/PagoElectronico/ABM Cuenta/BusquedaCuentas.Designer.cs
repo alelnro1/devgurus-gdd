@@ -57,7 +57,6 @@
             this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
-            this.combo_pais_origen = new System.Windows.Forms.ComboBox();
             this.combo_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +66,7 @@
             this.combo_Nro_Cuenta.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.combo_Nro_Cuenta.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_Nro_Cuenta.FormattingEnabled = true;
-            this.combo_Nro_Cuenta.Location = new System.Drawing.Point(176, 30);
+            this.combo_Nro_Cuenta.Location = new System.Drawing.Point(177, 47);
             this.combo_Nro_Cuenta.Name = "combo_Nro_Cuenta";
             this.combo_Nro_Cuenta.Size = new System.Drawing.Size(121, 21);
             this.combo_Nro_Cuenta.TabIndex = 1;
@@ -77,7 +76,7 @@
             // 
             this.combo_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_tipo.FormattingEnabled = true;
-            this.combo_tipo.Location = new System.Drawing.Point(175, 137);
+            this.combo_tipo.Location = new System.Drawing.Point(176, 161);
             this.combo_tipo.Name = "combo_tipo";
             this.combo_tipo.Size = new System.Drawing.Size(121, 21);
             this.combo_tipo.TabIndex = 2;
@@ -85,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 30);
+            this.label1.Location = new System.Drawing.Point(75, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 3;
@@ -94,7 +93,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 64);
+            this.label2.Location = new System.Drawing.Point(369, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 4;
@@ -103,7 +102,7 @@
             // combo_Tipo_Cuenta
             // 
             this.combo_Tipo_Cuenta.AutoSize = true;
-            this.combo_Tipo_Cuenta.Location = new System.Drawing.Point(73, 145);
+            this.combo_Tipo_Cuenta.Location = new System.Drawing.Point(74, 169);
             this.combo_Tipo_Cuenta.Name = "combo_Tipo_Cuenta";
             this.combo_Tipo_Cuenta.Size = new System.Drawing.Size(65, 13);
             this.combo_Tipo_Cuenta.TabIndex = 5;
@@ -111,9 +110,9 @@
             // 
             // boton_Reestablecer
             // 
-            this.boton_Reestablecer.Location = new System.Drawing.Point(318, 239);
+            this.boton_Reestablecer.Location = new System.Drawing.Point(915, 43);
             this.boton_Reestablecer.Name = "boton_Reestablecer";
-            this.boton_Reestablecer.Size = new System.Drawing.Size(128, 23);
+            this.boton_Reestablecer.Size = new System.Drawing.Size(160, 27);
             this.boton_Reestablecer.TabIndex = 223283;
             this.boton_Reestablecer.Text = "Reestablecer";
             this.boton_Reestablecer.UseVisualStyleBackColor = true;
@@ -121,9 +120,9 @@
             // 
             // boton_Limpiar
             // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(451, 145);
+            this.boton_Limpiar.Location = new System.Drawing.Point(915, 108);
             this.boton_Limpiar.Name = "boton_Limpiar";
-            this.boton_Limpiar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Limpiar.Size = new System.Drawing.Size(160, 27);
             this.boton_Limpiar.TabIndex = 223282;
             this.boton_Limpiar.Text = "Limpiar busqueda";
             this.boton_Limpiar.UseVisualStyleBackColor = true;
@@ -131,9 +130,9 @@
             // 
             // boton_Buscar
             // 
-            this.boton_Buscar.Location = new System.Drawing.Point(175, 239);
+            this.boton_Buscar.Location = new System.Drawing.Point(718, 33);
             this.boton_Buscar.Name = "boton_Buscar";
-            this.boton_Buscar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Buscar.Size = new System.Drawing.Size(160, 36);
             this.boton_Buscar.TabIndex = 223281;
             this.boton_Buscar.Text = "Buscar";
             this.boton_Buscar.UseVisualStyleBackColor = true;
@@ -141,9 +140,9 @@
             // 
             // boton_Eliminar
             // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(327, 460);
+            this.boton_Eliminar.Location = new System.Drawing.Point(719, 96);
             this.boton_Eliminar.Name = "boton_Eliminar";
-            this.boton_Eliminar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Eliminar.Size = new System.Drawing.Size(160, 40);
             this.boton_Eliminar.TabIndex = 223286;
             this.boton_Eliminar.Text = "Eliminar";
             this.boton_Eliminar.UseVisualStyleBackColor = true;
@@ -151,9 +150,9 @@
             // 
             // boton_Editar
             // 
-            this.boton_Editar.Location = new System.Drawing.Point(470, 460);
+            this.boton_Editar.Location = new System.Drawing.Point(719, 161);
             this.boton_Editar.Name = "boton_Editar";
-            this.boton_Editar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Editar.Size = new System.Drawing.Size(160, 40);
             this.boton_Editar.TabIndex = 223285;
             this.boton_Editar.Text = "Editar";
             this.boton_Editar.UseVisualStyleBackColor = true;
@@ -161,9 +160,9 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(184, 460);
+            this.boton_Volver.Location = new System.Drawing.Point(915, 174);
             this.boton_Volver.Name = "boton_Volver";
-            this.boton_Volver.Size = new System.Drawing.Size(128, 23);
+            this.boton_Volver.Size = new System.Drawing.Size(160, 27);
             this.boton_Volver.TabIndex = 223284;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
@@ -171,7 +170,7 @@
             // label_estado
             // 
             this.label_estado.AutoSize = true;
-            this.label_estado.Location = new System.Drawing.Point(411, 54);
+            this.label_estado.Location = new System.Drawing.Point(99, 106);
             this.label_estado.Name = "label_estado";
             this.label_estado.Size = new System.Drawing.Size(40, 13);
             this.label_estado.TabIndex = 223287;
@@ -180,7 +179,7 @@
             // combo_Tipo_Moneda
             // 
             this.combo_Tipo_Moneda.AutoSize = true;
-            this.combo_Tipo_Moneda.Location = new System.Drawing.Point(76, 187);
+            this.combo_Tipo_Moneda.Location = new System.Drawing.Point(377, 50);
             this.combo_Tipo_Moneda.Name = "combo_Tipo_Moneda";
             this.combo_Tipo_Moneda.Size = new System.Drawing.Size(46, 13);
             this.combo_Tipo_Moneda.TabIndex = 223289;
@@ -190,7 +189,7 @@
             // 
             this.combo_moneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_moneda.FormattingEnabled = true;
-            this.combo_moneda.Location = new System.Drawing.Point(175, 187);
+            this.combo_moneda.Location = new System.Drawing.Point(461, 42);
             this.combo_moneda.Name = "combo_moneda";
             this.combo_moneda.Size = new System.Drawing.Size(121, 21);
             this.combo_moneda.TabIndex = 223290;
@@ -212,9 +211,9 @@
             this.IdCliente,
             this.Tarjeta,
             this.Saldo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 304);
+            this.dataGridView1.Location = new System.Drawing.Point(31, 251);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(786, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1137, 236);
             this.dataGridView1.TabIndex = 223291;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -277,7 +276,7 @@
             // 
             this.combo_pais_origen2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_pais_origen2.FormattingEnabled = true;
-            this.combo_pais_origen2.Location = new System.Drawing.Point(176, 64);
+            this.combo_pais_origen2.Location = new System.Drawing.Point(458, 103);
             this.combo_pais_origen2.Name = "combo_pais_origen2";
             this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
             this.combo_pais_origen2.TabIndex = 223292;
@@ -286,7 +285,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 98);
+            this.label3.Location = new System.Drawing.Point(356, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 223293;
@@ -296,20 +295,11 @@
             // 
             this.pais_asignado_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.pais_asignado_combo.FormattingEnabled = true;
-            this.pais_asignado_combo.Location = new System.Drawing.Point(175, 99);
+            this.pais_asignado_combo.Location = new System.Drawing.Point(458, 169);
             this.pais_asignado_combo.Name = "pais_asignado_combo";
             this.pais_asignado_combo.Size = new System.Drawing.Size(121, 21);
             this.pais_asignado_combo.TabIndex = 223294;
             this.pais_asignado_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // combo_pais_origen
-            // 
-            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_pais_origen.FormattingEnabled = true;
-            this.combo_pais_origen.Location = new System.Drawing.Point(175, 240);
-            this.combo_pais_origen.Name = "combo_pais_origen";
-            this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
-            this.combo_pais_origen.TabIndex = 0;
             // 
             // combo_estado
             // 
@@ -320,7 +310,7 @@
             "Deshabilitado",
             "Cerrado",
             "Pendiente"});
-            this.combo_estado.Location = new System.Drawing.Point(521, 54);
+            this.combo_estado.Location = new System.Drawing.Point(176, 103);
             this.combo_estado.Name = "combo_estado";
             this.combo_estado.Size = new System.Drawing.Size(121, 21);
             this.combo_estado.TabIndex = 223295;
@@ -329,7 +319,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 500);
+            this.ClientSize = new System.Drawing.Size(1235, 537);
             this.Controls.Add(this.combo_estado);
             this.Controls.Add(this.pais_asignado_combo);
             this.Controls.Add(this.label3);
@@ -349,7 +339,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.combo_tipo);
             this.Controls.Add(this.combo_Nro_Cuenta);
-            this.Controls.Add(this.combo_pais_origen);
             this.Name = "BusquedaCuentas";
             this.Text = "Busqueda Cuentas";
             this.Load += new System.EventHandler(this.BusquedaCuentas_Load);
@@ -390,7 +379,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox pais_asignado_combo;
-        private System.Windows.Forms.ComboBox combo_pais_origen;
         private System.Windows.Forms.ComboBox combo_estado;
     }
 }
