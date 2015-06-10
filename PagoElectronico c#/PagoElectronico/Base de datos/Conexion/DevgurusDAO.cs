@@ -41,14 +41,25 @@ namespace PagoElectronico.Conexion
                fecha_vencimiento = (DateTime) lector["Tarjeta_Fecha_Vencimiento"];
             }
 
+            lector.Close();
+
             if (fecha_vencimiento > DateTime.Now.Date)
             {
                 return true;
             }
 
-            lector.Close();
-
             return false;
+        }
+
+        public bool importeEsNumerico(String importe)
+        {
+            int n;
+            return int.TryParse(importe, out n);
+        }
+
+        public bool importeEsMayorANumero(int importe, int numero)
+        {
+            return (importe > numero);
         }
 
         public void lanzarMensaje(String mensaje, SqlDataReader lector)

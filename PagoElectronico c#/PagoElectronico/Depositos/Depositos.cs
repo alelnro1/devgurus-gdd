@@ -36,7 +36,7 @@ namespace PagoElectronico.Depositos
             {
                 int importe = int.Parse(importe_textbox.Text);
 
-                if (depositos_DAO.importeEsMayorAUno(importe))
+                if (depositos_DAO.importeEsMayorANumero(importe, 1))
                 {
                     if (depositos_DAO.tarjetaNoEstaVencida(tarjeta))
                     {

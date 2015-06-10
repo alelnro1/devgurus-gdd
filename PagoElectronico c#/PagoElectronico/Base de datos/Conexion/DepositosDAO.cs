@@ -18,36 +18,9 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.iniciar();
         }
 
-        public bool importeEsNumerico(String importe)
-        {
-            int n;
-            return int.TryParse(importe, out n);
-        }
-
-        public bool importeEsMayorAUno(int importe)
-        {
-            return (importe > 1);
-        }
-
         public bool tarjetaNoEstaVencida(string tarjeta)
         {
-            Nullable<DateTime> fecha_vencimiento = null;
-            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Nro = '" + tarjeta + "' ";
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
-
-            while (lector.Read())
-            {
-                fecha_vencimiento = (DateTime)lector["Tarjeta_Fecha_Vencimiento"];
-            }
-
-            lector.Close();
-
-            if (fecha_vencimiento > DateTime.Now.Date)
-            {
-                return true;
-            }
-
-            return false;
+            return this.tarjetaEstaVencida(tarjeta);
         }
 
         public bool cuentaEsTitularDeTarjeta(string cuenta, string tarjeta)
