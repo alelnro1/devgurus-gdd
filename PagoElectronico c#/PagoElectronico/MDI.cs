@@ -13,6 +13,7 @@ namespace PagoElectronico
     {
         ABM_Cuenta.AltaCuentas Form_AltaCuentas;
         ABM_Cuenta.BusquedaCuentas Form_BuscarCuentas;
+        Depositos.Depositos Form_Depositos;
         ABM_Cliente.BusquedaClientes Form_BuscarClientes;
         ABM_Cliente.AltaCliente Form_AltaCliente;
 
@@ -44,6 +45,11 @@ namespace PagoElectronico
         void Form_BuscarCuentas_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form_BuscarCuentas = null;
+        }
+
+        void Form_Depositos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form_Depositos = null;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +121,21 @@ namespace PagoElectronico
                 Form_BuscarCuentas.MdiParent = this;
                 Form_BuscarCuentas.FormClosed += new FormClosedEventHandler(Form_BuscarCuentas_FormClosed);
                 Form_BuscarCuentas.Show();
+            }
+            else
+            {
+                Form_BuscarCuentas.Activate();
+            }
+        }
+
+        private void depositosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Form_Depositos == null) // si el form esta cerrado
+            {
+                Form_Depositos = new Depositos.Depositos(); // inicializo el form
+                Form_Depositos.MdiParent = this;
+                Form_Depositos.FormClosed += new FormClosedEventHandler(Form_Depositos_FormClosed);
+                Form_Depositos.Show();
             }
             else
             {
