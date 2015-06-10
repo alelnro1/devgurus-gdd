@@ -89,6 +89,20 @@ namespace PagoElectronico.ABM_Cliente
 
         private void boton_Editar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DataGridViewRow fila = lista_clientes.SelectedRows[0];
+                String id_Cliente;
+
+                id_Cliente = (fila.Cells[0].Value.ToString());
+                EditarCliente editarCliente = new EditarCliente(id_Cliente, this);
+                editarCliente.Show();
+                this.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un Cliente primero ", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -99,14 +113,14 @@ namespace PagoElectronico.ABM_Cliente
                 DataGridViewRow fila = lista_clientes.SelectedRows[0];
                 String id_Cliente;
                 id_Cliente = (fila.Cells[0].Value.ToString());
-                if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                  clienteDAO.eliminarCliente(id_Cliente);
                 }
             }
             catch
             {
-                MessageBox.Show("Debe seleccionar una Cuenta primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
