@@ -9,4 +9,3 @@ AS
 	delete from dbo.Cuentas WHERE Cuenta_Nro = @Id_Cuenta	
 GO
 
-exec eliminar_Cuenta 1111111111111115
