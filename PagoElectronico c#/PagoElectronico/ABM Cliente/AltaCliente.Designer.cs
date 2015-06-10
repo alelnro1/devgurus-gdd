@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Generar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.usuario_textbox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tipo_doc_textbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.fecha_nac_textbox = new System.Windows.Forms.TextBox();
@@ -52,13 +55,48 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nombre_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // Generar
+            // 
+            this.Generar.Location = new System.Drawing.Point(206, 306);
+            this.Generar.Name = "Generar";
+            this.Generar.Size = new System.Drawing.Size(75, 23);
+            this.Generar.TabIndex = 29;
+            this.Generar.Text = "Generar";
+            this.Generar.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.usuario_textbox);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Location = new System.Drawing.Point(12, 226);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(463, 63);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Datos del Usuario";
+            // 
+            // usuario_textbox
+            // 
+            this.usuario_textbox.Location = new System.Drawing.Point(101, 30);
+            this.usuario_textbox.Name = "usuario_textbox";
+            this.usuario_textbox.Size = new System.Drawing.Size(100, 20);
+            this.usuario_textbox.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(57, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Usuario";
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Generar);
             this.groupBox1.Controls.Add(this.tipo_doc_textbox);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.fecha_nac_textbox);
@@ -83,20 +121,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(463, 241);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(463, 196);
+            this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
-            // 
-            // Generar
-            // 
-            this.Generar.Location = new System.Drawing.Point(361, 164);
-            this.Generar.Name = "Generar";
-            this.Generar.Size = new System.Drawing.Size(75, 23);
-            this.Generar.TabIndex = 26;
-            this.Generar.Text = "Generar";
-            this.Generar.UseVisualStyleBackColor = true;
-            this.Generar.Click += new System.EventHandler(this.Generar_Click);
             // 
             // tipo_doc_textbox
             // 
@@ -278,24 +306,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(12, 270);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(311, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Datos del Usuario";
-            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 399);
+            this.ClientSize = new System.Drawing.Size(490, 344);
+            this.Controls.Add(this.Generar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AltaCliente";
             this.Text = "AltaCliente";
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -304,31 +326,34 @@
 
         #endregion
 
+        private System.Windows.Forms.Button Generar;
+        protected internal System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox usuario_textbox;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox apellido_textbox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox nombre_textbox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox num_doc_textbox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox mail_textbox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox combo_pais;
+        private System.Windows.Forms.TextBox tipo_doc_textbox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox fecha_nac_textbox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox localidad_textbox;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox depto_textbox;
         private System.Windows.Forms.TextBox piso_textbox;
         private System.Windows.Forms.TextBox calle_textbox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox fecha_nac_textbox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox localidad_textbox;
-        private System.Windows.Forms.Label label9;
-        protected internal System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tipo_doc_textbox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button Generar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox combo_pais;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox mail_textbox;
+        private System.Windows.Forms.TextBox num_doc_textbox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox apellido_textbox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox nombre_textbox;
+        private System.Windows.Forms.Label label1;
+
 
     }
 }
