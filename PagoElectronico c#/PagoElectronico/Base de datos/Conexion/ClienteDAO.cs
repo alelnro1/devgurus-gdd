@@ -25,41 +25,107 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                                           + cliente.getCliente_Apell() + "' and [Cliente_Nro_Doc] = '"
                                           + cliente.getCliente_NroDoc() + "' and (convert(varchar(10),[Cliente_Fecha_Nac],103)) = '"
                                           + cliente.getCliente_FecNac() + "';");
-                if (lector.HasRows)
-                   {
-                       cliente.setCliente_Id(lector["Cliente_Id"].ToString());
-                       lector.Close(); 
-                       return true;
-                   }
-                   else
-                   {
-                       lector.Close(); 
-                       return false;
-                   }
-         }
+            if (lector.HasRows)
+            {
+                cliente.setCliente_Id(lector["Cliente_Id"].ToString());
+                lector.Close();
+                return true;
+            }
+            else
+            {
+                lector.Close();
+                return false;
+            }
+        }
 
-        // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
-        public bool docTipoEmailSinDuplicar(Cliente_Bean cliente){
-            String sql = "SELECT id FROM Clientes WHERE " +
-                            "Cliente_Nro_Doc = '" + cliente.getCliente_NroDoc() + "'" +
-                            "AND Cliente_Tipo_Doc  = '" + cliente.getCliente_TipoDoc() + "' " +
-                            "AND Cliente_Mail = '" + cliente.getCliente_Mail() + "' ";
+        public bool clienteAsociadoAUser(Cliente_Bean cliente)
+        {
+            bool resultado;
+            String sql = "SELECT Cliente_Id FROM Clientes WHERE Cliente_User = '" + cliente.getCliente_IdUser() + "' ";
+
             SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
-            return datos.HasRows;
+            resultado = datos.HasRows;
+
+            datos.Close();
+
+            return resultado;
+        }
+
+        // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
+        private bool docTipoEmailSinDuplicar(Cliente_Bean cliente)
+        {
+            bool resultado;
+            String sql = "SELECT Cliente_Id FROM Clientes WHERE " +
+                            "Cliente_Nro_Doc = '" + cliente.getCliente_NroDoc() + "' " +
+                            "AND Cliente_Tipo_Doc  = '" + cliente.getCliente_TipoDoc() + "' " +
+                            "AND Cliente_Mail = '" + cliente.getCliente_Mail() + "' ";
+
+            SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            resultado = datos.HasRows;
+
+            datos.Close();
+
+            return resultado;
+        }
+
+        public bool camposNumericos(Cliente_Bean cliente)
+        {
+            int n;
+            bool isNumeric_NroDoc = int.TryParse(cliente.getCliente_NroDoc(), out n);
+            bool isNumeric_TipoDoc = int.TryParse(cliente.getCliente_TipoDoc(), out n);
+
+            return isNumeric_NroDoc && isNumeric_TipoDoc;
+        }
+
+        public bool camposVacios(Cliente_Bean cliente)
+        {
+            return String.IsNullOrEmpty(cliente.getCliente_Apell()) || String.IsNullOrEmpty(cliente.getCliente_Calle()) ||
+                String.IsNullOrEmpty(cliente.getCliente_Dpto()) || String.IsNullOrEmpty(cliente.getCliente_FecNac()) ||
+                String.IsNullOrEmpty(cliente.getCliente_Mail()) || String.IsNullOrEmpty(cliente.getCliente_Name()) ||
+                String.IsNullOrEmpty(cliente.getCliente_NroDoc()) || String.IsNullOrEmpty(cliente.getCliente_Pais()) ||
+                String.IsNullOrEmpty(cliente.getCliente_Piso()) || String.IsNullOrEmpty(cliente.getCliente_TipoDoc());
+        }
+
+        public bool hayCamposDuplicados(Cliente_Bean cliente)
+        {
+            return docTipoEmailSinDuplicar(cliente);
         }
 
         public void asignaleElUsuario(Cliente_Bean cliente)
         {
- //     AQUI SE DEBE HACER UN UPDATE DEL CLIENTE QUE TOMA COMO PARAMETRO Y CARGARLE EL ID DE USUARIO
- //     BUSCAR POR NUMERO DE DOCUMENTO (INFALIBLE)
+            //     AQUI SE DEBE HACER UN UPDATE DEL CLIENTE QUE TOMA COMO PARAMETRO Y CARGARLE EL ID DE USUARIO
+            //     BUSCAR POR NUMERO DE DOCUMENTO (INFALIBLE)
+        }
+
+        public bool usuarioExiste(Cliente_Bean cliente, String usuario)
+        {
+            bool has_rows;
+            String sql = "SELECT Usuarios_Id FROM Usuarios WHERE Usuarios_Name = '" + usuario + "'";
+
+            SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            has_rows = datos.HasRows;
+
+            if (has_rows)
+            {
+                while (datos.Read())
+                {
+                    cliente.setCliente_IdUser(datos["Usuarios_Id"].ToString());
+                }
+            }
+
+            datos.Close();
+
+            return has_rows;
         }
 
         public void altaCliente(Cliente_Bean cliente)
         {
             //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
-            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "'," + cliente.getCliente_Calle() + "'" + cliente.getCliente_Dpto() + "," + cliente.getCliente_FecNac() + "," + cliente.getCliente_Mail() + "," + cliente.getCliente_Name() + "," + cliente.getCliente_NroDoc() + "," + cliente.getCliente_Pais() + "," + cliente.getCliente_Piso() + "," + cliente.getCliente_TipoDoc();
-            this.GD1C2015.ejecutarSentenciaSinRetorno("exec insertarNuevoCliente " + cliente);
+            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "','" + cliente.getCliente_Calle() + "','" + cliente.getCliente_Dpto() + "','" + cliente.getCliente_FecNac() + "','" + cliente.getCliente_Mail() + "','" + cliente.getCliente_Name() + "','" + cliente.getCliente_NroDoc() + "','" + cliente.getCliente_Pais() + "','" + cliente.getCliente_Piso() + "','" + cliente.getCliente_TipoDoc() + "','" + cliente.getCliente_IdUser() + "'";
+            this.GD1C2015.ejecutarSentenciaSinRetorno(proc);
         }
 
         protected void lanzarExcepcion(String mensajeError, SqlDataReader lector)

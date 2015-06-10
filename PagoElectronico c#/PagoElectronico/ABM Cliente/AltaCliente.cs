@@ -27,13 +27,10 @@ namespace PagoElectronico.ABM_Cliente
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
         }
 
-        private bool validar_campos_duplicados(Cliente_Bean cliente)
-        {
-            return cliente_DAO.docTipoEmailSinDuplicar(cliente);
-        }
-
         private void Generar_Click(object sender, EventArgs e)
         {
+            String usuario = usuario_textbox.Text;
+
             cliente.setCliente_Name(nombre_textbox.Text);
             cliente.setCliente_Apell(apellido_textbox.Text);
             cliente.setCliente_TipoDoc(tipo_doc_textbox.Text);
@@ -45,13 +42,28 @@ namespace PagoElectronico.ABM_Cliente
             cliente.setCliente_Piso(piso_textbox.Text);
             cliente.setCliente_Dpto(depto_textbox.Text);
 
-            if (!campos_vacios(cliente))
+            if (!cliente_DAO.camposVacios(cliente) && !String.IsNullOrEmpty(usuario))
             {
-                if (campos_numericos(cliente))
+                if (cliente_DAO.camposNumericos(cliente))
                 {
-                    if (validar_campos_duplicados(cliente))
+                    if (!cliente_DAO.hayCamposDuplicados(cliente))
                     {
-                        cliente_DAO.altaCliente(cliente);
+                        if (cliente_DAO.usuarioExiste(cliente, usuario))
+                        {
+                            if (!cliente_DAO.clienteAsociadoAUser(cliente))
+                            {
+                                cliente_DAO.altaCliente(cliente);
+                                MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK);
+                            } 
+                            else 
+                            {
+                                MessageBox.Show("Ya existe un cliente con ese usuario", "Atención", MessageBoxButtons.OK);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El usuario no existe", "Atención", MessageBoxButtons.OK);
+                        }
                     }
                     else
                     {
@@ -69,24 +81,5 @@ namespace PagoElectronico.ABM_Cliente
                 MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
         }
-
-        private bool campos_numericos(Cliente_Bean cliente)
-        {
-            int n;
-            bool isNumeric_NroDoc  = int.TryParse(cliente.getCliente_NroDoc(), out n);
-            bool isNumeric_TipoDoc = int.TryParse(cliente.getCliente_TipoDoc(), out n);
-
-            return isNumeric_NroDoc && isNumeric_TipoDoc;
-        }
-
-        private bool campos_vacios(Cliente_Bean cliente)
-        {
-            return String.IsNullOrEmpty(cliente.getCliente_Apell()) || String.IsNullOrEmpty(cliente.getCliente_Calle()) ||
-                String.IsNullOrEmpty(cliente.getCliente_Dpto()) || String.IsNullOrEmpty(cliente.getCliente_FecNac()) ||
-                String.IsNullOrEmpty(cliente.getCliente_Mail()) || String.IsNullOrEmpty(cliente.getCliente_Name()) ||
-                String.IsNullOrEmpty(cliente.getCliente_NroDoc()) || String.IsNullOrEmpty(cliente.getCliente_Pais()) ||
-                String.IsNullOrEmpty(cliente.getCliente_Piso()) || String.IsNullOrEmpty(cliente.getCliente_TipoDoc());
-        }
-
         }
 }
