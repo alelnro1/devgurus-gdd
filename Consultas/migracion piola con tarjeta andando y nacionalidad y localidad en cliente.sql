@@ -20,6 +20,8 @@ Insert into Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codigo, Cli_P
 															Cuenta_Pais_Codigo <> NULL and
 															Cuenta_Dest_Pais_Codigo <> NULL
 
+UPDATE Paises SET Pais_Nombre = (SELECT REPLACE(Paises.Pais_Nombre, ' ', ''))
+
 /*TIPOS DE MONEDA*/
 
 
