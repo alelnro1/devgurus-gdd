@@ -12,6 +12,8 @@ namespace PagoElectronico
     public partial class MDI : Form
     {
         ABM_Cuenta.AltaCuentas Form_AltaCuentas;
+        ABM_Cuenta.BusquedaCuentas Form_BuscarCuentas;
+        ABM_Cliente.BusquedaClientes Form_BuscarClientes;
         ABM_Cliente.AltaCliente Form_AltaCliente;
 
         public MDI()
@@ -32,6 +34,16 @@ namespace PagoElectronico
         void Form_AltaCliente_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form_AltaCliente = null;
+        }
+
+        void Form_BuscarClientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form_BuscarClientes = null;
+        }
+
+        void Form_BuscarCuentas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form_BuscarCuentas = null;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,6 +90,36 @@ namespace PagoElectronico
         private void MDI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Form_BuscarClientes == null) // si el form esta cerrado
+            {
+                Form_BuscarClientes = new ABM_Cliente.BusquedaClientes(); // inicializo el form
+                Form_BuscarClientes.MdiParent = this;
+                Form_BuscarClientes.FormClosed += new FormClosedEventHandler(Form_BuscarClientes_FormClosed);
+                Form_BuscarClientes.Show();
+            }
+            else
+            {
+                Form_AltaCuentas.Activate();
+            }
+        }
+
+        private void buscarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (Form_BuscarCuentas == null) // si el form esta cerrado
+            {
+                Form_BuscarCuentas = new ABM_Cuenta.BusquedaCuentas(); // inicializo el form
+                Form_BuscarCuentas.MdiParent = this;
+                Form_BuscarCuentas.FormClosed += new FormClosedEventHandler(Form_BuscarCuentas_FormClosed);
+                Form_BuscarCuentas.Show();
+            }
+            else
+            {
+                Form_BuscarCuentas.Activate();
+            }
         }
     }
 }
