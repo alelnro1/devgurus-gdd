@@ -19,11 +19,13 @@ namespace PagoElectronico.Depositos
         private DepositosDAO depositos_DAO;
         private Cliente_Bean cliente;
 
-        public Depositos()
+        public Depositos(string id_cliente)
         {
             cliente = new Cliente_Bean();
             depositos_DAO = new DepositosDAO();
+            cliente.setCliente_Id(id_cliente);
             InitializeComponent();
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,6 +67,11 @@ namespace PagoElectronico.Depositos
                 MessageBox.Show("El importe debe ser numerico", "Atención", MessageBoxButtons.OK);
             }
                     
+        }
+
+        private void Depositos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
