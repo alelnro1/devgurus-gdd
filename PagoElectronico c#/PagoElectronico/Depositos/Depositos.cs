@@ -32,8 +32,6 @@ namespace PagoElectronico.Depositos
             String moneda  = moneda_combobox.Text;
             String cuenta  = cuenta_combobox.Text;
 
-            MessageBox.Show(importe_textbox.Text);
-
             if (depositos_DAO.importeEsNumerico(importe_textbox.Text))
             {
                 int importe = int.Parse(importe_textbox.Text);

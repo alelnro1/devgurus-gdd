@@ -30,6 +30,27 @@ namespace PagoElectronico.Conexion
             lector.Close();
         }
 
+        public bool tarjetaEstaVencida(String tarjeta)
+        {
+            Nullable<DateTime> fecha_vencimiento = null;
+            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Nro = '" + tarjeta + "' ";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            while (lector.Read())
+            {
+               fecha_vencimiento = (DateTime) lector["Tarjeta_Fecha_Vencimiento"];
+            }
+
+            if (fecha_vencimiento > DateTime.Now.Date)
+            {
+                return true;
+            }
+
+            lector.Close();
+
+            return false;
+        }
+
         public void lanzarMensaje(String mensaje, SqlDataReader lector)
         {
             lector.Close();

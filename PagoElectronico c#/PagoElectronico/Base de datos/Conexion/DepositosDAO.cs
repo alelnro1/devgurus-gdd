@@ -31,7 +31,23 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool tarjetaNoEstaVencida(string tarjeta)
         {
-            throw new NotImplementedException();
+            Nullable<DateTime> fecha_vencimiento = null;
+            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Nro = '" + tarjeta + "' ";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            while (lector.Read())
+            {
+                fecha_vencimiento = (DateTime)lector["Tarjeta_Fecha_Vencimiento"];
+            }
+
+            lector.Close();
+
+            if (fecha_vencimiento > DateTime.Now.Date)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public bool cuentaEsTitularDeTarjeta(string cuenta, string tarjeta)
