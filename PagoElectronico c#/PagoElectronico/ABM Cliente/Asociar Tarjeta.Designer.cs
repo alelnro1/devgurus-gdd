@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.combo_cuenta_de_tarjeta = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.text_tarjeta_a_asociar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Emisor = new System.Windows.Forms.Label();
             this.Contraseña = new System.Windows.Forms.Label();
@@ -41,14 +41,15 @@
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox2
+            // combo_cuenta_de_tarjeta
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(213, 203);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 54;
+            this.combo_cuenta_de_tarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_cuenta_de_tarjeta.FormattingEnabled = true;
+            this.combo_cuenta_de_tarjeta.Location = new System.Drawing.Point(213, 203);
+            this.combo_cuenta_de_tarjeta.Name = "combo_cuenta_de_tarjeta";
+            this.combo_cuenta_de_tarjeta.Size = new System.Drawing.Size(121, 21);
+            this.combo_cuenta_de_tarjeta.TabIndex = 54;
+            this.combo_cuenta_de_tarjeta.SelectedIndexChanged += new System.EventHandler(this.combo_cuenta_de_tarjeta_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -66,12 +67,12 @@
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 52;
             // 
-            // textBox1
+            // text_tarjeta_a_asociar
             // 
-            this.textBox1.Location = new System.Drawing.Point(213, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 50;
+            this.text_tarjeta_a_asociar.Location = new System.Drawing.Point(213, 84);
+            this.text_tarjeta_a_asociar.Name = "text_tarjeta_a_asociar";
+            this.text_tarjeta_a_asociar.Size = new System.Drawing.Size(100, 20);
+            this.text_tarjeta_a_asociar.TabIndex = 50;
             // 
             // label5
             // 
@@ -150,10 +151,10 @@
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
             this.Controls.Add(this.combo_emisor);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.combo_cuenta_de_tarjeta);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.text_tarjeta_a_asociar);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Emisor);
             this.Controls.Add(this.Contraseña);
@@ -167,10 +168,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox combo_cuenta_de_tarjeta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox text_tarjeta_a_asociar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label Emisor;
         private System.Windows.Forms.Label Contraseña;

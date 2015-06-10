@@ -33,7 +33,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.combo_desasociar_tarjeta = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -94,14 +94,14 @@
             this.label7.TabIndex = 56;
             this.label7.Text = "Elija la tarjeta a Modificar";
             // 
-            // comboBox3
+            // combo_desasociar_tarjeta
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(232, 95);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 55;
+            this.combo_desasociar_tarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_desasociar_tarjeta.FormattingEnabled = true;
+            this.combo_desasociar_tarjeta.Location = new System.Drawing.Point(232, 95);
+            this.combo_desasociar_tarjeta.Name = "combo_desasociar_tarjeta";
+            this.combo_desasociar_tarjeta.Size = new System.Drawing.Size(121, 21);
+            this.combo_desasociar_tarjeta.TabIndex = 55;
             // 
             // label4
             // 
@@ -180,7 +180,7 @@
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.combo_desasociar_tarjeta);
             this.Controls.Add(this.label4);
             this.Name = "Modificar_Tarjeta";
             this.Text = "Modificar_Tarjeta";
@@ -197,7 +197,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox combo_desasociar_tarjeta;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

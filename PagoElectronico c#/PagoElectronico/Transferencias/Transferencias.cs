@@ -27,11 +27,7 @@ namespace PagoElectronico.Transferencias
             InitializeComponent();
         }
 
-        public Transferencias()
-        {
-            InitializeComponent();
-        }
-
+    
         private void Transferir_Click(object sender, EventArgs e)
         {
             String cuenta_origen  = cuenta_origen_combobox.Text;

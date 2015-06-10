@@ -65,6 +65,7 @@
             this.cuenta_combobox.Name = "cuenta_combobox";
             this.cuenta_combobox.Size = new System.Drawing.Size(139, 21);
             this.cuenta_combobox.TabIndex = 2;
+            this.cuenta_combobox.SelectedIndexChanged += new System.EventHandler(this.cuenta_combobox_SelectedIndexChanged);
             // 
             // label2
             // 

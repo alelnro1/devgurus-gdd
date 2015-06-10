@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.combo_cuenta_de_tarjeta = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.Contraseña2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.combo_desasociar_tarjeta = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.boton_Crear = new System.Windows.Forms.Button();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox4
+            // combo_cuenta_de_tarjeta
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(196, 147);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 58;
+            this.combo_cuenta_de_tarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_cuenta_de_tarjeta.FormattingEnabled = true;
+            this.combo_cuenta_de_tarjeta.Location = new System.Drawing.Point(196, 147);
+            this.combo_cuenta_de_tarjeta.Name = "combo_cuenta_de_tarjeta";
+            this.combo_cuenta_de_tarjeta.Size = new System.Drawing.Size(121, 21);
+            this.combo_cuenta_de_tarjeta.TabIndex = 58;
+            this.combo_cuenta_de_tarjeta.SelectedIndexChanged += new System.EventHandler(this.combo_cuenta_de_tarjeta_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -82,14 +83,15 @@
             this.Contraseña2.TabIndex = 54;
             this.Contraseña2.Text = "Contraseña";
             // 
-            // comboBox1
+            // combo_desasociar_tarjeta
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(196, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 53;
+            this.combo_desasociar_tarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_desasociar_tarjeta.FormattingEnabled = true;
+            this.combo_desasociar_tarjeta.Location = new System.Drawing.Point(196, 90);
+            this.combo_desasociar_tarjeta.Name = "combo_desasociar_tarjeta";
+            this.combo_desasociar_tarjeta.Size = new System.Drawing.Size(121, 21);
+            this.combo_desasociar_tarjeta.TabIndex = 53;
+            this.combo_desasociar_tarjeta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -127,12 +129,12 @@
             this.ClientSize = new System.Drawing.Size(450, 391);
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.combo_cuenta_de_tarjeta);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.Contraseña2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.combo_desasociar_tarjeta);
             this.Controls.Add(this.label2);
             this.Name = "Desasociar_Tarjeta";
             this.Text = "Desasociar_Tarjeta";
@@ -143,12 +145,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox combo_cuenta_de_tarjeta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label Contraseña2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox combo_desasociar_tarjeta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button boton_Crear;
         private System.Windows.Forms.Button boton_Cancelar;

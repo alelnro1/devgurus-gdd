@@ -142,16 +142,36 @@
       <DependentUpon>EditarRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Base de datos\Conexion\CuentaDAO.cs" />
+    <Compile Include="Base de datos\Conexion\DepositosDAO.cs" />
     <Compile Include="Base de datos\Conexion\DevgurusDAO.cs" />
     <Compile Include="Base de datos\Conexion\ClienteDAO.cs" />
     <Compile Include="Base de datos\Conexion\Constantes BD.cs" />
     <Compile Include="Base de datos\Conexion\RolDAO.cs" />
     <Compile Include="Base de datos\Conexion\SQLServerBD.cs" />
+    <Compile Include="Base de datos\Conexion\TransferenciasDAO.cs" />
     <Compile Include="Base de datos\Conexion\UsuarioDAO.cs" />
     <Compile Include="Base de datos\Entidades\Cliente_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Cuenta_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Rol_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Usuario_Bean.cs" />
+    <Compile Include="Consulta Saldos\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta Saldos\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depositos\Depositos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depositos\Depositos.Designer.cs">
+      <DependentUpon>Depositos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depositos\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depositos\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Excepciones\CierreConexionFallidaException.cs" />
     <Compile Include="Excepciones\ValidacionErroneaUsuarioException.cs" />
     <Compile Include="Excepciones\ValidacionErroneaClienteException.cs" />
@@ -223,6 +243,9 @@
     <EmbeddedResource Include="ABM Rol\EditarRol.resx">
       <DependentUpon>EditarRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Depositos\Depositos.resx">
+      <DependentUpon>Depositos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +276,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Transferencias\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transferencias\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transferencias\Transferencias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transferencias\Transferencias.Designer.cs">
+      <DependentUpon>Transferencias.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -304,12 +339,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM de Usuario\" />
-    <Folder Include="Consulta Saldos\" />
-    <Folder Include="Depositos\" />
     <Folder Include="Facturacion\" />
     <Folder Include="Listados\" />
     <Folder Include="Retiros\" />
-    <Folder Include="Transferencias\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

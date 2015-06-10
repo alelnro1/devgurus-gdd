@@ -73,3 +73,28 @@ C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoEl
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.Asociar_Tarjeta.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.EditarCuentas.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.BusquedaClientes.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliente.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.Asociar_Tarjeta.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.BusquedaClientes.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.Desasociar_Tarjeta.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.EditarCliente.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.Modificar_Tarjeta.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.AltaCuentas.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.Asociar_Tarjeta.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.BusquedaCuentas.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.EditarCuentas.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.Depositos.resources

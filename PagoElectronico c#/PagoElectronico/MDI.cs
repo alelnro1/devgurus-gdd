@@ -132,7 +132,7 @@ namespace PagoElectronico
         {
             if (Form_Depositos == null) // si el form esta cerrado
             {
-                Form_Depositos = new Depositos.Depositos(); // inicializo el form
+                Form_Depositos = new Depositos.Depositos("18"); // inicializo el form
                 Form_Depositos.MdiParent = this;
                 Form_Depositos.FormClosed += new FormClosedEventHandler(Form_Depositos_FormClosed);
                 Form_Depositos.Show();
