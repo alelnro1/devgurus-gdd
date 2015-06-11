@@ -32,19 +32,34 @@ namespace PagoElectronico.Transferencias
         {
             String cuenta_origen  = cuenta_origen_combobox.Text;
             String cuenta_destino = cuenta_destino_text.Text;
+            String importe = importe_textbox.Text;
 
             if (transferencias_DAO.importeEsNumerico(importe_textbox.Text))
             {
-                int importe = int.Parse(importe_textbox.Text);
-
-                if (transferencias_DAO.importeEsMayorANumero(importe, 0))
+                if (transferencias_DAO.importeEsMayorANumero(importe, "0"))
                 {
                     if(!transferencias_DAO.cuentaDestinoCerradaOPendiente(cuenta_destino))
                     {
                         if(transferencias_DAO.tieneSuficienteSaldo(cuenta_origen, importe))
                         {
-                            transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe);
-                            MessageBox.Show("La transferencia se realizó con exito", "Atención", MessageBoxButtons.OK);
+                            if (cuenta_destino == cuenta_origen)
+                            {
+                                if (!transferencias_DAO.cuentaOrigenYDestinoPertenecenAlMismoUsuario(cuenta_origen, cuenta_destino))
+                                {
+                                    transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "0");
+                                }
+                                else
+                                {
+                                    transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "1");
+                                }
+
+                                MessageBox.Show("La transferencia se realizó con exito", "Atención", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se puede transferir dinero a una misma cuenta", "Atención", MessageBoxButtons.OK);
+                            }
+
                         }
                         else 
                         {
