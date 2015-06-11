@@ -53,13 +53,13 @@ namespace PagoElectronico.Conexion
 
         public bool importeEsNumerico(String importe)
         {
-            int n;
-            return int.TryParse(importe, out n);
+            float n;
+            return float.TryParse(importe, out n);
         }
 
-        public bool importeEsMayorANumero(int importe, int numero)
+        public bool importeEsMayorANumero(string importe, string numero)
         {
-            return (importe > numero);
+            return (float.Parse(importe) > float.Parse(numero));
         }
 
         public void lanzarMensaje(String mensaje, SqlDataReader lector)

@@ -33,12 +33,11 @@ namespace PagoElectronico.Depositos
             String tarjeta = tarjeta_combobox.Text;
             String moneda  = moneda_combobox.Text;
             String cuenta  = cuenta_combobox.Text;
+            String importe = importe_textbox.Text;
 
-            if (depositos_DAO.importeEsNumerico(importe_textbox.Text))
+            if (depositos_DAO.importeEsNumerico(importe))
             {
-                int importe = int.Parse(importe_textbox.Text);
-
-                if (depositos_DAO.importeEsMayorANumero(importe, 1))
+                if (depositos_DAO.importeEsMayorANumero(importe, "1"))
                 {
                     if (depositos_DAO.tarjetaNoEstaVencida(tarjeta))
                     {
@@ -78,6 +77,11 @@ namespace PagoElectronico.Depositos
         {
             tarjeta_combobox.Items.Clear();
             depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(tarjeta_combobox, "cuenta_Tarjeta", "cuenta_Tarjeta", "dbo.Cuentas where Cuenta_Nro = " + cuenta_combobox.Text);
+        }
+
+        private void importe_textbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -82,6 +82,7 @@
             this.importe_textbox.Name = "importe_textbox";
             this.importe_textbox.Size = new System.Drawing.Size(139, 20);
             this.importe_textbox.TabIndex = 4;
+            this.importe_textbox.TextChanged += new System.EventHandler(this.importe_textbox_TextChanged);
             // 
             // label3
             // 

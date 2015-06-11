@@ -18,7 +18,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.iniciar();
         }
 
-        public bool tieneSuficienteSaldo(string cuenta_origen, int importe)
+        public bool tieneSuficienteSaldo(String cuenta_origen, String importe)
         {
             bool tieneSaldo = false;
             String sql = "SELECT Cuenta_Saldo FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
@@ -26,7 +26,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
             while (lector.Read())
             {
-                if (int.Parse(lector["Cuenta_Saldo"].ToString()) >= importe)
+                if (float.Parse(lector["Cuenta_Saldo"].ToString()) >= float.Parse(importe))
                 {
                     tieneSaldo = true;
                 }
@@ -59,7 +59,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         }
 
-        public void realizarTransferencia(string cuenta_origen, string cuenta_destino, int importe)
+        public void realizarTransferencia(String cuenta_origen, String cuenta_destino, String importe)
         {
             throw new NotImplementedException();
         }

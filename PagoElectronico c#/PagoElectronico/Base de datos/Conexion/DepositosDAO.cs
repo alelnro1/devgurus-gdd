@@ -18,6 +18,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.iniciar();
         }
 
+
         public bool tarjetaNoEstaVencida(string tarjeta)
         {
             return this.tarjetaEstaVencida(tarjeta);
@@ -25,12 +26,24 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool cuentaEsTitularDeTarjeta(string cuenta, string tarjeta)
         {
-            throw new NotImplementedException();
+            bool resultado = false;
+            String sql = "SELECT Cuenta_Nro FROM Cuentas WHERE Cuenta_Nro = '" + cuenta + "' AND cuenta_Tarjeta = '" + tarjeta + "' ";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            if (lector.HasRows)
+            {
+                resultado = true;
+            }
+
+            lector.Close();
+
+            return resultado;
         }
 
-        public void realizarDeposito(string cuenta, string tarjeta, int importe, string moneda)
+        public void realizarDeposito(string cuenta, string tarjeta, string importe, string moneda)
         {
-            throw new NotImplementedException();
+            String sql = "exec depositar '"+ cuenta + "','" + tarjeta + "','" + importe + "','" + moneda + "'";
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
     }
 }
