@@ -154,23 +154,11 @@
     <Compile Include="Base de datos\Entidades\Cuenta_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Rol_Bean.cs" />
     <Compile Include="Base de datos\Entidades\Usuario_Bean.cs" />
-    <Compile Include="Consulta Saldos\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Consulta Saldos\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Depositos\Depositos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Depositos\Depositos.Designer.cs">
       <DependentUpon>Depositos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Depositos\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Depositos\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Excepciones\CierreConexionFallidaException.cs" />
     <Compile Include="Excepciones\ValidacionErroneaUsuarioException.cs" />
@@ -277,12 +265,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Transferencias\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Transferencias\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Transferencias\Transferencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM de Usuario\" />
+    <Folder Include="Consulta Saldos\" />
     <Folder Include="Facturacion\" />
     <Folder Include="Listados\" />
     <Folder Include="Retiros\" />
