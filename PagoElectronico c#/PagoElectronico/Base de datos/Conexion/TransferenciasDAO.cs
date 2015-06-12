@@ -68,7 +68,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             String sql_destino = "SELECT Cuenta_Cliente FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
 
             SqlDataReader lector_origen = this.GD1C2015.ejecutarSentenciaConRetorno(sql_origen);
-            SqlDataReader lector_destino = this.GD1C2015.ejecutarSentenciaConRetorno(sql_destino);
 
             while (lector_origen.Read())
             {
@@ -76,6 +75,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             }
 
             lector_origen.Close();
+
+            SqlDataReader lector_destino = this.GD1C2015.ejecutarSentenciaConRetorno(sql_destino);
 
             while (lector_destino.Read())
             {

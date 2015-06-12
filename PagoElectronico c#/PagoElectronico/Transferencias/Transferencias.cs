@@ -20,10 +20,11 @@ namespace PagoElectronico.Transferencias
         private TransferenciasDAO transferencias_DAO;
         private Cliente_Bean cliente;
 
-        public Transferencias()
+        public Transferencias(String cliente_id)
         {
             cliente = new Cliente_Bean();
             transferencias_DAO = new TransferenciasDAO();
+            cliente.setCliente_Id(cliente_id);
             InitializeComponent();
         }
 
@@ -34,7 +35,7 @@ namespace PagoElectronico.Transferencias
             String cuenta_destino = cuenta_destino_text.Text;
             String importe = importe_textbox.Text;
 
-            if (transferencias_DAO.importeEsNumerico(importe_textbox.Text))
+            if (transferencias_DAO.numeroEsFloat(importe_textbox.Text) && transferencias_DAO.numeroEsInt(cuenta_origen) && transferencias_DAO.numeroEsInt(cuenta_destino))
             {
                 if (transferencias_DAO.importeEsMayorANumero(importe, "0"))
                 {
@@ -42,7 +43,7 @@ namespace PagoElectronico.Transferencias
                     {
                         if(transferencias_DAO.tieneSuficienteSaldo(cuenta_origen, importe))
                         {
-                            if (cuenta_destino == cuenta_origen)
+                            if (cuenta_destino != cuenta_origen)
                             {
                                 if (!transferencias_DAO.cuentaOrigenYDestinoPertenecenAlMismoUsuario(cuenta_origen, cuenta_destino))
                                 {
@@ -78,7 +79,7 @@ namespace PagoElectronico.Transferencias
             }
             else
             {
-                MessageBox.Show("El importe debe ser numerico", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("El importe y las cuentas deben ser numericos", "Atención", MessageBoxButtons.OK);
             }
 
         }

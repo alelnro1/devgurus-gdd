@@ -51,10 +51,16 @@ namespace PagoElectronico.Conexion
             return false;
         }
 
-        public bool importeEsNumerico(String importe)
+        public bool numeroEsFloat(String numero)
         {
             float n;
-            return float.TryParse(importe, out n);
+            return float.TryParse(numero, out n);
+        }
+
+        public bool numeroEsInt(String numero)
+        {
+            Int64 n;
+            return Int64.TryParse(numero, out n);
         }
 
         public bool importeEsMayorANumero(string importe, string numero)

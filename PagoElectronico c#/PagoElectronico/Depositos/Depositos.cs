@@ -35,7 +35,7 @@ namespace PagoElectronico.Depositos
             String cuenta  = cuenta_combobox.Text;
             String importe = importe_textbox.Text;
 
-            if (depositos_DAO.importeEsNumerico(importe))
+            if (depositos_DAO.numeroEsFloat(importe))
             {
                 if (depositos_DAO.importeEsMayorANumero(importe, "1"))
                 {
