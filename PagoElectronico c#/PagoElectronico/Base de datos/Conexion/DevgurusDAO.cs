@@ -82,7 +82,7 @@ namespace PagoElectronico.Conexion
             return Int64.TryParse(numero, out n);
         }
 
-        public bool importeEsMayorANumero(string importe, string numero)
+        public bool importeEsMayorANumero(String importe, String numero)
         {
             return (float.Parse(importe) > float.Parse(numero));
         }
@@ -91,6 +91,23 @@ namespace PagoElectronico.Conexion
         {
             lector.Close();
             MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
+        }
+
+        public void tieneCincoTransaccionesEntoncesInhabilitarCuenta(String cuenta)
+        {
+            String sql = "SELECT COUNT(*) AS transaccionesPendientes FROM Transaccion_Pendiente WHERE Transaccion_Pendiente_Cuenta_Nro = '" + cuenta + "' AND Transaccion_Pendiente_Importe > 0";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            while (lector.Read())
+            {
+                if (int.Parse(lector["transaccionesPendientes"].ToString()) > 5 )
+                {
+                    String sql_actualizar = "UPDATE Cuentas SET Cuenta_Estado = 'Inhabilitado' WHERE Cuenta_Nro = '" + cuenta + "'";
+                    this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+                }
+            }
+
+            lector.Close();
         }
 
         public void finalizar()
