@@ -36,51 +36,58 @@ namespace PagoElectronico.Transferencias
             String cuenta_destino = cuenta_destino_text.Text;
             String importe = importe_textbox.Text;
 
-            if (transferencias_DAO.numeroEsFloat(importe_textbox.Text) && transferencias_DAO.numeroEsInt(cuenta_origen) && transferencias_DAO.numeroEsInt(cuenta_destino))
+            if (!String.IsNullOrEmpty(cuenta_origen) && !String.IsNullOrEmpty(cuenta_destino) && !String.IsNullOrEmpty(importe))
             {
-                if (transferencias_DAO.importeEsMayorANumero(importe, "0"))
+                if (transferencias_DAO.numeroEsFloat(importe_textbox.Text) && transferencias_DAO.numeroEsInt(cuenta_origen) && transferencias_DAO.numeroEsInt(cuenta_destino))
                 {
-                    if(!transferencias_DAO.cuentaDestinoCerradaOPendiente(cuenta_destino))
+                    if (transferencias_DAO.importeEsMayorANumero(importe, "0"))
                     {
-                        if(transferencias_DAO.tieneSuficienteSaldo(cuenta_origen, importe))
+                        if (!transferencias_DAO.cuentaDestinoCerradaOPendienteONoExiste(cuenta_destino))
                         {
-                            if (cuenta_destino != cuenta_origen)
+                            if (transferencias_DAO.tieneSuficienteSaldo(cuenta_origen, importe))
                             {
-                                if (!transferencias_DAO.cuentaOrigenYDestinoPertenecenAlMismoUsuario(cuenta_origen, cuenta_destino))
+                                if (cuenta_destino != cuenta_origen)
                                 {
-                                    transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "0");
+                                    if (!transferencias_DAO.cuentaOrigenYDestinoPertenecenAlMismoUsuario(cuenta_origen, cuenta_destino))
+                                    {
+                                        transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "0");
+                                    }
+                                    else
+                                    {
+                                        transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "1");
+                                    }
+
+                                    MessageBox.Show("La transferencia se realizó con exito", "Atención", MessageBoxButtons.OK);
                                 }
                                 else
                                 {
-                                    transferencias_DAO.realizarTransferencia(cuenta_origen, cuenta_destino, importe, "1");
+                                    MessageBox.Show("No se puede transferir dinero a una misma cuenta", "Atención", MessageBoxButtons.OK);
                                 }
 
-                                MessageBox.Show("La transferencia se realizó con exito", "Atención", MessageBoxButtons.OK);
                             }
                             else
                             {
-                                MessageBox.Show("No se puede transferir dinero a una misma cuenta", "Atención", MessageBoxButtons.OK);
+                                MessageBox.Show("El saldo de la cuenta origen es insuficiente", "Atención", MessageBoxButtons.OK);
                             }
-
                         }
-                        else 
+                        else
                         {
-                            MessageBox.Show("El saldo de la cuenta origen es insuficiente", "Atención", MessageBoxButtons.OK);
+                            MessageBox.Show("La cuenta destino no puede recibir fondos", "Atención", MessageBoxButtons.OK);
                         }
                     }
-                    else 
+                    else
                     {
-                        MessageBox.Show("La cuenta destino no puede recibir fondos", "Atención", MessageBoxButtons.OK);
+                        MessageBox.Show("El importe debe ser mayor a 0", "Atención", MessageBoxButtons.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El importe debe ser mayor a 0", "Atención", MessageBoxButtons.OK);
+                    MessageBox.Show("El importe y las cuentas deben ser numericos", "Atención", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("El importe y las cuentas deben ser numericos", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
 
         }

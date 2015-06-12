@@ -18,7 +18,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.iniciar();
         }
 
-        public bool cuentaDestinoCerradaOPendiente(string cuenta_destino)
+        public bool cuentaDestinoCerradaOPendienteONoExiste(String cuenta_destino)
         {
             String sql = "SELECT Cuenta_Estado FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
@@ -32,6 +32,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 {
                     resultado = true;
                 }
+            }
+
+            if (!lector.HasRows)
+            {
+                resultado = true;
             }
 
             lector.Close();

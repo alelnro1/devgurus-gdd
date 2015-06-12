@@ -35,35 +35,42 @@ namespace PagoElectronico.Depositos
             String cuenta  = cuenta_combobox.Text;
             String importe = importe_textbox.Text;
 
-            if (depositos_DAO.numeroEsFloat(importe))
+            if (!String.IsNullOrEmpty(tarjeta) && !String.IsNullOrEmpty(moneda) && !String.IsNullOrEmpty(cuenta) && !String.IsNullOrEmpty(importe))
             {
-                if (depositos_DAO.importeEsMayorANumero(importe, "1"))
+                if (depositos_DAO.numeroEsFloat(importe))
                 {
-                    if (depositos_DAO.tarjetaNoEstaVencida(tarjeta))
+                    if (depositos_DAO.importeEsMayorANumero(importe, "1"))
                     {
-                        if (depositos_DAO.cuentaEsTitularDeTarjeta(cuenta, tarjeta))
+                        if (depositos_DAO.tarjetaNoEstaVencida(tarjeta))
                         {
-                            depositos_DAO.realizarDeposito(cuenta, tarjeta, importe, moneda);
-                            MessageBox.Show("El deposito fue realizado", "Atención", MessageBoxButtons.OK);
+                            if (depositos_DAO.cuentaEsTitularDeTarjeta(cuenta, tarjeta))
+                            {
+                                depositos_DAO.realizarDeposito(cuenta, tarjeta, importe, moneda);
+                                MessageBox.Show("El deposito fue realizado", "Atención", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("La cuenta no es titular de la tarjeta", "Atención", MessageBoxButtons.OK);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("La cuenta no es titular de la tarjeta", "Atención", MessageBoxButtons.OK);
+                            MessageBox.Show("La tarjeta esta vencida", "Atención", MessageBoxButtons.OK);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("La tarjeta esta vencida", "Atención", MessageBoxButtons.OK);
+                        MessageBox.Show("El importe debe ser mayor a 1", "Atención", MessageBoxButtons.OK);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El importe debe ser mayor a 1", "Atención", MessageBoxButtons.OK);
+                    MessageBox.Show("El importe debe ser numerico", "Atención", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("El importe debe ser numerico", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
                     
         }
