@@ -26,6 +26,7 @@ namespace PagoElectronico.Transferencias
             transferencias_DAO = new TransferenciasDAO();
             cliente.setCliente_Id(cliente_id);
             InitializeComponent();
+            transferencias_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_origen_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
         }
 
     

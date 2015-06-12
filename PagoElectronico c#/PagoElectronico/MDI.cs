@@ -14,6 +14,7 @@ namespace PagoElectronico
         ABM_Cuenta.AltaCuentas Form_AltaCuentas;
         ABM_Cuenta.BusquedaCuentas Form_BuscarCuentas;
         Depositos.Depositos Form_Depositos;
+        Retiros.Retiros Form_Retiros;
         Transferencias.Transferencias Form_Transferencias;
         ABM_Cliente.BusquedaClientes Form_BuscarClientes;
         ABM_Cliente.AltaCliente Form_AltaCliente;
@@ -56,6 +57,11 @@ namespace PagoElectronico
         void Form_Transferencias_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form_Transferencias = null;
+        }
+
+        void Form_Retiros_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form_Retiros = null;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,6 +167,21 @@ namespace PagoElectronico
             else
             {
                 Form_Transferencias.Activate();
+            }
+        }
+
+        private void retirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Form_Retiros == null) // si el form esta cerrado
+            {
+                Form_Retiros = new Retiros.Retiros("18"); // inicializo el form
+                Form_Retiros.MdiParent = this;
+                Form_Retiros.FormClosed += new FormClosedEventHandler(Form_Retiros_FormClosed);
+                Form_Retiros.Show();
+            }
+            else
+            {
+                Form_Retiros.Activate();
             }
         }
     }

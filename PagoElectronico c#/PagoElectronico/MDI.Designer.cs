@@ -38,6 +38,7 @@
             this.depositosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +84,8 @@
             this.buscarToolStripMenuItem1,
             this.nuevaCuentaToolStripMenuItem,
             this.depositosToolStripMenuItem,
-            this.transferenciasToolStripMenuItem});
+            this.transferenciasToolStripMenuItem,
+            this.retirosToolStripMenuItem});
             this.cuentaToolStripMenuItem1.Name = "cuentaToolStripMenuItem1";
             this.cuentaToolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
             this.cuentaToolStripMenuItem1.Text = "Cuentas";
@@ -123,6 +125,13 @@
             this.transferenciasToolStripMenuItem.Text = "Transferencias";
             this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
             // 
+            // retirosToolStripMenuItem
+            // 
+            this.retirosToolStripMenuItem.Name = "retirosToolStripMenuItem";
+            this.retirosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.retirosToolStripMenuItem.Text = "Retiros";
+            this.retirosToolStripMenuItem.Click += new System.EventHandler(this.retirosToolStripMenuItem_Click);
+            // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,5 +164,6 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem depositosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem retirosToolStripMenuItem;
     }
 }

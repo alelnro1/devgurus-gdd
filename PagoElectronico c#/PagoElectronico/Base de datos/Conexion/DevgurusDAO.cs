@@ -51,6 +51,25 @@ namespace PagoElectronico.Conexion
             return false;
         }
 
+        public bool tieneSuficienteSaldo(String cuenta_origen, String importe)
+        {
+            bool tieneSaldo = false;
+            String sql = "SELECT Cuenta_Saldo FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+
+            while (lector.Read())
+            {
+                if (float.Parse(lector["Cuenta_Saldo"].ToString()) >= float.Parse(importe))
+                {
+                    tieneSaldo = true;
+                }
+            }
+
+            lector.Close();
+
+            return tieneSaldo;
+        }
+
         public bool numeroEsFloat(String numero)
         {
             float n;
