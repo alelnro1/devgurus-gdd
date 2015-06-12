@@ -21,7 +21,4 @@ AS
 			@costo,
 			@cuenta_origen
 	)
-	
-	UPDATE Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe WHERE Cuenta_Nro = @cuenta_origen
-	UPDATE Cuentas SET Cuenta_Saldo = Cuenta_Saldo + @importe WHERE Cuenta_Nro = @cuenta_destino
 GO
