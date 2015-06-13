@@ -83,10 +83,16 @@ namespace PagoElectronico.Depositos
         private void cuenta_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             tarjeta_combobox.Items.Clear();
-            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(tarjeta_combobox, "cuenta_Tarjeta", "cuenta_Tarjeta", "dbo.Cuentas where Cuenta_Nro = " + cuenta_combobox.Text);
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(tarjeta_combobox, "Tarjeta_Digitos_Visibles", "Tarjeta_Digitos_Visibles", "dbo.Tarjetas where Tarjeta_Cliente = "
+                                                                          + cliente.getCliente_Id() + "and Tarjeta_Asociada = 'Asociada'");
         }
 
         private void importe_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tarjeta_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

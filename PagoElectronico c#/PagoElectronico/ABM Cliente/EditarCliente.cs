@@ -31,9 +31,6 @@ namespace PagoElectronico.ABM_Cliente
         private void button2_Click(object sender, EventArgs e) //ASOCIAR_Tarjeta
         {
 
-            Asociar_Tarjeta asociarTarjeta = new Asociar_Tarjeta(cliente_Bean.getCliente_Id(),this);
-            asociarTarjeta.Show();
-            this.Enabled = false;
         }
 
         private void boton_desasociar_tarjeta_Click(object sender, EventArgs e)
@@ -46,9 +43,7 @@ namespace PagoElectronico.ABM_Cliente
 
         private void boton_modificar_tarjeta_Click(object sender, EventArgs e)
         {
-            Modificar_Tarjeta modificarTarjeta = new Modificar_Tarjeta(cliente_Bean.getCliente_Id(), this);
-            modificarTarjeta.Show();
-            this.Enabled = false;
+         
         }
     }
 }

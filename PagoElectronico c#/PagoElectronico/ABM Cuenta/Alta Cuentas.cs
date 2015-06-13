@@ -77,7 +77,7 @@ namespace PagoElectronico.ABM_Cuenta
                 
                 cuenta.set_fec_Cierre("null");
                 cuenta.set_Cliente("null");//ACA HAY QUE MANDAR EL ID DEL CLIENTE QUE SUPUESTAMENTE VA A SER GLOBAL
-                cuenta.set_Tarjeta("null");
+              
                 
                 cuenta_DAO.altaCuenta(cuenta);
 

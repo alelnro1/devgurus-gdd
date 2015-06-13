@@ -117,6 +117,7 @@
             this.tarjeta_combobox.Name = "tarjeta_combobox";
             this.tarjeta_combobox.Size = new System.Drawing.Size(139, 21);
             this.tarjeta_combobox.TabIndex = 8;
+            this.tarjeta_combobox.SelectedIndexChanged += new System.EventHandler(this.tarjeta_combobox_SelectedIndexChanged);
             // 
             // Depositos
             // 

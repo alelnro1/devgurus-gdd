@@ -84,7 +84,7 @@ namespace PagoElectronico.ABM_Cuenta
 
             List<DataGridViewRow> filas = new List<DataGridViewRow>(); //creo lista de  filas
 
-            Object[] columnas = new Object[11];//creo el vector con la cantidad de columnas en la vista de busqueda 
+            Object[] columnas = new Object[10];//creo el vector con la cantidad de columnas en la vista de busqueda 
             while (lector.Read()) //mientras haya registros en la tabla que se esta leyendo que lo asigne a una columna, donde la posicion  que esta indexada en vector "columna[i]" coincide con la posicion de numero de columna (de izq a derecha), y guarda el registro encontrado en dicha columna
             {
 
@@ -98,8 +98,8 @@ namespace PagoElectronico.ABM_Cuenta
                  columnas[6] = lector["Cuenta_Fec_Cre"];
                  columnas[7] = lector["Cuenta_Fec_Cierre"];
                  columnas[8] = lector["Cuenta_Cliente"];
-                 columnas[9] = lector["cuenta_Tarjeta"];
-                 columnas[10] = lector["Cuenta_Saldo"];
+                 columnas[9] = lector["Cuenta_Saldo"];
+               
 
         
 
@@ -135,6 +135,7 @@ namespace PagoElectronico.ABM_Cuenta
 
         private void boton_Reestablecer_Click(object sender, EventArgs e)
         {
+            combo_Nro_Cuenta.SelectedIndex = -1;
             pais_asignado_combo.SelectedIndex = -1;
             combo_tipo.SelectedIndex = -1;
             combo_moneda.SelectedIndex = -1;

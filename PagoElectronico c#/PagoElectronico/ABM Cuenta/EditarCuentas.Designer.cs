@@ -30,7 +30,6 @@
         {
             this.label4 = new System.Windows.Forms.Label();
             this.combo_tipo_cuenta = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.boton_Crear = new System.Windows.Forms.Button();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -53,15 +52,6 @@
             this.combo_tipo_cuenta.Size = new System.Drawing.Size(121, 21);
             this.combo_tipo_cuenta.TabIndex = 31;
             this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(95, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Asociar Tarjeta";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // boton_Crear
             // 
@@ -90,7 +80,6 @@
             this.ClientSize = new System.Drawing.Size(354, 251);
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.combo_tipo_cuenta);
             this.Controls.Add(this.label4);
             this.Name = "EditarCuentas";
@@ -104,7 +93,6 @@
 
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox combo_tipo_cuenta;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button boton_Crear;
         private System.Windows.Forms.Button boton_Cancelar;
     }

@@ -11,7 +11,7 @@ create procedure [dbo].[insertarEnCuentas]
 		@Cuenta_PaisAsignado numeric (18,0),
 		@Cuenta_Fec_Cierre datetime,
 		@Cuenta_Cliente integer,
-		@cuenta_Tarjeta varchar(16)
+		
 			
 				as
 						Declare @Cuenta_Fec_Cre datetime = GETDATE()
@@ -30,6 +30,6 @@ create procedure [dbo].[insertarEnCuentas]
 												[Cuenta_PaisAsignado],
 												[Cuenta_Fec_Cre],
 												[Cuenta_Fec_Cierre],
-												[Cuenta_Cliente],
-												[cuenta_Tarjeta]) 
-												values(@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente,@cuenta_Tarjeta)
+												[Cuenta_Cliente]) 
+												
+												values(@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)

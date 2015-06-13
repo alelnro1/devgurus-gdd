@@ -17,7 +17,7 @@ namespace PagoElectronico
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
             Application.Run(new MDI());
-            Application.Run(new PagoElectronico.ABM_Cliente.EditarCliente("18",new PagoElectronico.ABM_Cliente.BusquedaClientes()));
+          //  Application.Run(new PagoElectronico.ABM_Cliente.EditarCliente("18",new PagoElectronico.ABM_Cliente.BusquedaClientes()));
            // Application.Run(new PagoElectronico.ABM_Cuenta.BusquedaCuentas());
             //Application.Run(new PagoElectronico.ABM_Cliente.BusquedaClientes());
             //Application.Run(new PagoElectronico.ABM_Cuenta.AltaCuentas());
