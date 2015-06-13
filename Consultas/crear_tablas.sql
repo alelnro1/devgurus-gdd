@@ -137,4 +137,5 @@ Create Table Login_Incorrecto	(	Login_Incorrecto_Id integer identity (1,1) Prima
 Create Table Login_Auditoria	(	Login_Auditoria_Id integer identity (1,1) Primary key,
 									Login_Auditoria_Ingresado varchar(255),
 									Login_Auditoria_Fecha datetime,
-									Login_Auditoria_Tipo varchar(25))
+									Login_Auditoria_Tipo varchar(25)
+									Login_Auditoria_Intento tinyint)
