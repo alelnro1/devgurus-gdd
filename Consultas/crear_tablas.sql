@@ -62,11 +62,15 @@ Create Table Tipo_De_Cuentas(	Tipo_De_Cuentas_Id tinyint identity (1,1) PRIMARY 
 								Tipo_De_Cuentas_Duracion_Dias smallint,
 								Tipo_De_Cuentas_Costo numeric (18,2))
 
-Create Table Tarjetas (		Tarjeta_Nro varchar(16) PRIMARY KEY NOT NULL,
+Create Table Tarjetas (		Tarjeta_Id numeric (18,0) IDENTITY (1,1) PRIMARY KEY NOT NULL,
+							Tarjeta_Nro varchar(16)  NOT NULL,
+							Tarjeta_Cliente numeric (18,0) FOREIGN KEY REFERENCES Clientes(Cliente_Id),
+							Tarjeta_Digitos_Visibles varchar(4),
 							Tarjeta_Fecha_Emision datetime,
 							Tarjeta_Fecha_Vencimiento datetime,
 							Tarjeta_Cod_Seg varchar(3),
-							Tarjeta_Emisor_Desc varchar (255))
+							Tarjeta_Emisor_Desc varchar (255),
+							Tarjeta_Asociada numeric (1,0) default 1 )
 
 Create Table Tipo_De_Moneda(	Tipo_De_Moneda_Id tinyint identity (1,1) PRIMARY KEY,
 								Tipo_De_Moneda_Nombre varchar(255))	
@@ -80,7 +84,6 @@ Create Table Cuentas (		Cuenta_Nro numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT 
 							Cuenta_Fec_Cre datetime,
 							Cuenta_Fec_Cierre datetime,
 							Cuenta_Cliente integer FOREIGN KEY REFERENCES Clientes(Cliente_Id),
-							cuenta_Tarjeta varchar(16) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Nro),
 							Cuenta_Saldo float default 0)
 
 														
@@ -89,7 +92,7 @@ Create Table Depositos (	Deposito_Id numeric (18,0) PRIMARY KEY NOT NULL,
 							Deposito_Importe numeric (18,2) check (Deposito_Importe >= 1),
 							Deposito_TipoMoneda varchar(255),
 							Deposito_Cuenta numeric (18,0) FOREIGN KEY REFERENCES Cuentas(Cuenta_Nro),
-							Deposito_Tarjeta varchar(16) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Nro))
+							Deposito_Tarjeta numeric(18,0) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Id))
 
 Create Table Facturas	(	Factura_Numero numeric (18,0) PRIMARY KEY NOT NULL,
 							Factura_Fecha datetime,
