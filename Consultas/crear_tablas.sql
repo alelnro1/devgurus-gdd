@@ -1,16 +1,10 @@
 USE GD1C2015
-
 GO
-
 				/************************************************
 				*************************************************
 								CREACION DE TABLAS
 				*************************************************
 				*************************************************/
-
-/* LOS CAMPOS CON DESCRIPCION "TEMPORAL" SE UTILIZAN PARA LEER DE LA TABLA MAESTRA COMO ESTA ESTE;
-UNA VEZ REALIZADO ESTO SE PROCEDE A BORRAR DICHOS CAMPOS Y EN SU LUGAR SE UTILIZA LOS CAMPOS QUE
-TENGAN EL MISMO NOMBRE sin "TEMPORAL"	*/
 
 Create Table Paises	(		Pais_Id numeric (18,0) PRIMARY KEY NOT NULL,
 							Pais_Nombre varchar(255) NOT NULL)
@@ -62,19 +56,19 @@ Create Table Tipo_De_Cuentas(	Tipo_De_Cuentas_Id tinyint identity (1,1) PRIMARY 
 								Tipo_De_Cuentas_Duracion_Dias smallint,
 								Tipo_De_Cuentas_Costo numeric (18,2))
 
-Create Table Tarjetas (		Tarjeta_Id numeric (18,0) IDENTITY (1,1) PRIMARY KEY NOT NULL,
+Create Table Tarjetas (		Tarjeta_Id integer IDENTITY (1,1) PRIMARY KEY NOT NULL,
 							Tarjeta_Nro varchar(16)  NOT NULL,
-							Tarjeta_Cliente numeric (18,0) FOREIGN KEY REFERENCES Clientes(Cliente_Id),
+							Tarjeta_Cliente integer FOREIGN KEY REFERENCES Clientes(Cliente_Id),
 							Tarjeta_Digitos_Visibles varchar(4),
 							Tarjeta_Fecha_Emision datetime,
 							Tarjeta_Fecha_Vencimiento datetime,
 							Tarjeta_Cod_Seg varchar(3),
 							Tarjeta_Emisor_Desc varchar (255),
-							Tarjeta_Asociada numeric (1,0) default 1 )
-
+							Tarjeta_Asociada varchar(25) default 'Asociada')
+							
 Create Table Tipo_De_Moneda(	Tipo_De_Moneda_Id tinyint identity (1,1) PRIMARY KEY,
-								Tipo_De_Moneda_Nombre varchar(255))	
-								
+								Tipo_De_Moneda_Nombre varchar(255))
+
 Create Table Cuentas (		Cuenta_Nro numeric (18,0) IDENTITY(1,1) PRIMARY KEY NOT NULL,
 							Cuenta_Estado varchar(255) default 'Habilitado',
 							Cuenta_Moneda tinyint FOREIGN KEY REFERENCES Tipo_De_Moneda(Tipo_De_Moneda_Id) default 1,
@@ -92,7 +86,7 @@ Create Table Depositos (	Deposito_Id numeric (18,0) PRIMARY KEY NOT NULL,
 							Deposito_Importe numeric (18,2) check (Deposito_Importe >= 1),
 							Deposito_TipoMoneda varchar(255),
 							Deposito_Cuenta numeric (18,0) FOREIGN KEY REFERENCES Cuentas(Cuenta_Nro),
-							Deposito_Tarjeta numeric(18,0) FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Id))
+							Deposito_Tarjeta integer FOREIGN KEY REFERENCES Tarjetas(Tarjeta_Id))
 
 Create Table Facturas	(	Factura_Numero numeric (18,0) PRIMARY KEY NOT NULL,
 							Factura_Fecha datetime,

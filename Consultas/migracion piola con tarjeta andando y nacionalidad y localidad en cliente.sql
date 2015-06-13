@@ -1,16 +1,10 @@
 USE GD1C2015
-
 GO
-
 				/************************************************
 				*************************************************
-								CREACION DE TABLAS
+							MIGRACION DE TABLA MAESTRA
 				*************************************************
 				*************************************************/
-
-/* LOS CAMPOS CON DESCRIPCION "TEMPORAL" SE UTILIZAN PARA LEER DE LA TABLA MAESTRA COMO ESTA ESTE;
-UNA VEZ REALIZADO ESTO SE PROCEDE A BORRAR DICHOS CAMPOS Y EN SU LUGAR SE UTILIZA LOS CAMPOS QUE
-TENGAN EL MISMO NOMBRE sin "TEMPORAL"	*/
 
 /* PAISES */
 Insert into Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codigo, Cli_Pais_Desc from gd_esquema.Maestra union 
@@ -23,8 +17,6 @@ Insert into Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codigo, Cli_P
 UPDATE Paises SET Pais_Nombre = (SELECT REPLACE(Paises.Pais_Nombre, ' ', ''))
 
 /*TIPOS DE MONEDA*/
-
-
 Insert into Tipo_De_Moneda(Tipo_De_Moneda_Nombre) values ('Dolar');
 
 /* TIPOS DE DOCUMENTO */
@@ -63,9 +55,12 @@ values	('Oro', 100, 29.99),
 		('Gratuita', 15, 0.00)
 
 /* TARJETAS */
-Insert into Tarjetas (Tarjeta_Nro, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc)
-select distinct Tarjeta_Numero, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Codigo_Seg, Tarjeta_Emisor_Descripcion from gd_esquema.Maestra
-where Tarjeta_Numero is not null
+Insert into Tarjetas (Tarjeta_Nro, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc, Tarjeta_Digitos_Visibles, Tarjeta_Cliente)
+select distinct MA.Tarjeta_Numero, MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, MA.Tarjeta_Codigo_Seg, MA.Tarjeta_Emisor_Descripcion, 
+RIGHT(MA.Tarjeta_Numero, 4), CL.Cliente_Id from gd_esquema.Maestra MA, Clientes CL
+where	CL.Cliente_Nombre = MA.Cli_Nombre and
+		CL.Cliente_Apellido = MA.Cli_Apellido and
+		Tarjeta_Numero is not null
 
 /* CUENTAS */
 Insert into Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente)
@@ -76,14 +71,11 @@ where CL.Cliente_Nombre = MA.Cli_Nombre and CL.Cliente_Apellido = MA.Cli_Apellid
 update Cuentas
 set Cuenta_Fec_Cierre = DATEADD(day, 15, Cuenta_Fec_Cre)
 
-update Cuentas
-set Cuenta_Tarjeta = MA.Tarjeta_Numero from gd_esquema.Maestra MA
-where Cuenta_Nro = MA.Cuenta_Numero and MA.Tarjeta_Numero is not null
-		
 /* DEPOSTIOS */
 Insert into Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_TipoMoneda, Deposito_Cuenta, Deposito_Tarjeta)
-select distinct Deposito_Codigo, Deposito_Fecha, Deposito_Importe, NULL, Cuenta_Numero, Tarjeta_Numero from gd_esquema.Maestra
-where Deposito_Codigo is not null
+select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, 'dolar', MA.Cuenta_Numero, TA.Tarjeta_Id
+from gd_esquema.Maestra MA, Tarjetas TA
+where TA.Tarjeta_Nro = MA.Tarjeta_Numero and Deposito_Codigo is not null
 
 /* FACTURAS */
 Insert into Facturas (Factura_Numero, Factura_Fecha, Factura_Cliente)
