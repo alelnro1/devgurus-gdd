@@ -15,6 +15,7 @@ namespace PagoElectronico
         ABM_Cuenta.BusquedaCuentas Form_BuscarCuentas;
         Depositos.Depositos Form_Depositos;
         Retiros.Retiros Form_Retiros;
+        Consulta_Saldos.ConsultarSaldo Form_Consultar_Saldo;
         Transferencias.Transferencias Form_Transferencias;
         ABM_Cliente.BusquedaClientes Form_BuscarClientes;
         ABM_Cliente.AltaCliente Form_AltaCliente;
@@ -62,6 +63,11 @@ namespace PagoElectronico
         void Form_Retiros_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form_Retiros = null;
+        }
+
+        void Form_Consultar_Saldo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form_Consultar_Saldo = null;
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -182,6 +188,21 @@ namespace PagoElectronico
             else
             {
                 Form_Retiros.Activate();
+            }
+        }
+
+        private void consultarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Form_Consultar_Saldo == null) // si el form esta cerrado
+            {
+                Form_Consultar_Saldo = new Consulta_Saldos.ConsultarSaldo("18"); // inicializo el form
+                Form_Consultar_Saldo.MdiParent = this;
+                Form_Consultar_Saldo.FormClosed += new FormClosedEventHandler(Form_Consultar_Saldo_FormClosed);
+                Form_Consultar_Saldo.Show();
+            }
+            else
+            {
+                Form_Consultar_Saldo.Activate();
             }
         }
     }
