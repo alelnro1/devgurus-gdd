@@ -35,10 +35,10 @@ namespace PagoElectronico
 
         private void boton_desasociar_tarjeta_Click(object sender, EventArgs e)
         {
-            Desasociar_Tarjeta desasociarTarjeta = new Desasociar_Tarjeta(cliente_Bean.getCliente_Id(), this);
+          /*  Desasociar_Tarjeta desasociarTarjeta = new Desasociar_Tarjeta(cliente_Bean.getCliente_Id(), this);
 
             desasociarTarjeta.Show();
-            this.Enabled = false;
+            this.Enabled = false;*/
         }
 
         private void boton_modificar_tarjeta_Click(object sender, EventArgs e)

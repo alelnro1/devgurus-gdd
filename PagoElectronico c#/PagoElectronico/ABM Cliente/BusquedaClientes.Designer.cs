@@ -38,9 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.boton_Eliminar = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
-            this.boton_Editar = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +58,7 @@
             this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boton_Limpiar = new System.Windows.Forms.Button();
             this.boton_Buscar = new System.Windows.Forms.Button();
+            this.seleccionar_cliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,16 +156,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Apellido";
             // 
-            // boton_Eliminar
-            // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(851, 125);
-            this.boton_Eliminar.Name = "boton_Eliminar";
-            this.boton_Eliminar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Eliminar.TabIndex = 223288;
-            this.boton_Eliminar.Text = "Eliminar";
-            this.boton_Eliminar.UseVisualStyleBackColor = true;
-            this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
-            // 
             // boton_Reestablecer
             // 
             this.boton_Reestablecer.Location = new System.Drawing.Point(219, 115);
@@ -176,16 +165,6 @@
             this.boton_Reestablecer.Text = "Reestablecer";
             this.boton_Reestablecer.UseVisualStyleBackColor = true;
             this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
-            // 
-            // boton_Editar
-            // 
-            this.boton_Editar.Location = new System.Drawing.Point(851, 25);
-            this.boton_Editar.Name = "boton_Editar";
-            this.boton_Editar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Editar.TabIndex = 223286;
-            this.boton_Editar.Text = "Editar";
-            this.boton_Editar.UseVisualStyleBackColor = true;
-            this.boton_Editar.Click += new System.EventHandler(this.boton_Editar_Click);
             // 
             // boton_Volver
             // 
@@ -318,14 +297,23 @@
             this.boton_Buscar.UseVisualStyleBackColor = true;
             this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
             // 
+            // seleccionar_cliente
+            // 
+            this.seleccionar_cliente.Location = new System.Drawing.Point(851, 115);
+            this.seleccionar_cliente.Name = "seleccionar_cliente";
+            this.seleccionar_cliente.Size = new System.Drawing.Size(147, 35);
+            this.seleccionar_cliente.TabIndex = 223289;
+            this.seleccionar_cliente.Text = "Seleccionar Cliente";
+            this.seleccionar_cliente.UseVisualStyleBackColor = true;
+            this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
+            // 
             // BusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 535);
-            this.Controls.Add(this.boton_Eliminar);
+            this.Controls.Add(this.seleccionar_cliente);
             this.Controls.Add(this.boton_Reestablecer);
-            this.Controls.Add(this.boton_Editar);
             this.Controls.Add(this.boton_Volver);
             this.Controls.Add(this.lista_clientes);
             this.Controls.Add(this.boton_Limpiar);
@@ -342,7 +330,6 @@
             this.Controls.Add(this.combo_nombre);
             this.Name = "BusquedaClientes";
             this.Text = "BusquedaClientes";
-            this.Load += new System.EventHandler(this.BusquedaClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,9 +348,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button boton_Eliminar;
         private System.Windows.Forms.Button boton_Reestablecer;
-        private System.Windows.Forms.Button boton_Editar;
         private System.Windows.Forms.Button boton_Volver;
         private System.Windows.Forms.DataGridView lista_clientes;
         private System.Windows.Forms.Button boton_Limpiar;
@@ -383,5 +368,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_nac_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente_usuario;
+        private System.Windows.Forms.Button seleccionar_cliente;
     }
 }

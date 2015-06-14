@@ -96,7 +96,7 @@ namespace PagoElectronico
 
         private void boton_Editar_cuenta_Click(object sender, EventArgs e)
         {
-            BusquedaCuentas buscarCuenta = new BusquedaCuentas(this);
+            BusquedaCuentas buscarCuenta = new BusquedaCuentas(this.id_Cliente_Actual,this);
             buscarCuenta.Show();
             this.Hide();
         }

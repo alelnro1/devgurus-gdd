@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.ABM_Cuenta
+namespace PagoElectronico
 {
     public partial class EditarCuentas : Form
     {
@@ -28,24 +28,12 @@ namespace PagoElectronico.ABM_Cuenta
             cuenta_DAO = new CuentaDAO();
             cuenta_Bean.set_nro_cuenta(id_Cuenta);
 
-            //cargaLosDatosDeLaCuenta(id_Cuenta);
             menuBusquedaCuentas = busqueda;
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_cuenta, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
         }
 
 
-
-        /*public void cargaLosDatosDeLaCuenta(String id_Cuenta)
-        {
-            SqlDataReader lector = cuenta_DAO.dameLaCuenta(id_Cuenta);
-            lector.Read();
-           // rol_Name.Text = lector["Cuenta_Nro"].ToString();
-            //combo_Estado.Text = lector["ROL_ESTADO"].ToString();
-            cuenta_Bean.set_nro_cuenta(id_Cuenta);
-           
-            lector.Close();
-        }*/
-       
+      
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

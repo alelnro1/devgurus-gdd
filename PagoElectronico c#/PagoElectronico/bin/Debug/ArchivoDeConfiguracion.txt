@@ -1,7 +1,7 @@
 Fecha Sistema: MM/dd/yyyy
 
 Parametros Conexion:
-	URL Servidor: AR-LBENITEZ\SQLSERVER2008
+	URL Servidor: Maxi-PC\SQLSERVER2008
 	Nombre de Usuario: gd
 	Password: gd2015
 	Nombre de base de Datos: GD1C2015

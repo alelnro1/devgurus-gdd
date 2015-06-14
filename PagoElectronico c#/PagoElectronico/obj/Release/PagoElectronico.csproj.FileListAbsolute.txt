@@ -126,3 +126,9 @@ C:\Users\lbenitez\Desktop\Workspace\PagoElectronico c#\PagoElectronico\obj\Relea
 C:\Users\lbenitez\Desktop\Workspace\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.BusquedaClientes.resources
 C:\Users\lbenitez\Desktop\Workspace\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Desasociar_Tarjeta.resources
 C:\Users\lbenitez\Desktop\Workspace\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarCliente.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.AltaCliente.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.BusquedaClientes.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarCliente.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.AltaCuentas.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.BusquedaCuentas.resources
+C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarCuentas.resources

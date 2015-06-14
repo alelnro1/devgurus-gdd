@@ -29,6 +29,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             
             String Cuenta_Nro = "";
+            String Cuenta_Fecha_Creacion = "";
             string pais = cuenta.get_pais_origen();
             string tipo_moneda_nombre = cuenta.get_tipo_moneda();
             string tipo_de_cuenta = cuenta.get_tipo_cuenta();
@@ -43,26 +44,29 @@ namespace PagoElectronico.BaseDeDatos.Conexion
               + "," + cuenta.get_fec_Cierre()
               + "," + cuenta.get_Cliente();
 
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(SentenciaSQL);
+            SqlDataReader cuentaSQL = this.GD1C2015.ejecutarSentenciaConRetorno(SentenciaSQL);
 
-            Cuenta_Nro = idDeLaCuentaDeAlta(lector);
-           
-            MessageBox.Show("Cuenta " + Cuenta_Nro + " creada correctamente", "Atención!", MessageBoxButtons.OK);
+      
+            Cuenta_Nro = dameElDatoDeLaCuentaSQL(cuentaSQL, "Cuenta_Nro");
+            //Cuenta_Fecha_Creacion = dameElDatoDeLaCuentaSQL(cuentaSQL, "Cuenta_Fec_Cre");
+
+            MessageBox.Show("Cuenta creada correctamente" + "Nro Cuenta: " + Cuenta_Nro  , "Atención!", MessageBoxButtons.OK);
 
         }
 
-        public String idDeLaCuentaDeAlta(SqlDataReader lector)
+      
+        public String dameElDatoDeLaCuentaSQL(SqlDataReader cuentaSQL, String parametro)
         {
-            String Cuenta_Nro = "";
-          
-            while (lector.Read())
+            String datoCuenta = "";
+            
+            while (cuentaSQL.Read())
             {
-                Cuenta_Nro = lector["Cuenta_Nro"].ToString();
+                datoCuenta = cuentaSQL[parametro].ToString();
+              
             }
-            lector.Close();
+            cuentaSQL.Close();
 
-            return Cuenta_Nro;
-
+            return datoCuenta;
         }
 
 
@@ -71,8 +75,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
 
             String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.Cuenta_Saldo from Cuentas CU, Paises PO ,  Tipo_De_Cuentas TC,Tipo_De_Moneda TM, Paises PA";
-            //  String sentenciaSQL = " select CU.Cuenta_Nro,CU.Cuenta_Estado,TC.Tipo_De_Cuentas_Nombre, PA.Pais_Nombre PaisAsignado_Nombre,CU.Cuenta_Fec_Cre,CU.Cuenta_Cliente ,CU.cuenta_Tarjeta,CU.Cuenta_Saldo from Cuentas CU, Paises PA , Tipo_De_Cuentas TC";
-
+           
             IEnumerator enumerador = filtros.GetEnumerator();
             sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado =PA.Pais_Id";
             if (enumerador.MoveNext())

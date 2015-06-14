@@ -132,5 +132,14 @@ namespace PagoElectronico
             menu_save.BringToFront();
             this.Close();
         }
+
+        private void seleccionar_cliente_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow fila = lista_clientes.SelectedRows[0];
+            String id_Cliente;
+            id_Cliente = (fila.Cells[0].Value.ToString());
+            Program.Cliente_id_seleccionado = id_Cliente;
+            this.Close();  
+        }
     }
 }

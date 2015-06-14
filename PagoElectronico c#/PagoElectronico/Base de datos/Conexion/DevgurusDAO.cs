@@ -30,15 +30,15 @@ namespace PagoElectronico.Conexion
             lector.Close();
         }
 
-        public bool tarjetaEstaVencida(String tarjeta)
+        public bool tarjetaEstaVencida(String tarjeta, String cliente_id)
         {
             Nullable<DateTime> fecha_vencimiento = null;
-            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Nro = '" + tarjeta + "' ";
+            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Digitos_Visibles = '" + tarjeta + "' and Tarjeta_Cliente = " + cliente_id;
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             while (lector.Read())
             {
-               fecha_vencimiento = (DateTime) lector["Tarjeta_Fecha_Vencimiento"];
+                fecha_vencimiento = (DateTime)lector["Tarjeta_Fecha_Vencimiento"];
             }
 
             lector.Close();
@@ -47,8 +47,8 @@ namespace PagoElectronico.Conexion
             {
                 return true;
             }
+            else { return false; }
 
-            return false;
         }
 
         public bool tieneSuficienteSaldo(String cuenta_origen, String importe)
@@ -100,7 +100,7 @@ namespace PagoElectronico.Conexion
 
             while (lector.Read())
             {
-                if (int.Parse(lector["transaccionesPendientes"].ToString()) > 5 )
+                if (int.Parse(lector["transaccionesPendientes"].ToString()) > 5)
                 {
                     String sql_actualizar = "UPDATE Cuentas SET Cuenta_Estado = 'Inhabilitado' WHERE Cuenta_Nro = '" + cuenta + "'";
                     this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
