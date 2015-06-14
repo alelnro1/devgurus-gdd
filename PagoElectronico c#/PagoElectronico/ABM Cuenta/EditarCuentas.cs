@@ -13,7 +13,7 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.ABM_Cuenta
+namespace PagoElectronico
 {
     public partial class EditarCuentas : Form
     {

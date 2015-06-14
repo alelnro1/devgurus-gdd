@@ -18,18 +18,20 @@ namespace PagoElectronico
     public partial class Busqueda_Rol : Form
     {
         private RolDAO rolDAO;
+        public Form menu_save;
 
-        public Busqueda_Rol()
+        public Busqueda_Rol(Form menu)
         {
             InitializeComponent();
             rolDAO = new RolDAO();
+            menu_save = menu;
         }
 
         private void boton_Volver_Click(object sender, EventArgs e)
         {
-            MenuPrincipal nuevoMenu = new MenuPrincipal();
-            nuevoMenu.Show();
-            this.Hide();
+            menu_save.Show();
+            menu_save.BringToFront();
+            this.Close();
         }
 
         private void boton_Buscar_Click(object sender, EventArgs e)

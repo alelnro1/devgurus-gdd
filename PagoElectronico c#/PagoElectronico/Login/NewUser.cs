@@ -44,16 +44,6 @@ namespace PagoElectronico
         private Button boton_Cancelar;
         private Button button_Enviar;
         private Label label1;
-        private TextBox textNombre;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox textApellido;
-        private Label label5;
-        private TextBox textNroDoc;
-        private Label label9;
-        private Label label10;
-        private ComboBox comboTipoDoc;
 
         private void setearRolesEnComboBox()
         {
@@ -80,56 +70,34 @@ namespace PagoElectronico
             { DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             else
             {
-                if (noAceptoTerminosYCondiciones())
-                { DialogResult alerta = MessageBox.Show("Debe aceptar los terminos de uso y condiciones", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                if (text_Pass.Text != text_Pass_Conf.Text)
+                { DialogResult alerta = MessageBox.Show("La confirmación de la contraseña no coincide", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
                 else
-                {
-                    if (text_Pass.Text != text_Pass_Conf.Text)
-                    { DialogResult alerta = MessageBox.Show("La confirmación de la contraseña no coincide", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
-                    else
                     {
                         if (usuarioDAO.existeNombreDeUsuario(text_User.Text.ToLower()))
                         { DialogResult alerta = MessageBox.Show("Ya existe un usuario con ese nombre", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
                         else { ejecutarSolicitud(sender, e); }
                     }
                 }
-            }
         }
 
         private void ejecutarSolicitud(object sender, EventArgs e)
         {   
-            cliente.setCliente_Name(textNombre.Text);
-            cliente.setCliente_Apell(textApellido.Text);
-            cliente.setCliente_TipoDoc(comboTipoDoc.Text);
-            cliente.setCliente_NroDoc(textNroDoc.Text);
-            cliente.setCliente_FecNac(datePicker.Text);
             usuario.setUser_Name(text_User.Text);
             usuario.setUser_Pass(text_Pass.Text);
             usuario.setUser_Rol(combo_Rol.Text);
             usuario.setUser_PreguntaSecreta(comboPreSec.Text);
             usuario.serUser_RespuestaSecreta(textRtaSec.Text);
-            if (clienteDAO.validarClienteExiste(cliente))
-            {   usuarioDAO.cargarUsuario(usuario);
-                cliente.setCliente_IdUser(usuario.getUser_Id());
-                DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            if (usuarioDAO.cargarUsuario(usuario))
+            { DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
         }
 
         private bool formulario_Incompleto()
         {
-            if  ((String.IsNullOrEmpty(textNombre.Text)) || (String.IsNullOrEmpty(textApellido.Text)) ||
-                (String.IsNullOrEmpty(comboTipoDoc.Text)) || (String.IsNullOrEmpty(textNroDoc.Text)) ||
-                (String.IsNullOrEmpty(datePicker.Text)) || (String.IsNullOrEmpty(text_User.Text)) ||
-                (String.IsNullOrEmpty(text_Pass.Text)) || (String.IsNullOrEmpty(text_Pass_Conf.Text)) ||
-                (String.IsNullOrEmpty(combo_Rol.Text)) || (String.IsNullOrEmpty(comboPreSec.Text)) ||
+            if  ((String.IsNullOrEmpty(text_User.Text)) || (String.IsNullOrEmpty(text_Pass.Text)) || 
+                (String.IsNullOrEmpty(text_Pass_Conf.Text)) || (String.IsNullOrEmpty(combo_Rol.Text)) || (String.IsNullOrEmpty(comboPreSec.Text)) ||
                 (String.IsNullOrEmpty(textRtaSec.Text)))
-            { return true; }
-            else return false;
-        }
-
-        private bool noAceptoTerminosYCondiciones()
-        {
-            if (checkTermino.Checked == false)
             { return true; }
             else return false;
         }

@@ -129,7 +129,7 @@ Create Table Transaccion_Pendiente	(	Transaccion_Pendiente_Id integer identity (
 										Transaccion_Pendiente_Cuenta_Nro numeric (18,0) FOREIGN KEY REFERENCES Cuentas(Cuenta_Nro))			
 							
 Create Table Login_Incorrecto	(	Login_Incorrecto_Id integer identity (1,1) Primary key,
-									Login_Incorrecto_User varchar(255),
+									Login_Incorrecto_User integer foreign key references Usuarios(Usuarios_Id),
 									Login_Incorrecto_Pass varchar (255),
 									Login_Incorrecto_Intento tinyint,
 									Login_Incorrecto_Fecha datetime)

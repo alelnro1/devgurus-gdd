@@ -15,12 +15,14 @@ namespace PagoElectronico
     {
         private Rol_Bean rol;
         private RolDAO rolDAO;
+        public Form menu_save;
 
-        public EditRol()
+        public EditRol(Form menu)
         {
             InitializeComponent();
             rol = new Rol_Bean();
             rolDAO = new RolDAO();
+            menu_save = menu;
         }
 
         private void boton_Crear_Click(object sender, EventArgs e)
@@ -53,14 +55,13 @@ namespace PagoElectronico
                 MenuPrincipal nuevoMenu = new MenuPrincipal();
                 nuevoMenu.Show();
                 this.Close();
-
             }
         }
 
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
-            MenuPrincipal nuevoMenu = new MenuPrincipal();
-            nuevoMenu.Show();
+            menu_save.Show();
+            menu_save.BringToFront();
             this.Close();
         }
     }

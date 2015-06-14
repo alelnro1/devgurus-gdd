@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.ABM_Cuenta
+﻿namespace PagoElectronico
 {
     partial class EditarCuentas
     {

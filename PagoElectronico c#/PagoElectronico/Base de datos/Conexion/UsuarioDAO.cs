@@ -29,50 +29,42 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             }
             return hashString;
         }
-        
-        public void validarCamposVacios(String campoARevisar, String mensajeError)
-        {
-            if (campoARevisar.Trim() == "")
-                throw new ValidacionErroneaClienteException(mensajeError);
-        }
 
-        public void validarUsuario(Usuario_Bean usuario)
+        public bool validarUsuario(Usuario_Bean usuario, String nombre_Rol)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuario_Pass], [Usuario_Rol], [Usuario_Estado] from " + ConstantesBD.t_usuarios +
-            " where [Usuario_Name] = '" + usuario.getUser_Name() + "';");
-            if (!lector.HasRows)
-            { this.lanzarMensaje("El usuario ingresado no existe", lector); }
-            else
-            {   lector.Read();
-            if (!lector["Usuario_Estado"].Equals("Habilitado"))
-            { this.lanzarMensaje("El usuario ingresado no se encuntra habilitado, por favor contacte al administrador", lector); }
-            else
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE logearse @rol = '"+nombre_Rol+"', @usuario = '"+usuario.getUser_Name()+"', @password = '"+usuario.getUser_Pass()+"';");
+            lector.Read();
+            if (lector["MENSAJE"].Equals("No existe"))
+            {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no existe.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return false;}
+            if (lector["MENSAJE"].Equals("No rol valido"))
+            { MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no posee el rol especificado.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return false;}
+            if (lector["MENSAJE"].Equals("Bloqueado"))
+            { MessageBox.Show("El Usuario " + usuario.getUser_Name() + " se encuentra bloqueado.", "Atención!", MessageBoxButtons.OK);
+                lector.Close(); 
+                return false;}
+            if (lector["MENSAJE"].Equals("Incorrecto"))
+            { MessageBox.Show("La contraseña ingresada es incorrecta.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return false;}
+            if (lector["MENSAJE"].Equals("Correcto"))
             {
-                if (lector["Usuario_Rol"].ToString() != usuario.getUser_Rol())
-                { this.lanzarMensaje("El usuario no posee el rol especificado", lector); }
-                else
-                {
-                    if (lector["Usuario_Pass"].ToString() != usuario.getUser_Pass())
-                    {
-                        this.lanzarMensaje("La contraseña ingresada es incorrecta", lector);
-                        //this.GD1C2015.ejecutarSentenciaSinRetorno("EXECUTE Almacenar_Login_Incorrecto '" + usuario.getUser_Name() +
-                        //"', '" + usuario.getUser_Pass() + "' GO");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario " + usuario.getUser_Name() + " logeado correctamente", "Atención!", MessageBoxButtons.OK);
-                    }
-                }
+                MessageBox.Show("El Usuario " + usuario.getUser_Name() + " se ha logeado correctamente.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return true;
             }
-            }
+            return false;
         }
 
-        public string cargarUsuario(Usuario_Bean usuario)
+        public bool cargarUsuario(Usuario_Bean usuario)
         {
  /*         ESTE METODO DEBERIA HACER UN INSERT EN LA TABLA USUARIOS CON ESTADO "PENDIENTE"
             Y NECESITO QUE ME DEVUELVA EL ID DEL USUARIO QUE SE CREO!! TRIGGER DE CABEZA   
             ADEMAS ES NECESARIOS METER ESE ID EN USUARIO_BEAN MEDIANTE SETUSER_ID*/
-            return "beta";
+            return true;
         }
 
         public bool existeNombreDeUsuario(String nombreDeUsuario)
@@ -80,19 +72,18 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuario_Name] from " + ConstantesBD.t_usuarios +
             " where Usuario_Name = '" + nombreDeUsuario + "';");
             if (lector.HasRows) { lector.Close(); return true; }
-            else { lector.Close(); return false; };
+            else { lector.Close(); return false; }
         }
 
-        protected void lanzarExcepcion(String mensajeError, SqlDataReader lector)
+        public string dameElId(Usuario_Bean usuario)
         {
+            string id_Usuario;
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuarios_Id] from " + ConstantesBD.t_usuarios +
+            " where Usuarios_Name = '" + usuario.getUser_Name() + "';");
+            lector.Read();
+            id_Usuario = lector["Usuarios_Id"].ToString();
             lector.Close();
-            throw new ValidacionErroneaUsuarioException(mensajeError);
-        }
-        
-        protected void lanzarMensaje(String mensaje, SqlDataReader lector)
-        {
-            lector.Close();
-            MessageBox.Show(mensaje, "Atención", MessageBoxButtons.OK);
+            return id_Usuario;
         }
     }
 }

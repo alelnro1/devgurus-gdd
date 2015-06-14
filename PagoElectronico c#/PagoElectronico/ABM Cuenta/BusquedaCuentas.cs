@@ -1,30 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using PagoElectronico.Excepciones;
-using System.Security.Cryptography;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using PagoElectronico.Conexion;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 using PagoElectronico.BaseDeDatos.Conexion;
+using PagoElectronico.Conexion;
+using PagoElectronico.Excepciones;
 
 
-namespace PagoElectronico.ABM_Cuenta
+namespace PagoElectronico
 {
     public partial class BusquedaCuentas : Form
                 
     {
         private CuentaDAO cuenta_DAO;
+        private Form menu_save;
         
-        public BusquedaCuentas()
+        public BusquedaCuentas(Form menu)
         {
             cuenta_DAO = new CuentaDAO();
-          
+            menu_save = menu;          
             InitializeComponent();
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_origen2, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
@@ -110,24 +111,6 @@ namespace PagoElectronico.ABM_Cuenta
             dataGridView1.Rows.AddRange(filas.ToArray()); //mando como parametro a las filas de la vista, a las filas cargadas convertidas a un array
         }
 
-
-        private void check_Habilitado_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void check_Deshabilitado_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lista_cuentas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-        }
-
-       
-
         private void boton_Limpiar_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
@@ -148,21 +131,6 @@ namespace PagoElectronico.ABM_Cuenta
             check_Pendiente.Checked = false;
             */
             
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void BusquedaCuentas_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void boton_Eliminar_Click(object sender, EventArgs e)
@@ -199,15 +167,15 @@ namespace PagoElectronico.ABM_Cuenta
             {
                 MessageBox.Show("Debe seleccionar una Cuenta primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        
         }
 
-        private void combo_pais_origen2_SelectedIndexChanged(object sender, EventArgs e)
+        private void boton_Volver_Click(object sender, EventArgs e)
         {
-
+            menu_save.Show();
+            menu_save.BringToFront();
+            this.Close();
         }
         }
-
     }
 
 

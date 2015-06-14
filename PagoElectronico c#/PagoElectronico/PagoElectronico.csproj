@@ -162,12 +162,6 @@
     <Compile Include="Excepciones\ValidacionErroneaClienteException.cs" />
     <Compile Include="Excepciones\EjecucionComandoFallidaException.cs" />
     <Compile Include="Excepciones\ConexionFallidaException.cs" />
-    <Compile Include="MDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDI.Designer.cs">
-      <DependentUpon>MDI.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,9 +224,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depositos\Depositos.resx">
       <DependentUpon>Depositos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDI.resx">
-      <DependentUpon>MDI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -12,15 +12,17 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.ABM_Cliente
+namespace PagoElectronico
 {
     public partial class AltaCliente : Form
     {
         private Cliente_Bean cliente;
         private ClienteDAO cliente_DAO;
+        private Form menu_save;
 
-        public AltaCliente()
+        public AltaCliente(Form menu)
         {
+            menu_save = menu;
             cliente = new Cliente_Bean();
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
@@ -80,6 +82,13 @@ namespace PagoElectronico.ABM_Cliente
             {
                 MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            menu_save.Show();
+            menu_save.BringToFront();
+            this.Close();
         }
         }
 }

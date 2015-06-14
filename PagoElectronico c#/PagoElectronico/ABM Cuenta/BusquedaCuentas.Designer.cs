@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.ABM_Cuenta
+﻿namespace PagoElectronico
 {
     partial class BusquedaCuentas
     {
@@ -43,10 +43,6 @@
             this.combo_Tipo_Moneda = new System.Windows.Forms.Label();
             this.combo_moneda = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
-            this.combo_estado = new System.Windows.Forms.ComboBox();
             this.IdCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,10 @@
             this.fecha_cierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
+            this.combo_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,6 +165,7 @@
             this.boton_Volver.TabIndex = 223284;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
+            this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click);
             // 
             // label_estado
             // 
@@ -213,50 +214,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1044, 254);
             this.dataGridView1.TabIndex = 223291;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // combo_pais_origen2
-            // 
-            this.combo_pais_origen2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_pais_origen2.FormattingEnabled = true;
-            this.combo_pais_origen2.Location = new System.Drawing.Point(475, 103);
-            this.combo_pais_origen2.Name = "combo_pais_origen2";
-            this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
-            this.combo_pais_origen2.TabIndex = 223292;
-            this.combo_pais_origen2.SelectedIndexChanged += new System.EventHandler(this.combo_pais_origen2_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(373, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 223293;
-            this.label3.Text = "Pais Asignado";
-            // 
-            // pais_asignado_combo
-            // 
-            this.pais_asignado_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.pais_asignado_combo.FormattingEnabled = true;
-            this.pais_asignado_combo.Location = new System.Drawing.Point(475, 169);
-            this.pais_asignado_combo.Name = "pais_asignado_combo";
-            this.pais_asignado_combo.Size = new System.Drawing.Size(121, 21);
-            this.pais_asignado_combo.TabIndex = 223294;
-            this.pais_asignado_combo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // combo_estado
-            // 
-            this.combo_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_estado.FormattingEnabled = true;
-            this.combo_estado.Items.AddRange(new object[] {
-            "Habilitado",
-            "Deshabilitado",
-            "Cerrado",
-            "Pendiente"});
-            this.combo_estado.Location = new System.Drawing.Point(193, 103);
-            this.combo_estado.Name = "combo_estado";
-            this.combo_estado.Size = new System.Drawing.Size(121, 21);
-            this.combo_estado.TabIndex = 223295;
             // 
             // IdCuenta
             // 
@@ -281,7 +238,7 @@
             this.TipoCuenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.TipoCuenta.HeaderText = "Tipo Cuenta";
             this.TipoCuenta.Name = "TipoCuenta";
-            this.TipoCuenta.Width = 90;
+            this.TipoCuenta.Width = 83;
             // 
             // p
             // 
@@ -319,6 +276,47 @@
             this.Saldo.HeaderText = "Saldo";
             this.Saldo.Name = "Saldo";
             // 
+            // combo_pais_origen2
+            // 
+            this.combo_pais_origen2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_pais_origen2.FormattingEnabled = true;
+            this.combo_pais_origen2.Location = new System.Drawing.Point(475, 103);
+            this.combo_pais_origen2.Name = "combo_pais_origen2";
+            this.combo_pais_origen2.Size = new System.Drawing.Size(121, 21);
+            this.combo_pais_origen2.TabIndex = 223292;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(373, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 223293;
+            this.label3.Text = "Pais Asignado";
+            // 
+            // pais_asignado_combo
+            // 
+            this.pais_asignado_combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pais_asignado_combo.FormattingEnabled = true;
+            this.pais_asignado_combo.Location = new System.Drawing.Point(475, 169);
+            this.pais_asignado_combo.Name = "pais_asignado_combo";
+            this.pais_asignado_combo.Size = new System.Drawing.Size(121, 21);
+            this.pais_asignado_combo.TabIndex = 223294;
+            // 
+            // combo_estado
+            // 
+            this.combo_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_estado.FormattingEnabled = true;
+            this.combo_estado.Items.AddRange(new object[] {
+            "Habilitado",
+            "Deshabilitado",
+            "Cerrado",
+            "Pendiente"});
+            this.combo_estado.Location = new System.Drawing.Point(193, 103);
+            this.combo_estado.Name = "combo_estado";
+            this.combo_estado.Size = new System.Drawing.Size(121, 21);
+            this.combo_estado.TabIndex = 223295;
+            // 
             // BusquedaCuentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +343,6 @@
             this.Controls.Add(this.combo_Nro_Cuenta);
             this.Name = "BusquedaCuentas";
             this.Text = "Busqueda Cuentas";
-            this.Load += new System.EventHandler(this.BusquedaCuentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

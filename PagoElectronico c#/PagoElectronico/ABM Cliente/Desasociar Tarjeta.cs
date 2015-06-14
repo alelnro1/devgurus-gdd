@@ -14,7 +14,7 @@ using PagoElectronico.Conexion;
 using PagoElectronico.BaseDeDatos.Conexion;
 
 
-namespace PagoElectronico.ABM_Cliente
+namespace PagoElectronico
 {
     public partial class Desasociar_Tarjeta : Form
     {

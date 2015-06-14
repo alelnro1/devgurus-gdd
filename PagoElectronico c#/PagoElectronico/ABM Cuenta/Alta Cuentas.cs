@@ -12,46 +12,27 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.ABM_Cuenta
+namespace PagoElectronico
 {
-
     public partial class AltaCuentas : Form
     {
 
         private Cuenta_Bean cuenta;
         private CuentaDAO cuenta_DAO;
+        private String id_Cliente;
+        private Form menu_save;
 
-
-        public AltaCuentas()
+        public AltaCuentas(Form menu, String cliente_Id)
         {
-
             cuenta = new Cuenta_Bean();
             cuenta_DAO = new CuentaDAO();
-
             InitializeComponent();
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_origen, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_cuenta, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
-             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_moneda,"Tipo_De_Moneda_Nombre","Tipo_De_Moneda_Nombre",ConstantesBD.t_tipo_de_moneda);
-            
-        
-
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
+            id_Cliente = cliente_Id;
+            menu_save = menu;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cuentas_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void button_dar_alta_Click(object sender, EventArgs e)
         {
@@ -76,38 +57,17 @@ namespace PagoElectronico.ABM_Cuenta
                 cuenta.set_pais_origen(combo_pais_origen.Text);
                 
                 cuenta.set_fec_Cierre("null");
-                cuenta.set_Cliente("null");//ACA HAY QUE MANDAR EL ID DEL CLIENTE QUE SUPUESTAMENTE VA A SER GLOBAL
-              
+                cuenta.set_Cliente("null");//ACA HAY QUE MANDAR EL ID DEL CLIENTE QUE SUPUESTAMENTE VA A SER 
                 
                 cuenta_DAO.altaCuenta(cuenta);
-
             }
-
         }
 
-
-
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            menu_save.Show();
+            menu_save.BringToFront();
+            this.Close();
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combo_pais_origen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combo_tipo_moneda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.ABM_Cliente
+﻿namespace PagoElectronico
 {
     partial class Desasociar_Tarjeta
     {

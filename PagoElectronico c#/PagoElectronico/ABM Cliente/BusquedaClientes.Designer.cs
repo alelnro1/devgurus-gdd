@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.ABM_Cliente
+﻿namespace PagoElectronico
 {
     partial class BusquedaClientes
     {
@@ -43,8 +43,6 @@
             this.boton_Editar = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
-            this.boton_Limpiar = new System.Windows.Forms.Button();
-            this.boton_Buscar = new System.Windows.Forms.Button();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +58,8 @@
             this.fecha_nac_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boton_Limpiar = new System.Windows.Forms.Button();
+            this.boton_Buscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,6 +195,7 @@
             this.boton_Volver.TabIndex = 223285;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
+            this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click);
             // 
             // lista_clientes
             // 
@@ -221,26 +222,6 @@
             this.lista_clientes.Name = "lista_clientes";
             this.lista_clientes.Size = new System.Drawing.Size(1490, 189);
             this.lista_clientes.TabIndex = 223284;
-            // 
-            // boton_Limpiar
-            // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
-            this.boton_Limpiar.Name = "boton_Limpiar";
-            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Limpiar.TabIndex = 223283;
-            this.boton_Limpiar.Text = "Limpiar busqueda";
-            this.boton_Limpiar.UseVisualStyleBackColor = true;
-            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
-            // 
-            // boton_Buscar
-            // 
-            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
-            this.boton_Buscar.Name = "boton_Buscar";
-            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Buscar.TabIndex = 223282;
-            this.boton_Buscar.Text = "Buscar";
-            this.boton_Buscar.UseVisualStyleBackColor = true;
-            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
             // 
             // id_cliente
             // 
@@ -317,11 +298,31 @@
             this.cliente_usuario.HeaderText = "Usuario";
             this.cliente_usuario.Name = "cliente_usuario";
             // 
+            // boton_Limpiar
+            // 
+            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
+            this.boton_Limpiar.Name = "boton_Limpiar";
+            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Limpiar.TabIndex = 223283;
+            this.boton_Limpiar.Text = "Limpiar busqueda";
+            this.boton_Limpiar.UseVisualStyleBackColor = true;
+            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
+            // 
+            // boton_Buscar
+            // 
+            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
+            this.boton_Buscar.Name = "boton_Buscar";
+            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Buscar.TabIndex = 223282;
+            this.boton_Buscar.Text = "Buscar";
+            this.boton_Buscar.UseVisualStyleBackColor = true;
+            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
+            // 
             // BusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1506, 535);
+            this.ClientSize = new System.Drawing.Size(1366, 535);
             this.Controls.Add(this.boton_Eliminar);
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Editar);

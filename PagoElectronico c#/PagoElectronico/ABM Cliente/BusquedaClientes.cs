@@ -14,14 +14,16 @@ using PagoElectronico.Conexion;
 using PagoElectronico.BaseDeDatos.Conexion;
 
 
-namespace PagoElectronico.ABM_Cliente
+namespace PagoElectronico
 {
     public partial class BusquedaClientes : Form
     {
-
         private ClienteDAO clienteDAO;
-        public BusquedaClientes()
+        private Form menu_save;
+
+        public BusquedaClientes(Form menu)
         {
+            menu_save = menu;
             clienteDAO = new ClienteDAO();
             InitializeComponent();
             clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nombre, "Cliente_Nombre", "Cliente_Nombre", ConstantesBD.t_clientes);
@@ -124,9 +126,11 @@ namespace PagoElectronico.ABM_Cliente
             }
         }
 
-        private void BusquedaClientes_Load(object sender, EventArgs e)
+        private void boton_Volver_Click(object sender, EventArgs e)
         {
-
+            menu_save.Show();
+            menu_save.BringToFront();
+            this.Close();
         }
     }
 }

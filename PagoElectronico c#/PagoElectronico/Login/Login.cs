@@ -20,6 +20,7 @@ namespace PagoElectronico
     {
         private Usuario_Bean usuario;
         private UsuarioDAO usuarioDAO;
+        private ClienteDAO clienteDAO;
         private RolDAO rolDAO;
         
         public Login()
@@ -29,6 +30,7 @@ namespace PagoElectronico
             usuarioDAO = new UsuarioDAO();
             usuario = new Usuario_Bean();
             rolDAO = new RolDAO();
+            clienteDAO = new ClienteDAO();
             setearRolesEnComboBox();
         }
 
@@ -85,6 +87,10 @@ namespace PagoElectronico
 
         private void button_Ingreso_Click(object sender, EventArgs e)
         {
+            string nombre_Rol;
+            string id_Usuario;
+            string id_Cliente;
+
             if ((String.IsNullOrEmpty(text_User.Text)) ||
                (String.IsNullOrEmpty(text_Pass.Text)) ||
                (String.IsNullOrEmpty(combo_Roles.Text)))
@@ -93,16 +99,16 @@ namespace PagoElectronico
             {
                 usuario.setUser_Name(text_User.Text);
                 usuario.setUser_Pass(text_Pass.Text);
-            // AQUI SE DEBEN AGREGAR FUTUROS ROLES COMO CONDICIONES, PERO SE DEBE AUTOMATIZAR
-                if (combo_Roles.Text == "Cliente")
-                { usuario.setUser_Rol("1"); };
-                if (combo_Roles.Text == "Administrador")
-                { usuario.setUser_Rol("2"); };
-                usuarioDAO.validarUsuario(usuario);
+                nombre_Rol = combo_Roles.Text;
+                if (usuarioDAO.validarUsuario(usuario, nombre_Rol))
+                {
+                    id_Usuario = usuarioDAO.dameElId(usuario);
+                    id_Cliente = clienteDAO.dameElIdCliente(id_Usuario);
+                    MenuPrincipal nuevoMenu = new MenuPrincipal(id_Cliente, id_Usuario, text_User.Text, nombre_Rol);
+                    nuevoMenu.Show();
+                    this.Hide();
+                };
             } 
-            MenuPrincipal nuevoMenu = new MenuPrincipal();
-            nuevoMenu.Show();
-            this.Hide();
          }
 
         private void boton_NewCliente_Click(object sender, EventArgs e)

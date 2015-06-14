@@ -182,7 +182,33 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             }
 
         }
+        
+        public string DameNombreApellido(string id_Cliente)
+        {
+            string nombreApellido = "";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Cliente_Nombre], [Cliente_Apellido] from " + ConstantesBD.t_clientes + " where Cliente_Id = '" + id_Cliente + "';");
+            if (lector.HasRows)
+            {
+                lector.Read();
+                nombreApellido = lector["Cliente_Nombre"].ToString() + "  " + lector["Cliente_Apellido"].ToString();
+                lector.Close();
+            }
+            return nombreApellido;
+        }
 
+        public string dameElIdCliente(String id_Usuario)
+        {
+            string id_Cliente = "";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Cliente_Id] from " + ConstantesBD.t_clientes +
+            " where Cliente_User = '" + id_Usuario + "';");
+            lector.Read();
+            if (lector.HasRows)
+            {
+                id_Cliente = lector["Cliente_Id"].ToString();
+                lector.Close();
+            }
+            return id_Cliente;
+        }
     }
 }
 

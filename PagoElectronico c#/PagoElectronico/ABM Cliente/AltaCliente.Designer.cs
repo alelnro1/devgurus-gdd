@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.ABM_Cliente
+﻿namespace PagoElectronico
 {
     partial class AltaCliente
     {
@@ -55,13 +55,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nombre_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Cancelar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Generar
             // 
-            this.Generar.Location = new System.Drawing.Point(206, 306);
+            this.Generar.Location = new System.Drawing.Point(373, 306);
             this.Generar.Name = "Generar";
             this.Generar.Size = new System.Drawing.Size(75, 23);
             this.Generar.TabIndex = 29;
@@ -306,11 +307,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // Cancelar
+            // 
+            this.Cancelar.Location = new System.Drawing.Point(48, 306);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.Cancelar.TabIndex = 30;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(490, 344);
+            this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Generar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -353,6 +365,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nombre_textbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Cancelar;
 
 
     }
