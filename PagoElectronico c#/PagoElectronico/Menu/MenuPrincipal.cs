@@ -21,11 +21,13 @@ namespace PagoElectronico
         private String id_Cliente_Actual;
         private String id_Usuario_Actual;
         private String nombre_rol_Actual;
-        
+        private CuentaDAO cuentaDAO;
+
         public MenuPrincipal(String id_Cliente, String id_Usuario, String user, String nombre_rol)
         {
             InitializeComponent();
             clienteDAO = new ClienteDAO();
+            cuentaDAO = new CuentaDAO();
             rolDAO = new RolDAO();
             id_Cliente_Actual = id_Cliente;
             id_Usuario_Actual = id_Usuario;
@@ -89,16 +91,16 @@ namespace PagoElectronico
 
         private void boton_Nueva_Cuenta_Click(object sender, EventArgs e)
         {
-            AltaCuentas nuevaCuenta = new AltaCuentas(this, this.id_Cliente_Actual);
-            nuevaCuenta.Show();
-            this.Hide();
+          // AltaCuentas nuevaCuenta = new AltaCuentas(this, this.id_Cliente_Actual);
+            //nuevaCuenta.Show();
+            //this.Hide();
         }
 
         private void boton_Editar_cuenta_Click(object sender, EventArgs e)
         {
-            BusquedaCuentas buscarCuenta = new BusquedaCuentas(this.id_Cliente_Actual,this);
-            buscarCuenta.Show();
-            this.Hide();
+            //BusquedaCuentas buscarCuenta = new BusquedaCuentas(this);
+            //buscarCuenta.Show();
+            //this.Hide();
         }
 
         private void boton_Crear_Cliente_Click(object sender, EventArgs e)
@@ -113,6 +115,22 @@ namespace PagoElectronico
             BusquedaClientes menuBusqueda = new BusquedaClientes(this);
             menuBusqueda.Show();
             this.Hide();
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void boton_eliminar_cliente_Click(object sender, EventArgs e)
+        {
+            BusquedaClientes buscador = new BusquedaClientes(this);
+            buscador.ShowDialog();
+            String cliente = Program.Cliente_id_seleccionado;
+            if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                clienteDAO.eliminarCliente(cliente);
+            }
         }
     }
 }

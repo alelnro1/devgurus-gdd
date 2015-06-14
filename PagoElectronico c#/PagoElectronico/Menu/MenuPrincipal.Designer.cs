@@ -44,6 +44,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boton_Editar_Cliente = new System.Windows.Forms.Button();
             this.boton_Crear_Cliente = new System.Windows.Forms.Button();
+            this.boton_eliminar_cliente = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -197,11 +198,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.boton_eliminar_cliente);
             this.groupBox1.Controls.Add(this.boton_Editar_Cliente);
             this.groupBox1.Controls.Add(this.boton_Crear_Cliente);
             this.groupBox1.Location = new System.Drawing.Point(315, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(205, 133);
+            this.groupBox1.Size = new System.Drawing.Size(205, 142);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu Clientes";
@@ -212,7 +214,7 @@
             this.boton_Editar_Cliente.Name = "boton_Editar_Cliente";
             this.boton_Editar_Cliente.Size = new System.Drawing.Size(171, 28);
             this.boton_Editar_Cliente.TabIndex = 7;
-            this.boton_Editar_Cliente.Text = "Eliminar/Editar Cliente";
+            this.boton_Editar_Cliente.Text = "Editar Cliente";
             this.boton_Editar_Cliente.UseVisualStyleBackColor = true;
             this.boton_Editar_Cliente.Click += new System.EventHandler(this.boton_Editar_Cliente_Click);
             // 
@@ -225,6 +227,16 @@
             this.boton_Crear_Cliente.Text = "Crear nuevo Cliente";
             this.boton_Crear_Cliente.UseVisualStyleBackColor = true;
             this.boton_Crear_Cliente.Click += new System.EventHandler(this.boton_Crear_Cliente_Click);
+            // 
+            // boton_eliminar_cliente
+            // 
+            this.boton_eliminar_cliente.Location = new System.Drawing.Point(18, 108);
+            this.boton_eliminar_cliente.Name = "boton_eliminar_cliente";
+            this.boton_eliminar_cliente.Size = new System.Drawing.Size(171, 28);
+            this.boton_eliminar_cliente.TabIndex = 8;
+            this.boton_eliminar_cliente.Text = "Eliminar Cliente";
+            this.boton_eliminar_cliente.UseVisualStyleBackColor = true;
+            this.boton_eliminar_cliente.Click += new System.EventHandler(this.boton_eliminar_cliente_Click);
             // 
             // MenuPrincipal
             // 
@@ -244,6 +256,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -270,5 +283,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button boton_Editar_Cliente;
         private System.Windows.Forms.Button boton_Crear_Cliente;
+        private System.Windows.Forms.Button boton_eliminar_cliente;
     }
 }
