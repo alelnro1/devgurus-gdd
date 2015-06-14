@@ -29,17 +29,3 @@ GO
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	Update Clientes SET 
-		 Cliente_Nombre = @nombre,Cliente_Apellido = @apellido, Cliente_Tipo_Doc = @tipo_doc,Cliente_Nro_Doc = @nro_doc,Cliente_Nacionalidad =@nacionalidad, Cliente_Pais = @pais, Cliente_Localidad =@localidad , Cliente_Dom_Calle = @calle, Cliente_Dom_Depto = @depto, Cliente_Fecha_Nac = @fec_nac, Cliente_Mail =@mail ,
-		  Cliente_Dom_Piso = @piso, Cliente_User = @cliente_user
-			WHERE @id_cliente = Cliente_Id
-			
-GO
-
-select *from Clientes
