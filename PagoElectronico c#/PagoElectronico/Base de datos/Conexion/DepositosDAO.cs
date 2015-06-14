@@ -19,15 +19,15 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
 
 
-        public bool tarjetaNoEstaVencida(string tarjeta)
+        public bool tarjetaNoEstaVencida(string tarjeta_digitos_visibles, string cliente_id)
         {
-            return this.tarjetaEstaVencida(tarjeta);
+            return this.tarjetaEstaVencida(tarjeta_digitos_visibles, cliente_id);
         }
 
-        public bool cuentaEsTitularDeTarjeta(string cuenta, string tarjeta)
+        public bool clienteEsTitularDeTarjeta(string cliente_id, string tarjeta_digitos_visibles)
         {
             bool resultado = false;
-            String sql = "SELECT Cuenta_Nro FROM Cuentas WHERE Cuenta_Nro = '" + cuenta + "' AND cuenta_Tarjeta = '" + tarjeta + "' ";
+            String sql = "SELECT Tarjeta_Id FROM Tarjetas WHERE Tarjeta_Cliente = " + cliente_id + " AND Tarjeta_Digitos_Visibles = '" + tarjeta_digitos_visibles + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             if (lector.HasRows)

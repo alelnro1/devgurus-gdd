@@ -10,7 +10,7 @@ create procedure [dbo].[insertarEnCuentas]
 		@Cuenta_Tipo varchar(255),
 		@Cuenta_PaisAsignado numeric (18,0),
 		@Cuenta_Fec_Cierre datetime,
-		@Cuenta_Cliente integer,
+		@Cuenta_Cliente integer
 		
 			
 				as
@@ -33,3 +33,8 @@ create procedure [dbo].[insertarEnCuentas]
 												[Cuenta_Cliente]) 
 												
 												values(@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
+												
+
+				SELECT Cuenta_Nro FROM INSERTED
+				
+				

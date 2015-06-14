@@ -26,31 +26,32 @@ namespace PagoElectronico.Depositos
             cliente.setCliente_Id(id_cliente);
             InitializeComponent();
             depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(moneda_combobox, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String tarjeta = tarjeta_combobox.Text;
+            String tarjeta_digitos_visibles = tarjeta_combobox.Text;
             String moneda  = moneda_combobox.Text;
             String cuenta  = cuenta_combobox.Text;
             String importe = importe_textbox.Text;
 
-            if (!String.IsNullOrEmpty(tarjeta) && !String.IsNullOrEmpty(moneda) && !String.IsNullOrEmpty(cuenta) && !String.IsNullOrEmpty(importe))
+            if (!String.IsNullOrEmpty(tarjeta_digitos_visibles) && !String.IsNullOrEmpty(moneda) && !String.IsNullOrEmpty(cuenta) && !String.IsNullOrEmpty(importe))
             {
                 if (depositos_DAO.numeroEsFloat(importe))
                 {
                     if (depositos_DAO.importeEsMayorANumero(importe, "1"))
                     {
-                        if (depositos_DAO.tarjetaNoEstaVencida(tarjeta))
+                        if (depositos_DAO.tarjetaNoEstaVencida(tarjeta_digitos_visibles, cliente.getCliente_Id()))
                         {
-                            if (depositos_DAO.cuentaEsTitularDeTarjeta(cuenta, tarjeta))
+                            if (depositos_DAO.clienteEsTitularDeTarjeta(cliente.getCliente_Id(), tarjeta_digitos_visibles))
                             {
-                                depositos_DAO.realizarDeposito(cuenta, tarjeta, importe, moneda);
+                                depositos_DAO.realizarDeposito(cuenta, tarjeta_digitos_visibles, importe, moneda);
                                 MessageBox.Show("El deposito fue realizado", "Atención", MessageBoxButtons.OK);
                             }
                             else
                             {
-                                MessageBox.Show("La cuenta no es titular de la tarjeta", "Atención", MessageBoxButtons.OK);
+                                MessageBox.Show("El cliente no es titular de la tarjeta", "Atención", MessageBoxButtons.OK);
                             }
                         }
                         else

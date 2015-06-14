@@ -1,14 +1,14 @@
-CREATE procedure depositar
+create procedure depositar
 	@Id_Cuenta numeric (18,0),
 	@tarjeta varchar(4),
 	@importe float,
-	@moneda tinyint
+	@moneda varchar(255)
 	
 AS
 
 	Declare @id_tarjeta numeric (18,0)
 	
-	SELECT  @id_tarjeta = Tarjeta_id FROM Tarjetas where Tarjeta_Digitos_Visibles = @tarjeta
+	SELECT  @id_tarjeta = Tarjeta_Id FROM Tarjetas where Tarjeta_Digitos_Visibles = @tarjeta
 	
 
 	INSERT INTO Depositos (Deposito_Id, Deposito_Cuenta, Deposito_Fecha, Deposito_Importe, Deposito_Tarjeta, Deposito_TipoMoneda)
