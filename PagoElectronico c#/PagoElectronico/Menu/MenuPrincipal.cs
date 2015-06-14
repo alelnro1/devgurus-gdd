@@ -112,9 +112,13 @@ namespace PagoElectronico
 
         private void boton_Editar_Cliente_Click(object sender, EventArgs e)
         {
-            BusquedaClientes menuBusqueda = new BusquedaClientes(this);
-            menuBusqueda.Show();
-            this.Hide();
+            BusquedaClientes buscador = new BusquedaClientes(this);
+            buscador.ShowDialog();
+
+            String cliente = Program.Cliente_id_seleccionado;
+            EditarCliente editarCliente = new EditarCliente(cliente,this);
+            editarCliente.ShowDialog();
+         
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
@@ -125,12 +129,32 @@ namespace PagoElectronico
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
         {
             BusquedaClientes buscador = new BusquedaClientes(this);
-            buscador.ShowDialog();
-            String cliente = Program.Cliente_id_seleccionado;
-            if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+       
+
+
+            try
             {
-                clienteDAO.eliminarCliente(cliente);
+                buscador.ShowDialog();
+
+                String cliente = Program.Cliente_id_seleccionado;
+                if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    clienteDAO.eliminarCliente(cliente);
+                }
             }
+
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+          
+        }
+
+        private void cliente_Info_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

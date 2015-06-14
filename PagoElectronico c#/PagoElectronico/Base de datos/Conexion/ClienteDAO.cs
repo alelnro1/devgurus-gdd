@@ -159,6 +159,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
         }
 
+
+        public void editarCliente(String cliente) {
+            this.GD1C2015.ejecutarSentenciaSinRetorno("exec actualizar_cliente" + cliente);
+        }
+
         public void eliminarCliente(String id_cliente)
         {
             if (id_cliente == "1")

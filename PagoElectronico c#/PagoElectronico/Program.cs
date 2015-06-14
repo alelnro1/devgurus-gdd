@@ -18,8 +18,8 @@ namespace PagoElectronico
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-          //  Application.Run(new PagoElectronico.ABM_Cliente.MenuABMClientes(new MenuPrincipal()));
-     //       Application.Run(new PagoElectronico.ABM_Cuenta.AltaCuentas());
+            Application.Run(new MenuPrincipal());
+   
           
         }
     }
