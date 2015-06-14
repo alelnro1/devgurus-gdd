@@ -69,7 +69,7 @@ where Tarjeta_Numero is not null
 
 /* CUENTAS */
 Insert into Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente)
-select distinct MA.Cuenta_Numero, 4, MA.Cuenta_Pais_Codigo, MA.Cli_Pais_Codigo, MA.Cuenta_Fecha_Creacion, CL.Cliente_Id
+select distinct MA.Cuenta_Numero, 4, MA.Cuenta_Pais_Codigo, MA.Cli_Pais_Codigo, DATEADD(YEAR, -2, MA.Cuenta_Fecha_Creacion), CL.Cliente_Id
 from gd_esquema.Maestra MA, Clientes CL
 where CL.Cliente_Nombre = MA.Cli_Nombre and CL.Cliente_Apellido = MA.Cli_Apellido and MA.Cuenta_Numero is not null
 
@@ -120,3 +120,5 @@ where Retiro_Codigo is not null
 /* CARGA DE USUARIOS PARA PRUEBAS DE DESARROLLO */
 Insert into Usuarios (Usuarios_Name, Usuarios_Pass, Usuarios_FechaCreacion, Usuarios_FechaUltimaModificacion, Usuarios_PreguntaSecreta, Usuarios_RespuestaSecreta)
 values ('lbenitez', '1558', GETDATE(), GETDATE(), '¿Como se llamaba tu primer mascota?', 'Chicho')
+insert into Rol_X_Usuario
+values (166, 1)
