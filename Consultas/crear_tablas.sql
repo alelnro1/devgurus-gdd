@@ -37,7 +37,7 @@ Create Table Rol_X_Usuario(	Rol_X_Usuario_Usuario integer NOT NULL FOREIGN KEY R
 
 Create Table Clientes (		Cliente_Id integer identity (1,1) PRIMARY KEY NOT NULL,
 							Cliente_Nombre varchar(255),
-							Cliente_Estado varchar(255) default Inhabilitado,
+							Cliente_Estado varchar(255) default 'Inhabilitado',
 							Cliente_Apellido varchar(255),
 							Cliente_Tipo_Doc numeric (18,0) FOREIGN KEY REFERENCES Tipo_De_Doc(Tipo_Doc_Id),
 							Cliente_Nro_Doc integer,
