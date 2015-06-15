@@ -23,9 +23,3 @@ AS
  WHERE @id_cliente = Cliente_Id
 
 GO
-	
-	
-	
-	
-	
-	
