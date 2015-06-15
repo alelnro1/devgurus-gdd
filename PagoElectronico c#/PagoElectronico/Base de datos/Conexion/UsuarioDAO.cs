@@ -61,16 +61,20 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool cargarUsuario(Usuario_Bean usuario)
         {
- /*         ESTE METODO DEBERIA HACER UN INSERT EN LA TABLA USUARIOS CON ESTADO "PENDIENTE"
-            Y NECESITO QUE ME DEVUELVA EL ID DEL USUARIO QUE SE CREO!! TRIGGER DE CABEZA   
-            ADEMAS ES NECESARIOS METER ESE ID EN USUARIO_BEAN MEDIANTE SETUSER_ID*/
-            return true;
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE insertarNuevoUsuario @nombre = '" + usuario.getUser_Name() +
+            "', @password = '" + usuario.getUser_Pass() + "', @rol = '" + usuario.getUser_Rol() +
+            "', @pregunta = '" + usuario.getUser_PreguntaSecreta() + "', @respuesta = '" + 
+            usuario.getUser_RespuestaSecreta() + "'");
+            if (lector.HasRows)
+            {return true;}
+            else 
+            {return false;}
         }
 
         public bool existeNombreDeUsuario(String nombreDeUsuario)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuario_Name] from " + ConstantesBD.t_usuarios +
-            " where Usuario_Name = '" + nombreDeUsuario + "';");
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Usuarios_Name] from " + ConstantesBD.t_usuarios +
+            " where Usuarios_Name = '" + nombreDeUsuario + "';");
             if (lector.HasRows) { lector.Close(); return true; }
             else { lector.Close(); return false; }
         }

@@ -45,6 +45,7 @@
             this.boton_eliminar_cliente = new System.Windows.Forms.Button();
             this.boton_Editar_Cliente = new System.Windows.Forms.Button();
             this.boton_Crear_Cliente = new System.Windows.Forms.Button();
+            this.boton_trans = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -151,7 +152,6 @@
             this.cliente_Info.Size = new System.Drawing.Size(202, 15);
             this.cliente_Info.TabIndex = 51;
             this.cliente_Info.TabStop = false;
-            this.cliente_Info.TextChanged += new System.EventHandler(this.cliente_Info_TextChanged);
             // 
             // rol_Info
             // 
@@ -239,11 +239,22 @@
             this.boton_Crear_Cliente.UseVisualStyleBackColor = true;
             this.boton_Crear_Cliente.Click += new System.EventHandler(this.boton_Crear_Cliente_Click);
             // 
+            // boton_trans
+            // 
+            this.boton_trans.Location = new System.Drawing.Point(349, 263);
+            this.boton_trans.Name = "boton_trans";
+            this.boton_trans.Size = new System.Drawing.Size(171, 28);
+            this.boton_trans.TabIndex = 9;
+            this.boton_trans.Text = "Transeferir";
+            this.boton_trans.UseVisualStyleBackColor = true;
+            this.boton_trans.Click += new System.EventHandler(this.boton_trans_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 416);
+            this.Controls.Add(this.boton_trans);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupABMCuentas);
             this.Controls.Add(this.rol_Info);
@@ -257,7 +268,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
-            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -285,5 +295,6 @@
         private System.Windows.Forms.Button boton_Editar_Cliente;
         private System.Windows.Forms.Button boton_Crear_Cliente;
         private System.Windows.Forms.Button boton_eliminar_cliente;
+        private System.Windows.Forms.Button boton_trans;
     }
 }

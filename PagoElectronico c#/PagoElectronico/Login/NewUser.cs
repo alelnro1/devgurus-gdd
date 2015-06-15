@@ -71,7 +71,7 @@ namespace PagoElectronico
             else
             {
                 if (text_Pass.Text != text_Pass_Conf.Text)
-                { DialogResult alerta = MessageBox.Show("La confirmación de la contraseña no coincide", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                { DialogResult alerta = MessageBox.Show("Las contraseñas ingresadas no coinciden", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
                 else
                     {
                         if (usuarioDAO.existeNombreDeUsuario(text_User.Text.ToLower()))
@@ -90,7 +90,12 @@ namespace PagoElectronico
             usuario.serUser_RespuestaSecreta(textRtaSec.Text);
 
             if (usuarioDAO.cargarUsuario(usuario))
-            { DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            {   
+                DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                Login nuevoLogin = new Login();
+                nuevoLogin.Show();
+            }
         }
 
         private bool formulario_Incompleto()

@@ -61,6 +61,23 @@ namespace PagoElectronico
                 boton_Editar_rol.Enabled = false;
                 groupABMroles.ForeColor = System.Drawing.Color.Gray;
             }
+            if (lector["Func_ABM_Cuentas"].Equals("Inhabilitado"))
+            {
+                boton_Nueva_Cuenta.Enabled = false;
+                boton_Editar_cuenta.Enabled = false;
+                groupABMCuentas.ForeColor = System.Drawing.Color.Gray;
+            }
+            if (lector["Func_ABM_Clientes"].Equals("Inhabilitado"))
+            {
+                boton_Crear_Cliente.Enabled = false;
+                boton_Editar_Cliente.Enabled = false;
+                boton_eliminar_cliente.Enabled = false;
+                groupBox1.ForeColor = System.Drawing.Color.Gray;
+            }
+            if (lector["Func_Transferir"].Equals("Inhabilitado"))
+            {
+                boton_trans.Enabled = false;
+            }
             lector.Close();
         }
 
@@ -121,17 +138,10 @@ namespace PagoElectronico
          
         }
 
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
         {
             BusquedaClientes buscador = new BusquedaClientes(this);
        
-
-
             try
             {
                 buscador.ShowDialog();
@@ -147,14 +157,13 @@ namespace PagoElectronico
             {
                 MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
-          
         }
 
-        private void cliente_Info_TextChanged(object sender, EventArgs e)
+        private void boton_trans_Click(object sender, EventArgs e)
         {
-
+            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual, this);
+            trasferencia.Show();
+            this.Hide();
         }
     }
 }

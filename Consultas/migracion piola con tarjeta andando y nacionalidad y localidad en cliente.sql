@@ -76,9 +76,7 @@ where CL.Cliente_Nombre = MA.Cli_Nombre and CL.Cliente_Apellido = MA.Cli_Apellid
 update Cuentas
 set Cuenta_Fec_Cierre = DATEADD(day, 15, Cuenta_Fec_Cre)
 
-update Cuentas
-set Cuenta_Tarjeta = MA.Tarjeta_Numero from gd_esquema.Maestra MA
-where Cuenta_Nro = MA.Cuenta_Numero and MA.Tarjeta_Numero is not null
+
 		
 /* DEPOSTIOS */
 Insert into Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_TipoMoneda, Deposito_Cuenta, Deposito_Tarjeta)

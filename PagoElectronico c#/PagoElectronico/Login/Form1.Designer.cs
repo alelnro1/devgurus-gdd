@@ -81,7 +81,7 @@
             // 
             // text_User
             // 
-            this.text_User.Location = new System.Drawing.Point(183, 53);
+            this.text_User.Location = new System.Drawing.Point(184, 49);
             this.text_User.Name = "text_User";
             this.text_User.Size = new System.Drawing.Size(121, 20);
             this.text_User.TabIndex = 13;
@@ -111,7 +111,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(112, 54);
+            this.label6.Location = new System.Drawing.Point(113, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 14;
@@ -119,7 +119,7 @@
             // 
             // boton_Cancelar
             // 
-            this.boton_Cancelar.Location = new System.Drawing.Point(356, 315);
+            this.boton_Cancelar.Location = new System.Drawing.Point(49, 313);
             this.boton_Cancelar.Name = "boton_Cancelar";
             this.boton_Cancelar.Size = new System.Drawing.Size(94, 23);
             this.boton_Cancelar.TabIndex = 21;
@@ -129,7 +129,7 @@
             // 
             // button_Enviar
             // 
-            this.button_Enviar.Location = new System.Drawing.Point(33, 315);
+            this.button_Enviar.Location = new System.Drawing.Point(322, 313);
             this.button_Enviar.Name = "button_Enviar";
             this.button_Enviar.Size = new System.Drawing.Size(94, 25);
             this.button_Enviar.TabIndex = 20;
@@ -196,18 +196,18 @@
             // 
             this.validation.BackColor = System.Drawing.SystemColors.Control;
             this.validation.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.validation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.validation.Location = new System.Drawing.Point(322, 56);
+            this.validation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.validation.Location = new System.Drawing.Point(311, 52);
             this.validation.Name = "validation";
             this.validation.ReadOnly = true;
-            this.validation.Size = new System.Drawing.Size(152, 14);
+            this.validation.Size = new System.Drawing.Size(134, 13);
             this.validation.TabIndex = 45;
             this.validation.TabStop = false;
             // 
             // NewUser
             // 
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(506, 358);
+            this.ClientSize = new System.Drawing.Size(458, 358);
             this.Controls.Add(this.validation);
             this.Controls.Add(this.text_Pass_Conf);
             this.Controls.Add(this.label14);
