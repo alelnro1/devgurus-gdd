@@ -128,18 +128,30 @@ namespace PagoElectronico
 
         private void boton_Volver_Click(object sender, EventArgs e)
         {
-            menu_save.Show();
-            menu_save.BringToFront();
+       //   seleccionar_cliente_Click
+           Program.Cliente_id_seleccionado ="Quiere Volver";
             this.Close();
+            //menu_save.Show();
+            //menu_save.BringToFront();
+            
         }
 
         private void seleccionar_cliente_Click(object sender, EventArgs e)
         {
+
+            try
+            {
             DataGridViewRow fila = lista_clientes.SelectedRows[0];
             String id_Cliente;
             id_Cliente = (fila.Cells[0].Value.ToString());
             Program.Cliente_id_seleccionado = id_Cliente;
-            this.Close();  
+            this.Close();
+            }
+
+            catch
+            {
+                MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

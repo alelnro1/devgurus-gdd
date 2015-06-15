@@ -168,11 +168,11 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(851, 217);
+            this.boton_Volver.Location = new System.Drawing.Point(1207, 12);
             this.boton_Volver.Name = "boton_Volver";
             this.boton_Volver.Size = new System.Drawing.Size(147, 35);
             this.boton_Volver.TabIndex = 223285;
-            this.boton_Volver.Text = "Volver";
+            this.boton_Volver.Text = "Volver al menu principal";
             this.boton_Volver.UseVisualStyleBackColor = true;
             this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click);
             // 
@@ -299,11 +299,11 @@
             // 
             // seleccionar_cliente
             // 
-            this.seleccionar_cliente.Location = new System.Drawing.Point(851, 115);
+            this.seleccionar_cliente.Location = new System.Drawing.Point(866, 121);
             this.seleccionar_cliente.Name = "seleccionar_cliente";
-            this.seleccionar_cliente.Size = new System.Drawing.Size(147, 35);
+            this.seleccionar_cliente.Size = new System.Drawing.Size(181, 67);
             this.seleccionar_cliente.TabIndex = 223289;
-            this.seleccionar_cliente.Text = "Seleccionar Cliente";
+            this.seleccionar_cliente.Text = "Seleccionar Cliente y Continuar";
             this.seleccionar_cliente.UseVisualStyleBackColor = true;
             this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
             // 

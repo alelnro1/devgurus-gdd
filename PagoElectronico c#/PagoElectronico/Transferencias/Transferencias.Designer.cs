@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.Transferencias
+﻿namespace PagoElectronico
 {
     partial class Transferencias
     {

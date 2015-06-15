@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.Transferencias
+namespace PagoElectronico
 {
     public partial class Transferencias : Form
     {
@@ -20,7 +20,7 @@ namespace PagoElectronico.Transferencias
         private TransferenciasDAO transferencias_DAO;
         private Cliente_Bean cliente;
 
-        public Transferencias(String cliente_id)
+        public Transferencias(String cliente_id,Form menu)
         {
             cliente = new Cliente_Bean();
             transferencias_DAO = new TransferenciasDAO();

@@ -56,8 +56,10 @@
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.combo_nacionalidad = new System.Windows.Forms.ComboBox();
             this.nacionalidad_info = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.textBox_fecha_nac = new System.Windows.Forms.TextBox();
+            this.textBox_pais = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateTimePicker_nacimiento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label5
@@ -72,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 357);
+            this.label4.Location = new System.Drawing.Point(34, 363);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 18;
@@ -135,7 +137,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(34, 291);
+            this.label9.Location = new System.Drawing.Point(368, 316);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 13);
             this.label9.TabIndex = 25;
@@ -157,7 +159,7 @@
             // 
             // textBox_calle
             // 
-            this.textBox_calle.Location = new System.Drawing.Point(157, 350);
+            this.textBox_calle.Location = new System.Drawing.Point(157, 356);
             this.textBox_calle.Name = "textBox_calle";
             this.textBox_calle.Size = new System.Drawing.Size(156, 20);
             this.textBox_calle.TabIndex = 32;
@@ -178,21 +180,21 @@
             // 
             // textBox_localidad
             // 
-            this.textBox_localidad.Location = new System.Drawing.Point(161, 291);
+            this.textBox_localidad.Location = new System.Drawing.Point(446, 313);
             this.textBox_localidad.Name = "textBox_localidad";
             this.textBox_localidad.Size = new System.Drawing.Size(152, 20);
             this.textBox_localidad.TabIndex = 35;
             // 
             // textBox_piso
             // 
-            this.textBox_piso.Location = new System.Drawing.Point(446, 350);
+            this.textBox_piso.Location = new System.Drawing.Point(446, 356);
             this.textBox_piso.Name = "textBox_piso";
             this.textBox_piso.Size = new System.Drawing.Size(100, 20);
             this.textBox_piso.TabIndex = 43;
             // 
             // textBox_depto
             // 
-            this.textBox_depto.Location = new System.Drawing.Point(446, 403);
+            this.textBox_depto.Location = new System.Drawing.Point(446, 409);
             this.textBox_depto.Name = "textBox_depto";
             this.textBox_depto.Size = new System.Drawing.Size(100, 20);
             this.textBox_depto.TabIndex = 42;
@@ -200,7 +202,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(382, 411);
+            this.label10.Location = new System.Drawing.Point(382, 417);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 41;
@@ -209,7 +211,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(382, 351);
+            this.label11.Location = new System.Drawing.Point(382, 357);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(27, 13);
             this.label11.TabIndex = 40;
@@ -217,7 +219,7 @@
             // 
             // textBox_nroCalle
             // 
-            this.textBox_nroCalle.Location = new System.Drawing.Point(161, 410);
+            this.textBox_nroCalle.Location = new System.Drawing.Point(161, 416);
             this.textBox_nroCalle.Name = "textBox_nroCalle";
             this.textBox_nroCalle.Size = new System.Drawing.Size(152, 20);
             this.textBox_nroCalle.TabIndex = 45;
@@ -225,7 +227,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(34, 417);
+            this.label12.Location = new System.Drawing.Point(34, 423);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(50, 13);
             this.label12.TabIndex = 44;
@@ -312,25 +314,49 @@
             this.nacionalidad_info.TabStop = false;
             this.nacionalidad_info.TextChanged += new System.EventHandler(this.cliente_Info_TextChanged);
             // 
-            // monthCalendar1
+            // textBox_pais
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(734, 90);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 223303;
+            this.textBox_pais.Location = new System.Drawing.Point(161, 309);
+            this.textBox_pais.Name = "textBox_pais";
+            this.textBox_pais.Size = new System.Drawing.Size(152, 20);
+            this.textBox_pais.TabIndex = 223305;
             // 
-            // textBox_fecha_nac
+            // label7
             // 
-            this.textBox_fecha_nac.Location = new System.Drawing.Point(527, 90);
-            this.textBox_fecha_nac.Name = "textBox_fecha_nac";
-            this.textBox_fecha_nac.Size = new System.Drawing.Size(177, 20);
-            this.textBox_fecha_nac.TabIndex = 39;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 313);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 13);
+            this.label7.TabIndex = 223304;
+            this.label7.Text = "Pais";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(33, 264);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(79, 18);
+            this.label14.TabIndex = 223307;
+            this.label14.Text = "Domicilio";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dateTimePicker_nacimiento
+            // 
+            this.dateTimePicker_nacimiento.Location = new System.Drawing.Point(527, 94);
+            this.dateTimePicker_nacimiento.Name = "dateTimePicker_nacimiento";
+            this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_nacimiento.TabIndex = 223308;
             // 
             // EditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 604);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.dateTimePicker_nacimiento);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.textBox_pais);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.nacionalidad_info);
             this.Controls.Add(this.combo_nacionalidad);
             this.Controls.Add(this.boton_Crear);
@@ -344,7 +370,6 @@
             this.Controls.Add(this.textBox_depto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox_fecha_nac);
             this.Controls.Add(this.textBox_email);
             this.Controls.Add(this.textBox_localidad);
             this.Controls.Add(this.textBox_nroDoc);
@@ -398,8 +423,10 @@
         private System.Windows.Forms.Button boton_Cancelar;
         private System.Windows.Forms.ComboBox combo_nacionalidad;
         private System.Windows.Forms.TextBox nacionalidad_info;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.TextBox textBox_fecha_nac;
+        private System.Windows.Forms.TextBox textBox_pais;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_nacimiento;
 
     }
 }

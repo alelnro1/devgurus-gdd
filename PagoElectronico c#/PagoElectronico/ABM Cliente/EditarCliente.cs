@@ -29,6 +29,7 @@ namespace PagoElectronico
             cliente_Bean.setCliente_Id(id_Cliente);
             InitializeComponent();
             menuBusqueda = busqueda;
+        
             setearDatosDeCliente();
           //  clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nacionalidad, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
         }
@@ -47,15 +48,19 @@ namespace PagoElectronico
                 textBox_apellido.Text = lector["Cliente_Apellido"].ToString();
                 combo_tipoDoc.Text = lector["Tipo_Doc_Desc"].ToString();
                 textBox_nroDoc.Text = lector["Cliente_Nro_Doc"].ToString();
-                textBox_nombre.Text = lector["Pais_Nombre"].ToString();
+                nacionalidad_info.Text = lector["Pais_Nombre"].ToString();
+                textBox_pais.Text = lector["Pais_Nombre"].ToString();
                 textBox_localidad.Text = lector["Cliente_Localidad"].ToString();
                 textBox_calle.Text = lector["Cliente_Dom_Calle"].ToString();
                 textBox_nroCalle.Text = lector["Cliente_Dom_Nro"].ToString();
                 textBox_piso.Text = lector["Cliente_Dom_Piso"].ToString();
                 textBox_depto.Text = lector["Cliente_Dom_Depto"].ToString();
                 nacionalidad_info.Text = lector["Cliente_Nacionalidad"].ToString();
-                textBox_fecha_nac.Text = lector["Cliente_Fecha_Nac"].ToString();
+                dateTimePicker_nacimiento.Text = lector["Cliente_Fecha_Nac"].ToString();
                 textBox_email.Text = lector["Cliente_Mail"].ToString();
+                //textBox_fecha_nac.Text = monthCalendar_nacimiento.SelectionRange.Start;
+               // textBox_fecha_nac.co Convert.ToDateTime(mnthCalendar1.SelectionEnd.ToShortDateString());
+                
                
                 // textBox_clienteUser = lector["Cliente_User"].ToString();
 
@@ -90,7 +95,7 @@ namespace PagoElectronico
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.menuBusqueda.Enabled = true;
+            menuBusqueda = new BusquedaClientes(new MenuPrincipal());
             this.menuBusqueda.BringToFront();
         }
 
@@ -103,7 +108,7 @@ namespace PagoElectronico
         {   
             if( textBox_nombre.Text == "" || textBox_apellido.Text == "" ||  combo_tipoDoc.Text == ""   || textBox_nroDoc.Text == "" || 
             textBox_localidad.Text == ""||   textBox_calle.Text == "" || textBox_nroCalle.Text == ""  ||  textBox_piso.Text == "" ||
-            textBox_depto.Text == "" || textBox_fecha_nac.Text == "" ||  textBox_email.Text == "" || combo_nacionalidad.Text == "" )
+            textBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
             {
                 MessageBox.Show("Complete todos los campos antes de continuar", "Atención!", MessageBoxButtons.OK); 
             }
@@ -121,11 +126,13 @@ namespace PagoElectronico
                             textBox_piso.Text + "," +
                             textBox_depto.Text + "," +
                             nacionalidad_info.Text + "," +
-                            textBox_fecha_nac.Text + "," +
+                            dateTimePicker_nacimiento.Text + "," +
                             textBox_email.Text;
             
             clienteDAO.editarCliente(cliente);
             }
+            menuBusqueda = new BusquedaClientes(new MenuPrincipal());
+
         }
     }
 }

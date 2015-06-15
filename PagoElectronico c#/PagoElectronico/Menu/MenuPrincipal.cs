@@ -92,14 +92,14 @@ namespace PagoElectronico
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //BOTON DE ALTA
         {
             EditRol nuevaAltaRol = new EditRol(this);
             nuevaAltaRol.Show();
             this.Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //BOTON DE EDITAR
         {
             Busqueda_Rol nuevaEditarRol = new Busqueda_Rol(this);
             nuevaEditarRol.Show();
@@ -133,30 +133,49 @@ namespace PagoElectronico
             buscador.ShowDialog();
 
             String cliente = Program.Cliente_id_seleccionado;
-            EditarCliente editarCliente = new EditarCliente(cliente,this);
+            if (cliente == "Quiere Volver") { 
+            
+            }
+            else {EditarCliente editarCliente = new EditarCliente(cliente,this);
             editarCliente.ShowDialog();
+            }
          
         }
 
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
         {
             BusquedaClientes buscador = new BusquedaClientes(this);
-       
+
             try
             {
                 buscador.ShowDialog();
 
                 String cliente = Program.Cliente_id_seleccionado;
-                if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                if (cliente == "Quiere Volver")
                 {
-                    clienteDAO.eliminarCliente(cliente);
+
+                }
+
+                else
+                {
+
+                    if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        clienteDAO.eliminarCliente(cliente);
+
+                    }
+                    boton_eliminar_cliente_Click(sender, e);
                 }
             }
 
             catch
             {
                 MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
             }
+            
         }
 
         private void boton_trans_Click(object sender, EventArgs e)
