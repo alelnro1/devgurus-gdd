@@ -17,11 +17,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             this.iniciar();
         }
-        public SqlDataReader buscarTarjetas()
+        public SqlDataReader buscarTarjetas(string cliente_id)
         {
-            ClienteDAO cli =new ClienteDAO();
+            
 
-            String sentenciaSQL = "select Tarjeta_Id, Tarjeta_Digitos_Visibles,Tarjeta_Emisor_Desc,Tarjeta_Fecha_Emision,Tarjeta_Fecha_Vencimiento FROM Tarjetas,Clientes  where Tarjeta_Cliente = Cliente_Id";
+            String sentenciaSQL = "select Tarjeta_Id, Tarjeta_Digitos_Visibles,Tarjeta_Emisor_Desc,Tarjeta_Fecha_Emision,Tarjeta_Fecha_Vencimiento FROM Tarjetas where Tarjeta_Cliente ='"+cliente_id +"'";
 
            
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);

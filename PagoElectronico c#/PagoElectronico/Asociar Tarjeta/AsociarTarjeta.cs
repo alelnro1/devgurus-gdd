@@ -19,9 +19,11 @@ namespace PagoElectronico
     public partial class AsociarTarjeta : Form
     {
         private TarjetaDAO tarjetaDAO;
-
-        public AsociarTarjeta()
+        Cliente_Bean cliente_id_para_tarjetas; 
+        public AsociarTarjeta(string id_cliente)
         {
+            cliente_id_para_tarjetas = new Cliente_Bean();
+            cliente_id_para_tarjetas.setCliente_Id(id_cliente);
             tarjetaDAO = new TarjetaDAO();
             InitializeComponent();
             ejecutarBusquedaTarjetas();
@@ -32,7 +34,7 @@ namespace PagoElectronico
              //   List<String> filtros = new List<String>();
            lista_Tarjetas.Rows.Clear();
 
-                SqlDataReader lector = tarjetaDAO.buscarTarjetas();
+                SqlDataReader lector = tarjetaDAO.buscarTarjetas(cliente_id_para_tarjetas.getCliente_Id());
                 List<DataGridViewRow> filas = new List<DataGridViewRow>();
                 Object[] columnas = new Object[5];
                 while (lector.Read()) {
@@ -55,6 +57,11 @@ namespace PagoElectronico
         private void boton_Volver_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AsociarTarjeta_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

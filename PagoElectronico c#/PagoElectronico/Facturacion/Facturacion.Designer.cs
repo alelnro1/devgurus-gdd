@@ -1,4 +1,4 @@
-﻿    namespace PagoElectronico.Facturacion
+﻿namespace PagoElectronico
 {
     partial class Facturacion
     {
@@ -30,12 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.rendirButton = new System.Windows.Forms.Button();
-            this.dgvOperaciones = new System.Windows.Forms.DataGridView();
+            this.tansacciones_pendientes_data_grid = new System.Windows.Forms.DataGridView();
             this.volverButton = new System.Windows.Forms.Button();
-            this.formaDePagoComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOperaciones)).BeginInit();
+            this.identicicador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nro_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.tansacciones_pendientes_data_grid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -43,9 +45,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(38, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 13);
+            this.label1.Size = new System.Drawing.Size(209, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Ventas que aún no fueron facturadas:";
+            this.label1.Text = "Transacciones Pendientes De Facturacion";
             // 
             // rendirButton
             // 
@@ -57,22 +59,29 @@
             this.rendirButton.UseVisualStyleBackColor = true;
             this.rendirButton.Click += new System.EventHandler(this.rendirButton_Click);
             // 
-            // dgvOperaciones
+            // tansacciones_pendientes_data_grid
             // 
-            this.dgvOperaciones.AllowUserToAddRows = false;
-            this.dgvOperaciones.AllowUserToDeleteRows = false;
-            this.dgvOperaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOperaciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvOperaciones.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dgvOperaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOperaciones.GridColor = System.Drawing.SystemColors.Window;
-            this.dgvOperaciones.Location = new System.Drawing.Point(41, 53);
-            this.dgvOperaciones.Name = "dgvOperaciones";
-            this.dgvOperaciones.ReadOnly = true;
-            this.dgvOperaciones.RowHeadersVisible = false;
-            this.dgvOperaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOperaciones.Size = new System.Drawing.Size(705, 247);
-            this.dgvOperaciones.TabIndex = 0;
+            this.tansacciones_pendientes_data_grid.AllowUserToAddRows = false;
+            this.tansacciones_pendientes_data_grid.AllowUserToDeleteRows = false;
+            this.tansacciones_pendientes_data_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tansacciones_pendientes_data_grid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.tansacciones_pendientes_data_grid.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.tansacciones_pendientes_data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tansacciones_pendientes_data_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.identicicador,
+            this.importe,
+            this.descripcion,
+            this.fecha,
+            this.nro_cuenta});
+            this.tansacciones_pendientes_data_grid.GridColor = System.Drawing.SystemColors.Window;
+            this.tansacciones_pendientes_data_grid.Location = new System.Drawing.Point(41, 53);
+            this.tansacciones_pendientes_data_grid.Name = "tansacciones_pendientes_data_grid";
+            this.tansacciones_pendientes_data_grid.ReadOnly = true;
+            this.tansacciones_pendientes_data_grid.RowHeadersVisible = false;
+            this.tansacciones_pendientes_data_grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tansacciones_pendientes_data_grid.Size = new System.Drawing.Size(705, 247);
+            this.tansacciones_pendientes_data_grid.TabIndex = 0;
+            this.tansacciones_pendientes_data_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperaciones_CellContentClick);
             // 
             // volverButton
             // 
@@ -83,49 +92,51 @@
             this.volverButton.Text = "< < Volver";
             this.volverButton.UseVisualStyleBackColor = true;
             // 
-            // formaDePagoComboBox
+            // identicicador
             // 
-            this.formaDePagoComboBox.FormattingEnabled = true;
-            this.formaDePagoComboBox.Location = new System.Drawing.Point(517, 330);
-            this.formaDePagoComboBox.Name = "formaDePagoComboBox";
-            this.formaDePagoComboBox.Size = new System.Drawing.Size(121, 21);
-            this.formaDePagoComboBox.TabIndex = 1;
+            this.identicicador.HeaderText = "Identificador";
+            this.identicicador.Name = "identicicador";
+            this.identicicador.ReadOnly = true;
             // 
-            // label2
+            // importe
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 330);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Forma de Pago (*):";
+            this.importe.HeaderText = "Importe";
+            this.importe.Name = "importe";
+            this.importe.ReadOnly = true;
             // 
-            // label3
+            // descripcion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(496, 390);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(250, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Los campos marcados con (*) son OBLIGATORIOS";
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // nro_cuenta
+            // 
+            this.nro_cuenta.HeaderText = "Numero De Cuenta";
+            this.nro_cuenta.Name = "nro_cuenta";
+            this.nro_cuenta.ReadOnly = true;
             // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 412);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.formaDePagoComboBox);
             this.Controls.Add(this.volverButton);
             this.Controls.Add(this.rendirButton);
-            this.Controls.Add(this.dgvOperaciones);
+            this.Controls.Add(this.tansacciones_pendientes_data_grid);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Facturacion";
-            this.Text = "Facturar Publicaciones - MercadoNegro";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOperaciones)).EndInit();
+            this.Text = "Facturación De Costos";
+            this.Load += new System.EventHandler(this.Facturacion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tansacciones_pendientes_data_grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,10 +146,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button rendirButton;
-        private System.Windows.Forms.DataGridView dgvOperaciones;
+        private System.Windows.Forms.DataGridView tansacciones_pendientes_data_grid;
         private System.Windows.Forms.Button volverButton;
-        private System.Windows.Forms.ComboBox formaDePagoComboBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn identicicador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nro_cuenta;
     }
 }

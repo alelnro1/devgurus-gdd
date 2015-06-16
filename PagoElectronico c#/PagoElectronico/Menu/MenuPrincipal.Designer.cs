@@ -50,9 +50,12 @@
             this.boton_Depositar = new System.Windows.Forms.Button();
             this.boton_Asoc_Tarj = new System.Windows.Forms.Button();
             this.boton_Consul = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.boton_facturar = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // boton_Salir
@@ -293,11 +296,33 @@
             this.boton_Consul.UseVisualStyleBackColor = true;
             this.boton_Consul.Click += new System.EventHandler(this.boton_Consul_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.boton_facturar);
+            this.groupBox2.Location = new System.Drawing.Point(570, 234);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(205, 112);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Facturacion de Costos";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // boton_facturar
+            // 
+            this.boton_facturar.Location = new System.Drawing.Point(6, 29);
+            this.boton_facturar.Name = "boton_facturar";
+            this.boton_facturar.Size = new System.Drawing.Size(171, 28);
+            this.boton_facturar.TabIndex = 7;
+            this.boton_facturar.Text = "Facturacion De Costos";
+            this.boton_facturar.UseVisualStyleBackColor = true;
+            this.boton_facturar.Click += new System.EventHandler(this.boton_facturar_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 429);
+            this.ClientSize = new System.Drawing.Size(982, 429);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.boton_Consul);
             this.Controls.Add(this.boton_Asoc_Tarj);
             this.Controls.Add(this.boton_Depositar);
@@ -316,9 +341,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,5 +375,7 @@
         private System.Windows.Forms.Button boton_Depositar;
         private System.Windows.Forms.Button boton_Asoc_Tarj;
         private System.Windows.Forms.Button boton_Consul;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button boton_facturar;
     }
 }

@@ -109,16 +109,22 @@ namespace PagoElectronico
             nuevaEditarRol.ShowDialog();
             
         }
+        private string busca_cliente_dame_id()
+        {
+            string cliente;   
+            Program.Cliente_id_seleccionado = "Quiere Volver";
+            BusquedaClientes buscador = new BusquedaClientes(this);
+            buscador.ShowDialog(); //Asigno el cliente o si quiere volver el mensaje en string "quiero volver"
+            cliente = Program.Cliente_id_seleccionado;
+            return cliente;
 
+        }
         private void boton_Nueva_Cuenta_Click(object sender, EventArgs e)
         {
            String cliente;
            if ("Cliente" != nombre_rol_Actual)
            {
-               Program.Cliente_id_seleccionado = "Quiere Volver";
-               BusquedaClientes buscador = new BusquedaClientes(this);
-               buscador.ShowDialog(); //Asigno el cliente o si quiere volver el mensaje en string "quiero volver"
-               cliente = Program.Cliente_id_seleccionado;
+               cliente = busca_cliente_dame_id();
                if (cliente == "Quiere Volver")
                {
                }
@@ -142,10 +148,7 @@ namespace PagoElectronico
             String cliente;
             if ("Cliente" != nombre_rol_Actual)
             {
-                Program.Cliente_id_seleccionado = "Quiere Volver";
-                BusquedaClientes buscador = new BusquedaClientes(this);
-                buscador.ShowDialog(); //Asigno el cliente o si quiere volver el mensaje en string "quiero volver"
-                cliente = Program.Cliente_id_seleccionado;
+                cliente = busca_cliente_dame_id();
                 if (cliente == "Quiere Volver")
                 {
                 }
@@ -181,10 +184,7 @@ namespace PagoElectronico
 
         private void boton_Editar_Cliente_Click(object sender, EventArgs e)
         {
-            Program.Cliente_id_seleccionado = "Quiere Volver";
-            BusquedaClientes buscador = new BusquedaClientes(this);
-            buscador.ShowDialog();
-            String cliente = Program.Cliente_id_seleccionado;
+            string cliente = busca_cliente_dame_id();
             if (cliente == "Quiere Volver") {             
             }
             else {
@@ -196,10 +196,7 @@ namespace PagoElectronico
 
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
         {
-            Program.Cliente_id_seleccionado = "Quiere Volver";
-            BusquedaClientes buscador = new BusquedaClientes(this);
-            buscador.ShowDialog();
-            String cliente = Program.Cliente_id_seleccionado;
+            string cliente = busca_cliente_dame_id();
             if (cliente == "Quiere Volver")
                 {}
             else{
@@ -213,47 +210,158 @@ namespace PagoElectronico
 
         private void boton_trans_Click(object sender, EventArgs e)
         {
-            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE -> OK JULY
-            this.Hide();
-            trasferencia.ShowDialog();
-            this.Show();
-            this.BringToFront();
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    Transferencias trasferencia = new Transferencias(cliente);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE -> OK JULY
+                    trasferencia.ShowDialog();
+                }
+
+            }
+            else
+            {
+                Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE -> OK JULY
+                trasferencia.ShowDialog();
+            }
         }
 
         private void boton_Depositar_Click(object sender, EventArgs e)
         {
-            Depositos altaCliente = new Depositos(this.id_Cliente_Actual);
-            this.Hide();
+             if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+            Depositos altaCliente = new Depositos(cliente);           
             altaCliente.ShowDialog();
-            this.Show();
-            this.BringToFront();
+                }
+
+            }
+            else
+            {
+            Depositos altaCliente = new Depositos(this.id_Cliente_Actual);           
+            altaCliente.ShowDialog();
+            }
         }
+
+
+        
 
         private void boton_Extraer_Click(object sender, EventArgs e)
         {
-            Retiros retiro = new Retiros(this.id_Cliente_Actual);
-            this.Hide();
-            retiro.ShowDialog();
-            this.Show();
-            this.BringToFront();
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    Retiros retiro = new Retiros(cliente);
+                    retiro.ShowDialog(); 
+                }
+
+            }
+            else
+            {
+                Retiros retiro = new Retiros(this.id_Cliente_Actual);
+                retiro.ShowDialog();
+            }
+
+ 
         }
 
         private void boton_Asoc_Tarj_Click(object sender, EventArgs e)
         {
-            AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta();
-            this.Hide();
-            asociar_Tarjeta.ShowDialog();
-            this.Show();
-            this.BringToFront();
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta(cliente);
+                    asociar_Tarjeta.ShowDialog();
+                }
+
+            }
+            else
+            {
+                AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta(this.id_Cliente_Actual);
+                asociar_Tarjeta.ShowDialog();
+            }
+
+
+
         }
 
         private void boton_Consul_Click(object sender, EventArgs e)
         {
-            ConsultarSaldo saldo = new ConsultarSaldo(this.id_Cliente_Actual);
-            this.Hide();
-            saldo.ShowDialog();
-            this.Show();
-            this.BringToFront();
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    ConsultarSaldo saldo = new ConsultarSaldo(cliente);
+                    saldo.ShowDialog();
+                }
+
+            }
+            else
+            {
+                ConsultarSaldo saldo = new ConsultarSaldo(this.id_Cliente_Actual);
+                saldo.ShowDialog();
+            }
+            
         }
-    }
+        private void boton_facturar_Click(object sender, EventArgs e)
+        {
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                string cliente = busca_cliente_dame_id();
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    Facturacion facturar = new Facturacion(cliente);
+                    facturar.ShowDialog();
+                }
+
+            }
+            else
+            {
+                Facturacion facturar = new Facturacion(this.id_Cliente_Actual);
+                facturar.ShowDialog();
+            }
+            
+            
+
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+
+        
+    }    
 }

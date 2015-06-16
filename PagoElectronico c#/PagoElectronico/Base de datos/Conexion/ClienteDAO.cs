@@ -142,7 +142,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             String sentenciaSQL = "select CLI.Cliente_Id, CLI.Cliente_Nombre, CLI.Cliente_Apellido,"+
                                   "TD.Tipo_Doc_Desc,CLI.Cliente_Nro_Doc, P.Pais_Nombre,CLI.Cliente_Dom_Calle,CLI.Cliente_Dom_Nro," +
 	                              "CLI.Cliente_Dom_Piso, CLI.Cliente_Dom_Depto, Cliente_Fecha_Nac,CLI.Cliente_Mail,"+
-                                  "CLI.Cliente_User, CLI.Cliente_Nacionalidad, CLI.Cliente_Localidad" +
+                                  "CLI.Cliente_User, CLI.Cliente_Nacionalidad, CLI.Cliente_Localidad, CLI.Cliente_Estado " +
 	                              " FROM Clientes CLI, Tipo_De_Doc TD, Paises P" ;
           
             IEnumerator enumerador = filtros.GetEnumerator();

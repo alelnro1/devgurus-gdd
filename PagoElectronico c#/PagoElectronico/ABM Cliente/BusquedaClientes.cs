@@ -44,10 +44,11 @@ namespace PagoElectronico
             if (combo_tipo_doc.Text != "") { filtros.Add("TD.Tipo_Doc_Desc ='" + combo_tipo_doc.Text + "'"); }
             if (combo_nro_doc.Text != "") { filtros.Add("Cliente_Nro_Doc ='" + combo_nro_doc.Text + "'"); }
             if (combo_email.Text != "") { filtros.Add("Cliente_Mail ='" + combo_email.Text + "'"); }
+            if (comboEstado.Text != "") { filtros.Add("Cliente_Estado ='" + comboEstado.Text + "'"); }
 
             SqlDataReader lector = clienteDAO.buscarClientes(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
-            Object[] columnas = new Object[15];
+            Object[] columnas = new Object[16];
             while (lector.Read()) {
 
                 columnas[0] = lector["Cliente_Id"];
@@ -65,6 +66,7 @@ namespace PagoElectronico
                 columnas[12] = lector["Cliente_Fecha_Nac"];
                 columnas[13] = lector["Cliente_Mail"];
                 columnas[14] = lector["Cliente_User"];
+                columnas[15] = lector["Cliente_Estado"];
 
                 filas.Add(new DataGridViewRow());
                 filas[filas.Count - 1].CreateCells(lista_clientes, columnas);
@@ -152,6 +154,11 @@ namespace PagoElectronico
             {
                 MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void BusquedaClientes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -120,6 +120,7 @@
             this.Controls.Add(this.boton_Volver);
             this.Name = "AsociarTarjeta";
             this.Text = "AsociarTarjeta";
+            this.Load += new System.EventHandler(this.AsociarTarjeta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lista_Tarjetas)).EndInit();
             this.ResumeLayout(false);
 

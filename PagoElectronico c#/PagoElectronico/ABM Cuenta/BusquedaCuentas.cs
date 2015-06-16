@@ -148,6 +148,7 @@ namespace PagoElectronico{
                 if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cuenta_DAO.eliminarLaCuenta(id_Cuenta);
+                    this.boton_Buscar_Click(sender, e);
                 }
             }
             catch
@@ -164,9 +165,10 @@ namespace PagoElectronico{
                 String id_Cuenta;
 
                 id_Cuenta = (fila.Cells[0].Value.ToString());
-                EditarCuentas editarCuenta = new EditarCuentas(id_Cuenta, this);
-                editarCuenta.Show();
-                this.Enabled = false;
+                EditarCuentas editarCuenta = new EditarCuentas(id_Cuenta);
+                editarCuenta.ShowDialog();
+                this.boton_Buscar_Click(sender, e);
+
             }
             catch
             {
