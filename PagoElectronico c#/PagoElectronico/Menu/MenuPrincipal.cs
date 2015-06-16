@@ -112,9 +112,28 @@ namespace PagoElectronico
 
         private void boton_Nueva_Cuenta_Click(object sender, EventArgs e)
         {
-           AltaCuentas nuevaCuenta = new AltaCuentas(this.id_Cliente_Actual);
+           String cliente;
+           if ("Cliente" != nombre_rol_Actual)
+           {
+               Program.Cliente_id_seleccionado = "Quiere Volver";
+               BusquedaClientes buscador = new BusquedaClientes(this);
+               buscador.ShowDialog(); //Asigno el cliente o si quiere volver el mensaje en string "quiero volver"
+               cliente = Program.Cliente_id_seleccionado;
+               if (cliente == "Quiere Volver")
+               {
+               }
+               else //si no quiero volver le seteo un cliente, asignaselo a cliente
+               {
+                   AltaCuentas nuevaCuenta = new AltaCuentas(cliente);
+                   nuevaCuenta.ShowDialog();
+               }
+           }
+           else
+           {
 
-           nuevaCuenta.ShowDialog();
+               AltaCuentas nuevaCuenta = new AltaCuentas(this.id_Cliente_Actual);
+               nuevaCuenta.ShowDialog();
+           }
 
         }
 
@@ -132,7 +151,7 @@ namespace PagoElectronico
                 }
                 else //si no quiero volver le seteo un cliente, asignaselo a cliente
                 {
-                    BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente, this);
+                    BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente);
                     buscarCuenta.ShowDialog();
                     cliente = Program.Cliente_id_seleccionado;
 
@@ -141,7 +160,7 @@ namespace PagoElectronico
             else
             {
                 cliente = cliente_bean.getCliente_Id();
-                BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente, this);
+                BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente);
                 buscarCuenta.ShowDialog();
                 cliente = Program.Cliente_id_seleccionado;
             }

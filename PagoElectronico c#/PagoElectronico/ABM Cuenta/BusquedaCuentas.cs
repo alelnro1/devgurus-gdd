@@ -20,11 +20,11 @@ namespace PagoElectronico{
     {
         private Cliente_Bean cliente;
         private CuentaDAO cuenta_DAO;
-        private Form menu_save;
 
-        public BusquedaCuentas(String cliente_id, Form menu)
+
+        public BusquedaCuentas(String cliente_id)
         {
-            menu_save = menu;   
+  
             cliente = new Cliente_Bean();
             cliente.setCliente_Id(cliente_id);
             cuenta_DAO = new CuentaDAO();
@@ -182,8 +182,7 @@ namespace PagoElectronico{
         
         private void boton_Volver_Click(object sender, EventArgs e)
         {
-            menu_save.Show();
-            menu_save.BringToFront();
+
             this.Close();
         }
         }
