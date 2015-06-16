@@ -68,6 +68,7 @@
             this.Generar.TabIndex = 29;
             this.Generar.Text = "Generar";
             this.Generar.UseVisualStyleBackColor = true;
+            this.Generar.Click += new System.EventHandler(this.Generar_Click_1);
             // 
             // groupBox2
             // 
@@ -328,6 +329,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AltaCliente";
             this.Text = "AltaCliente";
+            this.Load += new System.EventHandler(this.AltaCliente_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

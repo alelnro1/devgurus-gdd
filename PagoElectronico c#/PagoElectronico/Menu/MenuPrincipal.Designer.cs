@@ -268,6 +268,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

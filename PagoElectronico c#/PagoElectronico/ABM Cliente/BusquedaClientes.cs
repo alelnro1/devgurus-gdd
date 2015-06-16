@@ -129,8 +129,8 @@ namespace PagoElectronico
         private void boton_Volver_Click(object sender, EventArgs e)
         {
        //   seleccionar_cliente_Click
-           Program.Cliente_id_seleccionado ="Quiere Volver";
-            this.Close();
+           
+             this.Close();
             //menu_save.Show();
             //menu_save.BringToFront();
             

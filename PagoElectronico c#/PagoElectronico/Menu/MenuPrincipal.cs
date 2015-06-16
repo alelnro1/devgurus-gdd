@@ -16,16 +16,19 @@ namespace PagoElectronico
 {
     public partial class MenuPrincipal : Form
     {
+        private Cliente_Bean cliente_bean; 
         private ClienteDAO clienteDAO;
         private RolDAO rolDAO;
         private String id_Cliente_Actual;
         private String id_Usuario_Actual;
         private String nombre_rol_Actual;
         private CuentaDAO cuentaDAO;
-
+        
         public MenuPrincipal(String id_Cliente, String id_Usuario, String user, String nombre_rol)
         {
             InitializeComponent();
+            cliente_bean = new Cliente_Bean();
+            cliente_bean.setCliente_Id(id_Cliente);
             clienteDAO = new ClienteDAO();
             cuentaDAO = new CuentaDAO();
             rolDAO = new RolDAO();
@@ -34,6 +37,7 @@ namespace PagoElectronico
             nombre_rol_Actual = nombre_rol;
             setearInformacion(user);
             habilitarComandos(nombre_rol);
+            
          }
 
         public MenuPrincipal()
@@ -44,7 +48,7 @@ namespace PagoElectronico
         private void setearInformacion(String usuario)
         {
             if (this.id_Cliente_Actual != "") { cliente_Info.Text = clienteDAO.DameNombreApellido(this.id_Cliente_Actual); }
-            else {cliente_Info.Text = " - ";};
+            //else { cliente_Info.Text = " - "; }
             user_Info.Text = usuario;
             rol_Info.Text = this.nombre_rol_Actual;
         }
@@ -87,102 +91,121 @@ namespace PagoElectronico
             if (salir == DialogResult.Yes)
             {
                 this.Close();
-                Login nuevoLogin = new Login();
-                nuevoLogin.Show();
+                /*Login nuevoLogin = new Login();
+                nuevoLogin.Show();*/
             }
         }
 
         private void button1_Click(object sender, EventArgs e) //BOTON DE ALTA
         {
-            EditRol nuevaAltaRol = new EditRol(this);
-            nuevaAltaRol.Show();
-            this.Hide();
+            EditRol nuevaAltaRol = new EditRol();
+            nuevaAltaRol.ShowDialog();
+
         }
 
         private void button3_Click(object sender, EventArgs e) //BOTON DE EDITAR
         {
-            Busqueda_Rol nuevaEditarRol = new Busqueda_Rol(this);
-            nuevaEditarRol.Show();
-            this.Hide();
+            Busqueda_Rol nuevaEditarRol = new Busqueda_Rol();
+            nuevaEditarRol.ShowDialog();
+            
         }
 
         private void boton_Nueva_Cuenta_Click(object sender, EventArgs e)
         {
-          // AltaCuentas nuevaCuenta = new AltaCuentas(this, this.id_Cliente_Actual);
-            //nuevaCuenta.Show();
-            //this.Hide();
+           AltaCuentas nuevaCuenta = new AltaCuentas(this.id_Cliente_Actual);
+
+           nuevaCuenta.ShowDialog();
+
         }
 
-        private void boton_Editar_cuenta_Click(object sender, EventArgs e)
-        {
-            //BusquedaCuentas buscarCuenta = new BusquedaCuentas(this);
-            //buscarCuenta.Show();
-            //this.Hide();
+        private void boton_Editar_cuenta_Click(object sender, EventArgs e) {
+            
+            String cliente;
+            if ("Cliente" != nombre_rol_Actual)
+            {
+                Program.Cliente_id_seleccionado = "Quiere Volver";
+                BusquedaClientes buscador = new BusquedaClientes(this);
+                buscador.ShowDialog(); //Asigno el cliente o si quiere volver el mensaje en string "quiero volver"
+                cliente = Program.Cliente_id_seleccionado;
+                if (cliente == "Quiere Volver")
+                {
+                }
+                else //si no quiero volver le seteo un cliente, asignaselo a cliente
+                {
+                    BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente, this);
+                    buscarCuenta.ShowDialog();
+                    cliente = Program.Cliente_id_seleccionado;
+
+                }
+            }
+            else
+            {
+                cliente = cliente_bean.getCliente_Id();
+                BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente, this);
+                buscarCuenta.ShowDialog();
+                cliente = Program.Cliente_id_seleccionado;
+            }
         }
+
+
+
+      
 
         private void boton_Crear_Cliente_Click(object sender, EventArgs e)
         {
-            AltaCliente altaCliente = new AltaCliente(this);
-            altaCliente.Show();
+            AltaCliente altaCliente = new AltaCliente();
             this.Hide();
+            altaCliente.ShowDialog();
+            this.Show();
+            this.BringToFront();
         }
 
         private void boton_Editar_Cliente_Click(object sender, EventArgs e)
         {
+            Program.Cliente_id_seleccionado = "Quiere Volver";
             BusquedaClientes buscador = new BusquedaClientes(this);
             buscador.ShowDialog();
-
             String cliente = Program.Cliente_id_seleccionado;
-            if (cliente == "Quiere Volver") { 
-            
+            if (cliente == "Quiere Volver") {             
             }
-            else {EditarCliente editarCliente = new EditarCliente(cliente,this);
-            editarCliente.ShowDialog();
+            else {
+                EditarCliente editarCliente = new EditarCliente(cliente,this);
+                editarCliente.ShowDialog();
             }
          
         }
 
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
         {
+            Program.Cliente_id_seleccionado = "Quiere Volver";
             BusquedaClientes buscador = new BusquedaClientes(this);
-
-            try
-            {
-                buscador.ShowDialog();
-
-                String cliente = Program.Cliente_id_seleccionado;
-
-                if (cliente == "Quiere Volver")
-                {
-
-                }
-
-                else
-                {
-
-                    if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        clienteDAO.eliminarCliente(cliente);
-
+            buscador.ShowDialog();
+            String cliente = Program.Cliente_id_seleccionado;
+            if (cliente == "Quiere Volver")
+                {}
+            else{
+                if (MessageBox.Show("Estas seguro que desas eliminar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes){           
+                    clienteDAO = new ClienteDAO();
+                    clienteDAO.eliminarCliente(cliente);
+                    MessageBox.Show("Se elimino el cliente ID N°: " + cliente + " - atentamente, Devgurus ", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    boton_eliminar_cliente_Click(sender, e);
                 }
-            }
-
-            catch
-            {
-                MessageBox.Show("Debe seleccionar un cliente primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         }
 
 
-            }
             
-        }
+        
 
         private void boton_trans_Click(object sender, EventArgs e)
         {
-            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual, this);
-            trasferencia.Show();
-            this.Hide();
+            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE
+            trasferencia.ShowDialog();
+
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

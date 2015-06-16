@@ -127,6 +127,7 @@
             this.Controls.Add(this.label_pais_origen);
             this.Name = "AltaCuentas";
             this.Text = "Alta de Cuentas";
+            this.Load += new System.EventHandler(this.AltaCuentas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

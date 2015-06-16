@@ -20,7 +20,7 @@ namespace PagoElectronico
         private TransferenciasDAO transferencias_DAO;
         private Cliente_Bean cliente;
 
-        public Transferencias(String cliente_id,Form menu)
+        public Transferencias(String cliente_id)
         {
             cliente = new Cliente_Bean();
             transferencias_DAO = new TransferenciasDAO();

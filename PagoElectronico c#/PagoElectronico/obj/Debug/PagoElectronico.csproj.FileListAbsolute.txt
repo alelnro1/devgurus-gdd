@@ -49,9 +49,6 @@ C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoEl
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.AltaCuentas.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliente.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.BusquedaCuentas.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
@@ -69,10 +66,6 @@ D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElect
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.Asociar_Tarjeta.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.EditarCuentas.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.BusquedaClientes.resources
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
@@ -145,3 +138,11 @@ C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\D
 C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCuentas.resources
 C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaCuentas.resources
 C:\Users\Maxi\Desktop\REPO\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCuentas.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCliente.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaClientes.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCliente.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCuentas.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaCuentas.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCuentas.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Asociar_Tarjeta.AsociarTarjeta.resources
+C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.Depositos.resources

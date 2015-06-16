@@ -15,14 +15,14 @@ namespace PagoElectronico
     {
         private Rol_Bean rol;
         private RolDAO rolDAO;
-        public Form menu_save;
+ 
 
-        public EditRol(Form menu)
+        public EditRol()
         {
             InitializeComponent();
             rol = new Rol_Bean();
             rolDAO = new RolDAO();
-            menu_save = menu;
+ 
         }
 
         private void boton_Crear_Click(object sender, EventArgs e)
@@ -52,16 +52,14 @@ namespace PagoElectronico
 
                 rolDAO.insertarUnRol(rol);
                 DialogResult alerta = MessageBox.Show("El Rol se ha creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                MenuPrincipal nuevoMenu = new MenuPrincipal();
-                nuevoMenu.Show();
+
                 this.Close();
             }
         }
 
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
-            menu_save.Show();
-            menu_save.BringToFront();
+
             this.Close();
         }
     }

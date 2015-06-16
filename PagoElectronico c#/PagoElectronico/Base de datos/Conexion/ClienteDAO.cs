@@ -164,7 +164,16 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.GD1C2015.ejecutarSentenciaSinRetorno("exec actualizar_cliente" + cliente);
         }
 
-        public void eliminarCliente(String id_cliente)
+      public void eliminarCliente(String id_cliente){
+          this.GD1C2015.ejecutarSentenciaSinRetorno("exec eliminar_Cliente " + id_cliente);
+
+               
+      }
+        
+        
+        
+        
+        /*  public void eliminarCliente(String id_cliente)
         {
             if (id_cliente == "1")
             { MessageBox.Show("No se puede eliminar este cliente - Administrador", "Atención!", MessageBoxButtons.OK); }
@@ -186,7 +195,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 }
             }
 
-        }
+        }*/
         
         public string DameNombreApellido(string id_Cliente)
         {

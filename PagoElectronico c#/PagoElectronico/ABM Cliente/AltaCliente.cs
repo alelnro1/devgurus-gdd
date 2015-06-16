@@ -18,11 +18,11 @@ namespace PagoElectronico
     {
         private Cliente_Bean cliente;
         private ClienteDAO cliente_DAO;
-        private Form menu_save;
+       
 
-        public AltaCliente(Form menu)
+        public AltaCliente()
         {
-            menu_save = menu;
+            
             cliente = new Cliente_Bean();
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
@@ -86,9 +86,18 @@ namespace PagoElectronico
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            menu_save.Show();
-            menu_save.BringToFront();
+            
             this.Close();
+        }
+
+        private void Generar_Click_1(object sender, EventArgs e)
+        {
+            cliente_DAO.altaCliente(cliente);
+        }
+
+        private void AltaCliente_Load(object sender, EventArgs e)
+        {
+
         }
         }
 }

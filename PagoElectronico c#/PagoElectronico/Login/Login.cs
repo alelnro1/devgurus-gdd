@@ -105,8 +105,12 @@ namespace PagoElectronico
                     id_Usuario = usuarioDAO.dameElId(usuario);
                     id_Cliente = clienteDAO.dameElIdCliente(id_Usuario);
                     MenuPrincipal nuevoMenu = new MenuPrincipal(id_Cliente, id_Usuario, text_User.Text, nombre_Rol);
-                    nuevoMenu.Show();
                     this.Hide();
+                    nuevoMenu.ShowDialog();
+                    Form borrar = this;
+                    Login nuevoLogin = new Login();
+                    nuevoLogin.ShowDialog();
+                    borrar.Close();
                 };
             } 
          }
@@ -116,6 +120,11 @@ namespace PagoElectronico
             NewUser nuevoUsuario = new NewUser(usuario);
             nuevoUsuario.Show();
             this.Hide();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
    }
 }
