@@ -55,11 +55,10 @@
             this.boton_Crear = new System.Windows.Forms.Button();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.combo_nacionalidad = new System.Windows.Forms.ComboBox();
-            this.nacionalidad_info = new System.Windows.Forms.TextBox();
-            this.textBox_pais = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker_nacimiento = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_pais = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label5
@@ -241,15 +240,19 @@
             this.combo_tipoDoc.Name = "combo_tipoDoc";
             this.combo_tipoDoc.Size = new System.Drawing.Size(121, 21);
             this.combo_tipoDoc.TabIndex = 223296;
+            this.combo_tipoDoc.SelectedIndexChanged += new System.EventHandler(this.combo_tipoDoc_SelectedIndexChanged);
             // 
             // combo_estado
             // 
+            this.combo_estado.AutoCompleteCustomSource.AddRange(new string[] {
+            "Habilitado",
+            "Deshabilitado"});
             this.combo_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_estado.FormattingEnabled = true;
             this.combo_estado.Items.AddRange(new object[] {
             "Habilitado",
             "Deshabilitado"});
-            this.combo_estado.Location = new System.Drawing.Point(527, 195);
+            this.combo_estado.Location = new System.Drawing.Point(527, 197);
             this.combo_estado.Name = "combo_estado";
             this.combo_estado.Size = new System.Drawing.Size(121, 21);
             this.combo_estado.TabIndex = 223298;
@@ -285,41 +288,12 @@
             // 
             // combo_nacionalidad
             // 
-            this.combo_nacionalidad.AutoCompleteCustomSource.AddRange(new string[] {
-            "Habilitado",
-            "Desabilitado"});
             this.combo_nacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_nacionalidad.FormattingEnabled = true;
-            this.combo_nacionalidad.Items.AddRange(new object[] {
-            "Habilitado",
-            "Deshabilitado",
-            "Cerrado",
-            "Pendiente"});
-            this.combo_nacionalidad.Location = new System.Drawing.Point(527, 40);
+            this.combo_nacionalidad.Location = new System.Drawing.Point(527, 42);
             this.combo_nacionalidad.Name = "combo_nacionalidad";
             this.combo_nacionalidad.Size = new System.Drawing.Size(121, 21);
             this.combo_nacionalidad.TabIndex = 223301;
-            // 
-            // nacionalidad_info
-            // 
-            this.nacionalidad_info.BackColor = System.Drawing.SystemColors.Control;
-            this.nacionalidad_info.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nacionalidad_info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nacionalidad_info.ForeColor = System.Drawing.Color.DarkRed;
-            this.nacionalidad_info.Location = new System.Drawing.Point(527, 14);
-            this.nacionalidad_info.Name = "nacionalidad_info";
-            this.nacionalidad_info.ReadOnly = true;
-            this.nacionalidad_info.Size = new System.Drawing.Size(202, 15);
-            this.nacionalidad_info.TabIndex = 223302;
-            this.nacionalidad_info.TabStop = false;
-            this.nacionalidad_info.TextChanged += new System.EventHandler(this.cliente_Info_TextChanged);
-            // 
-            // textBox_pais
-            // 
-            this.textBox_pais.Location = new System.Drawing.Point(161, 309);
-            this.textBox_pais.Name = "textBox_pais";
-            this.textBox_pais.Size = new System.Drawing.Size(152, 20);
-            this.textBox_pais.TabIndex = 223305;
             // 
             // label7
             // 
@@ -348,16 +322,24 @@
             this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_nacimiento.TabIndex = 223308;
             // 
+            // comboBox_pais
+            // 
+            this.comboBox_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_pais.FormattingEnabled = true;
+            this.comboBox_pais.Location = new System.Drawing.Point(161, 310);
+            this.comboBox_pais.Name = "comboBox_pais";
+            this.comboBox_pais.Size = new System.Drawing.Size(152, 21);
+            this.comboBox_pais.TabIndex = 223309;
+            // 
             // EditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 604);
+            this.Controls.Add(this.comboBox_pais);
             this.Controls.Add(this.dateTimePicker_nacimiento);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox_pais);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.nacionalidad_info);
             this.Controls.Add(this.combo_nacionalidad);
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
@@ -422,11 +404,10 @@
         private System.Windows.Forms.Button boton_Crear;
         private System.Windows.Forms.Button boton_Cancelar;
         private System.Windows.Forms.ComboBox combo_nacionalidad;
-        private System.Windows.Forms.TextBox nacionalidad_info;
-        private System.Windows.Forms.TextBox textBox_pais;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dateTimePicker_nacimiento;
+        private System.Windows.Forms.ComboBox comboBox_pais;
 
     }
 }
