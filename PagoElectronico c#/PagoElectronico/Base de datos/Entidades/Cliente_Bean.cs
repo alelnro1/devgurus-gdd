@@ -20,6 +20,12 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String cliente_FecNac;
         private static String cliente_Mail;
         private static String cliente_IdUser;
+        private static String cliente_Nacionalidad;
+
+        /// <summary>
+        /// //////////GETTERS/
+        /// </summary>
+        /// <returns></returns>
 
         public String getCliente_Id()
         { return Cliente_Bean.cliente_Id; }
@@ -47,6 +53,16 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public String getCliente_NroDoc()
         { return Cliente_Bean.cliente_NroDoc; }
+
+        public String getCliente_Nacionalidad()
+        { return Cliente_Bean.cliente_Nacionalidad; }
+
+
+        /// <summary>
+        /// /////////SETERS//////////
+        /// </summary>
+        /// <param name="cliente_NroDoc"></param>
+        /// <returns></returns>
 
         public String setCliente_NroDoc(String cliente_NroDoc)
         { return Cliente_Bean.cliente_NroDoc = cliente_NroDoc; }
@@ -98,5 +114,9 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public String setCliente_IdUser(String cliente_IdUser)
         { return Cliente_Bean.cliente_IdUser  = cliente_IdUser; }
+
+        public String setCliente_Nacionalidad(String cliente_Nacionalidad)
+        { return Cliente_Bean.cliente_Nacionalidad = cliente_Nacionalidad; }
+
     }
 }

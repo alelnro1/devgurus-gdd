@@ -27,22 +27,28 @@ namespace PagoElectronico
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", "dbo.Paises");
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
+
         }
 
-        private void Generar_Click(object sender, EventArgs e)
+        private void Generar_Click_1(object sender, EventArgs e)
         {
             String usuario = usuario_textbox.Text;
 
             cliente.setCliente_Name(nombre_textbox.Text);
             cliente.setCliente_Apell(apellido_textbox.Text);
-            cliente.setCliente_TipoDoc(tipo_doc_textbox.Text);
+            cliente.setCliente_TipoDoc(comboBox_tipoDoc.Text);
             cliente.setCliente_NroDoc(num_doc_textbox.Text);
             cliente.setCliente_Mail(mail_textbox.Text);
             cliente.setCliente_Pais(combo_pais.Text);
-            cliente.setCliente_FecNac(fecha_nac_textbox.Text);
+            cliente.setCliente_FecNac(dateTimePicker_nacimiento.Text);
+            cliente.setCliente_Nro(textBox_nroCalle.Text);
             cliente.setCliente_Calle(calle_textbox.Text);
-            cliente.setCliente_Piso(piso_textbox.Text);
-            cliente.setCliente_Dpto(depto_textbox.Text);
+            cliente.setCliente_Piso(comboBox_piso.Text);
+            cliente.setCliente_Dpto(comboBox_depto.Text);
+            cliente.setCliente_Nacionalidad(comboBox_nacionalidad.Text);
+            
 
             if (!cliente_DAO.camposVacios(cliente) && !String.IsNullOrEmpty(usuario))
             {
@@ -75,12 +81,12 @@ namespace PagoElectronico
                 }
                 else
                 {
-                    MessageBox.Show("Hay campos que deben ser numericos", "Atención", MessageBoxButtons.OK);
+                    MessageBox.Show("El N° de identificacion y el Nro de calle deben ser numericos", "Atención", MessageBoxButtons.OK);
                 }
             }
             else
             {
-                MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
+                MessageBox.Show("Complete todos los datos para continuar", "Atención", MessageBoxButtons.OK);
             }
         }
 
@@ -90,10 +96,6 @@ namespace PagoElectronico
             this.Close();
         }
 
-        private void Generar_Click_1(object sender, EventArgs e)
-        {
-            cliente_DAO.altaCliente(cliente);
-        }
 
         private void AltaCliente_Load(object sender, EventArgs e)
         {

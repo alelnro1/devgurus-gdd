@@ -52,7 +52,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return resultado;
         }
 
-        // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
         private bool docTipoEmailSinDuplicar(Cliente_Bean cliente)
         {
             bool resultado;
@@ -74,9 +73,9 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             int n;
             bool isNumeric_NroDoc = int.TryParse(cliente.getCliente_NroDoc(), out n);
-            bool isNumeric_TipoDoc = int.TryParse(cliente.getCliente_TipoDoc(), out n);
+            bool isNumeric_NroCalle = int.TryParse(cliente.getCliente_Nro(), out n);
 
-            return isNumeric_NroDoc && isNumeric_TipoDoc;
+            return isNumeric_NroDoc && isNumeric_NroCalle;
         }
 
         public bool camposVacios(Cliente_Bean cliente)
@@ -85,7 +84,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 String.IsNullOrEmpty(cliente.getCliente_Dpto()) || String.IsNullOrEmpty(cliente.getCliente_FecNac()) ||
                 String.IsNullOrEmpty(cliente.getCliente_Mail()) || String.IsNullOrEmpty(cliente.getCliente_Name()) ||
                 String.IsNullOrEmpty(cliente.getCliente_NroDoc()) || String.IsNullOrEmpty(cliente.getCliente_Pais()) ||
-                String.IsNullOrEmpty(cliente.getCliente_Piso()) || String.IsNullOrEmpty(cliente.getCliente_TipoDoc());
+                String.IsNullOrEmpty(cliente.getCliente_Piso()) || String.IsNullOrEmpty(cliente.getCliente_TipoDoc()) ||
+                String.IsNullOrEmpty(cliente.getCliente_Nro()) ||  String.IsNullOrEmpty(cliente.getCliente_Nacionalidad());
         }
 
         public bool hayCamposDuplicados(Cliente_Bean cliente)
@@ -121,6 +121,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return has_rows;
         }
 
+        // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
         public void altaCliente(Cliente_Bean cliente)
         {
             //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
