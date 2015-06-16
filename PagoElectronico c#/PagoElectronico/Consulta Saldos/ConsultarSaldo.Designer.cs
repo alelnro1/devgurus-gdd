@@ -30,9 +30,13 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cuenta_textbox = new System.Windows.Forms.TextBox();
             this.dataGridViewDepositos = new System.Windows.Forms.DataGridView();
+            this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MonedaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewRetiros = new System.Windows.Forms.DataGridView();
+            this.FechaRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,11 +45,7 @@
             this.CuentaDestinoTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImporteTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MonedaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuenta_combobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepositos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRetiros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransferencias)).BeginInit();
@@ -53,7 +53,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(165, 7);
+            this.button1.Location = new System.Drawing.Point(186, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -70,13 +70,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Cuenta";
             // 
-            // cuenta_textbox
-            // 
-            this.cuenta_textbox.Location = new System.Drawing.Point(59, 10);
-            this.cuenta_textbox.Name = "cuenta_textbox";
-            this.cuenta_textbox.Size = new System.Drawing.Size(100, 20);
-            this.cuenta_textbox.TabIndex = 2;
-            // 
             // dataGridViewDepositos
             // 
             this.dataGridViewDepositos.AllowUserToAddRows = false;
@@ -92,6 +85,27 @@
             this.dataGridViewDepositos.Size = new System.Drawing.Size(343, 141);
             this.dataGridViewDepositos.TabIndex = 3;
             // 
+            // FechaDeposito
+            // 
+            this.FechaDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FechaDeposito.HeaderText = "Fecha";
+            this.FechaDeposito.Name = "FechaDeposito";
+            this.FechaDeposito.ReadOnly = true;
+            // 
+            // ImporteDeposito
+            // 
+            this.ImporteDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ImporteDeposito.HeaderText = "Importe";
+            this.ImporteDeposito.Name = "ImporteDeposito";
+            this.ImporteDeposito.ReadOnly = true;
+            // 
+            // MonedaDeposito
+            // 
+            this.MonedaDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MonedaDeposito.HeaderText = "Moneda";
+            this.MonedaDeposito.Name = "MonedaDeposito";
+            this.MonedaDeposito.ReadOnly = true;
+            // 
             // dataGridViewRetiros
             // 
             this.dataGridViewRetiros.AllowUserToAddRows = false;
@@ -105,6 +119,18 @@
             this.dataGridViewRetiros.Name = "dataGridViewRetiros";
             this.dataGridViewRetiros.Size = new System.Drawing.Size(244, 141);
             this.dataGridViewRetiros.TabIndex = 4;
+            // 
+            // FechaRetiro
+            // 
+            this.FechaRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FechaRetiro.HeaderText = "Fecha";
+            this.FechaRetiro.Name = "FechaRetiro";
+            // 
+            // ImporteRetiro
+            // 
+            this.ImporteRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ImporteRetiro.HeaderText = "Importe";
+            this.ImporteRetiro.Name = "ImporteRetiro";
             // 
             // label2
             // 
@@ -173,51 +199,27 @@
             this.CostoTransferencia.HeaderText = "Costo";
             this.CostoTransferencia.Name = "CostoTransferencia";
             // 
-            // FechaDeposito
+            // cuenta_combobox
             // 
-            this.FechaDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaDeposito.HeaderText = "Fecha";
-            this.FechaDeposito.Name = "FechaDeposito";
-            this.FechaDeposito.ReadOnly = true;
-            // 
-            // ImporteDeposito
-            // 
-            this.ImporteDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ImporteDeposito.HeaderText = "Importe";
-            this.ImporteDeposito.Name = "ImporteDeposito";
-            this.ImporteDeposito.ReadOnly = true;
-            // 
-            // MonedaDeposito
-            // 
-            this.MonedaDeposito.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MonedaDeposito.HeaderText = "Moneda";
-            this.MonedaDeposito.Name = "MonedaDeposito";
-            this.MonedaDeposito.ReadOnly = true;
-            // 
-            // FechaRetiro
-            // 
-            this.FechaRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaRetiro.HeaderText = "Fecha";
-            this.FechaRetiro.Name = "FechaRetiro";
-            // 
-            // ImporteRetiro
-            // 
-            this.ImporteRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ImporteRetiro.HeaderText = "Importe";
-            this.ImporteRetiro.Name = "ImporteRetiro";
+            this.cuenta_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cuenta_combobox.FormattingEnabled = true;
+            this.cuenta_combobox.Location = new System.Drawing.Point(59, 9);
+            this.cuenta_combobox.Name = "cuenta_combobox";
+            this.cuenta_combobox.Size = new System.Drawing.Size(121, 21);
+            this.cuenta_combobox.TabIndex = 9;
             // 
             // ConsultarSaldo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 491);
+            this.Controls.Add(this.cuenta_combobox);
             this.Controls.Add(this.dataGridViewTransferencias);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridViewRetiros);
             this.Controls.Add(this.dataGridViewDepositos);
-            this.Controls.Add(this.cuenta_textbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "ConsultarSaldo";
@@ -234,7 +236,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox cuenta_textbox;
         private System.Windows.Forms.DataGridView dataGridViewDepositos;
         private System.Windows.Forms.DataGridView dataGridViewRetiros;
         private System.Windows.Forms.Label label2;
@@ -250,5 +251,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CuentaDestinoTransferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteTransferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoTransferencia;
+        private System.Windows.Forms.ComboBox cuenta_combobox;
     }
 }

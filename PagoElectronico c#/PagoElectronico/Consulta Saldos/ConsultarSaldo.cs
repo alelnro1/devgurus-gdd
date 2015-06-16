@@ -26,12 +26,13 @@ namespace PagoElectronico
             consultar_saldo_DAO = new ConsultarSaldoDAO();
             cliente.setCliente_Id(cliente_id);
             InitializeComponent();
+            consultar_saldo_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridViewDepositos.Rows.Clear();
-            String cuenta = cuenta_textbox.Text;
+            String cuenta = cuenta_combobox.Text;
             
             /* DEPOSITOS */
             SqlDataReader lector_depositos = consultar_saldo_DAO.obtenerUltimosCincoDepositos(cuenta);
@@ -88,6 +89,11 @@ namespace PagoElectronico
 
             lector_transferencias.Close();
             dataGridViewTransferencias.Rows.AddRange(filas_transferencias.ToArray()); //mando como parametro a las filas de la vista, a las filas cargadas convertidas a un array
+
+        }
+
+        private void cuenta_textbox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
