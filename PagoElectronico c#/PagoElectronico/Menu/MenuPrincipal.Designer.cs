@@ -46,6 +46,10 @@
             this.boton_Editar_Cliente = new System.Windows.Forms.Button();
             this.boton_Crear_Cliente = new System.Windows.Forms.Button();
             this.boton_trans = new System.Windows.Forms.Button();
+            this.boton_Extraer = new System.Windows.Forms.Button();
+            this.boton_Depositar = new System.Windows.Forms.Button();
+            this.boton_Asoc_Tarj = new System.Windows.Forms.Button();
+            this.boton_Consul = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -55,7 +59,7 @@
             // 
             this.boton_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boton_Salir.ForeColor = System.Drawing.Color.Maroon;
-            this.boton_Salir.Location = new System.Drawing.Point(466, 357);
+            this.boton_Salir.Location = new System.Drawing.Point(452, 374);
             this.boton_Salir.Name = "boton_Salir";
             this.boton_Salir.Size = new System.Drawing.Size(141, 34);
             this.boton_Salir.TabIndex = 5;
@@ -170,9 +174,9 @@
             // 
             this.groupABMCuentas.Controls.Add(this.boton_Editar_cuenta);
             this.groupABMCuentas.Controls.Add(this.boton_Nueva_Cuenta);
-            this.groupABMCuentas.Location = new System.Drawing.Point(43, 214);
+            this.groupABMCuentas.Location = new System.Drawing.Point(321, 234);
             this.groupABMCuentas.Name = "groupABMCuentas";
-            this.groupABMCuentas.Size = new System.Drawing.Size(205, 133);
+            this.groupABMCuentas.Size = new System.Drawing.Size(205, 112);
             this.groupABMCuentas.TabIndex = 9;
             this.groupABMCuentas.TabStop = false;
             this.groupABMCuentas.Text = "Menu Cuentas";
@@ -202,7 +206,7 @@
             this.groupBox1.Controls.Add(this.boton_eliminar_cliente);
             this.groupBox1.Controls.Add(this.boton_Editar_Cliente);
             this.groupBox1.Controls.Add(this.boton_Crear_Cliente);
-            this.groupBox1.Location = new System.Drawing.Point(315, 60);
+            this.groupBox1.Location = new System.Drawing.Point(43, 210);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 142);
             this.groupBox1.TabIndex = 10;
@@ -241,19 +245,63 @@
             // 
             // boton_trans
             // 
-            this.boton_trans.Location = new System.Drawing.Point(349, 263);
+            this.boton_trans.Location = new System.Drawing.Point(321, 72);
             this.boton_trans.Name = "boton_trans";
-            this.boton_trans.Size = new System.Drawing.Size(171, 28);
+            this.boton_trans.Size = new System.Drawing.Size(126, 28);
             this.boton_trans.TabIndex = 9;
             this.boton_trans.Text = "Transeferir";
             this.boton_trans.UseVisualStyleBackColor = true;
             this.boton_trans.Click += new System.EventHandler(this.boton_trans_Click);
             // 
+            // boton_Extraer
+            // 
+            this.boton_Extraer.Location = new System.Drawing.Point(321, 116);
+            this.boton_Extraer.Name = "boton_Extraer";
+            this.boton_Extraer.Size = new System.Drawing.Size(126, 28);
+            this.boton_Extraer.TabIndex = 53;
+            this.boton_Extraer.Text = "Extraer";
+            this.boton_Extraer.UseVisualStyleBackColor = true;
+            this.boton_Extraer.Click += new System.EventHandler(this.boton_Extraer_Click);
+            // 
+            // boton_Depositar
+            // 
+            this.boton_Depositar.Location = new System.Drawing.Point(478, 72);
+            this.boton_Depositar.Name = "boton_Depositar";
+            this.boton_Depositar.Size = new System.Drawing.Size(126, 28);
+            this.boton_Depositar.TabIndex = 54;
+            this.boton_Depositar.Text = "Depositar";
+            this.boton_Depositar.UseVisualStyleBackColor = true;
+            this.boton_Depositar.Click += new System.EventHandler(this.boton_Depositar_Click);
+            // 
+            // boton_Asoc_Tarj
+            // 
+            this.boton_Asoc_Tarj.Location = new System.Drawing.Point(478, 116);
+            this.boton_Asoc_Tarj.Name = "boton_Asoc_Tarj";
+            this.boton_Asoc_Tarj.Size = new System.Drawing.Size(126, 28);
+            this.boton_Asoc_Tarj.TabIndex = 55;
+            this.boton_Asoc_Tarj.Text = "Asociar Tarjeta";
+            this.boton_Asoc_Tarj.UseVisualStyleBackColor = true;
+            this.boton_Asoc_Tarj.Click += new System.EventHandler(this.boton_Asoc_Tarj_Click);
+            // 
+            // boton_Consul
+            // 
+            this.boton_Consul.Location = new System.Drawing.Point(321, 160);
+            this.boton_Consul.Name = "boton_Consul";
+            this.boton_Consul.Size = new System.Drawing.Size(126, 28);
+            this.boton_Consul.TabIndex = 56;
+            this.boton_Consul.Text = "Consultar Saldo";
+            this.boton_Consul.UseVisualStyleBackColor = true;
+            this.boton_Consul.Click += new System.EventHandler(this.boton_Consul_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 416);
+            this.ClientSize = new System.Drawing.Size(656, 429);
+            this.Controls.Add(this.boton_Consul);
+            this.Controls.Add(this.boton_Asoc_Tarj);
+            this.Controls.Add(this.boton_Depositar);
+            this.Controls.Add(this.boton_Extraer);
             this.Controls.Add(this.boton_trans);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupABMCuentas);
@@ -268,7 +316,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
-            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -297,5 +344,9 @@
         private System.Windows.Forms.Button boton_Crear_Cliente;
         private System.Windows.Forms.Button boton_eliminar_cliente;
         private System.Windows.Forms.Button boton_trans;
+        private System.Windows.Forms.Button boton_Extraer;
+        private System.Windows.Forms.Button boton_Depositar;
+        private System.Windows.Forms.Button boton_Asoc_Tarj;
+        private System.Windows.Forms.Button boton_Consul;
     }
 }

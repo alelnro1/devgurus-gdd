@@ -89,7 +89,11 @@ namespace PagoElectronico
             {
                 MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
+        }
 
+        private void boton_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.Asociar_Tarjeta
+﻿namespace PagoElectronico
 {
     partial class AsociarTarjeta
     {
@@ -48,6 +48,7 @@
             this.boton_Volver.TabIndex = 223289;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
+            this.boton_Volver.Click += new System.EventHandler(this.boton_Volver_Click_1);
             // 
             // boton_Desasociar
             // 

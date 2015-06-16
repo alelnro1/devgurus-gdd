@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.Retiros
+namespace PagoElectronico
 {
     public partial class Retiros : Form
     {
@@ -72,6 +72,11 @@ namespace PagoElectronico.Retiros
             {
                 MessageBox.Show("Faltan datos", "Atención", MessageBoxButtons.OK);
             }
+        }
+
+        private void boton_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

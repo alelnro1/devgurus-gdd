@@ -35,6 +35,7 @@
             this.Importe = new System.Windows.Forms.Label();
             this.importe_textbox = new System.Windows.Forms.TextBox();
             this.Transferir = new System.Windows.Forms.Button();
+            this.boton_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +89,7 @@
             // 
             // Transferir
             // 
-            this.Transferir.Location = new System.Drawing.Point(95, 103);
+            this.Transferir.Location = new System.Drawing.Point(141, 103);
             this.Transferir.Name = "Transferir";
             this.Transferir.Size = new System.Drawing.Size(75, 23);
             this.Transferir.TabIndex = 7;
@@ -96,11 +97,22 @@
             this.Transferir.UseVisualStyleBackColor = true;
             this.Transferir.Click += new System.EventHandler(this.Transferir_Click);
             // 
+            // boton_Cancel
+            // 
+            this.boton_Cancel.Location = new System.Drawing.Point(18, 103);
+            this.boton_Cancel.Name = "boton_Cancel";
+            this.boton_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.boton_Cancel.TabIndex = 8;
+            this.boton_Cancel.Text = "Cancelar";
+            this.boton_Cancel.UseVisualStyleBackColor = true;
+            this.boton_Cancel.Click += new System.EventHandler(this.boton_Cancel_Click);
+            // 
             // Transferencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(236, 138);
+            this.Controls.Add(this.boton_Cancel);
             this.Controls.Add(this.Transferir);
             this.Controls.Add(this.importe_textbox);
             this.Controls.Add(this.Importe);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Label Importe;
         private System.Windows.Forms.TextBox importe_textbox;
         private System.Windows.Forms.Button Transferir;
+        private System.Windows.Forms.Button boton_Cancel;
     }
 }

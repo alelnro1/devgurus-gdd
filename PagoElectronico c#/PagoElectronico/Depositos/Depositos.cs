@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using PagoElectronico.Excepciones;
 using System.Security.Cryptography;
 
-namespace PagoElectronico.Depositos
+namespace PagoElectronico
 {
     public partial class Depositos : Form
     {
@@ -96,6 +96,11 @@ namespace PagoElectronico.Depositos
         private void tarjeta_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void boton_Cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

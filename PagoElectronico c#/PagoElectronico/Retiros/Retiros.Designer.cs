@@ -1,4 +1,4 @@
-﻿namespace PagoElectronico.Retiros
+﻿namespace PagoElectronico
 {
     partial class Retiros
     {
@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nro_doc_textbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.boton_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -88,7 +89,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(73, 106);
+            this.button1.Location = new System.Drawing.Point(119, 111);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -96,11 +97,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // boton_Cancel
+            // 
+            this.boton_Cancel.Location = new System.Drawing.Point(19, 111);
+            this.boton_Cancel.Name = "boton_Cancel";
+            this.boton_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.boton_Cancel.TabIndex = 7;
+            this.boton_Cancel.Text = "Cancelar";
+            this.boton_Cancel.UseVisualStyleBackColor = true;
+            this.boton_Cancel.Click += new System.EventHandler(this.boton_Cancel_Click);
+            // 
             // Retiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(212, 159);
+            this.Controls.Add(this.boton_Cancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.nro_doc_textbox);
             this.Controls.Add(this.label2);
@@ -124,5 +136,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox nro_doc_textbox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button boton_Cancel;
     }
 }

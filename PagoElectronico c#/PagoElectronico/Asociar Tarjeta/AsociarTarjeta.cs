@@ -14,7 +14,7 @@ using PagoElectronico.Conexion;
 using PagoElectronico.BaseDeDatos.Conexion;
 
 
-namespace PagoElectronico.Asociar_Tarjeta
+namespace PagoElectronico
 {
     public partial class AsociarTarjeta : Form
     {
@@ -23,11 +23,9 @@ namespace PagoElectronico.Asociar_Tarjeta
         public AsociarTarjeta()
         {
             tarjetaDAO = new TarjetaDAO();
-        
             InitializeComponent();
             ejecutarBusquedaTarjetas();
         }
-
 
        private void  ejecutarBusquedaTarjetas(){
          
@@ -52,22 +50,11 @@ namespace PagoElectronico.Asociar_Tarjeta
 
                 lector.Close();
                 lista_Tarjetas.Rows.AddRange(filas.ToArray());
-              
         }
 
-        private void boton_Volver_Click(object sender, EventArgs e)
+        private void boton_Volver_Click_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttom_Asociar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boton_Desasociar_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Drawing;
 using PagoElectronico.Conexion;
 using PagoElectronico.BaseDeDatos.Conexion;
 
-namespace PagoElectronico.Consulta_Saldos
+namespace PagoElectronico
 {
     public partial class ConsultarSaldo : Form
     {

@@ -211,20 +211,49 @@ namespace PagoElectronico
                 }
          }
 
-
-            
-        
-
         private void boton_trans_Click(object sender, EventArgs e)
         {
-            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE
+            Transferencias trasferencia = new Transferencias(this.id_Cliente_Actual);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE -> OK JULY
+            this.Hide();
             trasferencia.ShowDialog();
-
+            this.Show();
+            this.BringToFront();
         }
 
-        private void MenuPrincipal_Load(object sender, EventArgs e)
+        private void boton_Depositar_Click(object sender, EventArgs e)
         {
+            Depositos altaCliente = new Depositos(this.id_Cliente_Actual);
+            this.Hide();
+            altaCliente.ShowDialog();
+            this.Show();
+            this.BringToFront();
+        }
 
+        private void boton_Extraer_Click(object sender, EventArgs e)
+        {
+            Retiros retiro = new Retiros(this.id_Cliente_Actual);
+            this.Hide();
+            retiro.ShowDialog();
+            this.Show();
+            this.BringToFront();
+        }
+
+        private void boton_Asoc_Tarj_Click(object sender, EventArgs e)
+        {
+            AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta();
+            this.Hide();
+            asociar_Tarjeta.ShowDialog();
+            this.Show();
+            this.BringToFront();
+        }
+
+        private void boton_Consul_Click(object sender, EventArgs e)
+        {
+            ConsultarSaldo saldo = new ConsultarSaldo(this.id_Cliente_Actual);
+            this.Hide();
+            saldo.ShowDialog();
+            this.Show();
+            this.BringToFront();
         }
     }
 }
