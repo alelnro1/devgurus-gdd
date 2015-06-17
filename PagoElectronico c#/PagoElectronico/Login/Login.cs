@@ -87,7 +87,6 @@ namespace PagoElectronico
 
         private void button_Ingreso_Click(object sender, EventArgs e)
         {
-            iniciarPorPrimeraVez();
             string nombre_Rol;
             string id_Usuario;
             string id_Cliente;
@@ -100,7 +99,6 @@ namespace PagoElectronico
             {
                 usuario.setUser_Name(text_User.Text);
                 usuario.setUser_Pass(text_Pass.Text);
-                usuario.setUser_Pass(usuarioDAO.encriptar(usuario.getUser_Pass()));
                 nombre_Rol = combo_Roles.Text;
                 if (usuarioDAO.validarUsuario(usuario, nombre_Rol))
                 {
@@ -124,27 +122,9 @@ namespace PagoElectronico
             this.Hide();
         }
 
-        private void iniciarPorPrimeraVez()
+        private void Login_Load(object sender, EventArgs e)
         {
-            string rtaSecreta;
-            string password;
-            int nro_Usuarios;
 
-            if (usuarioDAO.primerArranque())
-            {
-                nro_Usuarios = usuarioDAO.cantidadDeUsuarios();
-                for (int user_Id = 1; user_Id <= nro_Usuarios; user_Id++)
-                {
-                    SqlDataReader lector = usuarioDAO.devolvemeElUsuario(user_Id);
-                    lector.Read();
-                    rtaSecreta = lector["Usuarios_RespuestaSecreta"].ToString();
-                    password = lector["Usuarios_Pass"].ToString();
-                    rtaSecreta = usuarioDAO.encriptar(rtaSecreta);
-                    password = usuarioDAO.encriptar(password);
-                    lector.Close();
-                    usuarioDAO.encriptameLosCampos(user_Id, password, rtaSecreta);
-                }
-            }
         }
    }
 }

@@ -305,6 +305,7 @@
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Facturacion de Costos";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // boton_facturar
             // 
@@ -340,6 +341,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
