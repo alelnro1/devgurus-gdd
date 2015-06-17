@@ -21,7 +21,8 @@ Create Table Roles		(	Rol_Id tinyint identity (1,1) PRIMARY KEY NOT NULL,
 							Func_ABM_Roles varchar (25) NOT NULL,
 							Func_ABM_Clientes varchar (25) NOT NULL,
 							Func_ABM_Usuarios varchar (25) NOT NULL,
-							Func_ABM_Cuentas varchar (25) NOT NULL)
+							Func_ABM_Cuentas varchar (25) NOT NULL,
+							Func_Asociar_Tarjeta varchar (25) NOT NULL)
 							
 Create Table Usuarios	(	Usuarios_Id integer identity (1,1) PRIMARY KEY NOT NULL,
 							Usuarios_Name varchar(255) UNIQUE NOT NULL,
