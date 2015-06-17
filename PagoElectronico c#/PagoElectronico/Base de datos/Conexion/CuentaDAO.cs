@@ -108,15 +108,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return lector;
         }
 
-
         public void modificarUnaCuenta(Cuenta_Bean una_cuenta)
         {
-            String consulta = "exec actualizar_tipo_de_cuenta " + una_cuenta.get_nro_cuenta().Trim() + " , " + " '" + una_cuenta.get_tipo_cuenta().Trim() + "' ";
-
+            String consulta = "EXEC cambiar_Tipo_Cuenta @cuenta_Nro = '" + una_cuenta.get_nro_cuenta().Trim() + "', @cuenta_Nro = '" + una_cuenta.get_tipo_cuenta().Trim() + "';";
             this.GD1C2015.ejecutarSentenciaSinRetorno(consulta);
-
         }
-
 
         public void eliminarLaCuenta(String id_Cuenta)
         {
@@ -139,13 +135,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                     MessageBox.Show("No ha sido posible eliminar la Cuenta", "Atención!", MessageBoxButtons.OK);
                 }
             }
-
         }
-
-
     }
-
-
 }
 
 
