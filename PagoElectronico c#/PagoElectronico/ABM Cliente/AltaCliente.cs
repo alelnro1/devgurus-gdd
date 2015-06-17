@@ -22,7 +22,7 @@ namespace PagoElectronico
 
         public AltaCliente()
         {
-            
+   
             cliente = new Cliente_Bean();
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
@@ -45,9 +45,11 @@ namespace PagoElectronico
             cliente.setCliente_FecNac(dateTimePicker_nacimiento.Text);
             cliente.setCliente_Nro(textBox_nroCalle.Text);
             cliente.setCliente_Calle(calle_textbox.Text);
+            
             cliente.setCliente_Piso(comboBox_piso.Text);
             cliente.setCliente_Dpto(comboBox_depto.Text);
             cliente.setCliente_Nacionalidad(comboBox_nacionalidad.Text);
+            cliente.setCliente_localidad(localidad_textbox.Text);
             
 
             if (!cliente_DAO.camposVacios(cliente) && !String.IsNullOrEmpty(usuario))
@@ -61,7 +63,8 @@ namespace PagoElectronico
                             if (!cliente_DAO.clienteAsociadoAUser(cliente))
                             {
                                 cliente_DAO.altaCliente(cliente);
-                                MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK);
+                                MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                this.Close();
                             } 
                             else 
                             {
@@ -98,6 +101,21 @@ namespace PagoElectronico
 
 
         private void AltaCliente_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void localidad_textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker_nacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

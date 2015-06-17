@@ -317,10 +317,12 @@
             // 
             // dateTimePicker_nacimiento
             // 
+            this.dateTimePicker_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker_nacimiento.Location = new System.Drawing.Point(527, 94);
             this.dateTimePicker_nacimiento.Name = "dateTimePicker_nacimiento";
-            this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(121, 20);
             this.dateTimePicker_nacimiento.TabIndex = 223308;
+            this.dateTimePicker_nacimiento.Value = new System.DateTime(2015, 6, 17, 12, 47, 0, 0);
             // 
             // comboBox_pais
             // 
@@ -335,7 +337,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 604);
+            this.ClientSize = new System.Drawing.Size(729, 569);
             this.Controls.Add(this.comboBox_pais);
             this.Controls.Add(this.dateTimePicker_nacimiento);
             this.Controls.Add(this.label14);

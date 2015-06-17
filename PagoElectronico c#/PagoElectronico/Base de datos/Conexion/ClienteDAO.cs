@@ -122,10 +122,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
 
         // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
-        public void altaCliente(Cliente_Bean cliente)
+        public void altaCliente(Cliente_Bean cliente)	
         {
             //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
-            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "','" + cliente.getCliente_Calle() + "','" + cliente.getCliente_Dpto() + "','" + cliente.getCliente_FecNac() + "','" + cliente.getCliente_Mail() + "','" + cliente.getCliente_Name() + "','" + cliente.getCliente_NroDoc() + "','" + cliente.getCliente_Pais() + "','" + cliente.getCliente_Piso() + "','" + cliente.getCliente_TipoDoc() + "','" + cliente.getCliente_IdUser() + "'";
+            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "','" + cliente.getCliente_Calle() + "','" + cliente.getCliente_Dpto() + "','" + cliente.getCliente_Mail() + "','" + cliente.getCliente_Name() + "','" + cliente.getCliente_NroDoc() + "','" + cliente.getCliente_Pais() + "','" + cliente.getCliente_Piso() + "','" + cliente.getCliente_TipoDoc() + "','" + cliente.getCliente_IdUser() + "','" + cliente.getCliente_localidad() +"','" + cliente.getCliente_FecNac() +"',"+ cliente.getCliente_Nro() + ",'" + cliente.getCliente_Nacionalidad()+ "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(proc);
         }
 

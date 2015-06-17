@@ -59,25 +59,15 @@ namespace PagoElectronico
                 textBox_email.Text = lector["Cliente_Mail"].ToString();
                 combo_estado.Text = lector["Cliente_Estado"].ToString();
                 //textBox_fecha_nac.Text = monthCalendar_nacimiento.SelectionRange.Start;
-               // textBox_fecha_nac.co Convert.ToDateTime(mnthCalendar1.SelectionEnd.ToShortDateString());
+                // textBox_fecha_nac.co Convert.ToDateTime(mnthCalendar1.SelectionEnd.ToShortDateString());
                 
                
                 // textBox_clienteUser = lector["Cliente_User"].ToString();
-            lector.Close();
+                lector.Close();
 
             }
 
-            
-        
 
-
-        private void boton_desasociar_tarjeta_Click(object sender, EventArgs e)
-        {
-          /*  Desasociar_Tarjeta desasociarTarjeta = new Desasociar_Tarjeta(cliente_Bean.getCliente_Id(), this);
-
-            desasociarTarjeta.Show();
-            this.Enabled = false;*/
-        }
 
 
         private void boton_Cancelar_Click(object sender, EventArgs e)
@@ -93,8 +83,7 @@ namespace PagoElectronico
         private void boton_Crear_Click(object sender, EventArgs e)
         {   
 
-            if (MessageBox.Show("Estas seguro que desas editar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+
                 if (textBox_nombre.Text == "" || textBox_apellido.Text == "" || combo_tipoDoc.Text == "" || textBox_nroDoc.Text == "" ||
                     textBox_localidad.Text == "" || textBox_calle.Text == "" || textBox_nroCalle.Text == "" || textBox_piso.Text == "" ||
                     textBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
@@ -103,30 +92,36 @@ namespace PagoElectronico
                 }
                 else
                 {
-                    String cliente = cliente_Bean.getCliente_Id() + ",'" +
-                                    textBox_nombre.Text + "','" +
-                                    combo_estado.Text + "','" +
-                                    textBox_apellido.Text + "','" +
-                                    combo_tipoDoc.Text + "'," +
-                                    textBox_nroDoc.Text + ",'" +
-                                    combo_nacionalidad.Text + "','" +
-                                    comboBox_pais.Text + "','" +
-                                    textBox_localidad.Text + "','" +
-                                    textBox_calle.Text + "'," +
-                                    textBox_nroCalle.Text + "," +
-                                    textBox_piso.Text + ",'" +
-                                    textBox_depto.Text + "','" +
-                        //dateTimePicker_nacimiento.Text + "," +
-                                    textBox_email.Text + "'";
+                    if (MessageBox.Show("Estas seguro que desas editar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        String cliente = cliente_Bean.getCliente_Id() + ",'" +
+                        textBox_nombre.Text + "','" +
+                        combo_estado.Text + "','" +
+                        textBox_apellido.Text + "','" +
+                        combo_tipoDoc.Text + "'," +
+                        textBox_nroDoc.Text + ",'" +
+                        combo_nacionalidad.Text + "','" +
+                        comboBox_pais.Text + "','" +
+                        textBox_localidad.Text + "','" +
+                        textBox_calle.Text + "'," +
+                        textBox_nroCalle.Text + "," +
+                        textBox_piso.Text + ",'" +
+                        textBox_depto.Text + "','" +
+                        dateTimePicker_nacimiento.Text + "','" +
+                        textBox_email.Text + "'";
 
-                    clienteDAO.editarCliente(cliente);
+                        clienteDAO.editarCliente(cliente);
+                        MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° " + cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
-                MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° "+ cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 this.Close();
-            }
+            
             
 
         }
+
 
         private void combo_tipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,6 +144,17 @@ namespace PagoElectronico
         private void button2_Click(object sender, EventArgs e) //ASOCIAR_Tarjeta
         {
 
+        }
+
+
+
+
+        private void boton_desasociar_tarjeta_Click(object sender, EventArgs e)
+        {
+            /*  Desasociar_Tarjeta desasociarTarjeta = new Desasociar_Tarjeta(cliente_Bean.getCliente_Id(), this);
+
+              desasociarTarjeta.Show();
+              this.Enabled = false;*/
         }
 
     }
