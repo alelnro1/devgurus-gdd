@@ -15,4 +15,7 @@ AS
 	
 	update dbo.Facturas set Factura_Importe = Factura_Importe + @importe
 	where Factura_Numero = @numero_Factura
+	
+	delete from dbo.Transaccion_Pendiente
+	where Transaccion_Pendiente_Id = @numero_Item
 GO
