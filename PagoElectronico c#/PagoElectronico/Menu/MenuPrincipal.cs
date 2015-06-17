@@ -346,22 +346,7 @@ namespace PagoElectronico
                 Facturacion facturar = new Facturacion(this.id_Cliente_Actual);
                 facturar.ShowDialog();
             }
-            
-            
-
         }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-        
+    }
     }    
-}
+

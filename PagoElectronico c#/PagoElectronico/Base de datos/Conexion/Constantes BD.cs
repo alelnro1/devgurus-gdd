@@ -20,6 +20,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String t_tipos_cuentas = "dbo.Tipo_De_Cuentas";
         public static String t_tipo_de_moneda = "dbo.Tipo_De_Moneda";
         public static String t_tipo_doc = "dbo.Tipo_De_Doc";
+        public static String t_login_auditoria = "dbo.Login_Auditoria";
 
 
         public static String proc_eliminar_Rol = "dbo.eliminar_Rol";

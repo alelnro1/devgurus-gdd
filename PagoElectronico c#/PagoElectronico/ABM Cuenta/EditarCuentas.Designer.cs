@@ -52,7 +52,6 @@
             this.combo_tipo_cuenta.Name = "combo_tipo_cuenta";
             this.combo_tipo_cuenta.Size = new System.Drawing.Size(121, 21);
             this.combo_tipo_cuenta.TabIndex = 31;
-            this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // boton_Crear
             // 
@@ -88,15 +87,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(334, 195);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
             this.Controls.Add(this.combo_tipo_cuenta);
             this.Controls.Add(this.label4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditarCuentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Editar Cuentas";
             this.ResumeLayout(false);
             this.PerformLayout();

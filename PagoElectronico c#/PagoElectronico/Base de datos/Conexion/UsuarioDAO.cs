@@ -89,5 +89,39 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             lector.Close();
             return id_Usuario;
         }
+
+        public bool primerArranque()
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Login_Auditoria_Id] from " + ConstantesBD.t_login_auditoria);
+            if (lector.HasRows) { lector.Close(); return false; }
+            else { lector.Close(); return true; }
+        }
+
+        public int cantidadDeUsuarios()
+        {
+            string nro;
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select COUNT(*) TOTAL from " + ConstantesBD.t_usuarios);
+            if (lector.HasRows)
+            {
+                lector.Read();
+                nro = (lector["TOTAL"].ToString());
+                lector.Close();
+                return Int32.Parse(nro);
+            }
+            return 0;
+        }
+
+        public SqlDataReader devolvemeElUsuario(int id_Usuario)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select * from " + ConstantesBD.t_usuarios + " where Usuarios_Id = '" + id_Usuario + "';");
+            return lector;
+        }
+
+        public void encriptameLosCampos(int user_Id, string password, string rtaSecreta)
+        {
+            this.GD1C2015.ejecutarSentenciaSinRetorno("update " + ConstantesBD.t_usuarios +
+                " set Usuarios_Pass = '" + password + "', Usuarios_RespuestaSecreta = '" +
+                rtaSecreta + "' where Usuarios_Id = '" + user_Id + "'");
+        }
     }
 }
