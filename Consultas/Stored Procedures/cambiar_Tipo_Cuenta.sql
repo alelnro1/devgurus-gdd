@@ -1,4 +1,4 @@
-CREATE PROCEDURE cambiar_Tipo_Cuenta
+create PROCEDURE cambiar_Tipo_Cuenta
 	@tipo_Cuenta varchar(50),
 	@cuenta_Nro numeric(18,0)
 AS
@@ -7,7 +7,7 @@ AS
 	DECLARE @tipo_Cuenta_Nueva_Costo numeric (18,2)
 	DECLARE @tipo_Cuenta_Nueva_Id tinyint
 	
-	SET @tipo_Cuenta = (SELECT Cuenta_Cliente FROM dbo.Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Nombre = @tipo_Cuenta)
+	SET @tipo_Cuenta = (SELECT Tipo_De_Cuentas_Id FROM dbo.Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Nombre = @tipo_Cuenta)
 	SET @cuenta_Cliente = (SELECT Cuenta_Cliente FROM dbo.Cuentas WHERE Cuenta_Nro = @cuenta_Nro)
 	SET @tipo_Cuenta_Vieja = (SELECT Cuenta_Tipo FROM dbo.Cuentas WHERE Cuenta_Nro = @cuenta_Nro)
 	SET @tipo_Cuenta_Nueva_Costo = (Select Tipo_De_Cuentas_Costo from dbo.Tipo_De_Cuentas
