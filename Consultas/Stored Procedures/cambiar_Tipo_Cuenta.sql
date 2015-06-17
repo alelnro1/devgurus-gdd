@@ -1,4 +1,4 @@
-create PROCEDURE cambiar_Tipo_Cuenta
+create PROCEDURE actualizar_tipo_de_cuenta
 	@tipo_Cuenta varchar(50),
 	@cuenta_Nro numeric(18,0)
 AS
