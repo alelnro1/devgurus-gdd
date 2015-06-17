@@ -23,5 +23,21 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             String sql = "SELECT * FROM Transaccion_Pendiente WHERE Transaccion_Pendiente_Cliente = " + cliente_id ;
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
+        public string generar_factura(string id_cliente)
+        {
+            String sql = "exec generar_Nueva_Factura " + id_cliente;
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+            lector.Read();
+            string aux = lector["Numero_Factura"].ToString();
+            lector.Close();
+            return aux;
+        }
+        public void asignar_item(string nro_transaccion, string id_factura)
+        {
+            String sql = "exec asignar_Item_A_Factura " + id_factura + ", " + nro_transaccion;
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+        }
+
+    
     }
 }

@@ -52,7 +52,7 @@
             this.combo_tipo_cuenta.Name = "combo_tipo_cuenta";
             this.combo_tipo_cuenta.Size = new System.Drawing.Size(121, 21);
             this.combo_tipo_cuenta.TabIndex = 31;
-            this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            //this.combo_tipo_cuenta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // boton_Crear
             // 

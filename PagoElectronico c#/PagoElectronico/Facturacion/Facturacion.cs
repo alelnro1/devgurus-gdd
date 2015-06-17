@@ -56,7 +56,14 @@ namespace PagoElectronico
         }
         private void rendirButton_Click(object sender, EventArgs e)
         {
+            string id_factura=facturacion_DAO.generar_factura(cliente_id_para_facturacion.getCliente_Id());
+            foreach (DataGridViewRow cell in tansacciones_pendientes_data_grid.SelectedRows)
+            {
+                facturacion_DAO.asignar_item(cell.Cells[0].Value.ToString(), id_factura);
 
+            }
+            MessageBox.Show("Se Correctamente generó la factura ID N°"+ id_factura, "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void Facturacion_Load(object sender, EventArgs e)
@@ -67,6 +74,11 @@ namespace PagoElectronico
         private void dgvOperaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void volverButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
