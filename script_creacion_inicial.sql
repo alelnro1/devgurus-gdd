@@ -497,6 +497,7 @@ BEGIN TRAN InicializacionDeProcedures
 /* EL PROCEDIMIENTO ACTUALIZA LOS DATOS DE UN CLIENTE UTILIZANDO UN UPDATE */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'actualizar_cliente')
 	DROP PROCEDURE DEVGURUS.actualizar_cliente;
+	Print 'El procedimiento ACTUALIZAR CLIENTE ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.actualizar_cliente
@@ -526,13 +527,15 @@ AS
       ,[Cliente_Mail] = @Mail
 
 WHERE @id_cliente = Cliente_Id
- 
 GO
+Print 'El procedimiento ACTUALIZAR CLIENTE se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO ASIGNA LOGICAMENTE ITEMS A UNA FACTURA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'asignar_Item_A_Factura')
 	DROP PROCEDURE DEVGURUS.asignar_Item_A_Factura;
+	Print 'El procedimiento ASIGNAR ITEM A FACTURA ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.asignar_Item_A_Factura
@@ -555,12 +558,15 @@ AS
 	
 	delete from DEVGURUS.Transaccion_Pendiente
 	where Transaccion_Pendiente_Id = @numero_Item
-GO
+GO	
+	Print 'El procedimiento ASIGNAR ITEM A FACTURA se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO ADMINISTRA LA ENTRADA DEL USUARIO AL SISTEMA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'logearse')
 	DROP PROCEDURE DEVGURUS.logearse;
+	Print 'El procedimiento LOGEARSE ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.logearse
@@ -630,12 +636,15 @@ AS
 	values (@usuario, GETDATE(), 'Correcto')
 	delete from DEVGURUS.Login_Incorrecto where Login_Incorrecto_User = @usuario_Id
 	END
-GO
+GO	
+	Print 'El procedimiento LOGEARSE se ha creado correctamente';
+
 
 
 /* EL TRIGGER GENERA REGISTROS EN LA TABLA TRANSACCIONES PENDIENTES*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertAperturasPendientes')
 	DROP TRIGGER DEVGURUS.insertAperturasPendientes;
+	Print 'El trigger INSERTAR APERTURAS PENDIENTES ya existe, SE BORRARA';
 GO
 
 CREATE trigger DEVGURUS.insertAperturasPendientes
@@ -662,11 +671,14 @@ GETDATE(), @Apertura_Cuenta_Nro)
 
 END
 GO
+	Print 'El trigger INSERTAR APERTURAS PENDIENTES se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA CUENTAS*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarEnCuentas')
 	DROP PROCEDURE DEVGURUS.insertarEnCuentas;
+	Print 'El procedimiento INSERTAR EN CUENTAS ya existe, SE BORRARA';
 GO
 
 create procedure DEVGURUS.insertarEnCuentas
@@ -703,13 +715,15 @@ AS
 values(@ultimo_Id, @Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
 		
 SELECT Cuenta_Nro, Cuenta_Fec_Cre  FROM DEVGURUS.Cuentas where Cuenta_Fec_Cre = (select max(Cuenta_Fec_Cre) from Cuentas )
-
 GO
+	Print 'El procedimiento INSERTAR EN CUENTAS se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA CLIENTES*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarNuevoCliente')
 	DROP PROCEDURE DEVGURUS.insertarNuevoCliente;
+	Print 'El procedimiento INSERTAR NUEVO CLIENTE ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.insertarNuevoCliente
@@ -722,11 +736,14 @@ AS
 	VALUES
 		(@apellido, @calle, @depto, @fec_nac, @mail, @nombre, @nro_doc, @pais, @piso, @tipo_doc, @cliente_user)
 GO
+	Print 'El procedimiento INSERTAR NUEVO CLIENTE se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA USUARIOS*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarNuevoUsuario')
 	DROP PROCEDURE DEVGURUS.insertarNuevoUsuario;
+	Print 'El procedimiento INSERTAR NUEVO USUARIO ya existe, SE BORRARA';
 GO
 
 create PROCEDURE DEVGURUS.insertarNuevoUsuario
@@ -752,12 +769,15 @@ AS
 	
 	insert into DEVGURUS.Rol_X_Usuario values (@id_User, @id_Rol)
 	select 'Correcto' MENSAJE
-GO
+GO	
+	Print 'El procedimiento INSERTAR NUEVO USUARIO se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA TRANSFERENCIAS*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertTransferenciasPendientes')
 	DROP TRIGGER DEVGURUS.insertTransferenciasPendientes;
+	Print 'El procedimiento INSERTAR TRANSFERENCIAS PENDIENTES ya existe, SE BORRARA';
 GO
 
 CREATE trigger DEVGURUS.insertTransferenciasPendientes
@@ -782,11 +802,14 @@ GETDATE(), @Transaccion_Pendiente_Cuenta_Nro)
 
 END
 GO
+	Print 'El procedimiento INSERTAR TRANSFERENCIAS PENDIENTES se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO SE UTILIZA PARA REALIZAR UNA TRANSFERENCIA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'realizar_transferencia')
 	DROP PROCEDURE DEVGURUS.realizar_transferencia;
+	Print 'El procedimiento REALIZAR TRANSFERENCIAS ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.realizar_transferencia
@@ -811,12 +834,15 @@ AS
 			GETDATE(),
 			@costo,
 			@cuenta_origen)
-GO
+GO	
+	Print 'El procedimiento REALIZAR TRANSFERENCIAS se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO SE UTILIZA PARA REALIZAR UN RETIRAR */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'retirar')
 	DROP PROCEDURE DEVGURUS.retirar;
+	Print 'El procedimiento RETIRAR ya existe, SE BORRARA';
 GO
 
 CREATE PROCEDURE DEVGURUS.retirar
@@ -835,12 +861,15 @@ AS
 		VALUES (@retiro_id, @cheque_id, @cuenta, GETDATE(), @importe)
 	
 	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe WHERE Cuenta_Nro = @cuenta
-GO
+GO	
+	Print 'El procedimiento RETIRAR se ha creado correctamente';
 
 
-/* EL PROCEDIMIENTO SE UTILIZA PARA VERIFICAR SI UNA CUENTA SE ENCUENTRA INHABILITADA */
+
+/* EL GATILLO SE UTILIZA PARA VERIFICAR SI UNA CUENTA SE ENCUENTRA INHABILITADA DESPUES DE UN MOVIMIENTO*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'validarCuentaInhabilitada')
 	DROP Trigger DEVGURUS.validarCuentaInhabilitada;
+	Print 'El gatillo VALIDAR CUENTA INHABILITADA ya existe, SE BORRARA';
 GO
 
 CREATE TRIGGER DEVGURUS.validarCuentaInhabilitada
@@ -860,13 +889,13 @@ AS
 	BEGIN
 	update Cuenta_Estado SET Cuenta_Estado = 'Inhabilitado' where Cuenta_Nro = @cuenta
 	END
-GO
+GO	
+	Print 'El gatillo VALIDAR CUENTA INHABILITADA se ha creado correctamente';
+
 
 Print 'Se ha creado el lote de PROCEDURES y TRIGGERS correctamente';
 
 COMMIT TRAN InicializacionDeProcedures
-
-
 
 EXECUTE DEVGURUS.insertarNuevoUsuario
 	@nombre = 'admin',
