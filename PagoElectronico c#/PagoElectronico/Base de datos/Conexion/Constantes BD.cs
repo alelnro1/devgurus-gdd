@@ -20,8 +20,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String t_tipos_cuentas = "DEVGURUS.Tipo_De_Cuentas";
         public static String t_tipo_de_moneda = "DEVGURUS.Tipo_De_Moneda";
         public static String t_tipo_doc = "DEVGURUS.Tipo_De_Doc";
+        public static String t_login_auditoria = "DEVGURUS.Login_Auditoria";
 
-
+        public static String proc_nuevo_Usuario = "DEVGURUS.insertarNuevoUsuario";
+        public static String proc_logearse = "DEVGURUS.logearse";
         public static String proc_eliminar_Rol = "DEVGURUS.eliminar_Rol";
         public static String proc_eliminar_Cuenta = "DEVGURUS.eliminar_Cuenta";
         public static String proc_eliminar_Cliente = "DEVGURUS.eliminar_Cliente";

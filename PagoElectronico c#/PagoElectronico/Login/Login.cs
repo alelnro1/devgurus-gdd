@@ -22,10 +22,10 @@ namespace PagoElectronico
         private UsuarioDAO usuarioDAO;
         private ClienteDAO clienteDAO;
         private RolDAO rolDAO;
-        
+
         public Login()
         {
-            leerArchivoConfiguracion(); 
+            leerArchivoConfiguracion();
             InitializeComponent();
             usuarioDAO = new UsuarioDAO();
             usuario = new Usuario_Bean();
@@ -71,7 +71,7 @@ namespace PagoElectronico
         {
             SqlDataReader lector = rolDAO.dameLosNombresDeLosRoles();
             while (lector.Read())
-                {   combo_Roles.Items.Add(lector["Rol_Desc"]);  }
+            { combo_Roles.Items.Add(lector["Rol_Desc"]); }
             lector.Close();
         }
 
@@ -87,6 +87,7 @@ namespace PagoElectronico
 
         private void button_Ingreso_Click(object sender, EventArgs e)
         {
+            iniciarPorPrimeraVez();
             string nombre_Rol;
             string id_Usuario;
             string id_Cliente;
@@ -94,11 +95,12 @@ namespace PagoElectronico
             if ((String.IsNullOrEmpty(text_User.Text)) ||
                (String.IsNullOrEmpty(text_Pass.Text)) ||
                (String.IsNullOrEmpty(combo_Roles.Text)))
-            {   DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            { DialogResult alerta = MessageBox.Show("Debe completar los campos antes de continuar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             else
             {
                 usuario.setUser_Name(text_User.Text);
                 usuario.setUser_Pass(text_Pass.Text);
+                usuario.setUser_Pass(usuarioDAO.encriptar(usuario.getUser_Pass()));
                 nombre_Rol = combo_Roles.Text;
                 if (usuarioDAO.validarUsuario(usuario, nombre_Rol))
                 {
@@ -112,8 +114,8 @@ namespace PagoElectronico
                     nuevoLogin.ShowDialog();
                     borrar.Close();
                 };
-            } 
-         }
+            }
+        }
 
         private void boton_NewCliente_Click(object sender, EventArgs e)
         {
@@ -122,9 +124,27 @@ namespace PagoElectronico
             this.Hide();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void iniciarPorPrimeraVez()
         {
+            string rtaSecreta;
+            string password;
+            int nro_Usuarios;
 
+            if (usuarioDAO.primerArranque())
+            {
+                nro_Usuarios = usuarioDAO.cantidadDeUsuarios();
+                for (int user_Id = 1; user_Id <= nro_Usuarios; user_Id++)
+                {
+                    SqlDataReader lector = usuarioDAO.devolvemeElUsuario(user_Id);
+                    lector.Read();
+                    rtaSecreta = lector["Usuarios_RespuestaSecreta"].ToString();
+                    password = lector["Usuarios_Pass"].ToString();
+                    rtaSecreta = usuarioDAO.encriptar(rtaSecreta);
+                    password = usuarioDAO.encriptar(password);
+                    lector.Close();
+                    usuarioDAO.encriptameLosCampos(user_Id, password, rtaSecreta);
+                }
+            }
         }
-   }
+    }
 }

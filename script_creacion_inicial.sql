@@ -176,6 +176,7 @@ Print 'La tabla ROLES se ha creado con exito';
 	DESCRIPCION: Creacion de los Usuarios en base a los datos de clientes de la tabla maestra
 */	
 Create Table DEVGURUS.Usuarios	(	Usuarios_Id integer identity (1,1) PRIMARY KEY NOT NULL,
+									Usuarios_Estado varchar(255) default 'Habilitado',
 									Usuarios_Name varchar(255) UNIQUE NOT NULL,
 									Usuarios_Pass varchar(255) NOT NULL,
 									Usuarios_FechaCreacion datetime NOT NULL,
@@ -197,7 +198,7 @@ Print 'La tabla ROL X USUARIOS se ha creado con exito';
 */	
 Create Table DEVGURUS.Clientes (	Cliente_Id integer identity (1,1) PRIMARY KEY NOT NULL,
 									Cliente_Nombre varchar(255),
-									Cliente_Estado varchar(255) default 'Inhabilitado',
+									Cliente_Estado varchar(255) default 'Habilitado',
 									Cliente_Apellido varchar(255),
 									Cliente_Tipo_Doc numeric (18,0) FOREIGN KEY REFERENCES DEVGURUS.Tipo_De_Doc(Tipo_Doc_Id),
 									Cliente_Nro_Doc integer,
@@ -372,7 +373,9 @@ Insert into DEVGURUS.Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codi
 													where	Cli_Pais_Codigo <> NULL and
 															Cuenta_Pais_Codigo <> NULL and
 															Cuenta_Dest_Pais_Codigo <> NULL
-UPDATE DEVGURUS.Paises SET Pais_Nombre = (SELECT REPLACE(Paises.Pais_Nombre, ' ', ''))
+update DEVGURUS.Paises
+set Pais_Nombre = STUFF(Pais_Nombre, CHARINDEX(' ', Pais_Nombre), 1, '')
+where Pais_Nombre like ' %'
 
 Print 'La tabla PAISES se ha cargado con exito';
 
@@ -579,6 +582,7 @@ AS
 	DECLARE @usuario_Pass varchar (255)
 	DECLARE @nro_Intento tinyint
 	DECLARE @validation_Rol int
+	DECLARE @estatus_Usuario varchar (255)
 	
 	SET @rol_Id = (SELECT Rol_Id FROM DEVGURUS.Roles WHERE Rol_Desc = @rol)
 	SET @usuario_Id = (SELECT Usuarios_Id FROM DEVGURUS.Usuarios WHERE Usuarios_Name = @usuario)
@@ -587,7 +591,14 @@ AS
 	@usuario_Id = LO.Login_Incorrecto_User)
 	SET @validation_Rol = (SELECT Rol_X_Usuario_Usuario from DEVGURUS.Rol_X_Usuario where 
 	Rol_X_Usuario_Usuario = @usuario_Id and Rol_X_Usuario_Rol = @rol_Id)
+	SET @estatus_Usuario = (SELECT Usuarios_Estado from DEVGURUS.Usuarios where Usuarios_Id = @usuario_Id)
 
+	
+	IF (@estatus_Usuario = 'Pendiente')
+	BEGIN
+	select 'No aprobado' MENSAJE
+	END
+	
 	IF (@usuario_Id is null)
 	BEGIN
 	select 'No existe' MENSAJE
@@ -751,7 +762,8 @@ create PROCEDURE DEVGURUS.insertarNuevoUsuario
 	@password varchar(255), 
 	@rol varchar(25), 
 	@pregunta varchar(255), 
-	@respuesta varchar(255)
+	@respuesta varchar(255),
+	@estado varchar(255)
 AS
 	DECLARE @id_Rol int
 	DECLARE @id_User int
@@ -760,9 +772,9 @@ AS
 	
 	INSERT INTO DEVGURUS.Usuarios 
 		(	Usuarios_Name, Usuarios_Pass, Usuarios_FechaCreacion, Usuarios_FechaUltimaModificacion, 
-			Usuarios_PreguntaSecreta, Usuarios_RespuestaSecreta)
+			Usuarios_PreguntaSecreta, Usuarios_RespuestaSecreta, Usuarios_Estado)
 	VALUES
-		(@nombre, @password, GETDATE(), GETDATE(), @pregunta, @respuesta)
+		(@nombre, @password, GETDATE(), GETDATE(), @pregunta, @respuesta, @estado)
 	
 	
 	SET @id_User = (select MAX(Usuarios_Id) from DEVGURUS.Usuarios)
@@ -897,11 +909,22 @@ Print 'Se ha creado el lote de PROCEDURES y TRIGGERS correctamente';
 
 COMMIT TRAN InicializacionDeProcedures
 
+
+/* SE CREAN LOS CUATRO USUARIOS DE DESARROLLADORES Y EL USUARIO 'ADMIN'*/
 EXECUTE DEVGURUS.insertarNuevoUsuario
 	@nombre = 'admin',
 	@password = 'w23e', 
 	@rol = 'Administrador General', 
-	@pregunta = '¿Pais de origen?', 
-	@respuesta = 'Argentina';
-	
+	@pregunta = '¿En que pais naciste?', 
+	@respuesta = 'Argentina',
+	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "ADMIN" con password "w23e" y rol de "Administrador General"';
+
+EXECUTE DEVGURUS.insertarNuevoUsuario
+	@nombre = 'lbenitez',
+	@password = '1558', 
+	@rol = 'Administrador', 
+	@pregunta = '¿En que pais naciste?', 
+	@respuesta = 'Argentina',
+	@estado = 'Habilitado';
+Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';

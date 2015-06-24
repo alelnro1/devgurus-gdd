@@ -55,7 +55,7 @@ namespace PagoElectronico
 
         private void boton_Salir_Click(object sender, EventArgs e)
         {
-            DialogResult cancelar = MessageBox.Show("Desea cancelar la aplicación?", "PC Banking", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult cancelar = MessageBox.Show("Desea cancelar la creacion de nuevo Usuario?", "PC Banking", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (cancelar == DialogResult.Yes)
             {
                 this.Close();
@@ -88,13 +88,23 @@ namespace PagoElectronico
             usuario.setUser_Rol(combo_Rol.Text);
             usuario.setUser_PreguntaSecreta(comboPreSec.Text);
             usuario.serUser_RespuestaSecreta(textRtaSec.Text);
+            
+            if (!(usuarioDAO.primerArranque()))
+            {
+                usuario.setUser_Pass(usuarioDAO.encriptar(usuario.getUser_Pass()));
+                usuario.serUser_RespuestaSecreta(usuarioDAO.encriptar(usuario.getUser_RespuestaSecreta()));
+            }
 
             if (usuarioDAO.cargarUsuario(usuario))
-            {   
+            {
                 DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
                 Login nuevoLogin = new Login();
                 nuevoLogin.Show();
+            }
+            else
+            {
+                DialogResult alerta = MessageBox.Show("Ha ocurrido un problema durante la creación", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

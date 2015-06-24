@@ -32,8 +32,12 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool validarUsuario(Usuario_Bean usuario, String nombre_Rol)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE logearse @rol = '"+nombre_Rol+"', @usuario = '"+usuario.getUser_Name()+"', @password = '"+usuario.getUser_Pass()+"';");
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE " + ConstantesBD.proc_logearse + " @rol = '" + nombre_Rol + "', @usuario = '" + usuario.getUser_Name() + "', @password = '" + usuario.getUser_Pass() + "';");
             lector.Read();
+            if (lector["MENSAJE"].Equals("No aprobado"))
+            {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no ha sido aprobado por el administrado.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return false;}
             if (lector["MENSAJE"].Equals("No existe"))
             {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no existe.", "Atención!", MessageBoxButtons.OK);
                 lector.Close();
@@ -56,19 +60,20 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 lector.Close();
                 return true;
             }
+            lector.Close();
             return false;
         }
 
         public bool cargarUsuario(Usuario_Bean usuario)
         {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE insertarNuevoUsuario @nombre = '" + usuario.getUser_Name() +
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE " + ConstantesBD.proc_nuevo_Usuario + " @nombre = '" + usuario.getUser_Name() +
             "', @password = '" + usuario.getUser_Pass() + "', @rol = '" + usuario.getUser_Rol() +
             "', @pregunta = '" + usuario.getUser_PreguntaSecreta() + "', @respuesta = '" + 
-            usuario.getUser_RespuestaSecreta() + "'");
+            usuario.getUser_RespuestaSecreta() + "', @estado = 'Pendiente';");
             if (lector.HasRows)
-            {return true;}
-            else 
-            {return false;}
+            { lector.Close(); return true; }
+            else
+            { lector.Close(); return false; }
         }
 
         public bool existeNombreDeUsuario(String nombreDeUsuario)
@@ -88,6 +93,40 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             id_Usuario = lector["Usuarios_Id"].ToString();
             lector.Close();
             return id_Usuario;
+        }
+
+        public bool primerArranque()
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Login_Auditoria_Id] from " + ConstantesBD.t_login_auditoria);
+            if (lector.HasRows) { lector.Close(); return false; }
+            else { lector.Close(); return true; }
+        }
+
+        public int cantidadDeUsuarios()
+        {
+            string nro;
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select COUNT(*) TOTAL from " + ConstantesBD.t_usuarios);
+            if (lector.HasRows)
+            {
+                lector.Read();
+                nro = (lector["TOTAL"].ToString());
+                lector.Close();
+                return Int32.Parse(nro);
+            }
+            return 0;
+        }
+
+        public void encriptameLosCampos(int user_Id, string password, string rtaSecreta)
+        {
+            this.GD1C2015.ejecutarSentenciaSinRetorno("update " + ConstantesBD.t_usuarios +
+                " set Usuarios_Pass = '" + password + "', Usuarios_RespuestaSecreta = '" +
+                rtaSecreta + "' where Usuarios_Id = '" + user_Id + "'");
+        }
+
+        public SqlDataReader devolvemeElUsuario(int id_Usuario)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select * from " + ConstantesBD.t_usuarios + " where Usuarios_Id = '" + id_Usuario + "';");
+            return lector;
         }
     }
 }
