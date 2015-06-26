@@ -876,7 +876,43 @@ AS
 GO	
 	Print 'El procedimiento RETIRAR se ha creado correctamente';
 
+/* EL PROCEDIMIENTO SE UTILIZA PARA GENERAR UNA NUEVA FACTURA */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'generar_Nueva_Factura')
+	DROP PROCEDURE DEVGURUS.generar_Nueva_Factura;
+	Print 'El procedimiento GENERAR NUEVA FACTURA ya existe, SE BORRARA';
+GO
 
+CREATE PROCEDURE DEVGURUS.generar_Nueva_Factura
+	@numero_Cliente int
+AS
+	DECLARE @numero_Factura numeric(18,0)
+		
+	SET @numero_Factura = (SELECT MAX(Factura_Numero) FROM DEVGURUS.Facturas)
+	SET @numero_Factura = @numero_Factura + 1
+	
+	insert into DEVGURUS.Facturas (Factura_Numero, Factura_Fecha, Factura_Descripcion, Factura_Importe,
+	Factura_Cliente)
+	values (@numero_Factura, GETDATE(), 'Facturación Bancaria', 0, @numero_Cliente)
+	
+	select @numero_Factura Numero_Factura
+GO	
+	Print 'El procedimiento RETIRAR se ha creado correctamente';
+
+/* EL PROCEDIMIENTO SE UTILIZA PARA ELIMINAR UN ROL */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Rol')
+	DROP PROCEDURE DEVGURUS.eliminar_Rol;
+	Print 'El procedimiento ELIMINAR ROL ya existe, SE BORRARA';
+GO
+
+CREATE PROCEDURE DEVGURUS.eliminar_Rol
+	@Id_Rol int
+AS
+	delete from DEVGURUS.Rol_X_Usuario
+	where Rol_X_Usuario_Rol = @Id_Rol and @Id_Rol <> '1';
+	delete from DEVGURUS.Roles
+	where Rol_Id = @Id_Rol and @Id_Rol <> '1';
+GO	
+	Print 'El procedimiento ELIMINAR ROL se ha creado correctamente';
 
 /* EL GATILLO SE UTILIZA PARA VERIFICAR SI UNA CUENTA SE ENCUENTRA INHABILITADA DESPUES DE UN MOVIMIENTO*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'validarCuentaInhabilitada')
