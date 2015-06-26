@@ -120,8 +120,10 @@ namespace PagoElectronico
                                     textBox_email.Text + "'";
 
                     clienteDAO.editarCliente(cliente);
+
+                    MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° " + cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° "+ cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.Close();
             }
             
