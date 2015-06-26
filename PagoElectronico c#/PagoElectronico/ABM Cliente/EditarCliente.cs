@@ -30,7 +30,7 @@ namespace PagoElectronico
             InitializeComponent();
             menuBusqueda = busqueda;
             clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nacionalidad, "Pais_Nombre", "Pais_Nombre", "DEVGURUS.Paises");
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", " Tipo_De_Doc TD, Clientes CLI where TD.Tipo_Doc_Id = CLI.Cliente_Tipo_Doc and CLI.Cliente_Id = "+ cliente_Bean.getCliente_Id());
+            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", " DEVGURUS.Tipo_De_Doc TD, DEVGURUS.Clientes CLI where TD.Tipo_Doc_Id = CLI.Cliente_Tipo_Doc and CLI.Cliente_Id = " + cliente_Bean.getCliente_Id());
             clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_pais, "Pais_Nombre", "Pais_Nombre", "DEVGURUS.Paises");
             setearDatosDeCliente();
             
