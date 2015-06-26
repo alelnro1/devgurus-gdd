@@ -53,9 +53,11 @@ namespace PagoElectronico
             if (check_ABM_User.Checked == true) filtros.Add("[Func_ABM_Cuentas] = 'Habilitado'");
             if (check_ABM_Client.Checked == true) filtros.Add("[Func_ABM_Clientes] = 'Habilitado'");
             if (check_ABM_Cuentas.Checked == true) filtros.Add("[Func_ABM_Usuarios] = 'Habilitado'");
+            if (check_asociar_tarjeta.Checked == true) filtros.Add("[Func_Asociar_tarjeta] = 'Habilitado'");
+
             SqlDataReader lector = rolDAO.buscarRoles(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
-            Object[] columnas = new Object[10];
+            Object[] columnas = new Object[11];
 
             while (lector.Read())
             {
@@ -69,6 +71,7 @@ namespace PagoElectronico
                 columnas[7] = lector["Func_ABM_Cuentas"];
                 columnas[8] = lector["Func_ABM_Clientes"];
                 columnas[9] = lector["Func_ABM_Usuarios"];
+                columnas[10] = lector["Func_Asociar_Tarjeta"];
                                
                 filas.Add(new DataGridViewRow());
                 filas[filas.Count - 1].CreateCells(lista_Roles, columnas);
@@ -130,6 +133,11 @@ namespace PagoElectronico
             {
                 MessageBox.Show("Debe seleccionar un rol primero", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void lista_Roles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

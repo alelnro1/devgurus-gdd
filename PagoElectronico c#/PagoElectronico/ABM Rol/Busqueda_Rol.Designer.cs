@@ -59,12 +59,15 @@
             this.boton_Volver = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Eliminar = new System.Windows.Forms.Button();
+            this.FuncionAsociarTarjeta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
             // 
             // group_Datos
             // 
+            this.group_Datos.Controls.Add(this.check_asociar_tarjeta);
             this.group_Datos.Controls.Add(this.check_ABM_Cuentas);
             this.group_Datos.Controls.Add(this.check_ABM_Client);
             this.group_Datos.Controls.Add(this.check_ABM_User);
@@ -251,11 +254,13 @@
             this.FuncionABMRoles,
             this.FuncionABMCuentas,
             this.FuncionABMClientes,
-            this.FuncionABMUsuarios});
+            this.FuncionABMUsuarios,
+            this.FuncionAsociarTarjeta});
             this.lista_Roles.Location = new System.Drawing.Point(37, 276);
             this.lista_Roles.Name = "lista_Roles";
             this.lista_Roles.Size = new System.Drawing.Size(503, 134);
             this.lista_Roles.TabIndex = 223277;
+            this.lista_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_Roles_CellContentClick);
             // 
             // ID_Rol
             // 
@@ -355,6 +360,21 @@
             this.boton_Eliminar.UseVisualStyleBackColor = true;
             this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
             // 
+            // FuncionAsociarTarjeta
+            // 
+            this.FuncionAsociarTarjeta.HeaderText = "Función Asociar Tarjeta";
+            this.FuncionAsociarTarjeta.Name = "FuncionAsociarTarjeta";
+            // 
+            // check_asociar_tarjeta
+            // 
+            this.check_asociar_tarjeta.AutoSize = true;
+            this.check_asociar_tarjeta.Location = new System.Drawing.Point(270, 160);
+            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
+            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
+            this.check_asociar_tarjeta.TabIndex = 223300;
+            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
+            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
+            // 
             // Busqueda_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,5 +430,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMUsuarios;
         private System.Windows.Forms.Button boton_Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FuncionAsociarTarjeta;
+        private System.Windows.Forms.CheckBox check_asociar_tarjeta;
     }
 }

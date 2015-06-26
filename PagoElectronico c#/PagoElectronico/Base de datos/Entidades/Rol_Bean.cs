@@ -17,6 +17,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String rol_Func_ABM_Cuentas;
         private static String rol_Func_ABM_Clientes;
         private static String rol_Func_ABM_Usuarios;
+        private static String rol_Func_Asoc_Tarjeta;
 
         public String getRol_Id()
         { return Rol_Bean.rol_Id; }
@@ -77,5 +78,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public String setRol_Func_ABM_Usuarios(String rol_Func_ABM_Usuarios)
         { return Rol_Bean.rol_Func_ABM_Usuarios = rol_Func_ABM_Usuarios; }
+
+        public String setRol_Func_Asoc_Tarjeta(String rol_Func_Asoc_Tarjeta)
+        { return Rol_Bean.rol_Func_Asoc_Tarjeta = rol_Func_Asoc_Tarjeta; }
+
+        public String getRol_Func_Asoc_Tarjeta()
+        { return Rol_Bean.rol_Func_Asoc_Tarjeta; }
     }
 }

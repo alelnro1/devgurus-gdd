@@ -25,7 +25,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
         public string generar_factura(string id_cliente)
         {
-            String sql = "exec generar_Nueva_Factura " + id_cliente;
+            String sql = "exec DEVGURUS.generar_Nueva_Factura " + id_cliente;
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
             lector.Read();
             string aux = lector["Numero_Factura"].ToString();

@@ -73,6 +73,9 @@ namespace PagoElectronico
             if (check_ABM_Cuentas.Checked == true) rol_Bean.setRol_Func_ABM_Cuentas("Habilitado");
             else { rol_Bean.setRol_Func_ABM_Cuentas("Inhabilitado"); }
 
+            if (check_asociar_tarjeta.Checked == true) rol_Bean.setRol_Func_Asoc_Tarjeta("Habilitado");
+            else { rol_Bean.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
+
             rolDAO.modificarUnRol(rol_Bean);
             this.Close();
             this.menuBusqueda.Enabled = true;

@@ -43,6 +43,7 @@
             this.check_Depos = new System.Windows.Forms.CheckBox();
             this.check_Transf = new System.Windows.Forms.CheckBox();
             this.check_Extraer = new System.Windows.Forms.CheckBox();
+            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.group_Datos.SuspendLayout();
             this.group_Func.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +123,7 @@
             // 
             // group_Func
             // 
+            this.group_Func.Controls.Add(this.check_asociar_tarjeta);
             this.group_Func.Controls.Add(this.check_ABM_Cuentas);
             this.group_Func.Controls.Add(this.check_ABM_Client);
             this.group_Func.Controls.Add(this.check_ABM_User);
@@ -141,7 +143,7 @@
             // check_ABM_Cuentas
             // 
             this.check_ABM_Cuentas.AutoSize = true;
-            this.check_ABM_Cuentas.Location = new System.Drawing.Point(43, 154);
+            this.check_ABM_Cuentas.Location = new System.Drawing.Point(41, 138);
             this.check_ABM_Cuentas.Name = "check_ABM_Cuentas";
             this.check_ABM_Cuentas.Size = new System.Drawing.Size(91, 17);
             this.check_ABM_Cuentas.TabIndex = 223290;
@@ -151,7 +153,7 @@
             // check_ABM_Client
             // 
             this.check_ABM_Client.AutoSize = true;
-            this.check_ABM_Client.Location = new System.Drawing.Point(43, 134);
+            this.check_ABM_Client.Location = new System.Drawing.Point(41, 118);
             this.check_ABM_Client.Name = "check_ABM_Client";
             this.check_ABM_Client.Size = new System.Drawing.Size(89, 17);
             this.check_ABM_Client.TabIndex = 223289;
@@ -161,7 +163,7 @@
             // check_ABM_User
             // 
             this.check_ABM_User.AutoSize = true;
-            this.check_ABM_User.Location = new System.Drawing.Point(43, 114);
+            this.check_ABM_User.Location = new System.Drawing.Point(41, 98);
             this.check_ABM_User.Name = "check_ABM_User";
             this.check_ABM_User.Size = new System.Drawing.Size(93, 17);
             this.check_ABM_User.TabIndex = 223288;
@@ -171,7 +173,7 @@
             // check_ABM_Roles
             // 
             this.check_ABM_Roles.AutoSize = true;
-            this.check_ABM_Roles.Location = new System.Drawing.Point(43, 94);
+            this.check_ABM_Roles.Location = new System.Drawing.Point(41, 78);
             this.check_ABM_Roles.Name = "check_ABM_Roles";
             this.check_ABM_Roles.Size = new System.Drawing.Size(79, 17);
             this.check_ABM_Roles.TabIndex = 223287;
@@ -181,7 +183,7 @@
             // check_Depos
             // 
             this.check_Depos.AutoSize = true;
-            this.check_Depos.Location = new System.Drawing.Point(43, 74);
+            this.check_Depos.Location = new System.Drawing.Point(41, 58);
             this.check_Depos.Name = "check_Depos";
             this.check_Depos.Size = new System.Drawing.Size(71, 17);
             this.check_Depos.TabIndex = 223286;
@@ -191,7 +193,7 @@
             // check_Transf
             // 
             this.check_Transf.AutoSize = true;
-            this.check_Transf.Location = new System.Drawing.Point(43, 54);
+            this.check_Transf.Location = new System.Drawing.Point(41, 38);
             this.check_Transf.Name = "check_Transf";
             this.check_Transf.Size = new System.Drawing.Size(70, 17);
             this.check_Transf.TabIndex = 223285;
@@ -201,12 +203,22 @@
             // check_Extraer
             // 
             this.check_Extraer.AutoSize = true;
-            this.check_Extraer.Location = new System.Drawing.Point(43, 34);
+            this.check_Extraer.Location = new System.Drawing.Point(41, 18);
             this.check_Extraer.Name = "check_Extraer";
             this.check_Extraer.Size = new System.Drawing.Size(59, 17);
             this.check_Extraer.TabIndex = 223284;
             this.check_Extraer.Text = "Extraer";
             this.check_Extraer.UseVisualStyleBackColor = true;
+            // 
+            // check_asociar_tarjeta
+            // 
+            this.check_asociar_tarjeta.AutoSize = true;
+            this.check_asociar_tarjeta.Location = new System.Drawing.Point(41, 157);
+            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
+            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
+            this.check_asociar_tarjeta.TabIndex = 223299;
+            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
+            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
             // 
             // EditarRol
             // 
@@ -244,5 +256,6 @@
         private System.Windows.Forms.CheckBox check_Depos;
         private System.Windows.Forms.CheckBox check_Transf;
         private System.Windows.Forms.CheckBox check_Extraer;
+        private System.Windows.Forms.CheckBox check_asociar_tarjeta;
     }
 }

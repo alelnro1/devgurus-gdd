@@ -33,7 +33,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void insertarUnRol(Rol_Bean rol)
         {
-            String sentencia = "insert into " + ConstantesBD.t_roles + " (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas) values ('" +
+            String sentencia = "insert into " + ConstantesBD.t_roles + " (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas, Func_Asociar_Tarjeta) values ('" +
             rol.getRol_Desc() + "', '" +
             rol.getRol_Estado() + "', '" +
             rol.getRol_Func_Extraer() + "', '" +
@@ -42,7 +42,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             rol.getRol_Func_ABM_Roles() + "', '" +
             rol.getRol_Func_ABM_Clientes() + "', '" +
             rol.getRol_Func_ABM_Usuarios() + "', '" +
-            rol.getRol_Func_ABM_Cuentas() + "')";
+            rol.getRol_Func_ABM_Cuentas() + "', '" +
+            rol.getRol_Func_Asoc_Tarjeta() + "')";
 
             this.GD1C2015.ejecutarSentenciaSinRetorno(sentencia);
         }
@@ -58,7 +59,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                             "Func_ABM_Roles = '" + rol.getRol_Func_ABM_Roles() + "', " +
                             "Func_ABM_Clientes = '" + rol.getRol_Func_ABM_Clientes() + "', " +
                             "Func_ABM_Usuarios = '" + rol.getRol_Func_ABM_Usuarios() + "', " +
-                            "Func_ABM_Cuentas = '" + rol.getRol_Func_ABM_Cuentas() + "' " +
+                            "Func_ABM_Cuentas = '" + rol.getRol_Func_ABM_Cuentas() + "', " +
+                            "Func_Asociar_Tarjeta = '" + rol.getRol_Func_Asoc_Tarjeta() + "' " +
                             "where Rol_Id = '" + rol.getRol_Id() + "'";
 
             this.GD1C2015.ejecutarSentenciaSinRetorno(consulta);
