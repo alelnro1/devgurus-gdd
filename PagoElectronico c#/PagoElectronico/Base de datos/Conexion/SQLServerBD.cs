@@ -133,7 +133,6 @@ namespace PagoElectronico.Conexion
             }
         }
 
-
         /// <summary>
         /// El metodo se utiliza para ejecutar un procedimiento almacenado en el servidor SQL del cual se espera retorno de datos
         /// </summary>

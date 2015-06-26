@@ -33,7 +33,7 @@ namespace PagoElectronico.Conexion
         public bool tarjetaEstaVencida(String tarjeta, String cliente_id)
         {
             Nullable<DateTime> fecha_vencimiento = null;
-            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM Tarjetas WHERE Tarjeta_Digitos_Visibles = '" + tarjeta + "' and Tarjeta_Cliente = " + cliente_id;
+            String sql = "SELECT Tarjeta_Fecha_Vencimiento FROM DEVGURUS.Tarjetas WHERE Tarjeta_Digitos_Visibles = '" + tarjeta + "' and Tarjeta_Cliente = " + cliente_id;
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             while (lector.Read())
@@ -54,7 +54,7 @@ namespace PagoElectronico.Conexion
         public bool tieneSuficienteSaldo(String cuenta_origen, String importe)
         {
             bool tieneSaldo = false;
-            String sql = "SELECT Cuenta_Saldo FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
+            String sql = "SELECT Cuenta_Saldo FROM DEVGURUS.Cuentas WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             while (lector.Read())
@@ -95,14 +95,14 @@ namespace PagoElectronico.Conexion
 
         public void tieneCincoTransaccionesEntoncesInhabilitarCuenta(String cuenta)
         {
-            String sql = "SELECT COUNT(*) AS transaccionesPendientes FROM Transaccion_Pendiente WHERE Transaccion_Pendiente_Cuenta_Nro = '" + cuenta + "' AND Transaccion_Pendiente_Importe > 0";
+            String sql = "SELECT COUNT(*) AS transaccionesPendientes FROM DEVGURUS.Transaccion_Pendiente WHERE Transaccion_Pendiente_Cuenta_Nro = '" + cuenta + "' AND Transaccion_Pendiente_Importe > 0";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             while (lector.Read())
             {
                 if (int.Parse(lector["transaccionesPendientes"].ToString()) > 5)
                 {
-                    String sql_actualizar = "UPDATE Cuentas SET Cuenta_Estado = 'Inhabilitado' WHERE Cuenta_Nro = '" + cuenta + "'";
+                    String sql_actualizar = "UPDATE DEVGURUS.Cuentas SET Cuenta_Estado = 'Inhabilitado' WHERE Cuenta_Nro = '" + cuenta + "'";
                     this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
                 }
             }

@@ -41,7 +41,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public bool clienteAsociadoAUser(Cliente_Bean cliente)
         {
             bool resultado;
-            String sql = "SELECT Cliente_Id FROM Clientes WHERE Cliente_User = '" + cliente.getCliente_IdUser() + "' ";
+            String sql = "SELECT Cliente_Id FROM " + ConstantesBD.t_clientes + " WHERE Cliente_User = '" + cliente.getCliente_IdUser() + "' ";
 
             SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
@@ -55,7 +55,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private bool docTipoEmailSinDuplicar(Cliente_Bean cliente)
         {
             bool resultado;
-            String sql = "SELECT Cliente_Id FROM Clientes WHERE " +
+            String sql = "SELECT Cliente_Id FROM " + ConstantesBD.t_clientes + " WHERE " +
                             "Cliente_Nro_Doc = '" + cliente.getCliente_NroDoc() + "' " +
                             "AND Cliente_Tipo_Doc  = '" + cliente.getCliente_TipoDoc() + "' " +
                             "AND Cliente_Mail = '" + cliente.getCliente_Mail() + "' ";
@@ -102,7 +102,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public bool usuarioExiste(Cliente_Bean cliente, String usuario)
         {
             bool has_rows;
-            String sql = "SELECT Usuarios_Id FROM Usuarios WHERE Usuarios_Name = '" + usuario + "'";
+            String sql = "SELECT Usuarios_Id FROM " + ConstantesBD.t_usuarios + " WHERE Usuarios_Name = '" + usuario + "'";
 
             SqlDataReader datos = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
@@ -143,7 +143,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                                   "TD.Tipo_Doc_Desc,CLI.Cliente_Nro_Doc, P.Pais_Nombre,CLI.Cliente_Dom_Calle,CLI.Cliente_Dom_Nro," +
 	                              "CLI.Cliente_Dom_Piso, CLI.Cliente_Dom_Depto, Cliente_Fecha_Nac,CLI.Cliente_Mail,"+
                                   "CLI.Cliente_User, CLI.Cliente_Nacionalidad, CLI.Cliente_Localidad, CLI.Cliente_Estado " +
-	                              " FROM DEVGURUS.Clientes CLI, DEVGURUS.Tipo_De_Doc TD, DEVGURUS.Paises P" ;
+                                  " FROM " + ConstantesBD.t_clientes + " CLI, " + ConstantesBD.t_tipo_doc + " TD, " + ConstantesBD.t_paises + " P";
           
             IEnumerator enumerador = filtros.GetEnumerator();
             sentenciaSQL = sentenciaSQL + " WHERE CLI.Cliente_Tipo_Doc = TD.Tipo_Doc_Id and CLI.Cliente_Pais = P.Pais_Id  ";

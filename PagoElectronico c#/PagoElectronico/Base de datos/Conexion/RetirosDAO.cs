@@ -20,7 +20,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool tieneSaldo(String cuenta)
         {
-            String sql = "SELECT Cuenta_Saldo FROM Cuentas WHERE Cuenta_Nro = '" + cuenta + "' ";
+            String sql = "SELECT Cuenta_Saldo FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = '" + cuenta + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
             Boolean resultado = false;
 
@@ -38,7 +38,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool cuentaHabilitada(String cuenta)
         {
-            String sql = "SELECT Cuenta_Estado FROM Cuentas WHERE Cuenta_Nro = '" + cuenta + "' ";
+            String sql = "SELECT Cuenta_Estado FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = '" + cuenta + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
             Boolean resultado = false;
 
@@ -57,7 +57,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool documentoValidoParaCuenta(String cuenta, String nro_doc)
         {
-            String sql = "SELECT Cliente_Nro_Doc FROM Clientes CL, Cuentas CU WHERE Cuenta_Nro = '" + cuenta + "' AND Cuenta_Cliente = Cliente_Id ";
+            String sql = "SELECT Cliente_Nro_Doc FROM " + ConstantesBD.t_clientes + " CL, " + ConstantesBD.t_cuentas + " CU WHERE Cuenta_Nro = '" + cuenta + "' AND Cuenta_Cliente = Cliente_Id ";
      
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
             Boolean resultado = false;

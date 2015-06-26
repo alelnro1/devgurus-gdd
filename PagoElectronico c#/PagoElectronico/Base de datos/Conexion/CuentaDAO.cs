@@ -74,10 +74,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public SqlDataReader buscarCuentas(List<String> filtros)
         {
 
-            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.Cuenta_Saldo from Cuentas CU, Paises PO ,  Tipo_De_Cuentas TC,Tipo_De_Moneda TM, Paises PA";
+            String sentenciaSQL = " select CU.Cuenta_Nro, TC.Tipo_De_Cuentas_Nombre, PO.Pais_Nombre Pais_Origen,PA.Pais_Nombre Pais_Asignado,  CU.Cuenta_Estado, TM.Tipo_De_Moneda_Nombre, CU.Cuenta_Fec_Cre, CU.Cuenta_Fec_Cierre,CU.Cuenta_Cliente, CU.Cuenta_Saldo FROM " + ConstantesBD.t_cuentas + " CU, " + ConstantesBD.t_paises + " PO ,  " + ConstantesBD.t_tipos_cuentas + " TC, " + ConstantesBD.t_tipo_de_moneda + " TM, " + ConstantesBD.t_paises + " PA";
            
             IEnumerator enumerador = filtros.GetEnumerator();
-            sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado =PA.Pais_Id";
+            sentenciaSQL = sentenciaSQL + " where CU.Cuenta_Tipo = TC.Tipo_De_Cuentas_Id and CU.Cuenta_PaisOrigen = PO.Pais_Id and CU.Cuenta_Moneda= TM.Tipo_De_Moneda_Id and CU.Cuenta_PaisAsignado = PA.Pais_Id";
             if (enumerador.MoveNext())
             {
                 sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;

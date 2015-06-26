@@ -27,7 +27,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public bool clienteEsTitularDeTarjeta(string cliente_id, string tarjeta_digitos_visibles)
         {
             bool resultado = false;
-            String sql = "SELECT Tarjeta_Id FROM Tarjetas WHERE Tarjeta_Cliente = " + cliente_id + " AND Tarjeta_Digitos_Visibles = '" + tarjeta_digitos_visibles + "' ";
+            String sql = "SELECT Tarjeta_Id FROM " + ConstantesBD.t_tarjetas + " WHERE Tarjeta_Cliente = " + cliente_id + " AND Tarjeta_Digitos_Visibles = '" + tarjeta_digitos_visibles + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
 
             if (lector.HasRows)

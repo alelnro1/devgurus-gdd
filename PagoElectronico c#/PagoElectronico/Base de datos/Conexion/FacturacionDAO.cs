@@ -20,7 +20,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public SqlDataReader obtenerTransaccionesPendientes(String cliente_id)
         {
-            String sql = "SELECT * FROM Transaccion_Pendiente WHERE Transaccion_Pendiente_Cliente = " + cliente_id ;
+            String sql = "SELECT * FROM " + ConstantesBD.t_transaccion_pendiente + " WHERE Transaccion_Pendiente_Cliente = " + cliente_id ;
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
         public string generar_factura(string id_cliente)

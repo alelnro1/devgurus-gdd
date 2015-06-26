@@ -20,7 +20,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public bool cuentaDestinoCerradaOPendienteONoExiste(String cuenta_destino)
         {
-            String sql = "SELECT Cuenta_Estado FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
+            String sql = "SELECT Cuenta_Estado FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
             String estado;
             bool resultado = false;
@@ -50,8 +50,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             String user_origen = null;
             String user_destino = null;
 
-            String sql_origen  = "SELECT Cuenta_Cliente FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
-            String sql_destino = "SELECT Cuenta_Cliente FROM Cuentas WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
+            String sql_origen = "SELECT Cuenta_Cliente FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = '" + cuenta_origen + "' ";
+            String sql_destino = "SELECT Cuenta_Cliente FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = '" + cuenta_destino + "' ";
 
             SqlDataReader lector_origen = this.GD1C2015.ejecutarSentenciaConRetorno(sql_origen);
 

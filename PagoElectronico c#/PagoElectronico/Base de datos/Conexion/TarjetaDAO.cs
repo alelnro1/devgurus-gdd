@@ -19,9 +19,9 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
         public SqlDataReader buscarTarjetas(string cliente_id)
         {
-            
 
-            String sentenciaSQL = "select Tarjeta_Id, Tarjeta_Digitos_Visibles,Tarjeta_Emisor_Desc,Tarjeta_Fecha_Emision,Tarjeta_Fecha_Vencimiento FROM Tarjetas where Tarjeta_Cliente ='"+cliente_id +"'";
+
+            String sentenciaSQL = "select Tarjeta_Id, Tarjeta_Digitos_Visibles,Tarjeta_Emisor_Desc,Tarjeta_Fecha_Emision,Tarjeta_Fecha_Vencimiento FROM " + ConstantesBD.t_tarjetas + " where Tarjeta_Cliente ='" + cliente_id + "'";
 
            
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
