@@ -58,9 +58,7 @@ namespace PagoElectronico
 
                 if (check_asociar_tarjeta.Checked == true) rol.setRol_Func_Asoc_Tarjeta("Habilitado");
                 else { rol.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
-
                 
-
                 rolDAO.insertarUnRol(rol);
                 DialogResult alerta = MessageBox.Show("El Rol se ha creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

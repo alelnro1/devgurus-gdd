@@ -899,6 +899,7 @@ GO
 	Print 'El procedimiento RETIRAR se ha creado correctamente';
 
 /* EL PROCEDIMIENTO SE UTILIZA PARA ELIMINAR UN ROL */
+/* EL MISMO NO PERMITE BORRAR EL ROL DE ADMINISTRADOR GENERAL */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Rol')
 	DROP PROCEDURE DEVGURUS.eliminar_Rol;
 	Print 'El procedimiento ELIMINAR ROL ya existe, SE BORRARA';
@@ -907,10 +908,21 @@ GO
 CREATE PROCEDURE DEVGURUS.eliminar_Rol
 	@Id_Rol int
 AS
+	DECLARE @Id_Rol_Adm_Gral int
+	SET @Id_Rol_Adm_Gral = (select Rol_Id from DEVGURUS.Roles where Rol_Desc = 'Administrador General')
+	
+	IF (@Id_Rol_Adm_Gral <> @Id_Rol)
+	BEGIN
 	delete from DEVGURUS.Rol_X_Usuario
-	where Rol_X_Usuario_Rol = @Id_Rol and @Id_Rol <> '1';
+	where Rol_X_Usuario_Rol = @Id_Rol;
 	delete from DEVGURUS.Roles
-	where Rol_Id = @Id_Rol and @Id_Rol <> '1';
+	where Rol_Id = @Id_Rol;
+	SELECT 'BORRADO' MENSAJE
+	END
+	ELSE
+	BEGIN
+	SELECT 'NO BORRADO' MENSAJE
+	END
 GO	
 	Print 'El procedimiento ELIMINAR ROL se ha creado correctamente';
 

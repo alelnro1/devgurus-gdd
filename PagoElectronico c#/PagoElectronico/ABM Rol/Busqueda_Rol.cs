@@ -121,13 +121,23 @@ namespace PagoElectronico
         {
             try
             {
+                string mensaje;
                 DataGridViewRow fila = lista_Roles.SelectedRows[0];
                 String id_Rol;
                 id_Rol = (fila.Cells[0].Value.ToString());
                 if (MessageBox.Show("Estas seguro que desas eliminar el Rol?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    rolDAO.eliminarElRol(id_Rol);
+                    mensaje = rolDAO.eliminarElRol(id_Rol);
+                    if (mensaje == "BORRADO")
+                    {
+                        MessageBox.Show("El rol ha sido eliminado correctamente", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    if (mensaje == "NO BORRADO")
+                    {
+                        MessageBox.Show("No ha sido posible el rol", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
+
             }
             catch
             {

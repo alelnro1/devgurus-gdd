@@ -43,6 +43,7 @@ namespace PagoElectronico
             if (lector["Func_ABM_Roles"].Equals("Habilitado")) { check_ABM_Roles.Checked = true; };
             if (lector["Func_ABM_Clientes"].Equals("Habilitado")) { check_ABM_User.Checked = true; };
             if (lector["Func_ABM_Usuarios"].Equals("Habilitado")) { check_ABM_Client.Checked = true; };
+            if (lector["Func_Asociar_Tarjeta"].Equals("Habilitado")) { check_asociar_tarjeta.Checked = true; };
             if (lector["Func_ABM_Cuentas"].Equals("Habilitado")) { check_ABM_Cuentas.Checked = true; };
             lector.Close();
         }
@@ -72,7 +73,6 @@ namespace PagoElectronico
             else { rol_Bean.setRol_Func_ABM_Clientes("Inhabilitado"); }
             if (check_ABM_Cuentas.Checked == true) rol_Bean.setRol_Func_ABM_Cuentas("Habilitado");
             else { rol_Bean.setRol_Func_ABM_Cuentas("Inhabilitado"); }
-
             if (check_asociar_tarjeta.Checked == true) rol_Bean.setRol_Func_Asoc_Tarjeta("Habilitado");
             else { rol_Bean.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
 
