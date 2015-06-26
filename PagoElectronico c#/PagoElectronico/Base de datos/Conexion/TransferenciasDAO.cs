@@ -82,7 +82,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void realizarTransferencia(String cuenta_origen, String cuenta_destino, String importe, String mismo_usuario)
         {
-            String sql = "exec realizar_transferencia '" + cuenta_origen + "','" + cuenta_destino + "','" + importe + "','" + mismo_usuario + "'";
+            String sql = "exec DEVGURUS.realizar_transferencia '" + cuenta_origen + "','" + cuenta_destino + "','" + importe + "','" + mismo_usuario + "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
     }

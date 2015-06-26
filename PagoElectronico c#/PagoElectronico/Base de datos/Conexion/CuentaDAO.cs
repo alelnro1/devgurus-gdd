@@ -34,7 +34,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             string tipo_moneda_nombre = cuenta.get_tipo_moneda();
             string tipo_de_cuenta = cuenta.get_tipo_cuenta();
 
-            String SentenciaSQL = "exec insertarEnCuentas" + "'" + pais.Trim() + "'"
+            String SentenciaSQL = "exec DEVGURUS.insertarEnCuentas" + "'" + pais.Trim() + "'"
 
 
               + "," + cuenta.get_estado()

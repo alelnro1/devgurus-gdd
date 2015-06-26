@@ -124,8 +124,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         // Metodo que sirve para el alta de Cliente, como dice en el enunciado (pag. 9)
         public void altaCliente(Cliente_Bean cliente)
         {
-            //String proc2 = "exec insertarNuevoCliente" + "'" + pais.Trim() + "'";
-            String proc = "exec insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "','" + cliente.getCliente_Calle() + "','" + cliente.getCliente_Dpto() + "','" + cliente.getCliente_FecNac() + "','" + cliente.getCliente_Mail() + "','" + cliente.getCliente_Name() + "','" + cliente.getCliente_NroDoc() + "','" + cliente.getCliente_Pais() + "','" + cliente.getCliente_Piso() + "','" + cliente.getCliente_TipoDoc() + "','" + cliente.getCliente_IdUser() + "'";
+           
+            String proc = "exec DEVGURUS.insertarNuevoCliente " + "'" + cliente.getCliente_Apell() + "','" + cliente.getCliente_Calle() + "','" + cliente.getCliente_Dpto() + "','" + cliente.getCliente_FecNac() + "','" + cliente.getCliente_Mail() + "','" + cliente.getCliente_Name() + "','" + cliente.getCliente_NroDoc() + "','" + cliente.getCliente_Pais() + "','" + cliente.getCliente_Piso() + "','" + cliente.getCliente_TipoDoc() + "','" + cliente.getCliente_IdUser() + "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(proc);
         }
 
@@ -162,11 +162,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
 
         public void editarCliente(String cliente) {
-            this.GD1C2015.ejecutarSentenciaSinRetorno("exec actualizar_cliente " + cliente);
+            this.GD1C2015.ejecutarSentenciaSinRetorno("exec DEVGURUS.actualizar_cliente " + cliente);
         }
 
       public void eliminarCliente(String id_cliente){
-          this.GD1C2015.ejecutarSentenciaSinRetorno("exec eliminar_Cliente " + id_cliente);
+          this.GD1C2015.ejecutarSentenciaSinRetorno("exec DEVGURUS.eliminar_Cliente " + id_cliente);
 
                
       }

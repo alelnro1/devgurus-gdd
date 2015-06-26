@@ -34,7 +34,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         }
         public void asignar_item(string nro_transaccion, string id_factura)
         {
-            String sql = "exec asignar_Item_A_Factura " + id_factura + ", " + nro_transaccion;
+            String sql = "exec DEVGURUS.asignar_Item_A_Factura " + id_factura + ", " + nro_transaccion;
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
 

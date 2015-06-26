@@ -77,7 +77,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void realizarRetiro(String cuenta, String importe)
         {
-            String sql = "exec retirar '" + cuenta + "','" + importe + "'";
+            String sql = "exec DEVGURUS.retirar '" + cuenta + "','" + importe + "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
     }
