@@ -36,45 +36,71 @@ namespace PagoElectronico
 
         private void boton_Buscar_Click(object sender, EventArgs e)
         {
-            List<String> filtros = new List<String>();
-            lista_clientes.Rows.Clear();
 
-            if (combo_nombre.Text != "") { filtros.Add("Cliente_Nombre like  '%" + combo_nombre.Text + "%'"); }
-            if (combo_apellido.Text != "") { filtros.Add("Cliente_Apellido like  '%" + combo_apellido.Text + "%'"); }
-            if (combo_tipo_doc.Text != "") { filtros.Add("TD.Tipo_Doc_Desc ='" + combo_tipo_doc.Text + "'"); }
-            if (combo_nro_doc.Text != "") { filtros.Add("Cliente_Nro_Doc ='" + combo_nro_doc.Text + "'"); }
-            if (combo_email.Text != "") { filtros.Add("Cliente_Mail ='" + combo_email.Text + "'"); }
-            if (comboEstado.Text != "") { filtros.Add("Cliente_Estado ='" + comboEstado.Text + "'"); }
+            if (cumple_validaciones())
+            {
+                List<String> filtros = new List<String>();
+                lista_clientes.Rows.Clear();
 
-            SqlDataReader lector = clienteDAO.buscarClientes(filtros);
-            List<DataGridViewRow> filas = new List<DataGridViewRow>();
-            Object[] columnas = new Object[16];
-            while (lector.Read()) {
+                if (combo_nombre.Text != "") { filtros.Add("Cliente_Nombre like  '%" + combo_nombre.Text + "%'"); }
+                if (combo_apellido.Text != "") { filtros.Add("Cliente_Apellido like  '%" + combo_apellido.Text + "%'"); }
+                if (combo_tipo_doc.Text != "") { filtros.Add("TD.Tipo_Doc_Desc ='" + combo_tipo_doc.Text + "'"); }
+                if (combo_nro_doc.Text != "") { filtros.Add("Cliente_Nro_Doc ='" + combo_nro_doc.Text + "'"); }
+                if (combo_email.Text != "") { filtros.Add("Cliente_Mail ='" + combo_email.Text + "'"); }
+                if (comboEstado.Text != "") { filtros.Add("Cliente_Estado ='" + comboEstado.Text + "'"); }
 
-                columnas[0] = lector["Cliente_Id"];
-                columnas[1] = lector["Cliente_Nombre"];
-                columnas[2] = lector["Cliente_Apellido"];
-                columnas[3] = lector["Tipo_Doc_Desc"]; 
-                columnas[4] = lector["Cliente_Nro_Doc"];
-                columnas[5] = lector["Pais_Nombre"];
-                columnas[6] = lector["Cliente_Localidad"]; 
-                columnas[7] = lector["Cliente_Dom_Calle"];
-                columnas[8] = lector["Cliente_Dom_Nro"];
-                columnas[9] = lector["Cliente_Dom_Piso"];
-                columnas[10] = lector["Cliente_Dom_Depto"];
-                columnas[11] = lector["Cliente_Nacionalidad"];
-                columnas[12] = lector["Cliente_Fecha_Nac"];
-                columnas[13] = lector["Cliente_Mail"];
-                columnas[14] = lector["Cliente_User"];
-                columnas[15] = lector["Cliente_Estado"];
+                SqlDataReader lector = clienteDAO.buscarClientes(filtros);
+                List<DataGridViewRow> filas = new List<DataGridViewRow>();
+                Object[] columnas = new Object[16];
+                while (lector.Read())
+                {
 
-                filas.Add(new DataGridViewRow());
-                filas[filas.Count - 1].CreateCells(lista_clientes, columnas);
+                    columnas[0] = lector["Cliente_Id"];
+                    columnas[1] = lector["Cliente_Nombre"];
+                    columnas[2] = lector["Cliente_Apellido"];
+                    columnas[3] = lector["Tipo_Doc_Desc"];
+                    columnas[4] = lector["Cliente_Nro_Doc"];
+                    columnas[5] = lector["Pais_Nombre"];
+                    columnas[6] = lector["Cliente_Localidad"];
+                    columnas[7] = lector["Cliente_Dom_Calle"];
+                    columnas[8] = lector["Cliente_Dom_Nro"];
+                    columnas[9] = lector["Cliente_Dom_Piso"];
+                    columnas[10] = lector["Cliente_Dom_Depto"];
+                    columnas[11] = lector["Cliente_Nacionalidad"];
+                    columnas[12] = lector["Cliente_Fecha_Nac"];
+                    columnas[13] = lector["Cliente_Mail"];
+                    columnas[14] = lector["Cliente_User"];
+                    columnas[15] = lector["Cliente_Estado"];
+
+                    filas.Add(new DataGridViewRow());
+                    filas[filas.Count - 1].CreateCells(lista_clientes, columnas);
+                }
+
+                lector.Close();
+                lista_clientes.Rows.AddRange(filas.ToArray());
             }
-
-            lector.Close(); 
-            lista_clientes.Rows.AddRange(filas.ToArray());
         }
+
+        private bool cumple_validaciones()
+        {
+            bool valor_retornado = true;
+            string lllm = combo_nro_doc.Text;
+            if (combo_nro_doc.Text != "")
+            {
+                if (!clienteDAO.numeroEsInt(combo_nro_doc.Text))
+                {
+                    MessageBox.Show("El numero de identificacion debe ser numerico ", " Atención ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    valor_retornado = false;
+                }
+                              
+            }
+            return valor_retornado;
+            
+           
+        }
+
+            
+        
 
         private void boton_Reestablecer_Click(object sender, EventArgs e)
         {
