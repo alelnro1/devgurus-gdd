@@ -26,7 +26,7 @@ namespace PagoElectronico
             transferencias_DAO = new TransferenciasDAO();
             cliente.setCliente_Id(cliente_id);
             InitializeComponent();
-            transferencias_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_origen_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            transferencias_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_origen_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
         }
 
     

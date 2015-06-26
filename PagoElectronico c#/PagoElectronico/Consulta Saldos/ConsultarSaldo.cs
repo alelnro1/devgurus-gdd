@@ -26,7 +26,7 @@ namespace PagoElectronico
             consultar_saldo_DAO = new ConsultarSaldoDAO();
             cliente.setCliente_Id(cliente_id);
             InitializeComponent();
-            consultar_saldo_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            consultar_saldo_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace PagoElectronico
             depositos_DAO = new DepositosDAO();
             cliente.setCliente_Id(id_cliente);
             InitializeComponent();
-            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "dbo.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
             depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(moneda_combobox, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
         }
 
@@ -84,7 +84,7 @@ namespace PagoElectronico
         private void cuenta_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             tarjeta_combobox.Items.Clear();
-            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(tarjeta_combobox, "Tarjeta_Digitos_Visibles", "Tarjeta_Digitos_Visibles", "dbo.Tarjetas where Tarjeta_Cliente = "
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(tarjeta_combobox, "Tarjeta_Digitos_Visibles", "Tarjeta_Digitos_Visibles", "DEVGURUS.Tarjetas where Tarjeta_Cliente = "
                                                                           + cliente.getCliente_Id() + "and Tarjeta_Asociada = 'Asociada'");
         }
 
