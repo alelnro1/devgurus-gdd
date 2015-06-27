@@ -18,3 +18,16 @@ Drop Table DEVGURUS.Roles
 Drop Table DEVGURUS.Tipo_De_Doc
 Drop Table DEVGURUS.Paises
 Drop Table DEVGURUS.Tipo_De_Moneda
+
+/* DROP Procedures */
+
+DROP PROCEDURE DEVGURUS.actualizar_cliente
+DROP PROCEDURE DEVGURUS.asignar_Item_A_Factura
+DROP PROCEDURE DEVGURUS.eliminar_Rol
+DROP PROCEDURE DEVGURUS.generar_Nueva_Factura
+DROP PROCEDURE DEVGURUS.insertarEnCuentas
+DROP PROCEDURE DEVGURUS.insertarNuevoCliente
+DROP PROCEDURE DEVGURUS.insertarNuevoUsuario
+DROP PROCEDURE DEVGURUS.logearse
+DROP PROCEDURE DEVGURUS.realizar_transferencia
+DROP PROCEDURE DEVGURUS.retirar
