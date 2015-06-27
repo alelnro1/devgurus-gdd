@@ -447,7 +447,7 @@ Print 'La tabla CUENTAS se ha cargado con exito';
 
 /* DEPOSTIOS */
 Insert into DEVGURUS.Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_TipoMoneda, Deposito_Cuenta, Deposito_Tarjeta)
-select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, NULL, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, DEVGURUS.Tarjetas TA
+select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, 1, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, DEVGURUS.Tarjetas TA
 where TA.Tarjeta_Nro = MA.Tarjeta_Numero and Deposito_Codigo is not null
 Print 'La tabla DEPOSITOS se ha cargado con exito';
 
@@ -612,7 +612,9 @@ CREATE PROCEDURE DEVGURUS.depositar
 	@moneda varchar(255)
 AS
 	Declare @id_tarjeta numeric (18,0)
+	Declare @id_tipo_moneda tinyint
 	
+	SELECT @id_tipo_moneda = Tipo_De_Moneda_Id From Tipo_De_Moneda where @moneda = Tipo_De_Moneda_Nombre
 	SELECT  @id_tarjeta = Tarjeta_Id FROM Tarjetas where Tarjeta_Digitos_Visibles = @tarjeta
 	INSERT INTO Depositos (Deposito_Id, Deposito_Cuenta, Deposito_Fecha, Deposito_Importe, Deposito_Tarjeta, Deposito_TipoMoneda)
 	VALUES ((SELECT TOP 1 Deposito_Id + 1  FROM Depositos ORDER BY Deposito_Id DESC), 
@@ -620,7 +622,7 @@ AS
 			GETDATE(), 
 			@importe, 
 			@id_tarjeta, 
-			@moneda)
+			@id_tipo_moneda)
 			
 	UPDATE Cuentas SET Cuenta_Saldo = Cuenta_Saldo + @importe WHERE Cuenta_Nro = @Id_Cuenta
 GO
