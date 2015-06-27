@@ -50,7 +50,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             Cuenta_Nro = dameElDatoDeLaCuentaSQL(cuentaSQL, "Cuenta_Nro");
             //Cuenta_Fecha_Creacion = dameElDatoDeLaCuentaSQL(cuentaSQL, "Cuenta_Fec_Cre");
 
-            MessageBox.Show("Cuenta creada correctamente" + "Nro Cuenta: " + Cuenta_Nro  , "Atención!", MessageBoxButtons.OK);
+            MessageBox.Show("Cuenta creada correctamente " + " Nro Cuenta: " + Cuenta_Nro + " \n \n Con la fecha : " + DateTime.Now.ToString(), "Atención!", MessageBoxButtons.OK);
 
         }
 
