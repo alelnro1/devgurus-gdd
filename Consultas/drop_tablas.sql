@@ -22,7 +22,11 @@ Drop Table DEVGURUS.Tipo_De_Moneda
 /* DROP Procedures */
 
 DROP PROCEDURE DEVGURUS.actualizar_cliente
+DROP PROCEDURE DEVGURUS.actualizar_tipo_de_cuenta
 DROP PROCEDURE DEVGURUS.asignar_Item_A_Factura
+DROP PROCEDURE DEVGURUS.depositar
+DROP PROCEDURE DEVGURUS.eliimnar_Cliente
+DROP PROCEDURE DEVGURUS.eliminar_Cuenta
 DROP PROCEDURE DEVGURUS.eliminar_Rol
 DROP PROCEDURE DEVGURUS.generar_Nueva_Factura
 DROP PROCEDURE DEVGURUS.insertarEnCuentas

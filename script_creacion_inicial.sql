@@ -508,6 +508,9 @@ COMMIT TRAN InicializacionDeDatos
 		eliminar_Rol
 		depositar
 		actualizar_tipo_de_cuenta
+		eliminar_Cliente
+		eliminar_Cuenta
+		insertarEnCuentas
  Triggers: 
 		insertAperturasPendientes
 		validarCuentaInhabilitada
@@ -549,7 +552,22 @@ AS
 
 WHERE @id_cliente = Cliente_Id
 GO
-Print 'El procedimiento ACTUALIZAR CLIENTE se ha creado correctamente';
+	Print 'El procedimiento ACTUALIZAR CLIENTE se ha creado correctamente';
+	
+	
+/* EL PROCEDIMIENTO ELIMINA UNA CUENTA */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Cuenta')
+	DROP PROCEDURE DEVGURUS.eliminar_Cuenta;
+	Print 'El procedimiento ELIMINAR CUENTA ya existe, SE BORRARA';
+GO
+
+CREATE PROCEDURE DEVGURUS.eliminar_Cuenta
+	@Id_Cuenta numeric (18,0)
+AS
+	UPDATE DEVGURUS.Cuentas SET Cuenta_Estado = 'Cerrada' WHERE Cuenta_Nro = @Id_Cuenta;
+GO
+	Print 'El procedimiento ELIMINAR CUENTA se ha creado correctamente';
+
 
 
 /* EL PROCEDIMIENTO ASIGNA LOGICAMENTE ITEMS A UNA FACTURA */
@@ -608,13 +626,28 @@ AS
 GO
 	Print 'El procedimiento DEPOSITAR se ha creado correctamente';
 
+/* EL PROCEDIMIENTO ELIMINA UN CLIENTE */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Cliente')
+	DROP PROCEDURE DEVGURUS.eliminar_Cliente;
+	Print 'El procedimiento ELIMINAR CLIENTE ya existe, SE BORRARA';
+GO
+
+CREATE PROCEDURE DEVGURUS.eliminar_Cliente
+	@Id_Cliente int
+AS
+ 
+UPDATE DEVGURUS.Clientes SET Cliente_Estado = 'Inhabilitado' where Cliente_Id = @Id_Cliente
+GO
+	Print 'El procedimiento ELIMINAR CLIENTE se ha creado correctamente';
+
+
 /* EL PROCEDIMIENTO ACTUALIZA EL TIPO DE CUENTA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'actualizar_tipo_de_cuenta')
 	DROP PROCEDURE DEVGURUS.actualizar_tipo_de_cuenta;
 	Print 'El procedimiento ACTUALIZAR_TIPO_DE_CUENTA ya existe, SE BORRARA';
 GO
 
-CREATE PROCEDURE actualizar_tipo_de_cuenta
+CREATE PROCEDURE DEVGURUS.actualizar_tipo_de_cuenta
 	@tipo_Cuenta varchar(50),
 	@cuenta_Nro numeric(18,0)
 AS
@@ -768,7 +801,7 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarEnCuentas')
 	Print 'El procedimiento INSERTAR EN CUENTAS ya existe, SE BORRARA';
 GO
 
-create procedure DEVGURUS.insertarEnCuentas
+CREATE PROCEDURE DEVGURUS.insertarEnCuentas
 		@Cuenta_PaisOrigen varchar(255),
 		@Cuenta_Estado varchar(255),
 		@Cuenta_Moneda varchar(255),
@@ -833,7 +866,7 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarNuevoUsuario')
 	Print 'El procedimiento INSERTAR NUEVO USUARIO ya existe, SE BORRARA';
 GO
 
-create PROCEDURE DEVGURUS.insertarNuevoUsuario
+CREATE PROCEDURE DEVGURUS.insertarNuevoUsuario
 	@nombre varchar(255),
 	@password varchar(255), 
 	@rol varchar(25), 
