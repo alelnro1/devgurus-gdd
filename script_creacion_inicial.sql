@@ -494,6 +494,24 @@ COMMIT TRAN InicializacionDeDatos
 
 /* ******************************************************************************************************************** */
 /* ***************************************** Procedures y triggers **************************************************** */
+/* Procedures: 
+		actualizar_cliente
+		asignar_Item_A_Factura
+		logearse
+		insertarEnCuentas
+		insertarNuevoCliente
+		insertarNuevoUsuario
+		insertTransferenciasPendientes
+		realizar_transferencia
+		retirar
+		generar_Nueva_Factura
+		eliminar_Rol
+		depositar
+		actualizar_tipo_de_cuenta
+ Triggers: 
+		insertAperturasPendientes
+		validarCuentaInhabilitada
+*/
 
 BEGIN TRAN InicializacionDeProcedures
 
@@ -534,7 +552,6 @@ GO
 Print 'El procedimiento ACTUALIZAR CLIENTE se ha creado correctamente';
 
 
-
 /* EL PROCEDIMIENTO ASIGNA LOGICAMENTE ITEMS A UNA FACTURA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'asignar_Item_A_Factura')
 	DROP PROCEDURE DEVGURUS.asignar_Item_A_Factura;
@@ -564,7 +581,66 @@ AS
 GO	
 	Print 'El procedimiento ASIGNAR ITEM A FACTURA se ha creado correctamente';
 
+/* EL PROCEDIMIENTO DEPOSITAR */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'depositar')
+	DROP PROCEDURE DEVGURUS.depositar;
+	Print 'El procedimiento DEPOSITAR ya existe, SE BORRARA';
+GO
 
+CREATE PROCEDURE DEVGURUS.depositar
+	@Id_Cuenta numeric (18,0),
+	@tarjeta varchar(4),
+	@importe float,
+	@moneda varchar(255)
+AS
+	Declare @id_tarjeta numeric (18,0)
+	
+	SELECT  @id_tarjeta = Tarjeta_Id FROM Tarjetas where Tarjeta_Digitos_Visibles = @tarjeta
+	INSERT INTO Depositos (Deposito_Id, Deposito_Cuenta, Deposito_Fecha, Deposito_Importe, Deposito_Tarjeta, Deposito_TipoMoneda)
+	VALUES ((SELECT TOP 1 Deposito_Id + 1  FROM Depositos ORDER BY Deposito_Id DESC), 
+			@Id_Cuenta, 
+			GETDATE(), 
+			@importe, 
+			@id_tarjeta, 
+			@moneda)
+			
+	UPDATE Cuentas SET Cuenta_Saldo = Cuenta_Saldo + @importe WHERE Cuenta_Nro = @Id_Cuenta
+GO
+	Print 'El procedimiento DEPOSITAR se ha creado correctamente';
+
+/* EL PROCEDIMIENTO ACTUALIZA EL TIPO DE CUENTA */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'actualizar_tipo_de_cuenta')
+	DROP PROCEDURE DEVGURUS.actualizar_tipo_de_cuenta;
+	Print 'El procedimiento ACTUALIZAR_TIPO_DE_CUENTA ya existe, SE BORRARA';
+GO
+
+CREATE PROCEDURE actualizar_tipo_de_cuenta
+	@tipo_Cuenta varchar(50),
+	@cuenta_Nro numeric(18,0)
+AS
+	DECLARE @tipo_Cuenta_Vieja tinyint
+	DECLARE @cuenta_Cliente int
+	DECLARE @tipo_Cuenta_Nueva_Costo numeric (18,2)
+	DECLARE @tipo_Cuenta_Nueva_Id tinyint
+	
+	SET @tipo_Cuenta = (SELECT Tipo_De_Cuentas_Id FROM DEVGURUS.Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Nombre = @tipo_Cuenta)
+	SET @cuenta_Cliente = (SELECT Cuenta_Cliente FROM DEVGURUS.Cuentas WHERE Cuenta_Nro = @cuenta_Nro)
+	SET @tipo_Cuenta_Vieja = (SELECT Cuenta_Tipo FROM DEVGURUS.Cuentas WHERE Cuenta_Nro = @cuenta_Nro)
+	SET @tipo_Cuenta_Nueva_Costo = (Select Tipo_De_Cuentas_Costo from DEVGURUS.Tipo_De_Cuentas
+	where Tipo_De_Cuentas_Id = @tipo_Cuenta)
+	
+	IF (@tipo_Cuenta <> @tipo_Cuenta_Vieja)
+	BEGIN
+	update DEVGURUS.Cuentas
+	set Cuenta_Tipo = @tipo_Cuenta
+	where Cuenta_Nro = @cuenta_Nro
+	insert into DEVGURUS.Transaccion_Pendiente (Transaccion_Pendiente_Importe, Transaccion_Pendiente_Descr, 
+	Transaccion_Pendiente_Cliente, Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Cuenta_Nro)
+	values(@tipo_Cuenta_Nueva_Costo, 'Cambio del Tipo de Cuenta', @cuenta_Cliente, GETDATE(), 
+	@cuenta_Nro)
+	END
+GO
+	Print 'El procedimiento ACTUALIZAR TIPO DE CUENTA se ha creado correctamente';
 
 /* EL PROCEDIMIENTO ADMINISTRA LA ENTRADA DEL USUARIO AL SISTEMA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'logearse')

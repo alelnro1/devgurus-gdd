@@ -42,7 +42,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void realizarDeposito(string cuenta, string tarjeta, string importe, string moneda)
         {
-            String sql = "exec depositar '"+ cuenta + "','" + tarjeta + "','" + importe + "','" + moneda + "'";
+            String sql = "exec DEVGURUS.depositar '"+ cuenta + "','" + tarjeta + "','" + importe + "','" + moneda + "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
     }
