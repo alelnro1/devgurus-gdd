@@ -20,19 +20,19 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public SqlDataReader obtenerUltimosCincoDepositos(String cuenta)
         {
-            String sql = "SELECT TOP 5 Deposito_Fecha, Deposito_Importe, Tipo_De_Moneda_Nombre FROM " + ConstantesBD.t_depositos + " INNER JOIN Tipo_De_Moneda ON Tipo_De_Moneda_Id = Deposito_TipoMoneda WHERE Deposito_Cuenta = '" + cuenta + "' ORDER BY Deposito_Fecha DESC";
+            String sql = "SELECT TOP 5 Deposito_Fecha, Deposito_Importe, Tipo_De_Moneda_Nombre FROM " + ConstantesBD.t_depositos + " INNER JOIN " + ConstantesBD.t_tipo_de_moneda + " ON Tipo_De_Moneda_Id = Deposito_TipoMoneda WHERE Deposito_Cuenta = '" + cuenta + "' ORDER BY Deposito_Fecha DESC";
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
 
-        public SqlDataReader obtenerUltimosCincoRetiros(string cuenta)
+        public SqlDataReader obtenerUltimosCincoRetiros(String cuenta)
         {
             String sql = "SELECT TOP 5 Retiro_Fecha, Retiro_Importe FROM " + ConstantesBD.t_retiros + " WHERE Retiro_Cuenta = '" + cuenta + "' ORDER BY Retiro_Fecha DESC";
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
 
-        public SqlDataReader obtenerUltimasDiezTransferencias(string cuenta)
+        public SqlDataReader obtenerUltimasDiezTransferencias(String cuenta)
         {
-            String sql = "SELECT TOP 10 Transferencia_Fecha, Transferencia_Cuenta_Destino, Transferencia_Importe, Transferencia_Costo_Transf FROM " + ConstantesBD.t_clientes + " WHERE Transferencia_Cuenta_Emisora = '" + cuenta + "' ORDER BY Transferencia_Fecha DESC";
+            String sql = "SELECT TOP 10 Transferencia_Fecha, Transferencia_Cuenta_Destino, Transferencia_Importe, Transferencia_Costo_Transf FROM " + ConstantesBD.t_transferencia + " WHERE Transferencia_Cuenta_Emisora = '" + cuenta + "' ORDER BY Transferencia_Fecha DESC";
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
     }
