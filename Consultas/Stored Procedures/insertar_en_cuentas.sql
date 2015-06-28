@@ -2,7 +2,7 @@
 /*       PROCEDURES Y FUNCIONES   */
 /* /////////////////////////////////////////// */
 
-create procedure [dbo].[insertarEnCuentas] 
+ALTER procedure [DEVGURUS].[insertarEnCuentas] 
 
 		@Cuenta_Estado varchar(255),
 		@Cuenta_Moneda varchar(255),
@@ -43,6 +43,7 @@ create procedure [dbo].[insertarEnCuentas]
 												[Cuenta_Cliente]) 
 												
 												values(@numero_cuenta,@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id_nacionalidad_cliente,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
-						
+
+Select *FROM DEVGURUS.Cuentas WHERE @numero_cuenta = Cuenta_Nro				
 
 GO

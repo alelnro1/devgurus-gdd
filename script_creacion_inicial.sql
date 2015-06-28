@@ -410,10 +410,10 @@ Print 'La tabla ROLES X USUARIOS se ha cargado con exito';
 /* CLIENTES */
 Insert into DEVGURUS.Clientes(	Cliente_Nombre, Cliente_Apellido, Cliente_Tipo_Doc, Cliente_Pais, 
 						Cliente_Dom_Calle, Cliente_Dom_Nro, Cliente_Dom_Piso, Cliente_Dom_Depto, 
-						Cliente_Fecha_Nac, Cliente_Mail, Cliente_User,Cliente_Nro_Doc)
+						Cliente_Fecha_Nac, Cliente_Mail, Cliente_User,Cliente_Nro_Doc,Cliente_Nacionalidad)
 						select distinct MA.Cli_Nombre, MA.Cli_Apellido, MA.Cli_Tipo_Doc_Cod, 
 						MA.Cli_Pais_Codigo, MA.Cli_Dom_Calle, MA.Cli_Dom_Nro, MA.Cli_Dom_Piso, MA.Cli_Dom_Depto, 
-						MA.Cli_Fecha_Nac, MA.Cli_Mail, US.Usuarios_Id,MA.Cli_Nro_Doc from gd_esquema.Maestra MA, DEVGURUS.Usuarios US
+						MA.Cli_Fecha_Nac, MA.Cli_Mail, US.Usuarios_Id,MA.Cli_Nro_Doc,MA.Cli_Pais_Codigo from gd_esquema.Maestra MA, DEVGURUS.Usuarios US
 						where US.Usuarios_Name = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(Cli_Apellido +  CAST  (Cli_Nro_Doc AS varchar(255)), 'á', 'a'), 'é','e'), 'í', 'i'), 'ó', 'o'), 'ú','u')
 Print 'La tabla CLIENTES se ha cargado con exito';
 
@@ -436,7 +436,7 @@ Print 'La tabla TARJETAS se ha cargado con exito';
 /* CUENTAS */ 
 /* VER QUE FECHA CREACION ESTA HARDCODEADO PORQUE EN TABLA MAESTRA LA FECHA NO ES COHERENTE */
 Insert into DEVGURUS.Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente, Cuenta_Saldo)
-select distinct MA.Cuenta_Numero, 4, MA.Cuenta_Pais_Codigo, MA.Cli_Pais_Codigo, DATEADD(DAY, -5, GETDATE()), CL.Cliente_Id, 0
+select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo, DATEADD(DAY, -5, GETDATE()), CL.Cliente_Id, 0
 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
 
@@ -854,7 +854,7 @@ as
 							
 							values(@numero_cuenta,@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id_nacionalidad_cliente,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
 	
-
+Select *FROM DEVGURUS.Cuentas WHERE @numero_cuenta = Cuenta_Nro	
 GO
 
 	Print 'El procedimiento INSERTAR EN CUENTAS se ha creado correctamente';
