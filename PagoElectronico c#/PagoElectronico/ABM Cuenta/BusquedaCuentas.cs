@@ -34,7 +34,7 @@ namespace PagoElectronico
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(pais_asignado_combo, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
-            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_Nro_Cuenta, "Cuenta_Nro", "Cuenta_Nro", ConstantesBD.t_cuentas);
+            cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_Nro_Cuenta, "Cuenta_Nro", "Cuenta_Nro", ConstantesBD.t_cuentas + " where Cuenta_Cliente =" + cliente_id);
         }
 
         private void combo_Nro_Cuenta_SelectedIndexChanged(object sender, EventArgs e)
