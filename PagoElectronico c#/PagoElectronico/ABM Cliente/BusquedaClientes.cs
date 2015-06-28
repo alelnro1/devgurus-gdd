@@ -57,13 +57,13 @@ namespace PagoElectronico
                 columnas[2] = lector["Cliente_Apellido"];
                 columnas[3] = lector["Tipo_Doc_Desc"];
                 columnas[4] = lector["Cliente_Nro_Doc"];
-                columnas[5] = lector["Pais_Nombre"];
+                columnas[5] = lector["Pais"];
                 columnas[6] = lector["Cliente_Localidad"];
                 columnas[7] = lector["Cliente_Dom_Calle"];
                 columnas[8] = lector["Cliente_Dom_Nro"];
                 columnas[9] = lector["Cliente_Dom_Piso"];
                 columnas[10] = lector["Cliente_Dom_Depto"];
-                columnas[11] = lector["Cliente_Nacionalidad"];
+                columnas[11] = lector["Nacionalidad"];
                 columnas[12] = lector["Cliente_Fecha_Nac"];
                 columnas[13] = lector["Cliente_Mail"];
                 columnas[14] = lector["Cliente_User"];

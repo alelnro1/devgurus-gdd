@@ -140,13 +140,13 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
 
             String sentenciaSQL = "select CLI.Cliente_Id, CLI.Cliente_Nombre, CLI.Cliente_Apellido,"+
-                                  "TD.Tipo_Doc_Desc,CLI.Cliente_Nro_Doc, P.Pais_Nombre,CLI.Cliente_Dom_Calle,CLI.Cliente_Dom_Nro," +
+                                  "TD.Tipo_Doc_Desc,CLI.Cliente_Nro_Doc, P.Pais_Nombre Pais,CLI.Cliente_Dom_Calle,CLI.Cliente_Dom_Nro," +
 	                              "CLI.Cliente_Dom_Piso, CLI.Cliente_Dom_Depto, Cliente_Fecha_Nac,CLI.Cliente_Mail,"+
-                                  "CLI.Cliente_User, CLI.Cliente_Nacionalidad, CLI.Cliente_Localidad, CLI.Cliente_Estado " +
-                                  " FROM " + ConstantesBD.t_clientes + " CLI, " + ConstantesBD.t_tipo_doc + " TD, " + ConstantesBD.t_paises + " P";
+                                  "CLI.Cliente_User, N.Pais_Nombre Nacionalidad, CLI.Cliente_Localidad, CLI.Cliente_Estado " +
+                                  " FROM " + ConstantesBD.t_clientes + " CLI, " + ConstantesBD.t_tipo_doc + " TD, " + ConstantesBD.t_paises + " P," + ConstantesBD.t_paises + " N";
           
             IEnumerator enumerador = filtros.GetEnumerator();
-            sentenciaSQL = sentenciaSQL + " WHERE CLI.Cliente_Tipo_Doc = TD.Tipo_Doc_Id and CLI.Cliente_Pais = P.Pais_Id  ";
+            sentenciaSQL = sentenciaSQL + " WHERE CLI.Cliente_Tipo_Doc = TD.Tipo_Doc_Id and CLI.Cliente_Pais = P.Pais_Id and  CLI.Cliente_Nacionalidad = N.Pais_Id";
             if (enumerador.MoveNext())
             {
                 sentenciaSQL = sentenciaSQL + " and " + enumerador.Current;

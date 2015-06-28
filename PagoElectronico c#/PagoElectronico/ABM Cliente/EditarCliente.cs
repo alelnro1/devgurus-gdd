@@ -48,13 +48,13 @@ namespace PagoElectronico
             textBox_apellido.Text = lector["Cliente_Apellido"].ToString();
             combo_tipoDoc.Text = lector["Tipo_Doc_Desc"].ToString();
             textBox_nroDoc.Text = lector["Cliente_Nro_Doc"].ToString();
-            comboBox_pais.Text = lector["Pais_Nombre"].ToString();
+            comboBox_pais.Text = lector["Pais"].ToString();
             textBox_localidad.Text = lector["Cliente_Localidad"].ToString();
             textBox_calle.Text = lector["Cliente_Dom_Calle"].ToString();
             textBox_nroCalle.Text = lector["Cliente_Dom_Nro"].ToString();
             textBox_piso.Text = lector["Cliente_Dom_Piso"].ToString();
             textBox_depto.Text = lector["Cliente_Dom_Depto"].ToString();
-            combo_nacionalidad.Text = lector["Cliente_Nacionalidad"].ToString();
+            combo_nacionalidad.Text = lector["Nacionalidad"].ToString();
             dateTimePicker_nacimiento.Text = lector["Cliente_Fecha_Nac"].ToString();
             textBox_email.Text = lector["Cliente_Mail"].ToString();
             combo_estado.Text = lector["Cliente_Estado"].ToString();

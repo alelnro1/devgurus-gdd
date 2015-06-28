@@ -289,6 +289,7 @@
             // combo_nacionalidad
             // 
             this.combo_nacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_nacionalidad.Enabled = false;
             this.combo_nacionalidad.FormattingEnabled = true;
             this.combo_nacionalidad.Location = new System.Drawing.Point(527, 42);
             this.combo_nacionalidad.Name = "combo_nacionalidad";

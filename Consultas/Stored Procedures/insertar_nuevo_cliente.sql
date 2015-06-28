@@ -9,12 +9,14 @@ AS
 	select  @pais_id = Pais_Id from Paises where Pais_Nombre=@pais;
 	declare @fecha_nacimiento_a_insertar datetime
 	SELECT  @fecha_nacimiento_a_insertar = CAST( @fec_nac  AS datetime);
+	declare @cliente_pais_id_nacionalidad int
+	select  @cliente_pais_id_nacionalidad = Pais_Id from Paises where Pais_Nombre=@nacionalidad;
 	
 	INSERT INTO Clientes 
 		(Cliente_Apellido, Cliente_Dom_Calle, Cliente_Dom_Depto, Cliente_Mail,
 		 Cliente_Nombre, Cliente_Nro_Doc, Cliente_Pais, Cliente_Dom_Piso, Cliente_Tipo_Doc, Cliente_User, Cliente_Localidad,Cliente_Fecha_Nac,Cliente_Dom_Nro,Cliente_Nacionalidad)
 	VALUES
-		(@apellido, @calle, @depto, @mail, @nombre, @nro_doc, @pais_id, @piso, @tipo_documento_id, @cliente_user, @cliente_localidad,@fecha_nacimiento_a_insertar,@nro_calle,@nacionalidad)
+		(@apellido, @calle, @depto, @mail, @nombre, @nro_doc, @pais_id, @piso, @tipo_documento_id, @cliente_user, @cliente_localidad,@fecha_nacimiento_a_insertar,@nro_calle,@cliente_pais_id_nacionalidad)
 	INSERT INTO Rol_X_Usuario
 		(Rol_X_Usuario_Usuario,Rol_X_Usuario_Rol)
 		VALUES (@cliente_user,2)

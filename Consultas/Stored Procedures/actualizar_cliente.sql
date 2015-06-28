@@ -10,13 +10,16 @@ AS
 	select  @pais_id = Pais_Id from Paises where Pais_Nombre=@pais;
 	declare @fecha_nacimiento_a_insertar datetime
 	SELECT  @fecha_nacimiento_a_insertar = CAST(@fecha_nacimiento_recibida AS datetime);
+	declare @cliente_pais_id_nacionalidad int
+	select  @cliente_pais_id_nacionalidad = Pais_Id from Paises where Pais_Nombre=@nacionalidad;
+	
 	UPDATE [GD1C2015].[DEVGURUS].[Clientes]
    SET [Cliente_Nombre] = @nombre
 	  ,[Cliente_Estado]= @estado
       ,[Cliente_Apellido] = @apellido
       ,[Cliente_Tipo_Doc] = @tipo_documento_id
       ,[Cliente_Nro_Doc] =  @nro_doc 
-      ,[Cliente_Nacionalidad] = @nacionalidad
+      ,[Cliente_Nacionalidad] = @cliente_pais_id_nacionalidad
       ,[Cliente_Pais] = @pais_id 
       ,[Cliente_Localidad] = @localidad
       ,[Cliente_Dom_Calle] = @Dom_Calle

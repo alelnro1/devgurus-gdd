@@ -30,18 +30,18 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             
             String Cuenta_Nro = "";
             String Cuenta_Fecha_Creacion = "";
-            string pais = cuenta.get_pais_origen();
+            //string pais = cuenta.get_pais_origen();
             string tipo_moneda_nombre = cuenta.get_tipo_moneda();
             string tipo_de_cuenta = cuenta.get_tipo_cuenta();
 
-            String SentenciaSQL = "exec DEVGURUS.insertarEnCuentas" + "'" + pais.Trim() + "'"
+            String SentenciaSQL = "exec DEVGURUS.insertarEnCuentas " //+ "'" + pais.Trim() + "'"
 
 
-              + "," + cuenta.get_estado()
+               + cuenta.get_estado()
               + ",'" + tipo_moneda_nombre.Trim()
               + "','" + tipo_de_cuenta.Trim()
-              + "'," + cuenta.get_paisAsignado()
-              + "," + cuenta.get_fec_Cierre()
+              + "','" + cuenta.get_paisAsignado()
+              + "'," + cuenta.get_fec_Cierre()
               + "," + cuenta.get_Cliente();
 
             SqlDataReader cuentaSQL = this.GD1C2015.ejecutarSentenciaConRetorno(SentenciaSQL);

@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_pais_origen = new System.Windows.Forms.Label();
+            this.label_pais_Asignado = new System.Windows.Forms.Label();
             this.combo_tipo_moneda = new System.Windows.Forms.ComboBox();
             this.label_moneda = new System.Windows.Forms.Label();
             this.combo_tipo_cuenta = new System.Windows.Forms.ComboBox();
             this.label_tipo_cuenta = new System.Windows.Forms.Label();
             this.button_dar_alta = new System.Windows.Forms.Button();
-            this.combo_pais_origen = new System.Windows.Forms.ComboBox();
+            this.combo_pais_Asignado = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label_pais_origen
+            // label_pais_Asignado
             // 
-            this.label_pais_origen.AutoSize = true;
-            this.label_pais_origen.Location = new System.Drawing.Point(82, 36);
-            this.label_pais_origen.Name = "label_pais_origen";
-            this.label_pais_origen.Size = new System.Drawing.Size(62, 13);
-            this.label_pais_origen.TabIndex = 2;
-            this.label_pais_origen.Text = "Pais origen:";
+            this.label_pais_Asignado.AutoSize = true;
+            this.label_pais_Asignado.Location = new System.Drawing.Point(82, 36);
+            this.label_pais_Asignado.Name = "label_pais_Asignado";
+            this.label_pais_Asignado.Size = new System.Drawing.Size(76, 13);
+            this.label_pais_Asignado.TabIndex = 2;
+            this.label_pais_Asignado.Text = "Pais asignado:";
             // 
             // combo_tipo_moneda
             // 
@@ -93,14 +93,14 @@
             this.button_dar_alta.UseVisualStyleBackColor = true;
             this.button_dar_alta.Click += new System.EventHandler(this.button_dar_alta_Click);
             // 
-            // combo_pais_origen
+            // combo_pais_Asignado
             // 
-            this.combo_pais_origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_pais_origen.FormattingEnabled = true;
-            this.combo_pais_origen.Location = new System.Drawing.Point(168, 33);
-            this.combo_pais_origen.Name = "combo_pais_origen";
-            this.combo_pais_origen.Size = new System.Drawing.Size(121, 21);
-            this.combo_pais_origen.TabIndex = 13;
+            this.combo_pais_Asignado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combo_pais_Asignado.FormattingEnabled = true;
+            this.combo_pais_Asignado.Location = new System.Drawing.Point(168, 33);
+            this.combo_pais_Asignado.Name = "combo_pais_Asignado";
+            this.combo_pais_Asignado.Size = new System.Drawing.Size(121, 21);
+            this.combo_pais_Asignado.TabIndex = 13;
             // 
             // button1
             // 
@@ -118,13 +118,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 238);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.combo_pais_origen);
+            this.Controls.Add(this.combo_pais_Asignado);
             this.Controls.Add(this.button_dar_alta);
             this.Controls.Add(this.label_tipo_cuenta);
             this.Controls.Add(this.combo_tipo_cuenta);
             this.Controls.Add(this.label_moneda);
             this.Controls.Add(this.combo_tipo_moneda);
-            this.Controls.Add(this.label_pais_origen);
+            this.Controls.Add(this.label_pais_Asignado);
             this.Name = "AltaCuentas";
             this.Text = "Alta de Cuentas";
             this.Load += new System.EventHandler(this.AltaCuentas_Load);
@@ -137,13 +137,13 @@
 
 
 
-        private System.Windows.Forms.Label label_pais_origen;
+        private System.Windows.Forms.Label label_pais_Asignado;
         private System.Windows.Forms.ComboBox combo_tipo_moneda;
         private System.Windows.Forms.Label label_moneda;
         private System.Windows.Forms.ComboBox combo_tipo_cuenta;
         private System.Windows.Forms.Label label_tipo_cuenta;
         private System.Windows.Forms.Button button_dar_alta;
-        private System.Windows.Forms.ComboBox combo_pais_origen;
+        private System.Windows.Forms.ComboBox combo_pais_Asignado;
         private System.Windows.Forms.Button button1;
     }
 }

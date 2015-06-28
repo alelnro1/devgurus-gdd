@@ -202,7 +202,7 @@ Create Table DEVGURUS.Clientes (	Cliente_Id integer identity (1,1) PRIMARY KEY N
 									Cliente_Apellido varchar(255),
 									Cliente_Tipo_Doc numeric (18,0) FOREIGN KEY REFERENCES DEVGURUS.Tipo_De_Doc(Tipo_Doc_Id),
 									Cliente_Nro_Doc integer,
-									Cliente_Nacionalidad varchar(255),
+									Cliente_Nacionalidad numeric (18,0) FOREIGN KEY REFERENCES DEVGURUS.Paises(Pais_Id),
 									Cliente_Pais numeric (18,0) FOREIGN KEY REFERENCES DEVGURUS.Paises(Pais_Id),
 									Cliente_Localidad varchar(255),
 									Cliente_Dom_Calle varchar(255),
@@ -247,7 +247,7 @@ Print 'La tabla TIPO DE MONEDA se ha creado con exito';
 /* 	TABLA: Cuentas
 	DESCRIPCION: Tabla con todas las cuentas presentes en la tabla maestra
 */
-Create Table DEVGURUS.Cuentas (		Cuenta_Nro numeric (18,0) PRIMARY KEY NOT NULL,
+CREATE Table DEVGURUS.Cuentas (		Cuenta_Nro numeric (18,0) PRIMARY KEY NOT NULL,
 									Cuenta_Estado varchar(255) default 'Habilitado',
 									Cuenta_Moneda tinyint FOREIGN KEY REFERENCES DEVGURUS.Tipo_De_Moneda(Tipo_De_Moneda_Id) default 1,
 									Cuenta_Tipo tinyint FOREIGN KEY REFERENCES DEVGURUS.Tipo_De_Cuentas(Tipo_De_Cuentas_Id),
@@ -537,13 +537,16 @@ AS
 	select  @pais_id = Pais_Id from Paises where Pais_Nombre=@pais;
 	declare @fecha_nacimiento_a_insertar datetime
 	SELECT  @fecha_nacimiento_a_insertar = CAST(@fecha_nacimiento_recibida AS datetime);
+	declare @cliente_pais_id_nacionalidad int
+	select  @cliente_pais_id_nacionalidad = Pais_Id from Paises where Pais_Nombre=@nacionalidad;
+	
 	UPDATE [GD1C2015].[DEVGURUS].[Clientes]
    SET [Cliente_Nombre] = @nombre
 	  ,[Cliente_Estado]= @estado
       ,[Cliente_Apellido] = @apellido
       ,[Cliente_Tipo_Doc] = @tipo_documento_id
       ,[Cliente_Nro_Doc] =  @nro_doc 
-      ,[Cliente_Nacionalidad] = @nacionalidad
+      ,[Cliente_Nacionalidad] = @cliente_pais_id_nacionalidad
       ,[Cliente_Pais] = @pais_id 
       ,[Cliente_Localidad] = @localidad
       ,[Cliente_Dom_Calle] = @Dom_Calle
@@ -557,6 +560,7 @@ AS
  WHERE @id_cliente = Cliente_Id
  
 GO
+
 	Print 'El procedimiento ACTUALIZAR CLIENTE se ha creado correctamente';
 	
 	
@@ -809,40 +813,50 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertarEnCuentas')
 GO
 
 CREATE PROCEDURE DEVGURUS.insertarEnCuentas
-		@Cuenta_PaisOrigen varchar(255),
+
 		@Cuenta_Estado varchar(255),
 		@Cuenta_Moneda varchar(255),
 		@Cuenta_Tipo varchar(255),
-		@Cuenta_PaisAsignado numeric (18,0),
+		@Cuenta_PaisAsignado varchar(255),
 		@Cuenta_Fec_Cierre datetime,
 		@Cuenta_Cliente integer
-AS
-		Declare @Cuenta_Fec_Cre datetime = GETDATE()
-		Declare @pais_id int
-		select @pais_id = Pais_Id from DEVGURUS.Paises where Pais_Nombre = @Cuenta_PaisOrigen 
-		Declare @tipo_moneda_id tinyint
-		SELECT @tipo_moneda_id = Tipo_De_Moneda_Id FROM DEVGURUS.Tipo_De_Moneda WHERE Tipo_De_Moneda_Nombre = @Cuenta_Moneda
-		Declare @tipo_cuenta_id tinyint
-		SELECT @tipo_cuenta_id = Tipo_De_Cuentas_Id FROM DEVGURUS.Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Nombre = @Cuenta_Tipo
-		DECLARE @ultimo_Id numeric(18,0)
-		SET @ultimo_Id = (select MAX(Cuenta_Nro) from DEVGURUS.Cuentas)
-		SET @ultimo_Id = @ultimo_Id + 1
-
-		insert into Cuentas(
-			Cuenta_Nro,
-			[Cuenta_Estado],
-			[Cuenta_Moneda],
-			[Cuenta_Tipo],
-			[Cuenta_PaisOrigen],
-			[Cuenta_PaisAsignado],
-			[Cuenta_Fec_Cre],
-			[Cuenta_Fec_Cierre],
-			[Cuenta_Cliente]) 
-												
-values(@ultimo_Id, @Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
 		
-SELECT Cuenta_Nro, Cuenta_Fec_Cre  FROM DEVGURUS.Cuentas where Cuenta_Fec_Cre = (select max(Cuenta_Fec_Cre) from Cuentas )
+			
+as
+	Declare @Cuenta_Fec_Cre datetime = GETDATE()
+	
+	Declare @pais_id int
+	select @pais_id = Pais_Id from Paises where Pais_Nombre = @Cuenta_PaisAsignado
+	
+	Declare @tipo_moneda_id tinyint
+	SELECT @tipo_moneda_id = Tipo_De_Moneda_Id FROM Tipo_De_Moneda WHERE Tipo_De_Moneda_Nombre = @Cuenta_Moneda
+	
+	Declare @tipo_cuenta_id tinyint
+	SELECT @tipo_cuenta_id = Tipo_De_Cuentas_Id FROM Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Nombre = @Cuenta_Tipo
+	
+	Declare @pais_id_nacionalidad_cliente int
+	SELECT @pais_id_nacionalidad_cliente = Cliente_Nacionalidad FROM Clientes WHERE Cliente_Id = @Cuenta_Cliente
+	
+	DECLARE @numero_cuenta numeric(18,0)
+
+	SET @numero_cuenta = (SELECT MAX(Cuenta_Nro) FROM DEVGURUS.Cuentas)
+	SET @numero_cuenta = @numero_cuenta + 1
+	
+		insert into Cuentas([Cuenta_Nro],
+							[Cuenta_Estado],
+							[Cuenta_Moneda],
+							[Cuenta_Tipo],
+							[Cuenta_PaisOrigen],
+							[Cuenta_PaisAsignado],
+							[Cuenta_Fec_Cre],
+							[Cuenta_Fec_Cierre],
+							[Cuenta_Cliente]) 
+							
+							values(@numero_cuenta,@Cuenta_Estado,@tipo_moneda_id,@tipo_cuenta_id,@pais_id_nacionalidad_cliente,@pais_id,@Cuenta_Fec_Cre,@Cuenta_Fec_Cierre,@Cuenta_Cliente)
+	
+
 GO
+
 	Print 'El procedimiento INSERTAR EN CUENTAS se ha creado correctamente';
 
 
@@ -864,17 +878,20 @@ AS
 	select  @pais_id = Pais_Id from Paises where Pais_Nombre=@pais;
 	declare @fecha_nacimiento_a_insertar datetime
 	SELECT  @fecha_nacimiento_a_insertar = CAST( @fec_nac  AS datetime);
+	declare @cliente_pais_id_nacionalidad int
+	select  @cliente_pais_id_nacionalidad = Pais_Id from Paises where Pais_Nombre=@nacionalidad;
 	
 	INSERT INTO Clientes 
 		(Cliente_Apellido, Cliente_Dom_Calle, Cliente_Dom_Depto, Cliente_Mail,
 		 Cliente_Nombre, Cliente_Nro_Doc, Cliente_Pais, Cliente_Dom_Piso, Cliente_Tipo_Doc, Cliente_User, Cliente_Localidad,Cliente_Fecha_Nac,Cliente_Dom_Nro,Cliente_Nacionalidad)
 	VALUES
-		(@apellido, @calle, @depto, @mail, @nombre, @nro_doc, @pais_id, @piso, @tipo_documento_id, @cliente_user, @cliente_localidad,@fecha_nacimiento_a_insertar,@nro_calle,@nacionalidad)
+		(@apellido, @calle, @depto, @mail, @nombre, @nro_doc, @pais_id, @piso, @tipo_documento_id, @cliente_user, @cliente_localidad,@fecha_nacimiento_a_insertar,@nro_calle,@cliente_pais_id_nacionalidad)
 	INSERT INTO Rol_X_Usuario
 		(Rol_X_Usuario_Usuario,Rol_X_Usuario_Rol)
 		VALUES (@cliente_user,2)
 		
 		GO
+
 
 	Print 'El procedimiento INSERTAR NUEVO CLIENTE se ha creado correctamente';
 
