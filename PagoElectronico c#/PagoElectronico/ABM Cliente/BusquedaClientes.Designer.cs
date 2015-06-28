@@ -41,6 +41,9 @@
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
+            this.boton_Limpiar = new System.Windows.Forms.Button();
+            this.boton_Buscar = new System.Windows.Forms.Button();
+            this.seleccionar_cliente = new System.Windows.Forms.Button();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,9 +60,6 @@
             this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boton_Limpiar = new System.Windows.Forms.Button();
-            this.boton_Buscar = new System.Windows.Forms.Button();
-            this.seleccionar_cliente = new System.Windows.Forms.Button();
             this.comboEstado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
@@ -202,10 +202,40 @@
             this.mail,
             this.cliente_usuario,
             this.estado});
-            this.lista_clientes.Location = new System.Drawing.Point(12, 359);
+            this.lista_clientes.Location = new System.Drawing.Point(12, 312);
             this.lista_clientes.Name = "lista_clientes";
-            this.lista_clientes.Size = new System.Drawing.Size(1342, 185);
+            this.lista_clientes.Size = new System.Drawing.Size(1342, 189);
             this.lista_clientes.TabIndex = 223284;
+            // 
+            // boton_Limpiar
+            // 
+            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
+            this.boton_Limpiar.Name = "boton_Limpiar";
+            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Limpiar.TabIndex = 223283;
+            this.boton_Limpiar.Text = "Limpiar busqueda";
+            this.boton_Limpiar.UseVisualStyleBackColor = true;
+            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
+            // 
+            // boton_Buscar
+            // 
+            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
+            this.boton_Buscar.Name = "boton_Buscar";
+            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Buscar.TabIndex = 223282;
+            this.boton_Buscar.Text = "Buscar";
+            this.boton_Buscar.UseVisualStyleBackColor = true;
+            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
+            // 
+            // seleccionar_cliente
+            // 
+            this.seleccionar_cliente.Location = new System.Drawing.Point(866, 121);
+            this.seleccionar_cliente.Name = "seleccionar_cliente";
+            this.seleccionar_cliente.Size = new System.Drawing.Size(181, 67);
+            this.seleccionar_cliente.TabIndex = 223289;
+            this.seleccionar_cliente.Text = "Seleccionar Cliente y Continuar";
+            this.seleccionar_cliente.UseVisualStyleBackColor = true;
+            this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
             // 
             // id_cliente
             // 
@@ -256,13 +286,11 @@
             // 
             this.piso_cliente.HeaderText = "Piso";
             this.piso_cliente.Name = "piso_cliente";
-            this.piso_cliente.Width = 40;
             // 
             // depto_cliente
             // 
             this.depto_cliente.HeaderText = "Depto";
             this.depto_cliente.Name = "depto_cliente";
-            this.depto_cliente.Width = 40;
             // 
             // nacionalidad_cliente
             // 
@@ -289,36 +317,6 @@
             this.estado.HeaderText = "Estado";
             this.estado.Name = "estado";
             // 
-            // boton_Limpiar
-            // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
-            this.boton_Limpiar.Name = "boton_Limpiar";
-            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Limpiar.TabIndex = 223283;
-            this.boton_Limpiar.Text = "Limpiar busqueda";
-            this.boton_Limpiar.UseVisualStyleBackColor = true;
-            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
-            // 
-            // boton_Buscar
-            // 
-            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
-            this.boton_Buscar.Name = "boton_Buscar";
-            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Buscar.TabIndex = 223282;
-            this.boton_Buscar.Text = "Buscar";
-            this.boton_Buscar.UseVisualStyleBackColor = true;
-            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
-            // 
-            // seleccionar_cliente
-            // 
-            this.seleccionar_cliente.Location = new System.Drawing.Point(866, 121);
-            this.seleccionar_cliente.Name = "seleccionar_cliente";
-            this.seleccionar_cliente.Size = new System.Drawing.Size(181, 67);
-            this.seleccionar_cliente.TabIndex = 223289;
-            this.seleccionar_cliente.Text = "Seleccionar Cliente y Continuar";
-            this.seleccionar_cliente.UseVisualStyleBackColor = true;
-            this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
-            // 
             // comboEstado
             // 
             this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -344,7 +342,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 556);
+            this.ClientSize = new System.Drawing.Size(1366, 535);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboEstado);
             this.Controls.Add(this.seleccionar_cliente);
@@ -390,8 +388,6 @@
         private System.Windows.Forms.Button boton_Limpiar;
         private System.Windows.Forms.Button boton_Buscar;
         private System.Windows.Forms.Button seleccionar_cliente;
-        private System.Windows.Forms.ComboBox comboEstado;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_cliente;
@@ -408,5 +404,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.ComboBox comboEstado;
+        private System.Windows.Forms.Label label1;
     }
 }

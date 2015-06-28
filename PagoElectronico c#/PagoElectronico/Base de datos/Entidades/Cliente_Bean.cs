@@ -21,11 +21,16 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String cliente_Mail;
         private static String cliente_IdUser;
         private static String cliente_Nacionalidad;
+        private static String cliente_localidad;
 
         /// <summary>
         /// //////////GETTERS/
         /// </summary>
         /// <returns></returns>
+
+        public String getCliente_localidad()
+        { return Cliente_Bean.cliente_localidad; }
+
 
         public String getCliente_Id()
         { return Cliente_Bean.cliente_Id; }
@@ -79,6 +84,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public String setCliente_Calle(String cliente_Calle)
         { return Cliente_Bean.cliente_Calle = cliente_Calle; }
 
+
+        public String setCliente_localidad(String cliente_localidad)
+        { return Cliente_Bean.cliente_localidad = cliente_localidad; }
+
         public String getCliente_Nro()
         { return Cliente_Bean.cliente_Nro; }
 
@@ -113,7 +122,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         { return Cliente_Bean.cliente_IdUser; }
 
         public String setCliente_IdUser(String cliente_IdUser)
-        { return Cliente_Bean.cliente_IdUser  = cliente_IdUser; }
+        { return Cliente_Bean.cliente_IdUser = cliente_IdUser; }
 
         public String setCliente_Nacionalidad(String cliente_Nacionalidad)
         { return Cliente_Bean.cliente_Nacionalidad = cliente_Nacionalidad; }

@@ -537,7 +537,7 @@ AS
 	select  @pais_id = Pais_Id from Paises where Pais_Nombre=@pais;
 	declare @fecha_nacimiento_a_insertar datetime
 	SELECT  @fecha_nacimiento_a_insertar = CAST(@fecha_nacimiento_recibida AS datetime);
-	UPDATE [GD1C2015].[dbo].[Clientes]
+	UPDATE [GD1C2015].[DEVGURUS].[Clientes]
    SET [Cliente_Nombre] = @nombre
 	  ,[Cliente_Estado]= @estado
       ,[Cliente_Apellido] = @apellido

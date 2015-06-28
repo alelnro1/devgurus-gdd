@@ -18,16 +18,16 @@ namespace PagoElectronico
     {
         private Cliente_Bean cliente;
         private ClienteDAO cliente_DAO;
-       
+
 
         public AltaCliente()
         {
-            
+
             cliente = new Cliente_Bean();
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
-            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", "DEVGURUS.Paises");
-            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", "DEVGURUS.Paises");
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
 
         }
@@ -45,10 +45,12 @@ namespace PagoElectronico
             cliente.setCliente_FecNac(dateTimePicker_nacimiento.Text);
             cliente.setCliente_Nro(textBox_nroCalle.Text);
             cliente.setCliente_Calle(calle_textbox.Text);
+
             cliente.setCliente_Piso(comboBox_piso.Text);
             cliente.setCliente_Dpto(comboBox_depto.Text);
             cliente.setCliente_Nacionalidad(comboBox_nacionalidad.Text);
-            
+            cliente.setCliente_localidad(localidad_textbox.Text);
+
 
             if (!cliente_DAO.camposVacios(cliente) && !String.IsNullOrEmpty(usuario))
             {
@@ -61,9 +63,10 @@ namespace PagoElectronico
                             if (!cliente_DAO.clienteAsociadoAUser(cliente))
                             {
                                 cliente_DAO.altaCliente(cliente);
-                                MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK);
-                            } 
-                            else 
+                                MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Close();
+                            }
+                            else
                             {
                                 MessageBox.Show("Ya existe un cliente con ese usuario", "Atención", MessageBoxButtons.OK);
                             }
@@ -92,7 +95,7 @@ namespace PagoElectronico
 
         private void Cancelar_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -101,5 +104,20 @@ namespace PagoElectronico
         {
 
         }
+
+        private void localidad_textbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
+
+        private void dateTimePicker_nacimiento_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

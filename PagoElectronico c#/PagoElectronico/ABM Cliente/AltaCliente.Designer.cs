@@ -33,6 +33,14 @@
             this.usuario_textbox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_nacionalidad = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox_nroCalle = new System.Windows.Forms.TextBox();
+            this.dateTimePicker_nacimiento = new System.Windows.Forms.DateTimePicker();
+            this.comboBox_tipoDoc = new System.Windows.Forms.ComboBox();
+            this.comboBox_depto = new System.Windows.Forms.ComboBox();
+            this.comboBox_piso = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.localidad_textbox = new System.Windows.Forms.TextBox();
@@ -52,14 +60,6 @@
             this.nombre_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Cancelar = new System.Windows.Forms.Button();
-            this.comboBox_piso = new System.Windows.Forms.ComboBox();
-            this.comboBox_depto = new System.Windows.Forms.ComboBox();
-            this.comboBox_tipoDoc = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker_nacimiento = new System.Windows.Forms.DateTimePicker();
-            this.textBox_nroCalle = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboBox_nacionalidad = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +135,151 @@
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBox_nacionalidad
+            // 
+            this.comboBox_nacionalidad.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_nacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_nacionalidad.FormattingEnabled = true;
+            this.comboBox_nacionalidad.Location = new System.Drawing.Point(318, 146);
+            this.comboBox_nacionalidad.Name = "comboBox_nacionalidad";
+            this.comboBox_nacionalidad.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_nacionalidad.TabIndex = 223314;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(45, 147);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(50, 13);
+            this.label14.TabIndex = 223313;
+            this.label14.Text = "Nro Calle";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(238, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 223312;
+            this.label13.Text = "Nacionalidad";
+            // 
+            // textBox_nroCalle
+            // 
+            this.textBox_nroCalle.Location = new System.Drawing.Point(100, 140);
+            this.textBox_nroCalle.Name = "textBox_nroCalle";
+            this.textBox_nroCalle.Size = new System.Drawing.Size(121, 20);
+            this.textBox_nroCalle.TabIndex = 223311;
+            // 
+            // dateTimePicker_nacimiento
+            // 
+            this.dateTimePicker_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_nacimiento.Location = new System.Drawing.Point(98, 208);
+            this.dateTimePicker_nacimiento.Name = "dateTimePicker_nacimiento";
+            this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(105, 20);
+            this.dateTimePicker_nacimiento.TabIndex = 223309;
+            this.dateTimePicker_nacimiento.ValueChanged += new System.EventHandler(this.dateTimePicker_nacimiento_ValueChanged);
+            // 
+            // comboBox_tipoDoc
+            // 
+            this.comboBox_tipoDoc.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_tipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tipoDoc.FormattingEnabled = true;
+            this.comboBox_tipoDoc.Location = new System.Drawing.Point(101, 50);
+            this.comboBox_tipoDoc.Name = "comboBox_tipoDoc";
+            this.comboBox_tipoDoc.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_tipoDoc.TabIndex = 28;
+            // 
+            // comboBox_depto
+            // 
+            this.comboBox_depto.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_depto.FormattingEnabled = true;
+            this.comboBox_depto.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R"});
+            this.comboBox_depto.Location = new System.Drawing.Point(103, 177);
+            this.comboBox_depto.Name = "comboBox_depto";
+            this.comboBox_depto.Size = new System.Drawing.Size(61, 21);
+            this.comboBox_depto.TabIndex = 27;
+            // 
+            // comboBox_piso
+            // 
+            this.comboBox_piso.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_piso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_piso.FormattingEnabled = true;
+            this.comboBox_piso.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50"});
+            this.comboBox_piso.Location = new System.Drawing.Point(318, 175);
+            this.comboBox_piso.Name = "comboBox_piso";
+            this.comboBox_piso.Size = new System.Drawing.Size(56, 21);
+            this.comboBox_piso.TabIndex = 26;
             // 
             // label12
             // 
@@ -156,11 +301,11 @@
             // 
             // localidad_textbox
             // 
-            this.localidad_textbox.Enabled = false;
             this.localidad_textbox.Location = new System.Drawing.Point(315, 113);
             this.localidad_textbox.Name = "localidad_textbox";
             this.localidad_textbox.Size = new System.Drawing.Size(121, 20);
             this.localidad_textbox.TabIndex = 19;
+            this.localidad_textbox.TextChanged += new System.EventHandler(this.localidad_textbox_TextChanged);
             // 
             // label9
             // 
@@ -297,148 +442,6 @@
             this.Cancelar.Text = "Cancelar";
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
-            // 
-            // comboBox_piso
-            // 
-            this.comboBox_piso.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.comboBox_piso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_piso.FormattingEnabled = true;
-            this.comboBox_piso.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50"});
-            this.comboBox_piso.Location = new System.Drawing.Point(318, 175);
-            this.comboBox_piso.Name = "comboBox_piso";
-            this.comboBox_piso.Size = new System.Drawing.Size(56, 21);
-            this.comboBox_piso.TabIndex = 26;
-            // 
-            // comboBox_depto
-            // 
-            this.comboBox_depto.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.comboBox_depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_depto.FormattingEnabled = true;
-            this.comboBox_depto.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R"});
-            this.comboBox_depto.Location = new System.Drawing.Point(103, 177);
-            this.comboBox_depto.Name = "comboBox_depto";
-            this.comboBox_depto.Size = new System.Drawing.Size(61, 21);
-            this.comboBox_depto.TabIndex = 27;
-            // 
-            // comboBox_tipoDoc
-            // 
-            this.comboBox_tipoDoc.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.comboBox_tipoDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_tipoDoc.FormattingEnabled = true;
-            this.comboBox_tipoDoc.Location = new System.Drawing.Point(101, 50);
-            this.comboBox_tipoDoc.Name = "comboBox_tipoDoc";
-            this.comboBox_tipoDoc.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_tipoDoc.TabIndex = 28;
-            // 
-            // dateTimePicker_nacimiento
-            // 
-            this.dateTimePicker_nacimiento.Location = new System.Drawing.Point(98, 208);
-            this.dateTimePicker_nacimiento.Name = "dateTimePicker_nacimiento";
-            this.dateTimePicker_nacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_nacimiento.TabIndex = 223309;
-            // 
-            // textBox_nroCalle
-            // 
-            this.textBox_nroCalle.Location = new System.Drawing.Point(100, 140);
-            this.textBox_nroCalle.Name = "textBox_nroCalle";
-            this.textBox_nroCalle.Size = new System.Drawing.Size(121, 20);
-            this.textBox_nroCalle.TabIndex = 223311;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(238, 146);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 13);
-            this.label13.TabIndex = 223312;
-            this.label13.Text = "Nacionalidad";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(45, 147);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 13);
-            this.label14.TabIndex = 223313;
-            this.label14.Text = "Nro Calle";
-            // 
-            // comboBox_nacionalidad
-            // 
-            this.comboBox_nacionalidad.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.comboBox_nacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_nacionalidad.FormattingEnabled = true;
-            this.comboBox_nacionalidad.Location = new System.Drawing.Point(318, 146);
-            this.comboBox_nacionalidad.Name = "comboBox_nacionalidad";
-            this.comboBox_nacionalidad.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_nacionalidad.TabIndex = 223314;
             // 
             // AltaCliente
             // 
