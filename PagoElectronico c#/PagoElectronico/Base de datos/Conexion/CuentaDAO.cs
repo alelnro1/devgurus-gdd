@@ -110,7 +110,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void modificarUnaCuenta(Cuenta_Bean una_cuenta)
         {
-            String consulta = "EXEC DEVGURUS.cambiar_Tipo_Cuenta @cuenta_Nro = '" + una_cuenta.get_nro_cuenta().Trim() + "', @cuenta_Nro = '" + una_cuenta.get_tipo_cuenta().Trim() + "';";
+            String consulta = "EXEC DEVGURUS.actualizar_tipo_de_cuenta '" + una_cuenta.get_tipo_cuenta().Trim() + "'," + una_cuenta.get_nro_cuenta().Trim() + ";";
             this.GD1C2015.ejecutarSentenciaSinRetorno(consulta);
         }
 
