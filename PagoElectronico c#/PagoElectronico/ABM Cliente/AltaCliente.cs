@@ -26,10 +26,16 @@ namespace PagoElectronico
             cliente = new Cliente_Bean();
             cliente_DAO = new ClienteDAO();
             InitializeComponent();
+            setearInformacion();
+        }
+
+        private void setearInformacion()
+        {
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox1, "Usuarios_Name", "Usuarios_Name", ConstantesBD.t_usuarios);
+        
         }
 
         private void Generar_Click_1(object sender, EventArgs e)

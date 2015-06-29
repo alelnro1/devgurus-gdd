@@ -26,12 +26,18 @@ namespace PagoElectronico
             menu_save = menu;
             clienteDAO = new ClienteDAO();
             InitializeComponent();
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nombre, "Cliente_Nombre", "Cliente_Nombre", ConstantesBD.t_clientes);
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_apellido, "Cliente_Apellido", "Cliente_Apellido", ConstantesBD.t_clientes);
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_doc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nro_doc, "Cliente_Nro_Doc", "Cliente_Nro_Doc", ConstantesBD.t_clientes);
-            clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_email, "Cliente_Mail", "Cliente_Mail", ConstantesBD.t_clientes);
+            setearInformacion();
 
+        }
+
+
+       private void setearInformacion(){
+           clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nombre, "Cliente_Nombre", "Cliente_Nombre", ConstantesBD.t_clientes);
+           clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_apellido, "Cliente_Apellido", "Cliente_Apellido", ConstantesBD.t_clientes);
+           clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_doc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
+           clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_nro_doc, "Cliente_Nro_Doc", "Cliente_Nro_Doc", ConstantesBD.t_clientes);
+           clienteDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_email, "Cliente_Mail", "Cliente_Mail", ConstantesBD.t_clientes);
+        
         }
 
         private void boton_Buscar_Click(object sender, EventArgs e)
