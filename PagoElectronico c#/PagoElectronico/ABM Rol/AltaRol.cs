@@ -58,7 +58,13 @@ namespace PagoElectronico
 
                 if (check_asociar_tarjeta.Checked == true) rol.setRol_Func_Asoc_Tarjeta("Habilitado");
                 else { rol.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
-                
+
+                if (check_Func_Saldo.Checked == true) rol.setRol_Func_Saldo ("Habilitado");
+                else { rol.setRol_Func_Saldo("Inhabilitado"); }
+
+                if (check_Func_Estadisticas.Checked == true) rol.setRol_Func_Estadisticas("Habilitado");
+                else { rol.setRol_Func_Estadisticas("Inhabilitado"); }
+
                 rolDAO.insertarUnRol(rol);
                 DialogResult alerta = MessageBox.Show("El Rol se ha creado exitosamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -73,6 +79,11 @@ namespace PagoElectronico
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void group_Func_Enter(object sender, EventArgs e)
         {
 
         }

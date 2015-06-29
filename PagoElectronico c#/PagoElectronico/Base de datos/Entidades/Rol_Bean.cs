@@ -18,10 +18,25 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String rol_Func_ABM_Clientes;
         private static String rol_Func_ABM_Usuarios;
         private static String rol_Func_Asoc_Tarjeta;
+        private static String rol_Func_Saldo;
+        private static String rol_Func_Estadisticas;
 
+
+        public String getrol_Func_Saldo()
+        { return Rol_Bean.rol_Func_Saldo; }
+
+        public String getrol_Func_Estadisticas()
+        { return Rol_Bean.rol_Func_Estadisticas; }
+        
         public String getRol_Id()
         { return Rol_Bean.rol_Id; }
 
+        public String setRol_Func_Saldo(String rol_Func_Saldo)
+        { return Rol_Bean.rol_Func_Saldo = rol_Func_Saldo; }
+
+        public String setRol_Func_Estadisticas(String rol_Func_Estadisticas)
+        { return Rol_Bean.rol_Func_Estadisticas = rol_Func_Estadisticas; }
+        
         public String setRol_Id(String rol_Id)
         { return Rol_Bean.rol_Id = rol_Id; }
 

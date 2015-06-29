@@ -54,10 +54,12 @@ namespace PagoElectronico
             if (check_ABM_Client.Checked == true) filtros.Add("[Func_ABM_Clientes] = 'Habilitado'");
             if (check_ABM_Cuentas.Checked == true) filtros.Add("[Func_ABM_Usuarios] = 'Habilitado'");
             if (check_asociar_tarjeta.Checked == true) filtros.Add("[Func_Asociar_tarjeta] = 'Habilitado'");
+            if (check_Func_Saldo.Checked == true) filtros.Add("[Func_Saldo] = 'Habilitado'");
+            if (check_Func_Estadisticas.Checked == true) filtros.Add("[Func_Estadisticas] = 'Habilitado'");
 
             SqlDataReader lector = rolDAO.buscarRoles(filtros);
             List<DataGridViewRow> filas = new List<DataGridViewRow>();
-            Object[] columnas = new Object[11];
+            Object[] columnas = new Object[13];
 
             while (lector.Read())
             {
@@ -72,6 +74,9 @@ namespace PagoElectronico
                 columnas[8] = lector["Func_ABM_Clientes"];
                 columnas[9] = lector["Func_ABM_Usuarios"];
                 columnas[10] = lector["Func_Asociar_Tarjeta"];
+                columnas[11] = lector["Func_Saldo"];
+                columnas[12] = lector["Func_Estadisticas"];
+
                                
                 filas.Add(new DataGridViewRow());
                 filas[filas.Count - 1].CreateCells(lista_Roles, columnas);
@@ -88,9 +93,10 @@ namespace PagoElectronico
                 String id_Rol;
 
                 id_Rol = (fila.Cells[0].Value.ToString());
-                EditarRol editarRol = new EditarRol(id_Rol, this);
-                editarRol.Show();
-                this.Enabled = false;
+                EditarRol editarRol = new EditarRol(id_Rol);
+                editarRol.ShowDialog();
+                this.boton_Buscar_Click(sender, e);
+                
             }
             catch
             {
@@ -131,6 +137,7 @@ namespace PagoElectronico
                     if (mensaje == "BORRADO")
                     {
                         MessageBox.Show("El rol ha sido eliminado correctamente", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.boton_Buscar_Click(sender, e);
                     }
                     if (mensaje == "NO BORRADO")
                     {
@@ -146,6 +153,11 @@ namespace PagoElectronico
         }
 
         private void lista_Roles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void group_Datos_Enter(object sender, EventArgs e)
         {
 
         }

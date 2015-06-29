@@ -19,15 +19,15 @@ namespace PagoElectronico
     {
         private Rol_Bean rol_Bean;
         private RolDAO rolDAO;
-        private Form menuBusqueda;
 
-        public EditarRol(String id_rol, Form busqueda)
+
+        public EditarRol(String id_rol)
         {
             InitializeComponent();
             rol_Bean = new Rol_Bean();
             rolDAO = new RolDAO();
             cargaLosDatosDelRol(id_rol);
-            menuBusqueda = busqueda;
+
         }
 
         public void cargaLosDatosDelRol(String id_rol)
@@ -51,8 +51,7 @@ namespace PagoElectronico
         private void boton_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.menuBusqueda.Enabled = true;
-            this.menuBusqueda.BringToFront();
+
         }
 
         private void boton_Crear_Click(object sender, EventArgs e)
@@ -77,10 +76,9 @@ namespace PagoElectronico
             else { rol_Bean.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
 
             rolDAO.modificarUnRol(rol_Bean);
+            
             this.Close();
-            this.menuBusqueda.Enabled = true;
-            this.menuBusqueda.BringToFront();
-            //}
+
         }
     }
 }

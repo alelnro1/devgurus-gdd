@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.group_Func = new System.Windows.Forms.GroupBox();
+            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.check_ABM_Cuentas = new System.Windows.Forms.CheckBox();
             this.check_ABM_Client = new System.Windows.Forms.CheckBox();
             this.check_ABM_User = new System.Windows.Forms.CheckBox();
@@ -43,13 +44,16 @@
             this.combo_Estado = new System.Windows.Forms.ComboBox();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.boton_Crear = new System.Windows.Forms.Button();
-            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
+            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
+            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
             this.group_Func.SuspendLayout();
             this.group_Datos.SuspendLayout();
             this.SuspendLayout();
             // 
             // group_Func
             // 
+            this.group_Func.Controls.Add(this.check_Func_Estadisticas);
+            this.group_Func.Controls.Add(this.check_Func_Saldo);
             this.group_Func.Controls.Add(this.check_asociar_tarjeta);
             this.group_Func.Controls.Add(this.check_ABM_Cuentas);
             this.group_Func.Controls.Add(this.check_ABM_Client);
@@ -62,15 +66,27 @@
             this.group_Func.Margin = new System.Windows.Forms.Padding(2);
             this.group_Func.Name = "group_Func";
             this.group_Func.Padding = new System.Windows.Forms.Padding(2);
-            this.group_Func.Size = new System.Drawing.Size(385, 190);
+            this.group_Func.Size = new System.Drawing.Size(332, 201);
             this.group_Func.TabIndex = 6;
             this.group_Func.TabStop = false;
             this.group_Func.Text = "Funciones del Rol";
+            this.group_Func.Enter += new System.EventHandler(this.group_Func_Enter);
+            // 
+            // check_asociar_tarjeta
+            // 
+            this.check_asociar_tarjeta.AutoSize = true;
+            this.check_asociar_tarjeta.Location = new System.Drawing.Point(159, 131);
+            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
+            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
+            this.check_asociar_tarjeta.TabIndex = 223298;
+            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
+            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
+            this.check_asociar_tarjeta.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // check_ABM_Cuentas
             // 
             this.check_ABM_Cuentas.AutoSize = true;
-            this.check_ABM_Cuentas.Location = new System.Drawing.Point(41, 138);
+            this.check_ABM_Cuentas.Location = new System.Drawing.Point(37, 161);
             this.check_ABM_Cuentas.Name = "check_ABM_Cuentas";
             this.check_ABM_Cuentas.Size = new System.Drawing.Size(91, 17);
             this.check_ABM_Cuentas.TabIndex = 223297;
@@ -80,7 +96,7 @@
             // check_ABM_Client
             // 
             this.check_ABM_Client.AutoSize = true;
-            this.check_ABM_Client.Location = new System.Drawing.Point(41, 118);
+            this.check_ABM_Client.Location = new System.Drawing.Point(37, 131);
             this.check_ABM_Client.Name = "check_ABM_Client";
             this.check_ABM_Client.Size = new System.Drawing.Size(89, 17);
             this.check_ABM_Client.TabIndex = 223296;
@@ -90,7 +106,7 @@
             // check_ABM_User
             // 
             this.check_ABM_User.AutoSize = true;
-            this.check_ABM_User.Location = new System.Drawing.Point(41, 98);
+            this.check_ABM_User.Location = new System.Drawing.Point(37, 97);
             this.check_ABM_User.Name = "check_ABM_User";
             this.check_ABM_User.Size = new System.Drawing.Size(93, 17);
             this.check_ABM_User.TabIndex = 223295;
@@ -100,7 +116,7 @@
             // check_ABM_Roles
             // 
             this.check_ABM_Roles.AutoSize = true;
-            this.check_ABM_Roles.Location = new System.Drawing.Point(41, 78);
+            this.check_ABM_Roles.Location = new System.Drawing.Point(37, 63);
             this.check_ABM_Roles.Name = "check_ABM_Roles";
             this.check_ABM_Roles.Size = new System.Drawing.Size(79, 17);
             this.check_ABM_Roles.TabIndex = 223294;
@@ -110,7 +126,7 @@
             // check_Depos
             // 
             this.check_Depos.AutoSize = true;
-            this.check_Depos.Location = new System.Drawing.Point(41, 58);
+            this.check_Depos.Location = new System.Drawing.Point(37, 27);
             this.check_Depos.Name = "check_Depos";
             this.check_Depos.Size = new System.Drawing.Size(71, 17);
             this.check_Depos.TabIndex = 223293;
@@ -120,7 +136,7 @@
             // check_Transf
             // 
             this.check_Transf.AutoSize = true;
-            this.check_Transf.Location = new System.Drawing.Point(41, 38);
+            this.check_Transf.Location = new System.Drawing.Point(159, 161);
             this.check_Transf.Name = "check_Transf";
             this.check_Transf.Size = new System.Drawing.Size(70, 17);
             this.check_Transf.TabIndex = 223292;
@@ -130,7 +146,7 @@
             // check_Extraer
             // 
             this.check_Extraer.AutoSize = true;
-            this.check_Extraer.Location = new System.Drawing.Point(41, 18);
+            this.check_Extraer.Location = new System.Drawing.Point(159, 97);
             this.check_Extraer.Name = "check_Extraer";
             this.check_Extraer.Size = new System.Drawing.Size(59, 17);
             this.check_Extraer.TabIndex = 223291;
@@ -141,7 +157,7 @@
             // 
             this.L_Nombre.AutoSize = true;
             this.L_Nombre.ForeColor = System.Drawing.Color.Black;
-            this.L_Nombre.Location = new System.Drawing.Point(38, 33);
+            this.L_Nombre.Location = new System.Drawing.Point(38, 34);
             this.L_Nombre.Name = "L_Nombre";
             this.L_Nombre.Size = new System.Drawing.Size(81, 13);
             this.L_Nombre.TabIndex = 223269;
@@ -150,17 +166,17 @@
             // rol_Name
             // 
             this.rol_Name.ForeColor = System.Drawing.Color.Black;
-            this.rol_Name.Location = new System.Drawing.Point(137, 30);
+            this.rol_Name.Location = new System.Drawing.Point(137, 31);
             this.rol_Name.MaxLength = 255;
             this.rol_Name.Name = "rol_Name";
-            this.rol_Name.Size = new System.Drawing.Size(194, 20);
+            this.rol_Name.Size = new System.Drawing.Size(150, 20);
             this.rol_Name.TabIndex = 223237;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(40, 68);
+            this.label1.Location = new System.Drawing.Point(40, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 223272;
@@ -174,7 +190,7 @@
             this.group_Datos.Controls.Add(this.label1);
             this.group_Datos.Location = new System.Drawing.Point(31, 23);
             this.group_Datos.Name = "group_Datos";
-            this.group_Datos.Size = new System.Drawing.Size(385, 110);
+            this.group_Datos.Size = new System.Drawing.Size(332, 110);
             this.group_Datos.TabIndex = 223273;
             this.group_Datos.TabStop = false;
             this.group_Datos.Text = "Datos del nuevo Rol";
@@ -185,14 +201,14 @@
             this.combo_Estado.Items.AddRange(new object[] {
             "Activo",
             "No activo"});
-            this.combo_Estado.Location = new System.Drawing.Point(137, 65);
+            this.combo_Estado.Location = new System.Drawing.Point(137, 66);
             this.combo_Estado.Name = "combo_Estado";
-            this.combo_Estado.Size = new System.Drawing.Size(194, 21);
+            this.combo_Estado.Size = new System.Drawing.Size(150, 21);
             this.combo_Estado.TabIndex = 223273;
             // 
             // boton_Cancelar
             // 
-            this.boton_Cancelar.Location = new System.Drawing.Point(49, 357);
+            this.boton_Cancelar.Location = new System.Drawing.Point(46, 371);
             this.boton_Cancelar.Name = "boton_Cancelar";
             this.boton_Cancelar.Size = new System.Drawing.Size(101, 28);
             this.boton_Cancelar.TabIndex = 223274;
@@ -202,7 +218,7 @@
             // 
             // boton_Crear
             // 
-            this.boton_Crear.Location = new System.Drawing.Point(291, 357);
+            this.boton_Crear.Location = new System.Drawing.Point(226, 371);
             this.boton_Crear.Name = "boton_Crear";
             this.boton_Crear.Size = new System.Drawing.Size(101, 28);
             this.boton_Crear.TabIndex = 223275;
@@ -210,22 +226,31 @@
             this.boton_Crear.UseVisualStyleBackColor = true;
             this.boton_Crear.Click += new System.EventHandler(this.boton_Crear_Click);
             // 
-            // check_asociar_tarjeta
+            // check_Func_Estadisticas
             // 
-            this.check_asociar_tarjeta.AutoSize = true;
-            this.check_asociar_tarjeta.Location = new System.Drawing.Point(41, 157);
-            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
-            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
-            this.check_asociar_tarjeta.TabIndex = 223298;
-            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
-            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
-            this.check_asociar_tarjeta.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.check_Func_Estadisticas.AutoSize = true;
+            this.check_Func_Estadisticas.Location = new System.Drawing.Point(159, 63);
+            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
+            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
+            this.check_Func_Estadisticas.TabIndex = 223304;
+            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
+            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
+            // 
+            // check_Func_Saldo
+            // 
+            this.check_Func_Saldo.AutoSize = true;
+            this.check_Func_Saldo.Location = new System.Drawing.Point(159, 27);
+            this.check_Func_Saldo.Name = "check_Func_Saldo";
+            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
+            this.check_Func_Saldo.TabIndex = 223303;
+            this.check_Func_Saldo.Text = "Consultar Saldo";
+            this.check_Func_Saldo.UseVisualStyleBackColor = true;
             // 
             // EditRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 399);
+            this.ClientSize = new System.Drawing.Size(393, 411);
             this.Controls.Add(this.boton_Crear);
             this.Controls.Add(this.boton_Cancelar);
             this.Controls.Add(this.group_Datos);
@@ -259,5 +284,7 @@
         private System.Windows.Forms.CheckBox check_Transf;
         private System.Windows.Forms.CheckBox check_Extraer;
         private System.Windows.Forms.CheckBox check_asociar_tarjeta;
+        private System.Windows.Forms.CheckBox check_Func_Estadisticas;
+        private System.Windows.Forms.CheckBox check_Func_Saldo;
     }
 }

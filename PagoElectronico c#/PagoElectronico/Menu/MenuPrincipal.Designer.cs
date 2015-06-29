@@ -52,6 +52,7 @@
             this.boton_Consul = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.boton_facturar = new System.Windows.Forms.Button();
+            this.estadisticas = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -190,7 +191,7 @@
             this.boton_Editar_cuenta.Name = "boton_Editar_cuenta";
             this.boton_Editar_cuenta.Size = new System.Drawing.Size(171, 28);
             this.boton_Editar_cuenta.TabIndex = 7;
-            this.boton_Editar_cuenta.Text = "Eliminar/Editar Cuenta";
+            this.boton_Editar_cuenta.Text = "Dar Baja/Editar Cuenta";
             this.boton_Editar_cuenta.UseVisualStyleBackColor = true;
             this.boton_Editar_cuenta.Click += new System.EventHandler(this.boton_Editar_cuenta_Click);
             // 
@@ -242,7 +243,7 @@
             this.boton_Crear_Cliente.Name = "boton_Crear_Cliente";
             this.boton_Crear_Cliente.Size = new System.Drawing.Size(171, 28);
             this.boton_Crear_Cliente.TabIndex = 6;
-            this.boton_Crear_Cliente.Text = "Crear nuevo Cliente";
+            this.boton_Crear_Cliente.Text = "Alta Cliente";
             this.boton_Crear_Cliente.UseVisualStyleBackColor = true;
             this.boton_Crear_Cliente.Click += new System.EventHandler(this.boton_Crear_Cliente_Click);
             // 
@@ -317,11 +318,21 @@
             this.boton_facturar.UseVisualStyleBackColor = true;
             this.boton_facturar.Click += new System.EventHandler(this.boton_facturar_Click);
             // 
+            // estadisticas
+            // 
+            this.estadisticas.Location = new System.Drawing.Point(478, 159);
+            this.estadisticas.Name = "estadisticas";
+            this.estadisticas.Size = new System.Drawing.Size(143, 29);
+            this.estadisticas.TabIndex = 57;
+            this.estadisticas.Text = "Generar Estadisticas";
+            this.estadisticas.UseVisualStyleBackColor = true;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 429);
+            this.Controls.Add(this.estadisticas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.boton_Consul);
             this.Controls.Add(this.boton_Asoc_Tarj);
@@ -377,5 +388,6 @@
         private System.Windows.Forms.Button boton_Consul;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button boton_facturar;
+        private System.Windows.Forms.Button estadisticas;
     }
 }

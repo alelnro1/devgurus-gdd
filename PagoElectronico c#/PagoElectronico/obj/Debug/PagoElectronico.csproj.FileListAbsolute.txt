@@ -52,9 +52,6 @@ C:\Users\Ale\Desktop\pago_gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoE
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
-D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.AltaCliente.resources
-D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.AltaCuentas.resources
-D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.BusquedaCuentas.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
@@ -65,7 +62,6 @@ D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElect
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
-D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MDI.resources
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
@@ -147,3 +143,12 @@ C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoEl
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AsociarTarjeta.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.resources
 C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCliente.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaClientes.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCliente.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCuentas.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AsociarTarjeta.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.resources
+D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.resources

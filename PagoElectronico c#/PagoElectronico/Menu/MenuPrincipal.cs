@@ -59,17 +59,28 @@ namespace PagoElectronico
             filtros.Add("[ROL_DESC] = '" + nombre_rol + "'");
             SqlDataReader lector = rolDAO.buscarRoles(filtros);
             lector.Read();
-            if(lector["Func_ABM_Roles"].Equals("Inhabilitado"))
+            if (lector["Func_ABM_Roles"].Equals("Inhabilitado"))
             {
                 boton_Nuevo_Rol.Enabled = false;
                 boton_Editar_rol.Enabled = false;
                 groupABMroles.ForeColor = System.Drawing.Color.Gray;
+            }
+            else {
+                boton_Nuevo_Rol.Enabled = true;
+                boton_Editar_rol.Enabled = true;
+                groupABMroles.ForeColor = System.Drawing.Color.Black;
             }
             if (lector["Func_ABM_Cuentas"].Equals("Inhabilitado"))
             {
                 boton_Nueva_Cuenta.Enabled = false;
                 boton_Editar_cuenta.Enabled = false;
                 groupABMCuentas.ForeColor = System.Drawing.Color.Gray;
+            }
+            else
+            {
+                boton_Nueva_Cuenta.Enabled = true;
+                boton_Editar_cuenta.Enabled = true;
+                groupABMCuentas.ForeColor = System.Drawing.Color.Black;
             }
             if (lector["Func_ABM_Clientes"].Equals("Inhabilitado"))
             {
@@ -78,10 +89,45 @@ namespace PagoElectronico
                 boton_eliminar_cliente.Enabled = false;
                 groupBox1.ForeColor = System.Drawing.Color.Gray;
             }
+            else
+            {
+                boton_Crear_Cliente.Enabled = true;
+                boton_Editar_Cliente.Enabled = true;
+                boton_eliminar_cliente.Enabled = true;
+                groupBox1.ForeColor = System.Drawing.Color.Black;
+            }
             if (lector["Func_Transferir"].Equals("Inhabilitado"))
             {
                 boton_trans.Enabled = false;
             }
+            else { boton_trans.Enabled = true; }
+
+            if (lector["Func_Depositar"].Equals("Inhabilitado"))
+            {
+                boton_Depositar.Enabled = false;
+            }
+            else { boton_Depositar.Enabled = true; }
+            if (lector["Func_Extraer"].Equals("Inhabilitado"))
+            {
+                boton_Extraer.Enabled = false;
+            }
+            else { boton_Extraer.Enabled = true; }
+            if (lector["Func_Asociar_Tarjeta"].Equals("Inhabilitado"))
+            {
+                boton_Asoc_Tarj.Enabled = false;
+            }
+            else { boton_Asoc_Tarj.Enabled = true; }
+            if (lector["Func_Saldo"].Equals("Inhabilitado"))
+            {
+                boton_Consul.Enabled = false;
+            }
+            else { boton_Consul.Enabled = true; }
+
+            if (lector["Func_Estadisticas"].Equals("Inhabilitado"))
+            {
+                estadisticas.Enabled = false;
+            }
+            else { estadisticas.Enabled = true; }
             lector.Close();
         }
 
@@ -107,7 +153,7 @@ namespace PagoElectronico
         {
             Busqueda_Rol nuevaEditarRol = new Busqueda_Rol();
             nuevaEditarRol.ShowDialog();
-            
+            this.habilitarComandos(nombre_rol_Actual);
         }
         private string busca_cliente_dame_id()
         {
