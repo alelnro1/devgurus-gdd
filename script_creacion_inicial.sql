@@ -440,8 +440,7 @@ select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo, 
 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
 
-update DEVGURUS.Cuentas
-set Cuenta_Fec_Cierre = DATEADD(day, 15, Cuenta_Fec_Cre)
+
 
 Print 'La tabla CUENTAS se ha cargado con exito';
 
