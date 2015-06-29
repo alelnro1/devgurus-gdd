@@ -159,7 +159,7 @@ Print 'La tabla TIPO DE DOCUMENTOS se ha creado con exito';
 /* 	TABLA: Roles
 	DESCRIPCION: Creacion de Roles con su respectivas funciones como columnas
 */
-Create Table DEVGURUS.Roles		(Rol_Id tinyint identity (1,1) PRIMARY KEY NOT NULL,
+create Table DEVGURUS.Roles	(   Rol_Id tinyint identity (1,1) PRIMARY KEY NOT NULL,
 								Rol_Desc varchar(255) NOT NULL,
 								Rol_Estado varchar (20) NOT NULL,
 								Func_Extraer varchar (25) NOT NULL,
