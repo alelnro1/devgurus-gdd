@@ -36,6 +36,9 @@ namespace PagoElectronico
 
         private void boton_Buscar_Click(object sender, EventArgs e)
         {
+
+            if (cumple_validaciones())
+            {
             List<String> filtros = new List<String>();
             lista_clientes.Rows.Clear();
 
@@ -75,7 +78,27 @@ namespace PagoElectronico
 
             lector.Close();
             lista_clientes.Rows.AddRange(filas.ToArray());
+            }
         }
+
+
+         private bool cumple_validaciones()
+        {
+            bool valor_retornado = true;
+            string lllm = combo_nro_doc.Text;
+            if (combo_nro_doc.Text != "")
+            {
+                if (!clienteDAO.numeroEsInt(combo_nro_doc.Text))
+                {
+                    MessageBox.Show("El numero de identificacion debe ser numerico ", " Atención ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    valor_retornado = false;
+                }
+                              
+            }
+            return valor_retornado;
+            
+           
+         }
 
         private void boton_Reestablecer_Click(object sender, EventArgs e)
         {
