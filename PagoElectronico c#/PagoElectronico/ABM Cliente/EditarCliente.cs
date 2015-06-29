@@ -78,47 +78,76 @@ namespace PagoElectronico
 
         private void boton_Crear_Click(object sender, EventArgs e)
         {
-
-
-            if (textBox_nombre.Text == "" || textBox_apellido.Text == "" || combo_tipoDoc.Text == "" || textBox_nroDoc.Text == "" ||
-                textBox_localidad.Text == "" || textBox_calle.Text == "" || textBox_nroCalle.Text == "" || comboBox_piso.Text == "" ||
-                comboBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
-            {
-                MessageBox.Show("Complete todos los campos antes de continuar", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                if (MessageBox.Show("Estas seguro que desas editar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+           
+                if (hayCamposVacios())
                 {
-                    String cliente = cliente_Bean.getCliente_Id() + ",'" +
-                    textBox_nombre.Text + "','" +
-                    combo_estado.Text + "','" +
-                    textBox_apellido.Text + "','" +
-                    combo_tipoDoc.Text + "'," +
-                    textBox_nroDoc.Text + ",'" +
-                    combo_nacionalidad.Text + "','" +
-                    comboBox_pais.Text + "','" +
-                    textBox_localidad.Text + "','" +
-                    textBox_calle.Text + "'," +
-                    textBox_nroCalle.Text + "," +
-                    comboBox_piso.Text + ",'" +
-                    comboBox_depto.Text + "','" +
-                    dateTimePicker_nacimiento.Text + "','" +
-                    textBox_email.Text + "'";
-
-                    clienteDAO.editarCliente(cliente);
-                    MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° " + cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    MessageBox.Show("Complete todos los campos antes de continuar", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                else
+                {
+                    if (cumple_validaciones())
+                    {
+                        if (MessageBox.Show("Estas seguro que desas editar el Cliente?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            String cliente = cliente_Bean.getCliente_Id() + ",'" +
+                            textBox_nombre.Text + "','" +
+                            combo_estado.Text + "','" +
+                            textBox_apellido.Text + "','" +
+                            combo_tipoDoc.Text + "'," +
+                            textBox_nroDoc.Text + ",'" +
+                            combo_nacionalidad.Text + "','" +
+                            comboBox_pais.Text + "','" +
+                            textBox_localidad.Text + "','" +
+                            textBox_calle.Text + "'," +
+                            textBox_nroCalle.Text + "," +
+                            comboBox_piso.Text + ",'" +
+                            comboBox_depto.Text + "','" +
+                            dateTimePicker_nacimiento.Text + "','" +
+                            textBox_email.Text + "'";
 
-            }
-
-            
-
+                            clienteDAO.editarCliente(cliente);
+                            MessageBox.Show("Se realizó correctamente la edicion del cliente ID N° " + cliente_Bean.getCliente_Id(), "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                    }
+                }
 
 
         }
 
+          private bool hayCamposVacios() { 
+            bool valor_retornado =true;
+            
+            if(textBox_nombre.Text == "" || textBox_apellido.Text == "" || combo_tipoDoc.Text == "" || textBox_nroDoc.Text == "" ||
+                    textBox_localidad.Text == "" || textBox_calle.Text == "" || textBox_nroCalle.Text == "" || comboBox_piso.Text == "" ||
+                    comboBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
+            { valor_retornado = true;}
+
+            else{ valor_retornado =false;}
+
+            return valor_retornado;
+            
+            }
+        
+        
+
+         private bool cumple_validaciones()
+        {
+            bool valor_retornado = true;
+
+            if (textBox_nroDoc.Text != "")
+            {
+                if (!clienteDAO.numeroEsInt(textBox_nroDoc.Text) || !clienteDAO.numeroEsInt(textBox_nroCalle.Text))
+                {
+                    MessageBox.Show("El numero de identificacion  y nro de calle deben ser numericos ", " Atención ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    valor_retornado = false;
+                }
+                              
+            }
+            return valor_retornado;
+            
+           
+         }
 
         private void combo_tipoDoc_SelectedIndexChanged(object sender, EventArgs e)
         {

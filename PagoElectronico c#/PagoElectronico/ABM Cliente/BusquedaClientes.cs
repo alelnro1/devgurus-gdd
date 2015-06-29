@@ -85,7 +85,7 @@ namespace PagoElectronico
          private bool cumple_validaciones()
         {
             bool valor_retornado = true;
-            string lllm = combo_nro_doc.Text;
+           
             if (combo_nro_doc.Text != "")
             {
                 if (!clienteDAO.numeroEsInt(combo_nro_doc.Text))

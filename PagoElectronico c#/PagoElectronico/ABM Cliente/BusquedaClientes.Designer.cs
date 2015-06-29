@@ -41,9 +41,6 @@
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
-            this.boton_Limpiar = new System.Windows.Forms.Button();
-            this.boton_Buscar = new System.Windows.Forms.Button();
-            this.seleccionar_cliente = new System.Windows.Forms.Button();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +57,9 @@
             this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boton_Limpiar = new System.Windows.Forms.Button();
+            this.boton_Buscar = new System.Windows.Forms.Button();
+            this.seleccionar_cliente = new System.Windows.Forms.Button();
             this.comboEstado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
@@ -100,6 +100,7 @@
             this.combo_nro_doc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_nro_doc.FormattingEnabled = true;
             this.combo_nro_doc.Location = new System.Drawing.Point(609, 192);
+            this.combo_nro_doc.MaxLength = 9;
             this.combo_nro_doc.Name = "combo_nro_doc";
             this.combo_nro_doc.Size = new System.Drawing.Size(135, 21);
             this.combo_nro_doc.TabIndex = 3;
@@ -207,36 +208,6 @@
             this.lista_clientes.Size = new System.Drawing.Size(1342, 189);
             this.lista_clientes.TabIndex = 223284;
             // 
-            // boton_Limpiar
-            // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
-            this.boton_Limpiar.Name = "boton_Limpiar";
-            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Limpiar.TabIndex = 223283;
-            this.boton_Limpiar.Text = "Limpiar busqueda";
-            this.boton_Limpiar.UseVisualStyleBackColor = true;
-            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
-            // 
-            // boton_Buscar
-            // 
-            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
-            this.boton_Buscar.Name = "boton_Buscar";
-            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
-            this.boton_Buscar.TabIndex = 223282;
-            this.boton_Buscar.Text = "Buscar";
-            this.boton_Buscar.UseVisualStyleBackColor = true;
-            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
-            // 
-            // seleccionar_cliente
-            // 
-            this.seleccionar_cliente.Location = new System.Drawing.Point(866, 121);
-            this.seleccionar_cliente.Name = "seleccionar_cliente";
-            this.seleccionar_cliente.Size = new System.Drawing.Size(181, 67);
-            this.seleccionar_cliente.TabIndex = 223289;
-            this.seleccionar_cliente.Text = "Seleccionar Cliente y Continuar";
-            this.seleccionar_cliente.UseVisualStyleBackColor = true;
-            this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
-            // 
             // id_cliente
             // 
             this.id_cliente.HeaderText = "Cliente Id";
@@ -316,6 +287,36 @@
             // 
             this.estado.HeaderText = "Estado";
             this.estado.Name = "estado";
+            // 
+            // boton_Limpiar
+            // 
+            this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
+            this.boton_Limpiar.Name = "boton_Limpiar";
+            this.boton_Limpiar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Limpiar.TabIndex = 223283;
+            this.boton_Limpiar.Text = "Limpiar busqueda";
+            this.boton_Limpiar.UseVisualStyleBackColor = true;
+            this.boton_Limpiar.Click += new System.EventHandler(this.boton_Limpiar_Click);
+            // 
+            // boton_Buscar
+            // 
+            this.boton_Buscar.Location = new System.Drawing.Point(219, 25);
+            this.boton_Buscar.Name = "boton_Buscar";
+            this.boton_Buscar.Size = new System.Drawing.Size(147, 35);
+            this.boton_Buscar.TabIndex = 223282;
+            this.boton_Buscar.Text = "Buscar";
+            this.boton_Buscar.UseVisualStyleBackColor = true;
+            this.boton_Buscar.Click += new System.EventHandler(this.boton_Buscar_Click);
+            // 
+            // seleccionar_cliente
+            // 
+            this.seleccionar_cliente.Location = new System.Drawing.Point(866, 121);
+            this.seleccionar_cliente.Name = "seleccionar_cliente";
+            this.seleccionar_cliente.Size = new System.Drawing.Size(181, 67);
+            this.seleccionar_cliente.TabIndex = 223289;
+            this.seleccionar_cliente.Text = "Seleccionar Cliente y Continuar";
+            this.seleccionar_cliente.UseVisualStyleBackColor = true;
+            this.seleccionar_cliente.Click += new System.EventHandler(this.seleccionar_cliente_Click);
             // 
             // comboEstado
             // 

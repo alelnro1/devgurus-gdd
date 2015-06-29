@@ -89,11 +89,10 @@
             // 
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(126, 30);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(129, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // label10
@@ -172,6 +171,7 @@
             // textBox_nroCalle
             // 
             this.textBox_nroCalle.Location = new System.Drawing.Point(100, 140);
+            this.textBox_nroCalle.MaxLength = 10;
             this.textBox_nroCalle.Name = "textBox_nroCalle";
             this.textBox_nroCalle.Size = new System.Drawing.Size(121, 20);
             this.textBox_nroCalle.TabIndex = 223311;
@@ -306,6 +306,7 @@
             // localidad_textbox
             // 
             this.localidad_textbox.Location = new System.Drawing.Point(315, 113);
+            this.localidad_textbox.MaxLength = 32000;
             this.localidad_textbox.Name = "localidad_textbox";
             this.localidad_textbox.Size = new System.Drawing.Size(121, 20);
             this.localidad_textbox.TabIndex = 19;
@@ -392,6 +393,7 @@
             // num_doc_textbox
             // 
             this.num_doc_textbox.Location = new System.Drawing.Point(315, 47);
+            this.num_doc_textbox.MaxLength = 9;
             this.num_doc_textbox.Name = "num_doc_textbox";
             this.num_doc_textbox.Size = new System.Drawing.Size(121, 20);
             this.num_doc_textbox.TabIndex = 5;

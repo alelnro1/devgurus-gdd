@@ -166,6 +166,7 @@
             // textBox_nroDoc
             // 
             this.textBox_nroDoc.Location = new System.Drawing.Point(157, 195);
+            this.textBox_nroDoc.MaxLength = 9;
             this.textBox_nroDoc.Name = "textBox_nroDoc";
             this.textBox_nroDoc.Size = new System.Drawing.Size(156, 20);
             this.textBox_nroDoc.TabIndex = 33;
@@ -205,6 +206,7 @@
             // textBox_nroCalle
             // 
             this.textBox_nroCalle.Location = new System.Drawing.Point(161, 416);
+            this.textBox_nroCalle.MaxLength = 9;
             this.textBox_nroCalle.Name = "textBox_nroCalle";
             this.textBox_nroCalle.Size = new System.Drawing.Size(152, 20);
             this.textBox_nroCalle.TabIndex = 45;
