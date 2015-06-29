@@ -43,8 +43,6 @@
             this.textBox_nroDoc = new System.Windows.Forms.TextBox();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.textBox_localidad = new System.Windows.Forms.TextBox();
-            this.textBox_piso = new System.Windows.Forms.TextBox();
-            this.textBox_depto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_nroCalle = new System.Windows.Forms.TextBox();
@@ -59,6 +57,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker_nacimiento = new System.Windows.Forms.DateTimePicker();
             this.comboBox_pais = new System.Windows.Forms.ComboBox();
+            this.comboBox_depto = new System.Windows.Forms.ComboBox();
+            this.comboBox_piso = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label5
@@ -184,20 +184,6 @@
             this.textBox_localidad.Size = new System.Drawing.Size(152, 20);
             this.textBox_localidad.TabIndex = 35;
             // 
-            // textBox_piso
-            // 
-            this.textBox_piso.Location = new System.Drawing.Point(446, 356);
-            this.textBox_piso.Name = "textBox_piso";
-            this.textBox_piso.Size = new System.Drawing.Size(100, 20);
-            this.textBox_piso.TabIndex = 43;
-            // 
-            // textBox_depto
-            // 
-            this.textBox_depto.Location = new System.Drawing.Point(446, 409);
-            this.textBox_depto.Name = "textBox_depto";
-            this.textBox_depto.Size = new System.Drawing.Size(100, 20);
-            this.textBox_depto.TabIndex = 42;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -210,7 +196,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(382, 357);
+            this.label11.Location = new System.Drawing.Point(382, 359);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(27, 13);
             this.label11.TabIndex = 40;
@@ -334,11 +320,103 @@
             this.comboBox_pais.Size = new System.Drawing.Size(152, 21);
             this.comboBox_pais.TabIndex = 223309;
             // 
+            // comboBox_depto
+            // 
+            this.comboBox_depto.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_depto.FormattingEnabled = true;
+            this.comboBox_depto.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R"});
+            this.comboBox_depto.Location = new System.Drawing.Point(447, 409);
+            this.comboBox_depto.Name = "comboBox_depto";
+            this.comboBox_depto.Size = new System.Drawing.Size(61, 21);
+            this.comboBox_depto.TabIndex = 223311;
+            // 
+            // comboBox_piso
+            // 
+            this.comboBox_piso.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.comboBox_piso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_piso.FormattingEnabled = true;
+            this.comboBox_piso.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50"});
+            this.comboBox_piso.Location = new System.Drawing.Point(446, 356);
+            this.comboBox_piso.Name = "comboBox_piso";
+            this.comboBox_piso.Size = new System.Drawing.Size(56, 21);
+            this.comboBox_piso.TabIndex = 223310;
+            // 
             // EditarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 569);
+            this.Controls.Add(this.comboBox_depto);
+            this.Controls.Add(this.comboBox_piso);
             this.Controls.Add(this.comboBox_pais);
             this.Controls.Add(this.dateTimePicker_nacimiento);
             this.Controls.Add(this.label14);
@@ -351,8 +429,6 @@
             this.Controls.Add(this.combo_tipoDoc);
             this.Controls.Add(this.textBox_nroCalle);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox_piso);
-            this.Controls.Add(this.textBox_depto);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox_email);
@@ -395,8 +471,6 @@
         private System.Windows.Forms.TextBox textBox_nroDoc;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.TextBox textBox_localidad;
-        private System.Windows.Forms.TextBox textBox_piso;
-        private System.Windows.Forms.TextBox textBox_depto;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox_nroCalle;
@@ -411,6 +485,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DateTimePicker dateTimePicker_nacimiento;
         private System.Windows.Forms.ComboBox comboBox_pais;
+        private System.Windows.Forms.ComboBox comboBox_depto;
+        private System.Windows.Forms.ComboBox comboBox_piso;
 
     }
 }

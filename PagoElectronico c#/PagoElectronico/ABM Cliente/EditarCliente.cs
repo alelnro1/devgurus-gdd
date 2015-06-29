@@ -42,7 +42,7 @@ namespace PagoElectronico
             List<String> filtros = new List<String>();
             filtros.Add("Cliente_Id = " + cliente_Bean.getCliente_Id());
             SqlDataReader lector = clienteDAO.buscarClientes(filtros);
-            //Object[] columnas = new Object[15];
+            
             lector.Read();
             textBox_nombre.Text = lector["Cliente_Nombre"].ToString();
             textBox_apellido.Text = lector["Cliente_Apellido"].ToString();
@@ -52,17 +52,13 @@ namespace PagoElectronico
             textBox_localidad.Text = lector["Cliente_Localidad"].ToString();
             textBox_calle.Text = lector["Cliente_Dom_Calle"].ToString();
             textBox_nroCalle.Text = lector["Cliente_Dom_Nro"].ToString();
-            textBox_piso.Text = lector["Cliente_Dom_Piso"].ToString();
-            textBox_depto.Text = lector["Cliente_Dom_Depto"].ToString();
+            comboBox_piso.Text = lector["Cliente_Dom_Piso"].ToString();
+            comboBox_depto.Text = lector["Cliente_Dom_Depto"].ToString();
             combo_nacionalidad.Text = lector["Nacionalidad"].ToString();
             dateTimePicker_nacimiento.Text = lector["Cliente_Fecha_Nac"].ToString();
             textBox_email.Text = lector["Cliente_Mail"].ToString();
             combo_estado.Text = lector["Cliente_Estado"].ToString();
-            //textBox_fecha_nac.Text = monthCalendar_nacimiento.SelectionRange.Start;
-            // textBox_fecha_nac.co Convert.ToDateTime(mnthCalendar1.SelectionEnd.ToShortDateString());
-
-
-            // textBox_clienteUser = lector["Cliente_User"].ToString();
+           
             lector.Close();
 
         }
@@ -85,8 +81,8 @@ namespace PagoElectronico
 
 
             if (textBox_nombre.Text == "" || textBox_apellido.Text == "" || combo_tipoDoc.Text == "" || textBox_nroDoc.Text == "" ||
-                textBox_localidad.Text == "" || textBox_calle.Text == "" || textBox_nroCalle.Text == "" || textBox_piso.Text == "" ||
-                textBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
+                textBox_localidad.Text == "" || textBox_calle.Text == "" || textBox_nroCalle.Text == "" || comboBox_piso.Text == "" ||
+                comboBox_depto.Text == "" || dateTimePicker_nacimiento.Text == "" || textBox_email.Text == "" || combo_nacionalidad.Text == "")
             {
                 MessageBox.Show("Complete todos los campos antes de continuar", "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -105,8 +101,8 @@ namespace PagoElectronico
                     textBox_localidad.Text + "','" +
                     textBox_calle.Text + "'," +
                     textBox_nroCalle.Text + "," +
-                    textBox_piso.Text + ",'" +
-                    textBox_depto.Text + "','" +
+                    comboBox_piso.Text + ",'" +
+                    comboBox_depto.Text + "','" +
                     dateTimePicker_nacimiento.Text + "','" +
                     textBox_email.Text + "'";
 
