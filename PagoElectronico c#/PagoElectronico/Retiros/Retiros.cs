@@ -46,6 +46,7 @@ namespace PagoElectronico
                             {
                                 retiros_DAO.realizarRetiro(cuenta, importe);
                                 MessageBox.Show("El retiro se realizó y se registro el cheque", "Atención", MessageBoxButtons.OK);
+                                this.Close();
                             }
                             else
                             {

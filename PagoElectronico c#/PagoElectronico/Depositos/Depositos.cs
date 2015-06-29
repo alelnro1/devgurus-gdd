@@ -48,6 +48,7 @@ namespace PagoElectronico
                             {
                                 depositos_DAO.realizarDeposito(cuenta, tarjeta_digitos_visibles, importe, moneda);
                                 MessageBox.Show("El deposito fue realizado", "Atención", MessageBoxButtons.OK);
+                                this.Close();
                             }
                             else
                             {

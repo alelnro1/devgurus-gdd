@@ -58,6 +58,7 @@ namespace PagoElectronico
                                     }
 
                                     MessageBox.Show("La transferencia se realizó con exito", "Atención", MessageBoxButtons.OK);
+                                    this.Close();
                                 }
                                 else
                                 {

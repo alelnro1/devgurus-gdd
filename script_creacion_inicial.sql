@@ -389,7 +389,7 @@ Print 'La tabla TIPOS DE DOCUMENTOS se ha cargado con exito';
 
 /* ROLES */
 Insert into DEVGURUS.Roles (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas, Func_Asociar_Tarjeta)
-values	('Administrador', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado'),
+values	('Administrador', 'Activo', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado'),
 		('Cliente', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado'),
 		('Administrador General', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado')
 Print 'La tabla ROLES se ha cargado con exito';

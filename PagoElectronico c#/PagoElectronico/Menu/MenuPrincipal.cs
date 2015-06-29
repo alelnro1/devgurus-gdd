@@ -275,8 +275,6 @@ namespace PagoElectronico
                 Retiros retiro = new Retiros(this.id_Cliente_Actual);
                 retiro.ShowDialog();
             }
-
- 
         }
 
         private void boton_Asoc_Tarj_Click(object sender, EventArgs e)
