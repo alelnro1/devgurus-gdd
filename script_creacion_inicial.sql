@@ -169,7 +169,9 @@ Create Table DEVGURUS.Roles		(Rol_Id tinyint identity (1,1) PRIMARY KEY NOT NULL
 								Func_ABM_Clientes varchar (25) NOT NULL,
 								Func_ABM_Usuarios varchar (25) NOT NULL,
 								Func_ABM_Cuentas varchar (25) NOT NULL,
-								Func_Asociar_Tarjeta varchar (25) NOT NULL)
+								Func_Asociar_Tarjeta varchar (25) NOT NULL,
+								Func_Saldo varchar (25) NOT NULL,
+								Func_Estadisticas varchar (25) NOT NULL)
 Print 'La tabla ROLES se ha creado con exito';
 	
 /* 	TABLA: Usuarios
@@ -388,10 +390,10 @@ Insert into DEVGURUS.Tipo_De_Doc (Tipo_Doc_Id, Tipo_Doc_Desc) select distinct Cl
 Print 'La tabla TIPOS DE DOCUMENTOS se ha cargado con exito';
 
 /* ROLES */
-Insert into DEVGURUS.Roles (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas, Func_Asociar_Tarjeta)
-values	('Administrador', 'Activo', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado'),
-		('Cliente', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado'),
-		('Administrador General', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado')
+Insert into DEVGURUS.Roles (Rol_Desc, Rol_Estado, Func_Extraer, Func_Transferir, Func_Depositar, Func_ABM_Roles, Func_ABM_Clientes, Func_ABM_Usuarios, Func_ABM_Cuentas, Func_Asociar_Tarjeta,Func_Saldo,Func_Estadisticas)
+values	('Administrador', 'Activo', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado','Habilitado','Habilitado'),
+		('Cliente', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Inhabilitado', 'Habilitado','Habilitado','Deshabilitado'),
+		('Administrador General', 'Activo', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado', 'Habilitado','Habilitado','Habilitado')
 Print 'La tabla ROLES se ha cargado con exito';
 
 /* USUARIOS */
