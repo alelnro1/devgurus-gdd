@@ -30,7 +30,7 @@
         {
             this.Generar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.usuario_textbox = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_nacionalidad = new System.Windows.Forms.ComboBox();
@@ -76,7 +76,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.usuario_textbox);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(14, 270);
             this.groupBox2.Name = "groupBox2";
@@ -85,12 +85,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Usuario";
             // 
-            // usuario_textbox
+            // comboBox1
             // 
-            this.usuario_textbox.Location = new System.Drawing.Point(101, 30);
-            this.usuario_textbox.Name = "usuario_textbox";
-            this.usuario_textbox.Size = new System.Drawing.Size(100, 20);
-            this.usuario_textbox.TabIndex = 1;
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(126, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
             // 
             // label10
             // 
@@ -467,7 +471,6 @@
 
         private System.Windows.Forms.Button Generar;
         protected internal System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox usuario_textbox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label12;
@@ -497,6 +500,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox_nroCalle;
+        private System.Windows.Forms.ComboBox comboBox1;
 
 
     }

@@ -29,12 +29,12 @@ namespace PagoElectronico
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
-
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox1, "Usuarios_Name", "Usuarios_Name", ConstantesBD.t_usuarios);
         }
 
         private void Generar_Click_1(object sender, EventArgs e)
         {
-            String usuario = usuario_textbox.Text;
+            String usuario = comboBox1.Text;
 
             cliente.setCliente_Name(nombre_textbox.Text);
             cliente.setCliente_Apell(apellido_textbox.Text);
