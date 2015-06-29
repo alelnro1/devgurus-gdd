@@ -144,11 +144,23 @@ namespace PagoElectronico
             {
                 DataGridViewRow fila = dataGridView1.SelectedRows[0];
                 String id_Cuenta;
+
+                
+
                 id_Cuenta = (fila.Cells[0].Value.ToString());
-                if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+               if (cuenta_DAO.hayDeudasEnLaCuenta(id_Cuenta))
                 {
-                    cuenta_DAO.eliminarLaCuenta(id_Cuenta);
-                    this.boton_Buscar_Click(sender, e);
+                    MessageBox.Show("La cuenta tiene deudas y no puede ser dada de Baja", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+               
+                    if (MessageBox.Show("Estas seguro que desas eliminar la Cuenta?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        cuenta_DAO.eliminarLaCuenta(id_Cuenta);
+                        this.boton_Buscar_Click(sender, e);
+                    }
                 }
             }
             catch

@@ -116,6 +116,10 @@ namespace PagoElectronico
             check_ABM_User.Checked = false;
             check_ABM_Client.Checked = false;
             check_ABM_Cuentas.Checked = false;
+            check_asociar_tarjeta.Checked = false;
+            check_Func_Estadisticas.Checked = false;
+            check_Func_Saldo.Checked = false;
+
         }
 
         private void boton_Limpiar_Click(object sender, EventArgs e)

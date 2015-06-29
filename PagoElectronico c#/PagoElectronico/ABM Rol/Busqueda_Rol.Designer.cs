@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.group_Datos = new System.Windows.Forms.GroupBox();
+            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
+            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
             this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.check_ABM_Cuentas = new System.Windows.Forms.CheckBox();
             this.check_ABM_Client = new System.Windows.Forms.CheckBox();
@@ -61,8 +63,6 @@
             this.boton_Volver = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Eliminar = new System.Windows.Forms.Button();
-            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
-            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
@@ -85,13 +85,33 @@
             this.group_Datos.Controls.Add(this.rol_Name);
             this.group_Datos.Controls.Add(this.L_Nombre);
             this.group_Datos.Controls.Add(this.label1);
-            this.group_Datos.Location = new System.Drawing.Point(37, 21);
+            this.group_Datos.Location = new System.Drawing.Point(22, 13);
             this.group_Datos.Name = "group_Datos";
-            this.group_Datos.Size = new System.Drawing.Size(675, 251);
+            this.group_Datos.Size = new System.Drawing.Size(676, 252);
             this.group_Datos.TabIndex = 223274;
             this.group_Datos.TabStop = false;
             this.group_Datos.Text = "Filtros de busqueda";
             this.group_Datos.Enter += new System.EventHandler(this.group_Datos_Enter);
+            // 
+            // check_Func_Estadisticas
+            // 
+            this.check_Func_Estadisticas.AutoSize = true;
+            this.check_Func_Estadisticas.Location = new System.Drawing.Point(126, 199);
+            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
+            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
+            this.check_Func_Estadisticas.TabIndex = 223302;
+            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
+            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
+            // 
+            // check_Func_Saldo
+            // 
+            this.check_Func_Saldo.AutoSize = true;
+            this.check_Func_Saldo.Location = new System.Drawing.Point(278, 199);
+            this.check_Func_Saldo.Name = "check_Func_Saldo";
+            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
+            this.check_Func_Saldo.TabIndex = 223301;
+            this.check_Func_Saldo.Text = "Consultar Saldo";
+            this.check_Func_Saldo.UseVisualStyleBackColor = true;
             // 
             // check_asociar_tarjeta
             // 
@@ -236,9 +256,9 @@
             // 
             // boton_Buscar
             // 
-            this.boton_Buscar.Location = new System.Drawing.Point(82, 291);
+            this.boton_Buscar.Location = new System.Drawing.Point(726, 43);
             this.boton_Buscar.Name = "boton_Buscar";
-            this.boton_Buscar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Buscar.Size = new System.Drawing.Size(159, 37);
             this.boton_Buscar.TabIndex = 223275;
             this.boton_Buscar.Text = "Buscar";
             this.boton_Buscar.UseVisualStyleBackColor = true;
@@ -246,9 +266,9 @@
             // 
             // boton_Limpiar
             // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(527, 291);
+            this.boton_Limpiar.Location = new System.Drawing.Point(914, 123);
             this.boton_Limpiar.Name = "boton_Limpiar";
-            this.boton_Limpiar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Limpiar.Size = new System.Drawing.Size(139, 29);
             this.boton_Limpiar.TabIndex = 223276;
             this.boton_Limpiar.Text = "Limpiar busqueda";
             this.boton_Limpiar.UseVisualStyleBackColor = true;
@@ -258,6 +278,7 @@
             // 
             this.lista_Roles.AllowUserToAddRows = false;
             this.lista_Roles.AllowUserToDeleteRows = false;
+            this.lista_Roles.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lista_Roles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lista_Roles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_Rol,
@@ -271,9 +292,9 @@
             this.FuncionABMClientes,
             this.FuncionABMUsuarios,
             this.FuncionAsociarTarjeta});
-            this.lista_Roles.Location = new System.Drawing.Point(37, 337);
+            this.lista_Roles.Location = new System.Drawing.Point(30, 293);
             this.lista_Roles.Name = "lista_Roles";
-            this.lista_Roles.Size = new System.Drawing.Size(675, 134);
+            this.lista_Roles.Size = new System.Drawing.Size(1044, 198);
             this.lista_Roles.TabIndex = 223277;
             this.lista_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_Roles_CellContentClick);
             // 
@@ -342,9 +363,9 @@
             // 
             // boton_Editar
             // 
-            this.boton_Editar.Location = new System.Drawing.Point(527, 491);
+            this.boton_Editar.Location = new System.Drawing.Point(726, 114);
             this.boton_Editar.Name = "boton_Editar";
-            this.boton_Editar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Editar.Size = new System.Drawing.Size(159, 37);
             this.boton_Editar.TabIndex = 223279;
             this.boton_Editar.Text = "Editar";
             this.boton_Editar.UseVisualStyleBackColor = true;
@@ -352,9 +373,9 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(82, 491);
+            this.boton_Volver.Location = new System.Drawing.Point(914, 204);
             this.boton_Volver.Name = "boton_Volver";
-            this.boton_Volver.Size = new System.Drawing.Size(128, 23);
+            this.boton_Volver.Size = new System.Drawing.Size(139, 29);
             this.boton_Volver.TabIndex = 223278;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
@@ -362,49 +383,29 @@
             // 
             // boton_Reestablecer
             // 
-            this.boton_Reestablecer.Location = new System.Drawing.Point(313, 291);
+            this.boton_Reestablecer.Location = new System.Drawing.Point(914, 52);
             this.boton_Reestablecer.Name = "boton_Reestablecer";
-            this.boton_Reestablecer.Size = new System.Drawing.Size(128, 23);
+            this.boton_Reestablecer.Size = new System.Drawing.Size(139, 29);
             this.boton_Reestablecer.TabIndex = 223280;
-            this.boton_Reestablecer.Text = "Reestablecer";
+            this.boton_Reestablecer.Text = "Reestablecer Filtros";
             this.boton_Reestablecer.UseVisualStyleBackColor = true;
             this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
             // 
             // boton_Eliminar
             // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(313, 491);
+            this.boton_Eliminar.Location = new System.Drawing.Point(726, 196);
             this.boton_Eliminar.Name = "boton_Eliminar";
-            this.boton_Eliminar.Size = new System.Drawing.Size(128, 23);
+            this.boton_Eliminar.Size = new System.Drawing.Size(159, 37);
             this.boton_Eliminar.TabIndex = 223281;
             this.boton_Eliminar.Text = "Eliminar";
             this.boton_Eliminar.UseVisualStyleBackColor = true;
             this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
             // 
-            // check_Func_Saldo
-            // 
-            this.check_Func_Saldo.AutoSize = true;
-            this.check_Func_Saldo.Location = new System.Drawing.Point(278, 199);
-            this.check_Func_Saldo.Name = "check_Func_Saldo";
-            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
-            this.check_Func_Saldo.TabIndex = 223301;
-            this.check_Func_Saldo.Text = "Consultar Saldo";
-            this.check_Func_Saldo.UseVisualStyleBackColor = true;
-            // 
-            // check_Func_Estadisticas
-            // 
-            this.check_Func_Estadisticas.AutoSize = true;
-            this.check_Func_Estadisticas.Location = new System.Drawing.Point(126, 199);
-            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
-            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
-            this.check_Func_Estadisticas.TabIndex = 223302;
-            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
-            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
-            // 
             // Busqueda_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 545);
+            this.ClientSize = new System.Drawing.Size(1101, 511);
             this.Controls.Add(this.boton_Eliminar);
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Editar);

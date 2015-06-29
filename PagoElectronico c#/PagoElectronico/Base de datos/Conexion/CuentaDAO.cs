@@ -54,6 +54,41 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         }
 
+
+
+
+        public bool hayDeudasEnLaCuenta(String id_cuenta)
+        {
+            string cuenta_encontrada = "";
+            bool valor_retornado = true;
+        
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [Transaccion_Pendiente_Cuenta_Nro] from " + ConstantesBD.t_transaccion_pendiente + " where Transaccion_Pendiente_Cuenta_Nro = " + id_cuenta );
+
+            try
+            {
+                lector.Read();
+                cuenta_encontrada = lector["Transaccion_Pendiente_Cuenta_Nro"].ToString(); //busco en las tablas y si encontro una coincidencia en la tabla de deudas pendientes (o sea que exista la cuenta en esa tabla), es porque tiene deudas la cuenta.
+               
+            }
+
+            catch {
+                valor_retornado = false;
+            }
+           /* if (cuenta_encontrada == id_cuenta)
+            {
+                valor_retornado = true;
+            }
+
+            else {
+
+                valor_retornado = false;
+            }*/
+
+            lector.Close();
+            return valor_retornado;
+
+        }
+
       
         public String dameElDatoDeLaCuentaSQL(SqlDataReader cuentaSQL, String parametro)
         {
@@ -116,10 +151,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public void eliminarLaCuenta(String id_Cuenta)
         {
-            if (id_Cuenta == "1")
-            { MessageBox.Show("No se puede eliminar este Rol - Administrador", "Atención!", MessageBoxButtons.OK); }
-            else
-            {
                 try
                 {
                     List<SqlParameter> parametros = new List<SqlParameter>();
@@ -136,7 +167,9 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                 }
             }
         }
-    }
+    
+
+
 }
 
 
