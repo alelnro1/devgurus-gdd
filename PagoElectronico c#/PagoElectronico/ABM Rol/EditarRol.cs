@@ -34,7 +34,7 @@ namespace PagoElectronico
         {
             SqlDataReader lector = rolDAO.dameElRol(id_rol);
             lector.Read();
-            rol_Name.Text = lector["ROL_DESC"].ToString();
+            comboBox1.Text = lector["ROL_DESC"].ToString();
             combo_Estado.Text = lector["ROL_ESTADO"].ToString();
             rol_Bean.setRol_Id(id_rol);
             if (lector["Func_Extraer"].Equals("Habilitado")) { check_Extraer.Checked = true; };
@@ -56,7 +56,7 @@ namespace PagoElectronico
 
         private void boton_Crear_Click(object sender, EventArgs e)
         {
-            rol_Bean.setRol_Desc(rol_Name.Text);
+            rol_Bean.setRol_Desc(comboBox1.Text);
             rol_Bean.setRol_Estado(combo_Estado.Text);
             if (check_Extraer.Checked == true) rol_Bean.setRol_Func_Extraer("Habilitado");
             else { rol_Bean.setRol_Func_Extraer("Inhabilitado"); }

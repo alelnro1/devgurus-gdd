@@ -25,10 +25,17 @@ namespace PagoElectronico
             cuenta = new Cuenta_Bean();
             cuenta_DAO = new CuentaDAO();
             InitializeComponent();
+            setearInformacion();
+             cuenta.set_Cliente(cliente_Id);
+
+        }
+
+        private void setearInformacion()
+        {
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais_Asignado, "Pais_Nombre", "Pais_Nombre", "DEVGURUS.Paises");
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_cuenta, "Tipo_De_Cuentas_Nombre", "Tipo_De_Cuentas_Nombre", ConstantesBD.t_tipos_cuentas);
             cuenta_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_tipo_moneda, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
-            cuenta.set_Cliente(cliente_Id);
+          
 
         }
 

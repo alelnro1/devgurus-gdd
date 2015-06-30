@@ -35,7 +35,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE " + ConstantesBD.proc_logearse + " @rol = '" + nombre_Rol + "', @usuario = '" + usuario.getUser_Name() + "', @password = '" + usuario.getUser_Pass() + "';");
             lector.Read();
             if (lector["MENSAJE"].Equals("No aprobado"))
-            {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no ha sido aprobado por el administrado.", "Atención!", MessageBoxButtons.OK);
+            {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no ha sido aprobado por el administrador.", "Atención!", MessageBoxButtons.OK);
                 lector.Close();
                 return false;}
             if (lector["MENSAJE"].Equals("No existe"))

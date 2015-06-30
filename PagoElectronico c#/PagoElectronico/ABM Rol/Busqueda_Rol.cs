@@ -24,6 +24,7 @@ namespace PagoElectronico
         {
             InitializeComponent();
             rolDAO = new RolDAO();
+            rolDAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(rol_Name, "ROL_DESC", "ROL_DESC", ConstantesBD.t_roles); 
             
         }
 
@@ -106,7 +107,7 @@ namespace PagoElectronico
 
         private void boton_Reestablecer_Click(object sender, EventArgs e)
         {
-            rol_Name.Clear();
+            rol_Name.SelectedIndex = -1; 
             check_Activo.Checked = false;
             check_No_Activo.Checked = false;
             check_Extraer.Checked = false;

@@ -26,7 +26,7 @@ namespace PagoElectronico
             transferencias_DAO = new TransferenciasDAO();
             cliente.setCliente_Id(cliente_id);
             InitializeComponent();
-            transferencias_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_origen_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            transferencias_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_origen_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id() + "and Cuenta_Estado = 'Habilitado' ");
         }
 
     
@@ -98,6 +98,11 @@ namespace PagoElectronico
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cuenta_origen_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

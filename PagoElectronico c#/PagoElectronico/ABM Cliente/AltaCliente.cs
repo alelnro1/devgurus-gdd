@@ -34,14 +34,15 @@ namespace PagoElectronico
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(combo_pais, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_nacionalidad, "Pais_Nombre", "Pais_Nombre", ConstantesBD.t_paises);
             cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox_tipoDoc, "Tipo_Doc_Desc", "Tipo_Doc_Desc", ConstantesBD.t_tipo_doc);
-            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox1, "Usuarios_Name", "Usuarios_Name", ConstantesBD.t_usuarios);
+            cliente_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(comboBox1, "Usuarios_Name", "Usuarios_Name", ConstantesBD.t_usuarios + " where Usuarios_Estado = 'Pendiente' " );
         
         }
 
         private void Generar_Click_1(object sender, EventArgs e)
         {
             String usuario = comboBox1.Text;
-
+            
+            
             cliente.setCliente_Name(nombre_textbox.Text);
             cliente.setCliente_Apell(apellido_textbox.Text);
             cliente.setCliente_TipoDoc(comboBox_tipoDoc.Text);
@@ -51,7 +52,7 @@ namespace PagoElectronico
             cliente.setCliente_FecNac(dateTimePicker_nacimiento.Text);
             cliente.setCliente_Nro(textBox_nroCalle.Text);
             cliente.setCliente_Calle(calle_textbox.Text);
-
+            cliente.setCliente_IdUser(comboBox1.Text);
             cliente.setCliente_Piso(comboBox_piso.Text);
             cliente.setCliente_Dpto(comboBox_depto.Text);
             cliente.setCliente_Nacionalidad(comboBox_nacionalidad.Text);
@@ -72,10 +73,10 @@ namespace PagoElectronico
                                 MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
-                            else
+                            /*else
                             {
                                 MessageBox.Show("Ya existe un cliente con ese usuario", "Atención", MessageBoxButtons.OK);
-                            }
+                            }*/
                         }
                         else
                         {
@@ -122,6 +123,11 @@ namespace PagoElectronico
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

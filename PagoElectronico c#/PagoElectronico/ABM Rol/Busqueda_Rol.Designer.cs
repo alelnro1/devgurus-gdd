@@ -42,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.check_No_Activo = new System.Windows.Forms.CheckBox();
             this.check_Activo = new System.Windows.Forms.CheckBox();
-            this.rol_Name = new System.Windows.Forms.TextBox();
             this.L_Nombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.boton_Buscar = new System.Windows.Forms.Button();
@@ -63,12 +62,14 @@
             this.boton_Volver = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Eliminar = new System.Windows.Forms.Button();
+            this.rol_Name = new System.Windows.Forms.ComboBox();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
             // 
             // group_Datos
             // 
+            this.group_Datos.Controls.Add(this.rol_Name);
             this.group_Datos.Controls.Add(this.check_Func_Estadisticas);
             this.group_Datos.Controls.Add(this.check_Func_Saldo);
             this.group_Datos.Controls.Add(this.check_asociar_tarjeta);
@@ -82,7 +83,6 @@
             this.group_Datos.Controls.Add(this.label2);
             this.group_Datos.Controls.Add(this.check_No_Activo);
             this.group_Datos.Controls.Add(this.check_Activo);
-            this.group_Datos.Controls.Add(this.rol_Name);
             this.group_Datos.Controls.Add(this.L_Nombre);
             this.group_Datos.Controls.Add(this.label1);
             this.group_Datos.Location = new System.Drawing.Point(22, 13);
@@ -223,15 +223,6 @@
             this.check_Activo.TabIndex = 223273;
             this.check_Activo.Text = "Activo";
             this.check_Activo.UseVisualStyleBackColor = true;
-            // 
-            // rol_Name
-            // 
-            this.rol_Name.ForeColor = System.Drawing.Color.Black;
-            this.rol_Name.Location = new System.Drawing.Point(111, 30);
-            this.rol_Name.MaxLength = 255;
-            this.rol_Name.Name = "rol_Name";
-            this.rol_Name.Size = new System.Drawing.Size(147, 20);
-            this.rol_Name.TabIndex = 223237;
             // 
             // L_Nombre
             // 
@@ -401,6 +392,16 @@
             this.boton_Eliminar.UseVisualStyleBackColor = true;
             this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
             // 
+            // rol_Name
+            // 
+            this.rol_Name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.rol_Name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.rol_Name.FormattingEnabled = true;
+            this.rol_Name.Location = new System.Drawing.Point(111, 30);
+            this.rol_Name.Name = "rol_Name";
+            this.rol_Name.Size = new System.Drawing.Size(194, 21);
+            this.rol_Name.TabIndex = 223303;
+            // 
             // Busqueda_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,7 +427,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox group_Datos;
-        private System.Windows.Forms.TextBox rol_Name;
         private System.Windows.Forms.Label L_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox check_No_Activo;
@@ -460,5 +460,6 @@
         private System.Windows.Forms.CheckBox check_asociar_tarjeta;
         private System.Windows.Forms.CheckBox check_Func_Estadisticas;
         private System.Windows.Forms.CheckBox check_Func_Saldo;
+        private System.Windows.Forms.ComboBox rol_Name;
     }
 }

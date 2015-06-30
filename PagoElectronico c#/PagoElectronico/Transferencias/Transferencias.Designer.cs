@@ -71,6 +71,7 @@
             this.cuenta_origen_combobox.Name = "cuenta_origen_combobox";
             this.cuenta_origen_combobox.Size = new System.Drawing.Size(121, 21);
             this.cuenta_origen_combobox.TabIndex = 4;
+            this.cuenta_origen_combobox.SelectedIndexChanged += new System.EventHandler(this.cuenta_origen_combobox_SelectedIndexChanged);
             // 
             // Importe
             // 

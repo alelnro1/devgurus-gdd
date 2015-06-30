@@ -32,10 +32,10 @@
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.group_Datos = new System.Windows.Forms.GroupBox();
             this.combo_Estado = new System.Windows.Forms.ComboBox();
-            this.rol_Name = new System.Windows.Forms.TextBox();
             this.L_Nombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.group_Func = new System.Windows.Forms.GroupBox();
+            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.check_ABM_Cuentas = new System.Windows.Forms.CheckBox();
             this.check_ABM_Client = new System.Windows.Forms.CheckBox();
             this.check_ABM_User = new System.Windows.Forms.CheckBox();
@@ -43,7 +43,7 @@
             this.check_Depos = new System.Windows.Forms.CheckBox();
             this.check_Transf = new System.Windows.Forms.CheckBox();
             this.check_Extraer = new System.Windows.Forms.CheckBox();
-            this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.group_Datos.SuspendLayout();
             this.group_Func.SuspendLayout();
             this.SuspendLayout();
@@ -70,8 +70,8 @@
             // 
             // group_Datos
             // 
+            this.group_Datos.Controls.Add(this.comboBox1);
             this.group_Datos.Controls.Add(this.combo_Estado);
-            this.group_Datos.Controls.Add(this.rol_Name);
             this.group_Datos.Controls.Add(this.L_Nombre);
             this.group_Datos.Controls.Add(this.label1);
             this.group_Datos.Location = new System.Drawing.Point(37, 13);
@@ -91,15 +91,6 @@
             this.combo_Estado.Name = "combo_Estado";
             this.combo_Estado.Size = new System.Drawing.Size(194, 21);
             this.combo_Estado.TabIndex = 223273;
-            // 
-            // rol_Name
-            // 
-            this.rol_Name.ForeColor = System.Drawing.Color.Black;
-            this.rol_Name.Location = new System.Drawing.Point(137, 30);
-            this.rol_Name.MaxLength = 255;
-            this.rol_Name.Name = "rol_Name";
-            this.rol_Name.Size = new System.Drawing.Size(194, 20);
-            this.rol_Name.TabIndex = 223237;
             // 
             // L_Nombre
             // 
@@ -139,6 +130,16 @@
             this.group_Func.TabIndex = 223276;
             this.group_Func.TabStop = false;
             this.group_Func.Text = "Funciones del Rol";
+            // 
+            // check_asociar_tarjeta
+            // 
+            this.check_asociar_tarjeta.AutoSize = true;
+            this.check_asociar_tarjeta.Location = new System.Drawing.Point(41, 157);
+            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
+            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
+            this.check_asociar_tarjeta.TabIndex = 223299;
+            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
+            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
             // 
             // check_ABM_Cuentas
             // 
@@ -210,15 +211,16 @@
             this.check_Extraer.Text = "Extraer";
             this.check_Extraer.UseVisualStyleBackColor = true;
             // 
-            // check_asociar_tarjeta
+            // comboBox1
             // 
-            this.check_asociar_tarjeta.AutoSize = true;
-            this.check_asociar_tarjeta.Location = new System.Drawing.Point(41, 157);
-            this.check_asociar_tarjeta.Name = "check_asociar_tarjeta";
-            this.check_asociar_tarjeta.Size = new System.Drawing.Size(97, 17);
-            this.check_asociar_tarjeta.TabIndex = 223299;
-            this.check_asociar_tarjeta.Text = "Asociar Tarjeta";
-            this.check_asociar_tarjeta.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Activo",
+            "No activo"});
+            this.comboBox1.Location = new System.Drawing.Point(95, 45);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(194, 21);
+            this.comboBox1.TabIndex = 223274;
             // 
             // EditarRol
             // 
@@ -245,7 +247,6 @@
         private System.Windows.Forms.Button boton_Cancelar;
         private System.Windows.Forms.GroupBox group_Datos;
         private System.Windows.Forms.ComboBox combo_Estado;
-        private System.Windows.Forms.TextBox rol_Name;
         private System.Windows.Forms.Label L_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox group_Func;
@@ -257,5 +258,6 @@
         private System.Windows.Forms.CheckBox check_Transf;
         private System.Windows.Forms.CheckBox check_Extraer;
         private System.Windows.Forms.CheckBox check_asociar_tarjeta;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

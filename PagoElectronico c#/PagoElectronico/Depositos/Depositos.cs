@@ -25,7 +25,7 @@ namespace PagoElectronico
             depositos_DAO = new DepositosDAO();
             cliente.setCliente_Id(id_cliente);
             InitializeComponent();
-            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id());
+            depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id() + "and Cuenta_Estado = 'Habilitado' ");
             depositos_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(moneda_combobox, "Tipo_De_Moneda_Nombre", "Tipo_De_Moneda_Nombre", ConstantesBD.t_tipo_de_moneda);
         }
 
