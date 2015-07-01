@@ -68,6 +68,7 @@
             // 
             // cuenta_origen_combobox
             // 
+            this.cuenta_origen_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cuenta_origen_combobox.FormattingEnabled = true;
             this.cuenta_origen_combobox.Location = new System.Drawing.Point(95, 13);
             this.cuenta_origen_combobox.MaxLength = 100;
