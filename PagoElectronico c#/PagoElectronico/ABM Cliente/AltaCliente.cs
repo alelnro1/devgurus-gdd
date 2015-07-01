@@ -73,10 +73,10 @@ namespace PagoElectronico
                                 MessageBox.Show("El cliente ha sido dado de alta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
-                            /*else
+                            else
                             {
                                 MessageBox.Show("Ya existe un cliente con ese usuario", "Atención", MessageBoxButtons.OK);
-                            }*/
+                            }
                         }
                         else
                         {
