@@ -32,7 +32,6 @@
             this.boton_Desasociar = new System.Windows.Forms.Button();
             this.buttom_Asociar = new System.Windows.Forms.Button();
             this.lista_Tarjetas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +42,9 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(880, 28);
+            this.boton_Volver.Location = new System.Drawing.Point(880, 12);
             this.boton_Volver.Name = "boton_Volver";
-            this.boton_Volver.Size = new System.Drawing.Size(147, 35);
+            this.boton_Volver.Size = new System.Drawing.Size(145, 28);
             this.boton_Volver.TabIndex = 223289;
             this.boton_Volver.Text = "Volver";
             this.boton_Volver.UseVisualStyleBackColor = true;
@@ -77,21 +76,15 @@
             this.lista_Tarjetas.AllowUserToDeleteRows = false;
             this.lista_Tarjetas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lista_Tarjetas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.estado});
-            this.lista_Tarjetas.Location = new System.Drawing.Point(23, 28);
+            this.lista_Tarjetas.Location = new System.Drawing.Point(47, 25);
             this.lista_Tarjetas.Name = "lista_Tarjetas";
-            this.lista_Tarjetas.Size = new System.Drawing.Size(618, 213);
+            this.lista_Tarjetas.Size = new System.Drawing.Size(550, 216);
             this.lista_Tarjetas.TabIndex = 223293;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "TarjetaID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -141,7 +134,6 @@
         private System.Windows.Forms.Button boton_Desasociar;
         private System.Windows.Forms.Button buttom_Asociar;
         private System.Windows.Forms.DataGridView lista_Tarjetas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;

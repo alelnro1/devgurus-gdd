@@ -55,7 +55,7 @@ namespace PagoElectronico
                 dataGridViewDepositos.Rows.AddRange(filas_depositos.ToArray()); //mando como parametro a las filas de la vista, a las filas cargadas convertidas a un array
 
                 /* RETIROS */
-
+                dataGridViewRetiros.Rows.Clear();
                 SqlDataReader lector_retiros = consultar_saldo_DAO.obtenerUltimosCincoRetiros(cuenta);
                 List<DataGridViewRow> filas_retiros = new List<DataGridViewRow>();
                 Object[] columnas_retiros = new Object[2];
@@ -73,7 +73,7 @@ namespace PagoElectronico
                 dataGridViewRetiros.Rows.AddRange(filas_retiros.ToArray()); //mando como parametro a las filas de la vista, a las filas cargadas convertidas a un array
 
                 /* TRANSFERENCIAS */
-
+                dataGridViewTransferencias.Rows.Clear();
                 SqlDataReader lector_transferencias = consultar_saldo_DAO.obtenerUltimasDiezTransferencias(cuenta);
                 List<DataGridViewRow> filas_transferencias = new List<DataGridViewRow>();
                 Object[] columnas_transferencias = new Object[4];

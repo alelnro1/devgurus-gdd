@@ -36,15 +36,15 @@ namespace PagoElectronico
 
                 SqlDataReader lector = tarjetaDAO.buscarTarjetas(cliente_id_para_tarjetas.getCliente_Id());
                 List<DataGridViewRow> filas = new List<DataGridViewRow>();
-                Object[] columnas = new Object[6];
+                Object[] columnas = new Object[5];
                 while (lector.Read()) {
 
-                    columnas[0] = lector["Tarjeta_Id"];
-                    columnas[1] = lector["Tarjeta_Digitos_Visibles"];
-                    columnas[2] = lector["Tarjeta_Emisor_Desc"];
-                    columnas[3] = lector["Tarjeta_Fecha_Emision"]; 
-                    columnas[4] = lector["Tarjeta_Fecha_Vencimiento"];
-                    columnas[5] = lector["Tarjeta_Asociada"];
+                    
+                    columnas[0] = lector["Tarjeta_Digitos_Visibles"];
+                    columnas[1] = lector["Tarjeta_Emisor_Desc"];
+                    columnas[2] = lector["Tarjeta_Fecha_Emision"]; 
+                    columnas[3] = lector["Tarjeta_Fecha_Vencimiento"];
+                    columnas[4] = lector["Tarjeta_Asociada"];
 
                     filas.Add(new DataGridViewRow());
                     filas[filas.Count - 1].CreateCells(lista_Tarjetas, columnas);
@@ -66,15 +66,15 @@ namespace PagoElectronico
 
         private void cambiar_asociamiento_tarjeta(object sender, EventArgs e,string valor_asociacion)
         {
-             try { DataGridViewRow fila = lista_Tarjetas.SelectedRows[0]; 
-            
+             try { DataGridViewRow fila = lista_Tarjetas.SelectedRows[0];
 
-                String id_tarjeta;
-                id_tarjeta = (fila.Cells[0].Value.ToString());
-                string estado = (fila.Cells[5].Value.ToString());
-                tarjetaDAO.update_asociada_tarjeta(id_tarjeta,valor_asociacion);
+
+             String tarjeta_nro;
+                tarjeta_nro = (fila.Cells[0].Value.ToString());
+
+                tarjetaDAO.update_asociada_tarjeta(tarjeta_nro, valor_asociacion);
                 this.ejecutarBusquedaTarjetas();
-                MessageBox.Show("Se asocio correctamente la tarjeta N° "+ id_tarjeta + " al Cliente id N° "+ cliente_id_para_tarjetas.getCliente_Id()  , "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                MessageBox.Show("Ahora su tarjeta N° " + tarjeta_nro + " está " + valor_asociacion + " para realizar Depositos" , "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information); 
              }
             
             

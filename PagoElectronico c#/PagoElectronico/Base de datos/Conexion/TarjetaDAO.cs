@@ -32,7 +32,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public void update_asociada_tarjeta(string id_tarjeta, string estado)
         {
             string sql;
-            sql = "UPDATE " + ConstantesBD.t_tarjetas + " SET Tarjeta_Asociada = '" + estado + "' WHERE Tarjeta_Id = " + id_tarjeta;
+            sql = "UPDATE " + ConstantesBD.t_tarjetas + " SET Tarjeta_Asociada = '" + estado + "' WHERE Tarjeta_Digitos_Visibles = " + id_tarjeta;
 
 
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);

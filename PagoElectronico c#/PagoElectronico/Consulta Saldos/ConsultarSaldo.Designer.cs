@@ -172,7 +172,7 @@
             this.CostoTransferencia});
             this.dataGridViewTransferencias.Location = new System.Drawing.Point(15, 248);
             this.dataGridViewTransferencias.Name = "dataGridViewTransferencias";
-            this.dataGridViewTransferencias.Size = new System.Drawing.Size(614, 145);
+            this.dataGridViewTransferencias.Size = new System.Drawing.Size(614, 231);
             this.dataGridViewTransferencias.TabIndex = 8;
             // 
             // FechaTransferencia
