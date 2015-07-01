@@ -890,9 +890,7 @@ AS
 		 Cliente_Nombre, Cliente_Nro_Doc, Cliente_Pais, Cliente_Dom_Piso, Cliente_Tipo_Doc, Cliente_User, Cliente_Localidad,Cliente_Fecha_Nac,Cliente_Dom_Nro,Cliente_Nacionalidad)
 	VALUES
 		(@apellido, @calle, @depto, @mail, @nombre, @nro_doc, @pais_id, @piso, @tipo_documento_id, @cliente_user, @cliente_localidad,@fecha_nacimiento_a_insertar,@nro_calle,@cliente_pais_id_nacionalidad)
-	INSERT INTO Rol_X_Usuario
-		(Rol_X_Usuario_Usuario,Rol_X_Usuario_Rol)
-		VALUES (@cliente_user,2)
+	
 		
 		GO
 
@@ -1104,7 +1102,7 @@ AS
 	
 	IF (@contador = 5)
 	BEGIN
-	update Cuenta_Estado SET Cuenta_Estado = 'Inhabilitado' where Cuenta_Nro = @cuenta
+	update DEVGURUS.Cuentas SET Cuenta_Estado = 'Inhabilitado' where Cuenta_Nro = @cuenta
 	END
 GO	
 	Print 'El gatillo VALIDAR CUENTA INHABILITADA se ha creado correctamente';
