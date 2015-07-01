@@ -1,7 +1,7 @@
 CREATE PROCEDURE actualizar_cliente
 	@id_cliente int,@nombre varchar(255),@estado varchar(255),@apellido varchar(255),
 	 @tipo_doc varchar(255), @nro_doc int,@nacionalidad varchar(255),@pais varchar(255), @localidad varchar(255),
-	@Dom_Calle varchar(255), @Dom_Nro numeric(18,0),@Dom_Piso numeric(18,0), @Dom_Depto varchar(10),@fecha_nacimiento_recibida varchar(255), @Mail varchar(255)
+	@Dom_Calle varchar(255), @Dom_Nro numeric(18,0),@Dom_Piso numeric(18,0), @Dom_Depto varchar(255),@fecha_nacimiento_recibida varchar(255), @Mail varchar(255)
 
 AS
 	declare @tipo_documento_id int
