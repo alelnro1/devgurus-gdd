@@ -243,7 +243,8 @@ Print 'La tabla TARJETAS se ha creado con exito';
 	DESCRIPCION: Tipo de monedas presentes en la tabla maestra
 */						
 Create Table DEVGURUS.Tipo_De_Moneda(	Tipo_De_Moneda_Id tinyint identity (1,1) PRIMARY KEY,
-										Tipo_De_Moneda_Nombre varchar(255))
+										Tipo_De_Moneda_Nombre varchar(255),
+										Tipo_De_Moneda_Equivalente_en_dolar float)
 Print 'La tabla TIPO DE MONEDA se ha creado con exito';
 
 /* 	TABLA: Cuentas
@@ -382,7 +383,7 @@ where Pais_Nombre like ' %'
 Print 'La tabla PAISES se ha cargado con exito';
 
 /*TIPOS DE MONEDA*/
-Insert into DEVGURUS.Tipo_De_Moneda(Tipo_De_Moneda_Nombre) values ('Dolar');
+Insert into DEVGURUS.Tipo_De_Moneda(Tipo_De_Moneda_Nombre,Tipo_De_Moneda_Equivalente_en_dolar) values ('Dolar',1);
 Print 'La tabla TIPO DE MONEDAS se ha cargado con exito';
 
 /* TIPOS DE DOCUMENTO */
