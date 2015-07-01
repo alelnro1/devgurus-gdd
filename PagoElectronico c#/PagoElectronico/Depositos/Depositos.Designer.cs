@@ -61,6 +61,7 @@
             // 
             // cuenta_combobox
             // 
+            this.cuenta_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cuenta_combobox.FormattingEnabled = true;
             this.cuenta_combobox.Location = new System.Drawing.Point(65, 13);
             this.cuenta_combobox.Name = "cuenta_combobox";
