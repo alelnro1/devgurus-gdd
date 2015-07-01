@@ -933,6 +933,23 @@ GO
 	Print 'El procedimiento INSERTAR NUEVO USUARIO se ha creado correctamente';
 
 
+/* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA USUARIOS*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertar_Nuevo_rol_a_usuario')
+	DROP PROCEDURE DEVGURUS.insertar_Nuevo_rol_a_usuario;
+	Print 'El procedimiento INSERTAR_NUEVO_ROL_A_USUARIO ya existe, SE BORRARA';
+GO
+
+CREATE PROCEDURE DEVGURUS.insertar_Nuevo_rol_a_usuario(@user int,@rol_desc varchar(255))
+
+AS
+declare @id_rol int
+select @id_rol = Rol_Id from DEVGURUS.Roles where Rol_Desc = @rol_desc
+INSERT INTO DEVGURUS.Rol_X_Usuario(Rol_X_Usuario_Usuario,Rol_X_Usuario_Rol)
+VALUES (@user,@id_rol)
+GO
+GO	
+	Print 'El procedimiento INSERTAR_NUEVO_ROL_A_USUARIO se ha creado correctamente';
+
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA TRANSFERENCIAS*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertTransferenciasPendientes')

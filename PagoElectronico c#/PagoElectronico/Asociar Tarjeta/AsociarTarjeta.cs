@@ -72,25 +72,26 @@ namespace PagoElectronico
                 String id_tarjeta;
                 id_tarjeta = (fila.Cells[0].Value.ToString());
                 string estado = (fila.Cells[5].Value.ToString());
-                 tarjetaDAO.update_asociada_tarjeta(id_tarjeta,valor_asociacion);
-                 this.ejecutarBusquedaTarjetas();
-                 MessageBox.Show("Se asocio correctamente la tarjeta N° "+ id_tarjeta + " al Cliente id N° "+ cliente_id_para_tarjetas.getCliente_Id()  , "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                tarjetaDAO.update_asociada_tarjeta(id_tarjeta,valor_asociacion);
+                this.ejecutarBusquedaTarjetas();
+                MessageBox.Show("Se asocio correctamente la tarjeta N° "+ id_tarjeta + " al Cliente id N° "+ cliente_id_para_tarjetas.getCliente_Id()  , "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information); 
              }
             
             
             catch { MessageBox.Show("Debe seleccionar el Usuario antes de aceptar", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
             }
         }
-        private void buttom_Asociar_Click(object sender, EventArgs e)
+
+        private void buttom_Asociar_Click_1(object sender, EventArgs e)
         {
             cambiar_asociamiento_tarjeta(sender, e, "Asociada");
-            
         }
 
-        private void boton_Desasociar_Click(object sender, EventArgs e)
+        private void boton_Desasociar_Click_1(object sender, EventArgs e)
         {
             cambiar_asociamiento_tarjeta(sender, e, "Desasociada");
         }
+
         
     }
 }

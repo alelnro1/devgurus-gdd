@@ -37,6 +37,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Tarjetas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             this.boton_Desasociar.TabIndex = 223291;
             this.boton_Desasociar.Text = "Desasociar";
             this.boton_Desasociar.UseVisualStyleBackColor = true;
+            this.boton_Desasociar.Click += new System.EventHandler(this.boton_Desasociar_Click_1);
             // 
             // buttom_Asociar
             // 
@@ -67,6 +69,7 @@
             this.buttom_Asociar.TabIndex = 223292;
             this.buttom_Asociar.Text = "Asociar";
             this.buttom_Asociar.UseVisualStyleBackColor = true;
+            this.buttom_Asociar.Click += new System.EventHandler(this.buttom_Asociar_Click_1);
             // 
             // lista_Tarjetas
             // 
@@ -78,10 +81,11 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn5,
+            this.estado});
             this.lista_Tarjetas.Location = new System.Drawing.Point(23, 28);
             this.lista_Tarjetas.Name = "lista_Tarjetas";
-            this.lista_Tarjetas.Size = new System.Drawing.Size(593, 213);
+            this.lista_Tarjetas.Size = new System.Drawing.Size(618, 213);
             this.lista_Tarjetas.TabIndex = 223293;
             // 
             // dataGridViewTextBoxColumn1
@@ -109,11 +113,16 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "FechaVencimiento";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            // 
             // AsociarTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 262);
+            this.ClientSize = new System.Drawing.Size(1028, 262);
             this.Controls.Add(this.lista_Tarjetas);
             this.Controls.Add(this.buttom_Asociar);
             this.Controls.Add(this.boton_Desasociar);
@@ -137,5 +146,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estado;
     }
 }
