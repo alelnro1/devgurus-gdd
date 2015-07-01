@@ -1011,6 +1011,13 @@ CREATE PROCEDURE DEVGURUS.retirar
 AS
 	DECLARE @cheque_id numeric (18,0)
 	DECLARE @retiro_id numeric (18,0)
+	DECLARE @tipo_moneda_cuenta tinyint
+	DECLARE @num_a_multiplicar float
+	
+	select @tipo_moneda_cuenta= Cuenta_Moneda from DEVGURUS.Cuentas where Cuenta_Nro=@cuenta
+	select @num_a_multiplicar= Tipo_De_Moneda_Equivalente_en_dolar from DEVGURUS.Tipo_De_Moneda
+	
+	
 	SET @cheque_id = (SELECT TOP 1 Cheque_Id + 1  FROM DEVGURUS.Cheques ORDER BY Cheque_Id DESC)
 	SET @retiro_id = (SELECT TOP 1 Retiro_Id + 1  FROM DEVGURUS.Retiros ORDER BY Retiro_Id DESC)
 	
@@ -1020,7 +1027,7 @@ AS
 	INSERT INTO DEVGURUS.Retiros (Retiro_Id, Retiro_Cheque, Retiro_Cuenta, Retiro_Fecha, Retiro_Importe)
 		VALUES (@retiro_id, @cheque_id, @cuenta, GETDATE(), @importe)
 	
-	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe WHERE Cuenta_Nro = @cuenta
+	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe*@num_a_multiplicar WHERE Cuenta_Nro = @cuenta
 GO	
 	Print 'El procedimiento RETIRAR se ha creado correctamente';
 
