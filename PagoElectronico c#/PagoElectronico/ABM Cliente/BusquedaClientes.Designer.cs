@@ -71,6 +71,7 @@
             this.combo_nombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_nombre.FormattingEnabled = true;
             this.combo_nombre.Location = new System.Drawing.Point(609, 40);
+            this.combo_nombre.MaxLength = 100;
             this.combo_nombre.Name = "combo_nombre";
             this.combo_nombre.Size = new System.Drawing.Size(135, 21);
             this.combo_nombre.TabIndex = 0;
@@ -81,6 +82,7 @@
             this.combo_apellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_apellido.FormattingEnabled = true;
             this.combo_apellido.Location = new System.Drawing.Point(609, 94);
+            this.combo_apellido.MaxLength = 100;
             this.combo_apellido.Name = "combo_apellido";
             this.combo_apellido.Size = new System.Drawing.Size(135, 21);
             this.combo_apellido.TabIndex = 1;
@@ -111,6 +113,7 @@
             this.combo_email.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.combo_email.FormattingEnabled = true;
             this.combo_email.Location = new System.Drawing.Point(609, 234);
+            this.combo_email.MaxLength = 100;
             this.combo_email.Name = "combo_email";
             this.combo_email.Size = new System.Drawing.Size(218, 21);
             this.combo_email.TabIndex = 4;

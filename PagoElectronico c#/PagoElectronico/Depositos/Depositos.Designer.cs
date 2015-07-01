@@ -81,6 +81,7 @@
             // importe_textbox
             // 
             this.importe_textbox.Location = new System.Drawing.Point(65, 92);
+            this.importe_textbox.MaxLength = 15;
             this.importe_textbox.Name = "importe_textbox";
             this.importe_textbox.Size = new System.Drawing.Size(139, 20);
             this.importe_textbox.TabIndex = 4;
@@ -97,6 +98,7 @@
             // 
             // moneda_combobox
             // 
+            this.moneda_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.moneda_combobox.FormattingEnabled = true;
             this.moneda_combobox.Location = new System.Drawing.Point(65, 38);
             this.moneda_combobox.Name = "moneda_combobox";
@@ -116,6 +118,7 @@
             // 
             this.tarjeta_combobox.FormattingEnabled = true;
             this.tarjeta_combobox.Location = new System.Drawing.Point(65, 65);
+            this.tarjeta_combobox.MaxLength = 100;
             this.tarjeta_combobox.Name = "tarjeta_combobox";
             this.tarjeta_combobox.Size = new System.Drawing.Size(139, 21);
             this.tarjeta_combobox.TabIndex = 8;

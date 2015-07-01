@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.group_Datos = new System.Windows.Forms.GroupBox();
+            this.rol_Name = new System.Windows.Forms.ComboBox();
             this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
             this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
             this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
@@ -62,7 +63,6 @@
             this.boton_Volver = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Eliminar = new System.Windows.Forms.Button();
-            this.rol_Name = new System.Windows.Forms.ComboBox();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,17 @@
             this.group_Datos.TabStop = false;
             this.group_Datos.Text = "Filtros de busqueda";
             this.group_Datos.Enter += new System.EventHandler(this.group_Datos_Enter);
+            // 
+            // rol_Name
+            // 
+            this.rol_Name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.rol_Name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.rol_Name.FormattingEnabled = true;
+            this.rol_Name.Location = new System.Drawing.Point(111, 30);
+            this.rol_Name.MaxLength = 100;
+            this.rol_Name.Name = "rol_Name";
+            this.rol_Name.Size = new System.Drawing.Size(194, 21);
+            this.rol_Name.TabIndex = 223303;
             // 
             // check_Func_Estadisticas
             // 
@@ -247,7 +258,7 @@
             // 
             // boton_Buscar
             // 
-            this.boton_Buscar.Location = new System.Drawing.Point(726, 43);
+            this.boton_Buscar.Location = new System.Drawing.Point(722, 55);
             this.boton_Buscar.Name = "boton_Buscar";
             this.boton_Buscar.Size = new System.Drawing.Size(159, 37);
             this.boton_Buscar.TabIndex = 223275;
@@ -257,7 +268,7 @@
             // 
             // boton_Limpiar
             // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(914, 123);
+            this.boton_Limpiar.Location = new System.Drawing.Point(901, 208);
             this.boton_Limpiar.Name = "boton_Limpiar";
             this.boton_Limpiar.Size = new System.Drawing.Size(139, 29);
             this.boton_Limpiar.TabIndex = 223276;
@@ -354,7 +365,7 @@
             // 
             // boton_Editar
             // 
-            this.boton_Editar.Location = new System.Drawing.Point(726, 114);
+            this.boton_Editar.Location = new System.Drawing.Point(722, 126);
             this.boton_Editar.Name = "boton_Editar";
             this.boton_Editar.Size = new System.Drawing.Size(159, 37);
             this.boton_Editar.TabIndex = 223279;
@@ -364,7 +375,7 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(914, 204);
+            this.boton_Volver.Location = new System.Drawing.Point(950, 12);
             this.boton_Volver.Name = "boton_Volver";
             this.boton_Volver.Size = new System.Drawing.Size(139, 29);
             this.boton_Volver.TabIndex = 223278;
@@ -374,7 +385,7 @@
             // 
             // boton_Reestablecer
             // 
-            this.boton_Reestablecer.Location = new System.Drawing.Point(914, 52);
+            this.boton_Reestablecer.Location = new System.Drawing.Point(901, 137);
             this.boton_Reestablecer.Name = "boton_Reestablecer";
             this.boton_Reestablecer.Size = new System.Drawing.Size(139, 29);
             this.boton_Reestablecer.TabIndex = 223280;
@@ -384,23 +395,13 @@
             // 
             // boton_Eliminar
             // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(726, 196);
+            this.boton_Eliminar.Location = new System.Drawing.Point(722, 208);
             this.boton_Eliminar.Name = "boton_Eliminar";
             this.boton_Eliminar.Size = new System.Drawing.Size(159, 37);
             this.boton_Eliminar.TabIndex = 223281;
-            this.boton_Eliminar.Text = "Eliminar";
+            this.boton_Eliminar.Text = "Dar de Baja";
             this.boton_Eliminar.UseVisualStyleBackColor = true;
             this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
-            // 
-            // rol_Name
-            // 
-            this.rol_Name.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.rol_Name.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.rol_Name.FormattingEnabled = true;
-            this.rol_Name.Location = new System.Drawing.Point(111, 30);
-            this.rol_Name.Name = "rol_Name";
-            this.rol_Name.Size = new System.Drawing.Size(194, 21);
-            this.rol_Name.TabIndex = 223303;
             // 
             // Busqueda_Rol
             // 

@@ -91,6 +91,7 @@
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(126, 30);
+            this.comboBox1.MaxLength = 100;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(129, 21);
             this.comboBox1.TabIndex = 2;
@@ -307,7 +308,7 @@
             // localidad_textbox
             // 
             this.localidad_textbox.Location = new System.Drawing.Point(315, 113);
-            this.localidad_textbox.MaxLength = 32000;
+            this.localidad_textbox.MaxLength = 100;
             this.localidad_textbox.Name = "localidad_textbox";
             this.localidad_textbox.Size = new System.Drawing.Size(121, 20);
             this.localidad_textbox.TabIndex = 19;
@@ -325,6 +326,7 @@
             // calle_textbox
             // 
             this.calle_textbox.Location = new System.Drawing.Point(100, 108);
+            this.calle_textbox.MaxLength = 100;
             this.calle_textbox.Name = "calle_textbox";
             this.calle_textbox.Size = new System.Drawing.Size(121, 20);
             this.calle_textbox.TabIndex = 15;
@@ -387,6 +389,7 @@
             // mail_textbox
             // 
             this.mail_textbox.Location = new System.Drawing.Point(101, 77);
+            this.mail_textbox.MaxLength = 100;
             this.mail_textbox.Name = "mail_textbox";
             this.mail_textbox.Size = new System.Drawing.Size(121, 20);
             this.mail_textbox.TabIndex = 6;
@@ -411,6 +414,7 @@
             // apellido_textbox
             // 
             this.apellido_textbox.Location = new System.Drawing.Point(315, 20);
+            this.apellido_textbox.MaxLength = 100;
             this.apellido_textbox.Name = "apellido_textbox";
             this.apellido_textbox.Size = new System.Drawing.Size(121, 20);
             this.apellido_textbox.TabIndex = 3;
@@ -427,6 +431,7 @@
             // nombre_textbox
             // 
             this.nombre_textbox.Location = new System.Drawing.Point(101, 19);
+            this.nombre_textbox.MaxLength = 100;
             this.nombre_textbox.Name = "nombre_textbox";
             this.nombre_textbox.Size = new System.Drawing.Size(121, 20);
             this.nombre_textbox.TabIndex = 1;

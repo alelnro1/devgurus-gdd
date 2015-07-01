@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.group_Func = new System.Windows.Forms.GroupBox();
+            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
+            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
             this.check_asociar_tarjeta = new System.Windows.Forms.CheckBox();
             this.check_ABM_Cuentas = new System.Windows.Forms.CheckBox();
             this.check_ABM_Client = new System.Windows.Forms.CheckBox();
@@ -44,8 +46,6 @@
             this.combo_Estado = new System.Windows.Forms.ComboBox();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.boton_Crear = new System.Windows.Forms.Button();
-            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
-            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
             this.group_Func.SuspendLayout();
             this.group_Datos.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,26 @@
             this.group_Func.TabStop = false;
             this.group_Func.Text = "Funciones del Rol";
             this.group_Func.Enter += new System.EventHandler(this.group_Func_Enter);
+            // 
+            // check_Func_Estadisticas
+            // 
+            this.check_Func_Estadisticas.AutoSize = true;
+            this.check_Func_Estadisticas.Location = new System.Drawing.Point(159, 63);
+            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
+            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
+            this.check_Func_Estadisticas.TabIndex = 223304;
+            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
+            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
+            // 
+            // check_Func_Saldo
+            // 
+            this.check_Func_Saldo.AutoSize = true;
+            this.check_Func_Saldo.Location = new System.Drawing.Point(159, 27);
+            this.check_Func_Saldo.Name = "check_Func_Saldo";
+            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
+            this.check_Func_Saldo.TabIndex = 223303;
+            this.check_Func_Saldo.Text = "Consultar Saldo";
+            this.check_Func_Saldo.UseVisualStyleBackColor = true;
             // 
             // check_asociar_tarjeta
             // 
@@ -197,11 +217,13 @@
             // 
             // combo_Estado
             // 
+            this.combo_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Estado.FormattingEnabled = true;
             this.combo_Estado.Items.AddRange(new object[] {
             "Activo",
             "No activo"});
             this.combo_Estado.Location = new System.Drawing.Point(137, 66);
+            this.combo_Estado.MaxLength = 100;
             this.combo_Estado.Name = "combo_Estado";
             this.combo_Estado.Size = new System.Drawing.Size(150, 21);
             this.combo_Estado.TabIndex = 223273;
@@ -225,26 +247,6 @@
             this.boton_Crear.Text = "Crear";
             this.boton_Crear.UseVisualStyleBackColor = true;
             this.boton_Crear.Click += new System.EventHandler(this.boton_Crear_Click);
-            // 
-            // check_Func_Estadisticas
-            // 
-            this.check_Func_Estadisticas.AutoSize = true;
-            this.check_Func_Estadisticas.Location = new System.Drawing.Point(159, 63);
-            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
-            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
-            this.check_Func_Estadisticas.TabIndex = 223304;
-            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
-            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
-            // 
-            // check_Func_Saldo
-            // 
-            this.check_Func_Saldo.AutoSize = true;
-            this.check_Func_Saldo.Location = new System.Drawing.Point(159, 27);
-            this.check_Func_Saldo.Name = "check_Func_Saldo";
-            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
-            this.check_Func_Saldo.TabIndex = 223303;
-            this.check_Func_Saldo.Text = "Consultar Saldo";
-            this.check_Func_Saldo.UseVisualStyleBackColor = true;
             // 
             // EditRol
             // 

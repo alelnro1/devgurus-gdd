@@ -145,6 +145,7 @@
             // textBox_nombre
             // 
             this.textBox_nombre.Location = new System.Drawing.Point(157, 43);
+            this.textBox_nombre.MaxLength = 100;
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(156, 20);
             this.textBox_nombre.TabIndex = 30;
@@ -152,6 +153,7 @@
             // textBox_apellido
             // 
             this.textBox_apellido.Location = new System.Drawing.Point(157, 90);
+            this.textBox_apellido.MaxLength = 100;
             this.textBox_apellido.Name = "textBox_apellido";
             this.textBox_apellido.Size = new System.Drawing.Size(156, 20);
             this.textBox_apellido.TabIndex = 31;
@@ -159,6 +161,7 @@
             // textBox_calle
             // 
             this.textBox_calle.Location = new System.Drawing.Point(157, 356);
+            this.textBox_calle.MaxLength = 100;
             this.textBox_calle.Name = "textBox_calle";
             this.textBox_calle.Size = new System.Drawing.Size(156, 20);
             this.textBox_calle.TabIndex = 32;
@@ -174,6 +177,7 @@
             // textBox_email
             // 
             this.textBox_email.Location = new System.Drawing.Point(527, 141);
+            this.textBox_email.MaxLength = 100;
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(177, 20);
             this.textBox_email.TabIndex = 37;
@@ -181,6 +185,7 @@
             // textBox_localidad
             // 
             this.textBox_localidad.Location = new System.Drawing.Point(446, 313);
+            this.textBox_localidad.MaxLength = 100;
             this.textBox_localidad.Name = "textBox_localidad";
             this.textBox_localidad.Size = new System.Drawing.Size(152, 20);
             this.textBox_localidad.TabIndex = 35;

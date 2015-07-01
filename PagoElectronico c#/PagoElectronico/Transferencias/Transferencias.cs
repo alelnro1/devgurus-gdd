@@ -106,5 +106,10 @@ namespace PagoElectronico
         {
 
         }
+
+        private void cuenta_destino_text_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

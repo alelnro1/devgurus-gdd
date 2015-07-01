@@ -89,7 +89,7 @@
             this.button_dar_alta.Name = "button_dar_alta";
             this.button_dar_alta.Size = new System.Drawing.Size(105, 29);
             this.button_dar_alta.TabIndex = 11;
-            this.button_dar_alta.Text = "Crear";
+            this.button_dar_alta.Text = "Crear Cuenta";
             this.button_dar_alta.UseVisualStyleBackColor = true;
             this.button_dar_alta.Click += new System.EventHandler(this.button_dar_alta_Click);
             // 

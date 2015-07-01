@@ -68,6 +68,7 @@
             // importe_textbox
             // 
             this.importe_textbox.Location = new System.Drawing.Point(73, 69);
+            this.importe_textbox.MaxLength = 15;
             this.importe_textbox.Name = "importe_textbox";
             this.importe_textbox.Size = new System.Drawing.Size(121, 20);
             this.importe_textbox.TabIndex = 3;
@@ -84,6 +85,7 @@
             // nro_doc_textbox
             // 
             this.nro_doc_textbox.Location = new System.Drawing.Point(73, 42);
+            this.nro_doc_textbox.MaxLength = 9;
             this.nro_doc_textbox.Name = "nro_doc_textbox";
             this.nro_doc_textbox.Size = new System.Drawing.Size(121, 20);
             this.nro_doc_textbox.TabIndex = 5;

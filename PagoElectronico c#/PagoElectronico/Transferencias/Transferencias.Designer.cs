@@ -60,14 +60,17 @@
             // cuenta_destino_text
             // 
             this.cuenta_destino_text.Location = new System.Drawing.Point(95, 40);
+            this.cuenta_destino_text.MaxLength = 100;
             this.cuenta_destino_text.Name = "cuenta_destino_text";
             this.cuenta_destino_text.Size = new System.Drawing.Size(121, 20);
             this.cuenta_destino_text.TabIndex = 3;
+            this.cuenta_destino_text.TextChanged += new System.EventHandler(this.cuenta_destino_text_TextChanged);
             // 
             // cuenta_origen_combobox
             // 
             this.cuenta_origen_combobox.FormattingEnabled = true;
             this.cuenta_origen_combobox.Location = new System.Drawing.Point(95, 13);
+            this.cuenta_origen_combobox.MaxLength = 100;
             this.cuenta_origen_combobox.Name = "cuenta_origen_combobox";
             this.cuenta_origen_combobox.Size = new System.Drawing.Size(121, 21);
             this.cuenta_origen_combobox.TabIndex = 4;
@@ -85,6 +88,7 @@
             // importe_textbox
             // 
             this.importe_textbox.Location = new System.Drawing.Point(95, 67);
+            this.importe_textbox.MaxLength = 15;
             this.importe_textbox.Name = "importe_textbox";
             this.importe_textbox.Size = new System.Drawing.Size(121, 20);
             this.importe_textbox.TabIndex = 6;

@@ -31,6 +31,7 @@
             this.boton_Crear = new System.Windows.Forms.Button();
             this.boton_Cancelar = new System.Windows.Forms.Button();
             this.group_Datos = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.combo_Estado = new System.Windows.Forms.ComboBox();
             this.L_Nombre = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.check_Depos = new System.Windows.Forms.CheckBox();
             this.check_Transf = new System.Windows.Forms.CheckBox();
             this.check_Extraer = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.group_Datos.SuspendLayout();
             this.group_Func.SuspendLayout();
             this.SuspendLayout();
@@ -81,13 +81,27 @@
             this.group_Datos.TabStop = false;
             this.group_Datos.Text = "Datos del Rol";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Activo",
+            "No activo"});
+            this.comboBox1.Location = new System.Drawing.Point(137, 30);
+            this.comboBox1.MaxLength = 100;
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(194, 21);
+            this.comboBox1.TabIndex = 223274;
+            // 
             // combo_Estado
             // 
+            this.combo_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Estado.FormattingEnabled = true;
             this.combo_Estado.Items.AddRange(new object[] {
             "Activo",
             "No activo"});
             this.combo_Estado.Location = new System.Drawing.Point(137, 65);
+            this.combo_Estado.MaxLength = 100;
             this.combo_Estado.Name = "combo_Estado";
             this.combo_Estado.Size = new System.Drawing.Size(194, 21);
             this.combo_Estado.TabIndex = 223273;
@@ -210,17 +224,6 @@
             this.check_Extraer.TabIndex = 223284;
             this.check_Extraer.Text = "Extraer";
             this.check_Extraer.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Activo",
-            "No activo"});
-            this.comboBox1.Location = new System.Drawing.Point(95, 45);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 21);
-            this.comboBox1.TabIndex = 223274;
             // 
             // EditarRol
             // 

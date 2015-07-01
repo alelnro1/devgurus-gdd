@@ -74,6 +74,7 @@
             // text_Pass
             // 
             this.text_Pass.Location = new System.Drawing.Point(184, 84);
+            this.text_Pass.MaxLength = 100;
             this.text_Pass.Name = "text_Pass";
             this.text_Pass.PasswordChar = '*';
             this.text_Pass.Size = new System.Drawing.Size(120, 20);
@@ -82,6 +83,7 @@
             // text_User
             // 
             this.text_User.Location = new System.Drawing.Point(184, 49);
+            this.text_User.MaxLength = 100;
             this.text_User.Name = "text_User";
             this.text_User.Size = new System.Drawing.Size(121, 20);
             this.text_User.TabIndex = 13;
@@ -170,6 +172,7 @@
             // textRtaSec
             // 
             this.textRtaSec.Location = new System.Drawing.Point(49, 265);
+            this.textRtaSec.MaxLength = 255;
             this.textRtaSec.Name = "textRtaSec";
             this.textRtaSec.Size = new System.Drawing.Size(296, 20);
             this.textRtaSec.TabIndex = 18;
@@ -177,6 +180,7 @@
             // text_Pass_Conf
             // 
             this.text_Pass_Conf.Location = new System.Drawing.Point(184, 113);
+            this.text_Pass_Conf.MaxLength = 100;
             this.text_Pass_Conf.Name = "text_Pass_Conf";
             this.text_Pass_Conf.PasswordChar = '*';
             this.text_Pass_Conf.Size = new System.Drawing.Size(120, 20);

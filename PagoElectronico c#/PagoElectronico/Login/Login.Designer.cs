@@ -114,6 +114,7 @@
             // text_User
             // 
             this.text_User.Location = new System.Drawing.Point(109, 70);
+            this.text_User.MaxLength = 100;
             this.text_User.Name = "text_User";
             this.text_User.Size = new System.Drawing.Size(120, 20);
             this.text_User.TabIndex = 1;
@@ -121,6 +122,7 @@
             // text_Pass
             // 
             this.text_Pass.Location = new System.Drawing.Point(109, 122);
+            this.text_Pass.MaxLength = 100;
             this.text_Pass.Name = "text_Pass";
             this.text_Pass.PasswordChar = '*';
             this.text_Pass.Size = new System.Drawing.Size(120, 20);
