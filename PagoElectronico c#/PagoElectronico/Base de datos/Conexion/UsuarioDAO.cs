@@ -128,5 +128,18 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select * from " + ConstantesBD.t_usuarios + " where Usuarios_Id = '" + id_Usuario + "';");
             return lector;
         }
+
+        public SqlDataReader obtenerUsuarios()
+        {
+            String sql = "SELECT Usuarios_Id,Usuarios_Name FROM " + ConstantesBD.t_usuarios;
+            return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+        }
+
+        internal void insertame_rol_X_usuario(string id_usuario, string rol_descripcion)
+        {
+            string sql;
+            sql = "exec DEVGURUS.insertar_Nuevo_rol_a_usuario "+id_usuario + ",'" +rol_descripcion + "'";
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+        }
     }
 }

@@ -53,6 +53,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.boton_facturar = new System.Windows.Forms.Button();
             this.estadisticas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -327,11 +329,32 @@
             this.estadisticas.Text = "Generar Estadisticas";
             this.estadisticas.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(715, 77);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "Habilitar Usuario";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(715, 116);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "Asignar Rol ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 429);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.estadisticas);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.boton_Consul);
@@ -389,5 +412,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button boton_facturar;
         private System.Windows.Forms.Button estadisticas;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -152,3 +152,26 @@ D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElect
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AsociarTarjeta.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.resources
 D:\UTN\GESTION DE DATOS\TP. Gestion de datos\LOCAL\Workspace De Laburo\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCliente.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaClientes.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCliente.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AltaCuentas.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.BusquedaCuentas.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarCuentas.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditRol.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Busqueda_Rol.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.EditarRol.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Asignar_nuevo_rol.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.AsociarTarjeta.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Depositos.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Login.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.NewUser.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache

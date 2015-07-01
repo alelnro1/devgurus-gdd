@@ -405,6 +405,12 @@ namespace PagoElectronico
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Asignar_nuevo_rol asignar_Rol = new Asignar_nuevo_rol();
+            asignar_Rol.ShowDialog();
+        }
+
 
         
     }    
