@@ -411,6 +411,12 @@ namespace PagoElectronico
             asignar_Rol.ShowDialog();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Habilitar_usuario habilitar_usuario = new Habilitar_usuario();
+            habilitar_usuario.ShowDialog();
+        }
+
 
         
     }    

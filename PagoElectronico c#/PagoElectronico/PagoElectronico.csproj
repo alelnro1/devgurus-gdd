@@ -169,6 +169,12 @@
     <Compile Include="Facturacion\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Habilitar Usuario\Habilitar_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Habilitar Usuario\Habilitar_usuario.Designer.cs">
+      <DependentUpon>Habilitar_usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Habilitar Usuario\Habilitar_usuario.resx">
+      <DependentUpon>Habilitar_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -319,7 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM de Usuario\" />
-    <Folder Include="Habilitar Usuario\" />
     <Folder Include="Listados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

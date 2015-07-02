@@ -131,7 +131,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
         public SqlDataReader obtenerUsuarios()
         {
-            String sql = "SELECT Usuarios_Id,Usuarios_Name FROM " + ConstantesBD.t_usuarios;
+            String sql = "SELECT Usuarios_Id,Usuarios_Name,Usuarios_Estado FROM " + ConstantesBD.t_usuarios;
             return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
         }
 
@@ -139,6 +139,13 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             string sql;
             sql = "exec DEVGURUS.insertar_Nuevo_rol_a_usuario "+id_usuario + ",'" +rol_descripcion + "'";
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+        }
+
+        internal void habilitacion_user(string id_usuario, string valor)
+        {
+            string sql;
+            sql = "UPDATE " + ConstantesBD.t_usuarios + " SET Usuarios_Estado = '" + valor + "' WHERE Usuarios_Id = " + id_usuario;
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
     }

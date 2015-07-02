@@ -695,7 +695,7 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'logearse')
 	Print 'El procedimiento LOGEARSE ya existe, SE BORRARA';
 GO
 
-CREATE PROCEDURE DEVGURUS.logearse
+alter PROCEDURE DEVGURUS.logearse
 	@rol varchar (255),
 	@usuario varchar (255),
 	@password varchar (255)
@@ -717,7 +717,7 @@ AS
 	SET @estatus_Usuario = (SELECT Usuarios_Estado from DEVGURUS.Usuarios where Usuarios_Id = @usuario_Id)
 
 	
-	IF (@estatus_Usuario = 'Pendiente')
+	IF (@estatus_Usuario != 'Habilitado')
 	BEGIN
 	select 'No aprobado' MENSAJE
 	END

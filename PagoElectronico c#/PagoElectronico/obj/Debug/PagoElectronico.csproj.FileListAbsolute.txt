@@ -175,3 +175,4 @@ C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico 
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.MenuPrincipal.resources
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Debug\PagoElectronico.Habilitar_usuario.resources
