@@ -446,15 +446,16 @@ where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
 
 
 Print 'La tabla CUENTAS se ha cargado con exito';
+
 /* DEPOSTIOS */
 Insert into DEVGURUS.Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_TipoMoneda, Deposito_Cuenta, Deposito_Tarjeta)
-select distinct MA.Deposito_Codigo, DATEADD(YEAR, -2,MA.Deposito_Fecha), MA.Deposito_Importe, 1, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, DEVGURUS.Tarjetas TA
+select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, 1, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, DEVGURUS.Tarjetas TA
 where TA.Tarjeta_Nro = MA.Tarjeta_Numero and Deposito_Codigo is not null
 Print 'La tabla DEPOSITOS se ha cargado con exito';
 
 /* FACTURAS */
 Insert into DEVGURUS.Facturas (Factura_Numero, Factura_Fecha, Factura_Cliente, Factura_Importe)
-select distinct MA.Factura_Numero,DATEADD(YEAR, -2, MA.Factura_Fecha), CL.Cliente_Id, 0 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
+select distinct MA.Factura_Numero, MA.Factura_Fecha, CL.Cliente_Id, 0 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Nombre = MA.Cli_Nombre and CL.Cliente_Apellido = MA.Cli_Apellido
 and MA.Factura_Numero is not null
 Print 'La tabla FACTURAS se ha cargado con exito';
@@ -467,7 +468,7 @@ Print 'La tabla ITEMS se ha cargado con exito';
 
 /* TRANSFERENCIA */
 Insert into DEVGURUS.Transferencia (Transferencia_Fecha, Transferencia_Importe, Transferencia_Costo_Transf, Transferencia_Cuenta_Emisora, Transferencia_Cuenta_Destino)
-select  DATEADD(YEAR, -2,MA.Transf_Fecha), MA.Trans_Importe, MA.Trans_Costo_Trans, MA.Cuenta_Numero, MA.Cuenta_Dest_Numero from gd_esquema.Maestra MA
+select  MA.Transf_Fecha, MA.Trans_Importe, MA.Trans_Costo_Trans, MA.Cuenta_Numero, MA.Cuenta_Dest_Numero from gd_esquema.Maestra MA
 where MA.Cuenta_Dest_Numero is not null and MA.Cuenta_Numero is not null
 Print 'La tabla TRANSFERENCIAS se ha cargado con exito';
 
@@ -486,7 +487,7 @@ Print 'La tabla CHEQUES se ha cargado con exito';
 /* RETIROS */
 /* LA FECHA DE LA TABLA MAESTRA ES CUALQUIER COSA */
 Insert into DEVGURUS.Retiros (Retiro_Id, Retiro_Fecha, Retiro_Importe, Retiro_Cuenta, Retiro_Cheque)
-select distinct Retiro_Codigo, DATEADD(YEAR, -2,Retiro_Fecha), Retiro_Importe, Cuenta_Numero, Cheque_Numero from gd_esquema.Maestra
+select distinct Retiro_Codigo, Retiro_Fecha, Retiro_Importe, Cuenta_Numero, Cheque_Numero from gd_esquema.Maestra
 where Retiro_Codigo is not null
 Print 'La tabla RETIROS se ha cargado con exito';
 
@@ -695,7 +696,7 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'logearse')
 	Print 'El procedimiento LOGEARSE ya existe, SE BORRARA';
 GO
 
-alter PROCEDURE DEVGURUS.logearse
+CREATE PROCEDURE DEVGURUS.logearse
 	@rol varchar (255),
 	@usuario varchar (255),
 	@password varchar (255)

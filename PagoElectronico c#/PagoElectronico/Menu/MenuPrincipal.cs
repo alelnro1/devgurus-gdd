@@ -96,6 +96,25 @@ namespace PagoElectronico
                 boton_eliminar_cliente.Enabled = true;
                 groupBox1.ForeColor = System.Drawing.Color.Black;
             }
+
+
+
+            if (lector["Func_ABM_Usuarios"].Equals("Inhabilitado"))
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                groupBoxusuarios.ForeColor = System.Drawing.Color.Gray;
+            }
+            else
+            {
+                button1.Enabled = true;
+                button2.Enabled = true;
+                groupBoxusuarios.ForeColor = System.Drawing.Color.Black;
+            }
+
+
+
+
             if (lector["Func_Transferir"].Equals("Inhabilitado"))
             {
                 boton_trans.Enabled = false;
