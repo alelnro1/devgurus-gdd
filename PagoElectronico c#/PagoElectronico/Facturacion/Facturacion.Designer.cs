@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rendirButton = new System.Windows.Forms.Button();
             this.tansacciones_pendientes_data_grid = new System.Windows.Forms.DataGridView();
+            this.volverButton = new System.Windows.Forms.Button();
             this.identicicador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nro_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volverButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tansacciones_pendientes_data_grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,16 @@
             this.tansacciones_pendientes_data_grid.TabIndex = 0;
             this.tansacciones_pendientes_data_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperaciones_CellContentClick);
             // 
+            // volverButton
+            // 
+            this.volverButton.Location = new System.Drawing.Point(41, 330);
+            this.volverButton.Name = "volverButton";
+            this.volverButton.Size = new System.Drawing.Size(76, 43);
+            this.volverButton.TabIndex = 3;
+            this.volverButton.Text = "< < Volver";
+            this.volverButton.UseVisualStyleBackColor = true;
+            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
+            // 
             // identicicador
             // 
             this.identicicador.HeaderText = "Identificador";
@@ -112,16 +122,6 @@
             this.nro_cuenta.HeaderText = "Numero De Cuenta";
             this.nro_cuenta.Name = "nro_cuenta";
             this.nro_cuenta.ReadOnly = true;
-            // 
-            // volverButton
-            // 
-            this.volverButton.Location = new System.Drawing.Point(41, 330);
-            this.volverButton.Name = "volverButton";
-            this.volverButton.Size = new System.Drawing.Size(76, 43);
-            this.volverButton.TabIndex = 3;
-            this.volverButton.Text = "< < Volver";
-            this.volverButton.UseVisualStyleBackColor = true;
-            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
             // 
             // Facturacion
             // 

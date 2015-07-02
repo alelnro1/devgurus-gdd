@@ -41,6 +41,11 @@
             this.boton_Reestablecer = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.lista_clientes = new System.Windows.Forms.DataGridView();
+            this.boton_Limpiar = new System.Windows.Forms.Button();
+            this.boton_Buscar = new System.Windows.Forms.Button();
+            this.seleccionar_cliente = new System.Windows.Forms.Button();
+            this.comboEstado = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +62,6 @@
             this.mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boton_Limpiar = new System.Windows.Forms.Button();
-            this.boton_Buscar = new System.Windows.Forms.Button();
-            this.seleccionar_cliente = new System.Windows.Forms.Button();
-            this.comboEstado = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lista_clientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,86 +211,6 @@
             this.lista_clientes.Size = new System.Drawing.Size(1342, 189);
             this.lista_clientes.TabIndex = 223284;
             // 
-            // id_cliente
-            // 
-            this.id_cliente.HeaderText = "Cliente Id";
-            this.id_cliente.Name = "id_cliente";
-            // 
-            // nombre_cliente
-            // 
-            this.nombre_cliente.HeaderText = "Nombre";
-            this.nombre_cliente.Name = "nombre_cliente";
-            // 
-            // apellido_cliente
-            // 
-            this.apellido_cliente.HeaderText = "Apellido";
-            this.apellido_cliente.Name = "apellido_cliente";
-            // 
-            // tipo_doc
-            // 
-            this.tipo_doc.HeaderText = "Tipo Documento";
-            this.tipo_doc.Name = "tipo_doc";
-            // 
-            // nro_identificacion_cliente
-            // 
-            this.nro_identificacion_cliente.HeaderText = "Nro Identificacion";
-            this.nro_identificacion_cliente.Name = "nro_identificacion_cliente";
-            // 
-            // pais_cliente
-            // 
-            this.pais_cliente.HeaderText = "Pais";
-            this.pais_cliente.Name = "pais_cliente";
-            // 
-            // localidad_cliente
-            // 
-            this.localidad_cliente.HeaderText = "Localidad";
-            this.localidad_cliente.Name = "localidad_cliente";
-            // 
-            // calle_cliente
-            // 
-            this.calle_cliente.HeaderText = "Calle";
-            this.calle_cliente.Name = "calle_cliente";
-            // 
-            // domicilio_num
-            // 
-            this.domicilio_num.HeaderText = "Nro Domicilio";
-            this.domicilio_num.Name = "domicilio_num";
-            // 
-            // piso_cliente
-            // 
-            this.piso_cliente.HeaderText = "Piso";
-            this.piso_cliente.Name = "piso_cliente";
-            // 
-            // depto_cliente
-            // 
-            this.depto_cliente.HeaderText = "Depto";
-            this.depto_cliente.Name = "depto_cliente";
-            // 
-            // nacionalidad_cliente
-            // 
-            this.nacionalidad_cliente.HeaderText = "Nacionalidad";
-            this.nacionalidad_cliente.Name = "nacionalidad_cliente";
-            // 
-            // fecha_nac_cliente
-            // 
-            this.fecha_nac_cliente.HeaderText = "Fecha Nacimiento";
-            this.fecha_nac_cliente.Name = "fecha_nac_cliente";
-            // 
-            // mail
-            // 
-            this.mail.HeaderText = "Email";
-            this.mail.Name = "mail";
-            // 
-            // cliente_usuario
-            // 
-            this.cliente_usuario.HeaderText = "Usuario";
-            this.cliente_usuario.Name = "cliente_usuario";
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            // 
             // boton_Limpiar
             // 
             this.boton_Limpiar.Location = new System.Drawing.Point(219, 220);
@@ -342,6 +262,102 @@
             this.label1.TabIndex = 223291;
             this.label1.Text = "Estado";
             // 
+            // id_cliente
+            // 
+            this.id_cliente.HeaderText = "Cliente Id";
+            this.id_cliente.Name = "id_cliente";
+            this.id_cliente.ReadOnly = true;
+            // 
+            // nombre_cliente
+            // 
+            this.nombre_cliente.HeaderText = "Nombre";
+            this.nombre_cliente.Name = "nombre_cliente";
+            this.nombre_cliente.ReadOnly = true;
+            // 
+            // apellido_cliente
+            // 
+            this.apellido_cliente.HeaderText = "Apellido";
+            this.apellido_cliente.Name = "apellido_cliente";
+            this.apellido_cliente.ReadOnly = true;
+            // 
+            // tipo_doc
+            // 
+            this.tipo_doc.HeaderText = "Tipo Documento";
+            this.tipo_doc.Name = "tipo_doc";
+            this.tipo_doc.ReadOnly = true;
+            // 
+            // nro_identificacion_cliente
+            // 
+            this.nro_identificacion_cliente.HeaderText = "Nro Identificacion";
+            this.nro_identificacion_cliente.Name = "nro_identificacion_cliente";
+            this.nro_identificacion_cliente.ReadOnly = true;
+            // 
+            // pais_cliente
+            // 
+            this.pais_cliente.HeaderText = "Pais";
+            this.pais_cliente.Name = "pais_cliente";
+            this.pais_cliente.ReadOnly = true;
+            // 
+            // localidad_cliente
+            // 
+            this.localidad_cliente.HeaderText = "Localidad";
+            this.localidad_cliente.Name = "localidad_cliente";
+            this.localidad_cliente.ReadOnly = true;
+            // 
+            // calle_cliente
+            // 
+            this.calle_cliente.HeaderText = "Calle";
+            this.calle_cliente.Name = "calle_cliente";
+            this.calle_cliente.ReadOnly = true;
+            // 
+            // domicilio_num
+            // 
+            this.domicilio_num.HeaderText = "Nro Domicilio";
+            this.domicilio_num.Name = "domicilio_num";
+            this.domicilio_num.ReadOnly = true;
+            // 
+            // piso_cliente
+            // 
+            this.piso_cliente.HeaderText = "Piso";
+            this.piso_cliente.Name = "piso_cliente";
+            this.piso_cliente.ReadOnly = true;
+            // 
+            // depto_cliente
+            // 
+            this.depto_cliente.HeaderText = "Depto";
+            this.depto_cliente.Name = "depto_cliente";
+            this.depto_cliente.ReadOnly = true;
+            // 
+            // nacionalidad_cliente
+            // 
+            this.nacionalidad_cliente.HeaderText = "Nacionalidad";
+            this.nacionalidad_cliente.Name = "nacionalidad_cliente";
+            this.nacionalidad_cliente.ReadOnly = true;
+            // 
+            // fecha_nac_cliente
+            // 
+            this.fecha_nac_cliente.HeaderText = "Fecha Nacimiento";
+            this.fecha_nac_cliente.Name = "fecha_nac_cliente";
+            this.fecha_nac_cliente.ReadOnly = true;
+            // 
+            // mail
+            // 
+            this.mail.HeaderText = "Email";
+            this.mail.Name = "mail";
+            this.mail.ReadOnly = true;
+            // 
+            // cliente_usuario
+            // 
+            this.cliente_usuario.HeaderText = "Usuario";
+            this.cliente_usuario.Name = "cliente_usuario";
+            this.cliente_usuario.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
             // BusquedaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,6 +408,8 @@
         private System.Windows.Forms.Button boton_Limpiar;
         private System.Windows.Forms.Button boton_Buscar;
         private System.Windows.Forms.Button seleccionar_cliente;
+        private System.Windows.Forms.ComboBox comboEstado;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido_cliente;
@@ -408,7 +426,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
-        private System.Windows.Forms.ComboBox comboEstado;
-        private System.Windows.Forms.Label label1;
     }
 }
