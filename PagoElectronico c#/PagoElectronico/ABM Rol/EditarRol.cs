@@ -32,7 +32,7 @@ namespace PagoElectronico
 
         public void cargaLosDatosDelRol(String id_rol)
         {
-            SqlDataReader lector = rolDAO.dameElRol(id_rol);
+              SqlDataReader lector = rolDAO.dameElRol(id_rol);
             lector.Read();
             comboBox1.Text = lector["ROL_DESC"].ToString();
             combo_Estado.Text = lector["ROL_ESTADO"].ToString();
@@ -45,6 +45,8 @@ namespace PagoElectronico
             if (lector["Func_ABM_Usuarios"].Equals("Habilitado")) { check_ABM_Client.Checked = true; };
             if (lector["Func_Asociar_Tarjeta"].Equals("Habilitado")) { check_asociar_tarjeta.Checked = true; };
             if (lector["Func_ABM_Cuentas"].Equals("Habilitado")) { check_ABM_Cuentas.Checked = true; };
+            if (lector["Func_Estadisticas"].Equals("Habilitado")) { check_Func_Estadisticas.Checked = true; };
+            if (lector["Func_Saldo"].Equals("Habilitado")) { check_Func_Saldo.Checked = true; };
             lector.Close();
         }
 
@@ -74,10 +76,24 @@ namespace PagoElectronico
             else { rol_Bean.setRol_Func_ABM_Cuentas("Inhabilitado"); }
             if (check_asociar_tarjeta.Checked == true) rol_Bean.setRol_Func_Asoc_Tarjeta("Habilitado");
             else { rol_Bean.setRol_Func_Asoc_Tarjeta("Inhabilitado"); }
+            if (check_Func_Estadisticas.Checked == true) rol_Bean.setRol_Func_Estadisticas ("Habilitado");
+            else { rol_Bean.setRol_Func_Estadisticas("Inhabilitado"); }
+            if (check_Func_Saldo.Checked == true) rol_Bean.setRol_Func_Saldo("Habilitado");
+            else { rol_Bean.setRol_Func_Saldo("Inhabilitado"); }
 
             rolDAO.modificarUnRol(rol_Bean);
             
             this.Close();
+
+        }
+
+        private void combo_Estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void group_Func_Enter(object sender, EventArgs e)
+        {
 
         }
     }

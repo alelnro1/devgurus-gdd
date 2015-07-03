@@ -707,6 +707,7 @@ AS
 	DECLARE @nro_Intento tinyint
 	DECLARE @validation_Rol int
 	DECLARE @estatus_Usuario varchar (255)
+	DECLARE @estado_rol varchar(20)
 	
 	SET @rol_Id = (SELECT Rol_Id FROM DEVGURUS.Roles WHERE Rol_Desc = @rol)
 	SET @usuario_Id = (SELECT Usuarios_Id FROM DEVGURUS.Usuarios WHERE Usuarios_Name = @usuario)
@@ -716,7 +717,12 @@ AS
 	SET @validation_Rol = (SELECT Rol_X_Usuario_Usuario from DEVGURUS.Rol_X_Usuario where 
 	Rol_X_Usuario_Usuario = @usuario_Id and Rol_X_Usuario_Rol = @rol_Id)
 	SET @estatus_Usuario = (SELECT Usuarios_Estado from DEVGURUS.Usuarios where Usuarios_Id = @usuario_Id)
-
+	SELECT @estado_rol = Rol_Estado from DEVGURUS.Roles Where Rol_Id = @rol_Id
+	
+	IF(@estado_rol != 'No activo')
+	BEGIN
+	SELECT 'Inactivo'
+	END
 	
 	IF (@estatus_Usuario != 'Habilitado')
 	BEGIN
@@ -1070,33 +1076,6 @@ AS
 GO	
 	Print 'El procedimiento RETIRAR se ha creado correctamente';
 
-/* EL PROCEDIMIENTO SE UTILIZA PARA ELIMINAR UN ROL */
-/* EL MISMO NO PERMITE BORRAR EL ROL DE ADMINISTRADOR GENERAL */
-IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Rol')
-	DROP PROCEDURE DEVGURUS.eliminar_Rol;
-	Print 'El procedimiento ELIMINAR ROL ya existe, SE BORRARA';
-GO
-
-CREATE PROCEDURE DEVGURUS.eliminar_Rol
-	@Id_Rol int
-AS
-	DECLARE @Id_Rol_Adm_Gral int
-	SET @Id_Rol_Adm_Gral = (select Rol_Id from DEVGURUS.Roles where Rol_Desc = 'Administrador General')
-	
-	IF (@Id_Rol_Adm_Gral <> @Id_Rol)
-	BEGIN
-	delete from DEVGURUS.Rol_X_Usuario
-	where Rol_X_Usuario_Rol = @Id_Rol;
-	delete from DEVGURUS.Roles
-	where Rol_Id = @Id_Rol;
-	SELECT 'BORRADO' MENSAJE
-	END
-	ELSE
-	BEGIN
-	SELECT 'NO BORRADO' MENSAJE
-	END
-GO	
-	Print 'El procedimiento ELIMINAR ROL se ha creado correctamente';
 
 /* EL GATILLO SE UTILIZA PARA VERIFICAR SI UNA CUENTA SE ENCUENTRA INHABILITADA DESPUES DE UN MOVIMIENTO*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'validarCuentaInhabilitada')

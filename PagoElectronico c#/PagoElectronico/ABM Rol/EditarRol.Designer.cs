@@ -44,6 +44,9 @@
             this.check_Depos = new System.Windows.Forms.CheckBox();
             this.check_Transf = new System.Windows.Forms.CheckBox();
             this.check_Extraer = new System.Windows.Forms.CheckBox();
+            this.check_Func_Saldo = new System.Windows.Forms.CheckBox();
+            this.check_Func_Estadisticas = new System.Windows.Forms.CheckBox();
+            this.boton_Eliminar = new System.Windows.Forms.Button();
             this.group_Datos.SuspendLayout();
             this.group_Func.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +108,7 @@
             this.combo_Estado.Name = "combo_Estado";
             this.combo_Estado.Size = new System.Drawing.Size(194, 21);
             this.combo_Estado.TabIndex = 223273;
+            this.combo_Estado.SelectedIndexChanged += new System.EventHandler(this.combo_Estado_SelectedIndexChanged);
             // 
             // L_Nombre
             // 
@@ -128,6 +132,9 @@
             // 
             // group_Func
             // 
+            this.group_Func.Controls.Add(this.boton_Eliminar);
+            this.group_Func.Controls.Add(this.check_Func_Estadisticas);
+            this.group_Func.Controls.Add(this.check_Func_Saldo);
             this.group_Func.Controls.Add(this.check_asociar_tarjeta);
             this.group_Func.Controls.Add(this.check_ABM_Cuentas);
             this.group_Func.Controls.Add(this.check_ABM_Client);
@@ -140,10 +147,11 @@
             this.group_Func.Margin = new System.Windows.Forms.Padding(2);
             this.group_Func.Name = "group_Func";
             this.group_Func.Padding = new System.Windows.Forms.Padding(2);
-            this.group_Func.Size = new System.Drawing.Size(385, 188);
+            this.group_Func.Size = new System.Drawing.Size(385, 182);
             this.group_Func.TabIndex = 223276;
             this.group_Func.TabStop = false;
             this.group_Func.Text = "Funciones del Rol";
+            this.group_Func.Enter += new System.EventHandler(this.group_Func_Enter);
             // 
             // check_asociar_tarjeta
             // 
@@ -225,6 +233,35 @@
             this.check_Extraer.Text = "Extraer";
             this.check_Extraer.UseVisualStyleBackColor = true;
             // 
+            // check_Func_Saldo
+            // 
+            this.check_Func_Saldo.AutoSize = true;
+            this.check_Func_Saldo.Location = new System.Drawing.Point(183, 18);
+            this.check_Func_Saldo.Name = "check_Func_Saldo";
+            this.check_Func_Saldo.Size = new System.Drawing.Size(100, 17);
+            this.check_Func_Saldo.TabIndex = 223304;
+            this.check_Func_Saldo.Text = "Consultar Saldo";
+            this.check_Func_Saldo.UseVisualStyleBackColor = true;
+            // 
+            // check_Func_Estadisticas
+            // 
+            this.check_Func_Estadisticas.AutoSize = true;
+            this.check_Func_Estadisticas.Location = new System.Drawing.Point(183, 38);
+            this.check_Func_Estadisticas.Name = "check_Func_Estadisticas";
+            this.check_Func_Estadisticas.Size = new System.Drawing.Size(123, 17);
+            this.check_Func_Estadisticas.TabIndex = 223305;
+            this.check_Func_Estadisticas.Text = "Generar Estadisticas";
+            this.check_Func_Estadisticas.UseVisualStyleBackColor = true;
+            // 
+            // boton_Eliminar
+            // 
+            this.boton_Eliminar.Location = new System.Drawing.Point(743, 67);
+            this.boton_Eliminar.Name = "boton_Eliminar";
+            this.boton_Eliminar.Size = new System.Drawing.Size(159, 37);
+            this.boton_Eliminar.TabIndex = 223303;
+            this.boton_Eliminar.Text = "Dar de Baja";
+            this.boton_Eliminar.UseVisualStyleBackColor = true;
+            // 
             // EditarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,5 +299,8 @@
         private System.Windows.Forms.CheckBox check_Extraer;
         private System.Windows.Forms.CheckBox check_asociar_tarjeta;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button boton_Eliminar;
+        private System.Windows.Forms.CheckBox check_Func_Estadisticas;
+        private System.Windows.Forms.CheckBox check_Func_Saldo;
     }
 }
