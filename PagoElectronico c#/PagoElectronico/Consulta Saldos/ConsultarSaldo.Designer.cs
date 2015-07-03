@@ -35,17 +35,19 @@
             this.ImporteDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MonedaDeposito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewRetiros = new System.Windows.Forms.DataGridView();
+            this.FechaRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewTransferencias = new System.Windows.Forms.DataGridView();
-            this.cuenta_combobox = new System.Windows.Forms.ComboBox();
-            this.FechaRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteRetiro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CuentaDestinoTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImporteTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoTransferencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuenta_combobox = new System.Windows.Forms.ComboBox();
+            this.textBox_saldo = new System.Windows.Forms.TextBox();
+            this.saldo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDepositos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRetiros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTransferencias)).BeginInit();
@@ -120,6 +122,20 @@
             this.dataGridViewRetiros.Size = new System.Drawing.Size(244, 141);
             this.dataGridViewRetiros.TabIndex = 4;
             // 
+            // FechaRetiro
+            // 
+            this.FechaRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FechaRetiro.HeaderText = "Fecha";
+            this.FechaRetiro.Name = "FechaRetiro";
+            this.FechaRetiro.ReadOnly = true;
+            // 
+            // ImporteRetiro
+            // 
+            this.ImporteRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ImporteRetiro.HeaderText = "Importe";
+            this.ImporteRetiro.Name = "ImporteRetiro";
+            this.ImporteRetiro.ReadOnly = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -163,29 +179,6 @@
             this.dataGridViewTransferencias.Size = new System.Drawing.Size(614, 231);
             this.dataGridViewTransferencias.TabIndex = 8;
             // 
-            // cuenta_combobox
-            // 
-            this.cuenta_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cuenta_combobox.FormattingEnabled = true;
-            this.cuenta_combobox.Location = new System.Drawing.Point(59, 9);
-            this.cuenta_combobox.Name = "cuenta_combobox";
-            this.cuenta_combobox.Size = new System.Drawing.Size(121, 21);
-            this.cuenta_combobox.TabIndex = 9;
-            // 
-            // FechaRetiro
-            // 
-            this.FechaRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FechaRetiro.HeaderText = "Fecha";
-            this.FechaRetiro.Name = "FechaRetiro";
-            this.FechaRetiro.ReadOnly = true;
-            // 
-            // ImporteRetiro
-            // 
-            this.ImporteRetiro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ImporteRetiro.HeaderText = "Importe";
-            this.ImporteRetiro.Name = "ImporteRetiro";
-            this.ImporteRetiro.ReadOnly = true;
-            // 
             // FechaTransferencia
             // 
             this.FechaTransferencia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -214,11 +207,39 @@
             this.CostoTransferencia.Name = "CostoTransferencia";
             this.CostoTransferencia.ReadOnly = true;
             // 
+            // cuenta_combobox
+            // 
+            this.cuenta_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cuenta_combobox.FormattingEnabled = true;
+            this.cuenta_combobox.Location = new System.Drawing.Point(59, 9);
+            this.cuenta_combobox.Name = "cuenta_combobox";
+            this.cuenta_combobox.Size = new System.Drawing.Size(121, 21);
+            this.cuenta_combobox.TabIndex = 9;
+            // 
+            // textBox_saldo
+            // 
+            this.textBox_saldo.Enabled = false;
+            this.textBox_saldo.Location = new System.Drawing.Point(469, 6);
+            this.textBox_saldo.Name = "textBox_saldo";
+            this.textBox_saldo.Size = new System.Drawing.Size(100, 20);
+            this.textBox_saldo.TabIndex = 10;
+            // 
+            // saldo
+            // 
+            this.saldo.AutoSize = true;
+            this.saldo.Location = new System.Drawing.Point(382, 9);
+            this.saldo.Name = "saldo";
+            this.saldo.Size = new System.Drawing.Size(67, 13);
+            this.saldo.TabIndex = 11;
+            this.saldo.Text = "Saldo Actual";
+            // 
             // ConsultarSaldo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 491);
+            this.Controls.Add(this.saldo);
+            this.Controls.Add(this.textBox_saldo);
             this.Controls.Add(this.cuenta_combobox);
             this.Controls.Add(this.dataGridViewTransferencias);
             this.Controls.Add(this.label4);
@@ -258,5 +279,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CuentaDestinoTransferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteTransferencia;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoTransferencia;
+        private System.Windows.Forms.TextBox textBox_saldo;
+        private System.Windows.Forms.Label saldo;
     }
 }

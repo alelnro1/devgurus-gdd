@@ -18,6 +18,12 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.iniciar();
         }
 
+        public SqlDataReader obtenerSaldoDeCuenta (String cuenta)
+        {
+            String sql = "SELECT Cuenta_Saldo FROM " + ConstantesBD.t_cuentas + " WHERE Cuenta_Nro = " + cuenta ;
+            return this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+        }
+
         public SqlDataReader obtenerUltimosCincoDepositos(String cuenta)
         {
             String sql = "SELECT TOP 5 Deposito_Fecha, Deposito_Importe, Tipo_De_Moneda_Nombre FROM " + ConstantesBD.t_depositos + " INNER JOIN " + ConstantesBD.t_tipo_de_moneda + " ON Tipo_De_Moneda_Id = Deposito_TipoMoneda WHERE Deposito_Cuenta = '" + cuenta + "' ORDER BY Deposito_Fecha DESC";

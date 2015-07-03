@@ -32,9 +32,21 @@ namespace PagoElectronico
         private void button1_Click(object sender, EventArgs e)
         {
             if (cuenta_combobox.Text != "")
-            {
-                dataGridViewDepositos.Rows.Clear();
+            {   
+                /* SALDO */
+
                 String cuenta = cuenta_combobox.Text;
+
+                SqlDataReader lector_saldo = consultar_saldo_DAO.obtenerSaldoDeCuenta(cuenta);
+                String saldo;
+                lector_saldo.Read();
+                saldo = lector_saldo["Cuenta_Saldo"].ToString();
+                lector_saldo.Close();
+
+                textBox_saldo.Text = saldo;
+
+                dataGridViewDepositos.Rows.Clear();
+               
 
                 /* DEPOSITOS */
                 SqlDataReader lector_depositos = consultar_saldo_DAO.obtenerUltimosCincoDepositos(cuenta);
