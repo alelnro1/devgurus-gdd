@@ -32,6 +32,11 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String proc_eliminar_Rol = "DEVGURUS.eliminar_Rol";
         public static String proc_eliminar_Cuenta = "DEVGURUS.eliminar_Cuenta";
         public static String proc_eliminar_Cliente = "DEVGURUS.eliminar_Cliente";
+        public static String proc_listar_Cuent_Inahb = "DEVGURUS.listarCuentasInhabilitadas";
+        public static String proc_listar_Mayor_Fact = "DEVGURUS.listarClientesMayorFacturacion";
+        public static String proc_listar_Mayores_Trans = "DEVGURUS.listarClientesMayoresTransacciones";
+        public static String proc_total_Facturado = "DEVGURUS.total_Facturado_Por_Cuenta";
+        public static String proc_paises_Mayor_Mov = "DEVGURUS.paisesConMayoresMovimientos";
 
         // Recibe una fecha en formato DD/MM/AAAA y lo convierte a formato de BD: AAAAMMDD 00:00:00.00
         public static String cambiarFormatoFecha(String fecha)

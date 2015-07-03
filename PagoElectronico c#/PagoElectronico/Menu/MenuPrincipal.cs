@@ -436,7 +436,10 @@ namespace PagoElectronico
             habilitar_usuario.ShowDialog();
         }
 
-
-        
+        private void estadisticas_Click(object sender, EventArgs e)
+        {
+            Menu_Listados menuEstadistico = new Menu_Listados();
+            menuEstadistico.ShowDialog();
+        }        
     }    
 }

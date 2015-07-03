@@ -16,6 +16,18 @@ GO
 /* ******************************************************************************************************************** */
 /*	****************************************	BORRO TABLAS DEL SISTEMA	******************************************* */
 
+IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Log_Inhabilitaciones')
+BEGIN
+	Print 'La tabla LOG INAHBILITACIONES ya existe, SE BORRARA';
+	DROP TABLE DEVGURUS.Log_Inhabilitaciones
+END
+
+IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Log_Transaccion_Pendiente')
+BEGIN
+	Print 'La tabla LOG TRANSACCIONES PENDIENTES ya existe, SE BORRARA';
+	DROP TABLE DEVGURUS.Log_Transaccion_Pendiente
+END
+
 IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Login_Auditoria')
 BEGIN
 	Print 'La tabla LOGIN AUDITORIA ya existe, SE BORRARA';
@@ -360,8 +372,25 @@ Create Table DEVGURUS.Login_Auditoria	(	Login_Auditoria_Id integer identity (1,1
 											Login_Auditoria_Tipo varchar(25),
 											Login_Auditoria_Intento tinyint)
 Print 'La tabla LOGIN AUDITORIA se ha creado con exito';						
-COMMIT TRAN CreacionTablas
 
+/* 	TABLA: Log_Inhabilitaciones
+	DESCRIPCION: Tabla creada para almacenar historial de cuentas inhabilitadas
+*/
+CREATE table DEVGURUS.Log_Inhabilitaciones	
+		(	Log_Inhabilitaciones_Cliente int FOREIGN KEY REFERENCES DEVGURUS.Clientes(Cliente_Id),
+			Log_Inhabilitaciones_Cuenta numeric(18,0) FOREIGN KEY REFERENCES DEVGURUS.Cuentas(Cuenta_Nro),
+			Log_Inhabilitaciones_Fecha datetime)
+Print 'La tabla LOGIN AUDITORIA se ha creado con exito';
+
+/* 	TABLA: Log_Transaccion_Pendiente
+	DESCRIPCION: Tabla creada para almacenar transacciones pendientes de pago, para consultas estadisticas
+*/						
+Create Table DEVGURUS.Log_Transaccion_Pendiente	(	Log_Transaccion_Pendiente_Importe numeric (18,2),
+												Log_Transaccion_Pendiente_Fecha datetime,
+												Log_Transaccion_Pendiente_Tipo_Cuenta tinyint foreign key references DEVGURUS.Tipo_De_Cuentas(Tipo_De_Cuentas_Id))
+Print 'La tabla LOG TRANSACCIONES PENDIENTES se ha creado con exito';
+
+COMMIT TRAN CreacionTablas
 
 /* ******************************************************************************************************************** */
 /* ***************************************** INICIALIZACION DE DATOS ************************************************** */
@@ -383,7 +412,7 @@ where Pais_Nombre like ' %'
 Print 'La tabla PAISES se ha cargado con exito';
 
 /*TIPOS DE MONEDA*/
-Insert into DEVGURUS.Tipo_De_Moneda(Tipo_De_Moneda_Nombre,Tipo_De_Moneda_Equivalente_en_dolar) values ('Dolar',1);
+Insert into DEVGURUS.Tipo_De_Moneda(Tipo_De_Moneda_Nombre,Tipo_De_Moneda_Equivalente_en_dolar) values ('Dolar', 1);
 Print 'La tabla TIPO DE MONEDAS se ha cargado con exito';
 
 /* TIPOS DE DOCUMENTO */
@@ -495,30 +524,60 @@ COMMIT TRAN InicializacionDeDatos
 
 
 /* ******************************************************************************************************************** */
-/* ***************************************** Procedures y triggers **************************************************** */
-/* Procedures: 
-		actualizar_cliente
-		asignar_Item_A_Factura
-		logearse
-		insertarEnCuentas
-		insertarNuevoCliente
-		insertarNuevoUsuario
-		insertTransferenciasPendientes
-		realizar_transferencia
-		retirar
-		generar_Nueva_Factura
-		eliminar_Rol
-		depositar
-		actualizar_tipo_de_cuenta
-		eliminar_Cliente
-		eliminar_Cuenta
-		insertarEnCuentas
- Triggers: 
-		insertAperturasPendientes
-		validarCuentaInhabilitada
-*/
+/* ***************************************** Procedures, Functions y triggers **************************************************** */
 
 BEGIN TRAN InicializacionDeProcedures
+
+/* LA FUNCION DEVUELVE EL NOMBRE DEL PAIS DANDOLE EL ID */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'pais_name')
+	DROP FUNCTION DEVGURUS.pais_name;
+	Print 'La función PAIS NOMBRE ya existe, SE BORRARA';
+GO
+
+CREATE FUNCTION DEVGURUS.pais_name (@id numeric(18,0))
+RETURNS varchar(255)
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+	RETURN(select Pais_Nombre from DEVGURUS.Paises where Pais_Id = @id)
+END;
+GO
+Print 'La función PAIS NOMBRE se ha creado correctamente';
+
+
+/* LA FUNCION DEVUELVE EL NOMBRE DEL TIPO DE DOCUMENTO DANDOLE EL ID */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'tipo_doc_name')
+	DROP FUNCTION DEVGURUS.tipo_doc_name;
+	Print 'La función NOMBRE TIPO DE DOC ya existe, SE BORRARA';
+GO
+
+CREATE FUNCTION DEVGURUS.tipo_doc_name (@id numeric(18,0))
+RETURNS varchar(255)
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+	RETURN(select Tipo_Doc_Desc from DEVGURUS.Tipo_De_Doc where Tipo_Doc_Id = @id)
+END;
+GO
+Print 'La función NOMBRE TIPO DE DOC se ha creado correctamente';
+
+
+/* LA FUNCION DEVUELVE EL NOMBRE DEL TIPO DE CUENTA DANDOLE EL ID */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'tipo_cuenta_name')
+	DROP FUNCTION DEVGURUS.tipo_cuenta_name;
+	Print 'La función NOMBRE TIPO DE CUENTA ya existe, SE BORRARA';
+GO
+
+CREATE FUNCTION DEVGURUS.tipo_cuenta_name (@id numeric(18,0))
+RETURNS varchar(255)
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+	RETURN(select Tipo_De_Cuentas_Nombre from DEVGURUS.Tipo_De_Cuentas where Tipo_De_Cuentas_Id = @id)
+END;
+GO
+Print 'La función NOMBRE TIPO DE CUENTA se ha creado correctamente';
+
 
 /* EL PROCEDIMIENTO ACTUALIZA LOS DATOS DE UN CLIENTE UTILIZANDO UN UPDATE */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'actualizar_cliente')
@@ -1083,28 +1142,246 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'validarCuentaInhabilitada
 	Print 'El gatillo VALIDAR CUENTA INHABILITADA ya existe, SE BORRARA';
 GO
 
-CREATE TRIGGER DEVGURUS.validarCuentaInhabilitada
+create TRIGGER DEVGURUS.validarCuentaInhabilitada
 ON DEVGURUS.Transaccion_Pendiente
 AFTER INSERT
 AS
 	DECLARE @cliente int
 	DECLARE @cuenta numeric(18,0)
 	DECLARE @contador tinyint
+	DECLARE @importe numeric(18,2)
+	DECLARE @tipo_Cuenta tinyint
 	
 	SET @cliente = (select Transaccion_Pendiente_Cliente from INSERTED)
 	SET @cuenta = (select Transaccion_Pendiente_Cuenta_Nro from INSERTED)
 	SET @contador = (Select COUNT(*) CONTADOR from DEVGURUS.Transaccion_Pendiente where Transaccion_Pendiente_Cliente = @cliente
 	and Transaccion_Pendiente_Cuenta_Nro = @cuenta)
+	SET @importe = (select Transaccion_Pendiente_Importe from INSERTED)
+	SET @tipo_Cuenta = (select Cuenta_Tipo from DEVGURUS.Cuentas where Cuenta_Nro = @cuenta)
 	
 	IF (@contador = 5)
 	BEGIN
 	update DEVGURUS.Cuentas SET Cuenta_Estado = 'Inhabilitado' where Cuenta_Nro = @cuenta
+	Insert into DEVGURUS.Log_Inhabilitaciones
+	values (@cliente, @cuenta, GETDATE())
 	END
+	
+	Insert into DEVGURUS.Log_Transaccion_Pendiente
+	values (@importe, GETDATE(), @tipo_Cuenta)
+	
 GO	
 	Print 'El gatillo VALIDAR CUENTA INHABILITADA se ha creado correctamente';
 
 
-Print 'Se ha creado el lote de PROCEDURES y TRIGGERS correctamente';
+/* EL PROCEDIMIENTO SE UTILIZA PARA CONSULTAR LAS CUENTAS INHABILITADAS*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'listarCuentasInhabilitadas')
+	DROP PROCEDURE DEVGURUS.listarCuentasInhabilitadas;
+	Print 'El procedimiento LISTAR CUENTAS INHABILITADAS ya existe, SE BORRARA';
+GO
+
+Create procedure DEVGURUS.listarCuentasInhabilitadas
+@anio int,
+@trimestre tinyint
+AS
+SELECT TOP 5
+LOGS.Log_Inhabilitaciones_Cliente Cliente_Id, 
+COUNT(LOGS.Log_Inhabilitaciones_Cuenta) Cantidad_Cuentas_Inhabilitadas,
+CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc) Documento,
+CLI.Cliente_Nro_Doc,
+DEVGURUS.pais_name(CLI.Cliente_Nacionalidad) Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais) Pais,
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+from DEVGURUS.Clientes CLI, DEVGURUS.Log_Inhabilitaciones LOGS 
+WHERE CLI.Cliente_Id = LOGS.Log_Inhabilitaciones_Cliente
+and DATEPART(YEAR, LOGS.Log_Inhabilitaciones_Fecha) = @anio
+and DATEPART(QUARTER, LOGS.Log_Inhabilitaciones_Fecha) = @trimestre
+group by LOGS.Log_Inhabilitaciones_Cliente, CLI.Cliente_Id, CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc),
+CLI.Cliente_Nro_Doc,
+CLI.Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais),
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+order by Cantidad_Cuentas_Inhabilitadas desc
+GO
+Print 'El procedimiento LISTAR CUENTAS INHABILITADAS se ha creado correctamente';
+
+
+
+/* EL PROCEDIMIENTO SE UTILIZA PARA CONSULTAR LOS CLIENTES CON MAYOR FACTURACION*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'listarClientesMayorFacturacion')
+	DROP PROCEDURE DEVGURUS.listarClientesMayorFacturacion;
+	Print 'El procedimiento LISTAR CLIENTES CON MAYOR FACTURACION ya existe, SE BORRARA';
+GO
+
+create procedure DEVGURUS.listarClientesMayorFacturacion
+@anio int,
+@trimestre tinyint
+AS
+SELECT TOP 5
+FACT.Factura_Cliente Cliente_Id, 
+COUNT(FACT.Factura_Numero) Cantidad_Facturas,
+CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc) Documento,
+CLI.Cliente_Nro_Doc,
+DEVGURUS.pais_name(CLI.Cliente_Nacionalidad) Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais) Pais,
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+from DEVGURUS.Clientes CLI, DEVGURUS.Facturas FACT 
+WHERE CLI.Cliente_Id = FACT.Factura_Cliente
+and DATEPART(YEAR, FACT.Factura_Fecha) = @anio
+and DATEPART(QUARTER, FACT.Factura_Fecha) = @trimestre
+group by FACT.Factura_Cliente, CLI.Cliente_Id, CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc),
+CLI.Cliente_Nro_Doc,
+CLI.Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais),
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+order by Cantidad_Facturas desc
+GO
+Print 'El procedimiento LISTAR CLIENTES CON MAYOR FACTURACION se ha creado correctamente';
+
+
+
+/* EL PROCEDIMIENTO SE UTILIZA PARA CONSULTAR LOS CLIENTES CON MAYORES TRANSACCIONES*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'listarClientesMayoresTransacciones')
+	DROP PROCEDURE DEVGURUS.listarClientesMayoresTransacciones;
+	Print 'El procedimiento LISTAR CLIENTES CON MAYORES TRANSACCIONES ya existe, SE BORRARA';
+GO
+
+create procedure DEVGURUS.listarClientesMayoresTransacciones
+@anio int,
+@trimestre tinyint
+AS
+SELECT TOP 5
+CU.Cuenta_Cliente, 
+COUNT(TRANF.Transferencia_Cuenta_Emisora) Cantidad_De_Transferencias,
+CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc) Documento,
+CLI.Cliente_Nro_Doc,
+DEVGURUS.pais_name(CLI.Cliente_Nacionalidad) Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais) Pais,
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+from DEVGURUS.Clientes CLI, DEVGURUS.Transferencia TRANF, 
+DEVGURUS.Cuentas CU, DEVGURUS.Cuentas CU2
+where CU.Cuenta_Nro = TRANF.Transferencia_Cuenta_Emisora
+	and CU2.Cuenta_Nro = TRANF.Transferencia_Cuenta_Destino
+	and CU.Cuenta_Cliente = CU2.Cuenta_Cliente
+	and CLI.Cliente_Id = CU.Cuenta_Cliente
+	and DATEPART(YEAR, TRANF.Transferencia_Fecha) = @anio
+	and DATEPART(QUARTER, TRANF.Transferencia_Fecha) = @trimestre
+group by CU.Cuenta_Cliente, CLI.Cliente_Id, CLI.Cliente_Nombre,
+CLI.Cliente_Apellido,
+CLI.Cliente_Estado,
+DEVGURUS.tipo_doc_name(CLI.Cliente_Tipo_Doc),
+CLI.Cliente_Nro_Doc,
+CLI.Cliente_Nacionalidad,
+DEVGURUS.pais_name(CLI.Cliente_Pais),
+CLI.Cliente_Localidad,
+CLI.Cliente_Dom_Calle,
+CLI.Cliente_Dom_Nro,
+CLI.Cliente_Dom_Piso,
+CLI.Cliente_Dom_Depto,
+CLI.Cliente_Fecha_Nac,
+CLI.Cliente_Mail
+order by Cantidad_De_Transferencias desc
+GO
+Print 'El procedimiento LISTAR CLIENTES CON MAYORES TRANSACCIONES se ha creado correctamente';
+
+
+
+/* EL PROCEDIMIENTO SE UTILIZA CONSULTAR LOS PAISES CON MAYOR MOVIMIENTO*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'paisesConMayoresMovimientos')
+	DROP PROCEDURE DEVGURUS.paisesConMayoresMovimientos;
+	Print 'El procedimiento LISTAR PAISES CON MAYOR MOVIMIENTO ya existe, SE BORRARA';
+GO
+
+
+create procedure DEVGURUS.paisesConMayoresMovimientos
+@anio int,
+@trimestre tinyint
+AS
+select TOP 5 
+Pais, Count(Fecha) Movimientos from (
+SELECT DEVGURUS.pais_name(CU.Cuenta_PaisOrigen) Pais, Retiro_Fecha Fecha
+from DEVGURUS.Retiros RE, DEVGURUS.Cuentas CU
+where CU.Cuenta_Nro = RE.Retiro_Cuenta
+UNION ALL
+select DEVGURUS.pais_name(CU2.Cuenta_PaisOrigen) Pais, Deposito_Fecha Fecha
+from DEVGURUS.Depositos DE, DEVGURUS.Cuentas CU2
+where CU2.Cuenta_Nro = DE.Deposito_Cuenta
+) AUX
+where DATEPART(YEAR, Fecha) = @anio
+and DATEPART(QUARTER, Fecha) = @trimestre
+group by Pais
+order by Movimientos desc
+GO
+Print 'El procedimiento PAISES CON MAYOR MOVIMIENTO se ha creado correctamente';
+
+
+
+/* EL PROCEDIMIENTO SE UTILIZA PARA CONSULTAR EL TOTAL FACTURADO POR TIPO DE CUENTA*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'total_Facturado_Por_Cuenta')
+	DROP PROCEDURE DEVGURUS.total_Facturado_Por_Cuenta;
+	Print 'El procedimiento LISTAR FACTURACION POR TIPO DE CUENTA ya existe, SE BORRARA';
+GO
+
+create procedure DEVGURUS.total_Facturado_Por_Cuenta
+@anio int,
+@trimestre tinyint
+AS
+select top 5
+DEVGURUS.tipo_cuenta_name(Log_Transaccion_Pendiente_Tipo_Cuenta) Tipo,
+sum(Log_Transaccion_Pendiente_Importe) Total
+from DEVGURUS.Log_Transaccion_Pendiente
+where DATEPART(YEAR, Log_Transaccion_Pendiente_Fecha) = @anio
+and DATEPART(QUARTER, Log_Transaccion_Pendiente_Fecha) = @trimestre
+group by Log_Transaccion_Pendiente_Tipo_Cuenta
+order by Total desc
+GO
+Print 'El procedimiento LISTAR FACTURACION POR TIPO DE CUENTA se ha creado correctamente';
+
+Print 'Se ha creado el lote de PROCEDURES, FUNCIONES y TRIGGERS correctamente';
 
 COMMIT TRAN InicializacionDeProcedures
 

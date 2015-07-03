@@ -330,6 +330,7 @@
             this.estadisticas.TabIndex = 57;
             this.estadisticas.Text = "Generar Estadisticas";
             this.estadisticas.UseVisualStyleBackColor = true;
+            this.estadisticas.Click += new System.EventHandler(this.estadisticas_Click);
             // 
             // button1
             // 
