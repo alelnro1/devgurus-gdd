@@ -77,6 +77,7 @@ namespace PagoElectronico
                 columnas[10] = lector["Func_Asociar_Tarjeta"];
                 columnas[11] = lector["Func_Saldo"];
                 columnas[12] = lector["Func_Estadisticas"];
+                
 
                                
                 filas.Add(new DataGridViewRow());

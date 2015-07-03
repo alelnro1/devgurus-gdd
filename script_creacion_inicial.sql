@@ -719,9 +719,9 @@ AS
 	SET @estatus_Usuario = (SELECT Usuarios_Estado from DEVGURUS.Usuarios where Usuarios_Id = @usuario_Id)
 	SELECT @estado_rol = Rol_Estado from DEVGURUS.Roles Where Rol_Id = @rol_Id
 	
-	IF(@estado_rol != 'No activo')
+	IF(@estado_rol = 'No activo')
 	BEGIN
-	SELECT 'Inactivo'
+	SELECT 'Inactivo' MENSAJE
 	END
 	
 	IF (@estatus_Usuario != 'Habilitado')

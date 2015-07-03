@@ -34,7 +34,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("EXECUTE " + ConstantesBD.proc_logearse + " @rol = '" + nombre_Rol + "', @usuario = '" + usuario.getUser_Name() + "', @password = '" + usuario.getUser_Pass() + "';");
             lector.Read();
-            if (lector["MENSAJE"].Equals("'Inactivo'"))
+            if (lector["MENSAJE"].Equals("Inactivo"))
             {
                 MessageBox.Show("El Rol seleccionado se encuenta Inactivo.", "Atención!", MessageBoxButtons.OK);
                 lector.Close();

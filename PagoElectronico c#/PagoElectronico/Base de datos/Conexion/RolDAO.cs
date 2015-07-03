@@ -62,8 +62,8 @@ namespace PagoElectronico.BaseDeDatos.Conexion
                             "Func_ABM_Clientes = '" + rol.getRol_Func_ABM_Clientes() + "', " +
                             "Func_ABM_Usuarios = '" + rol.getRol_Func_ABM_Usuarios() + "', " +
                             "Func_ABM_Cuentas = '" + rol.getRol_Func_ABM_Cuentas() + "', " +
-                            "Func_Asociar_Tarjeta = '" + rol.getRol_Func_Asoc_Tarjeta() + "' " +
-                            "Func_Saldo = '" + rol.getrol_Func_Saldo() + "' " +
+                            "Func_Asociar_Tarjeta = '" + rol.getRol_Func_Asoc_Tarjeta() + "', " +
+                            "Func_Saldo = '" + rol.getrol_Func_Saldo() + "', " +
                             "Func_Estadisticas = '" + rol.getrol_Func_Estadisticas() + "' " +
                             "where Rol_Id = '" + rol.getRol_Id() + "'";
 

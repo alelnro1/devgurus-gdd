@@ -51,7 +51,6 @@
             this.boton_Editar = new System.Windows.Forms.Button();
             this.boton_Volver = new System.Windows.Forms.Button();
             this.boton_Reestablecer = new System.Windows.Forms.Button();
-            this.boton_Eliminar = new System.Windows.Forms.Button();
             this.ID_Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +62,8 @@
             this.FuncionABMClientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FuncionABMUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FuncionAsociarTarjeta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadistica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consultar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.group_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Roles)).BeginInit();
             this.SuspendLayout();
@@ -268,7 +269,7 @@
             // 
             // boton_Limpiar
             // 
-            this.boton_Limpiar.Location = new System.Drawing.Point(901, 208);
+            this.boton_Limpiar.Location = new System.Drawing.Point(937, 140);
             this.boton_Limpiar.Name = "boton_Limpiar";
             this.boton_Limpiar.Size = new System.Drawing.Size(139, 29);
             this.boton_Limpiar.TabIndex = 223276;
@@ -293,16 +294,18 @@
             this.FuncionABMCuentas,
             this.FuncionABMClientes,
             this.FuncionABMUsuarios,
-            this.FuncionAsociarTarjeta});
+            this.FuncionAsociarTarjeta,
+            this.estadistica,
+            this.consultar});
             this.lista_Roles.Location = new System.Drawing.Point(30, 293);
             this.lista_Roles.Name = "lista_Roles";
-            this.lista_Roles.Size = new System.Drawing.Size(1044, 198);
+            this.lista_Roles.Size = new System.Drawing.Size(1246, 198);
             this.lista_Roles.TabIndex = 223277;
             this.lista_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lista_Roles_CellContentClick);
             // 
             // boton_Editar
             // 
-            this.boton_Editar.Location = new System.Drawing.Point(722, 126);
+            this.boton_Editar.Location = new System.Drawing.Point(722, 128);
             this.boton_Editar.Name = "boton_Editar";
             this.boton_Editar.Size = new System.Drawing.Size(159, 37);
             this.boton_Editar.TabIndex = 223279;
@@ -312,7 +315,7 @@
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(950, 12);
+            this.boton_Volver.Location = new System.Drawing.Point(937, 38);
             this.boton_Volver.Name = "boton_Volver";
             this.boton_Volver.Size = new System.Drawing.Size(139, 29);
             this.boton_Volver.TabIndex = 223278;
@@ -322,23 +325,13 @@
             // 
             // boton_Reestablecer
             // 
-            this.boton_Reestablecer.Location = new System.Drawing.Point(901, 137);
+            this.boton_Reestablecer.Location = new System.Drawing.Point(937, 93);
             this.boton_Reestablecer.Name = "boton_Reestablecer";
             this.boton_Reestablecer.Size = new System.Drawing.Size(139, 29);
             this.boton_Reestablecer.TabIndex = 223280;
             this.boton_Reestablecer.Text = "Reestablecer Filtros";
             this.boton_Reestablecer.UseVisualStyleBackColor = true;
             this.boton_Reestablecer.Click += new System.EventHandler(this.boton_Reestablecer_Click);
-            // 
-            // boton_Eliminar
-            // 
-            this.boton_Eliminar.Location = new System.Drawing.Point(722, 208);
-            this.boton_Eliminar.Name = "boton_Eliminar";
-            this.boton_Eliminar.Size = new System.Drawing.Size(159, 37);
-            this.boton_Eliminar.TabIndex = 223281;
-            this.boton_Eliminar.Text = "Dar de Baja";
-            this.boton_Eliminar.UseVisualStyleBackColor = true;
-            this.boton_Eliminar.Click += new System.EventHandler(this.boton_Eliminar_Click);
             // 
             // ID_Rol
             // 
@@ -407,12 +400,21 @@
             this.FuncionAsociarTarjeta.Name = "FuncionAsociarTarjeta";
             this.FuncionAsociarTarjeta.ReadOnly = true;
             // 
+            // estadistica
+            // 
+            this.estadistica.HeaderText = "Generar Estadisticas";
+            this.estadistica.Name = "estadistica";
+            // 
+            // consultar
+            // 
+            this.consultar.HeaderText = "Consultar Saldo";
+            this.consultar.Name = "consultar";
+            // 
             // Busqueda_Rol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 511);
-            this.Controls.Add(this.boton_Eliminar);
+            this.ClientSize = new System.Drawing.Size(1303, 511);
             this.Controls.Add(this.boton_Reestablecer);
             this.Controls.Add(this.boton_Editar);
             this.Controls.Add(this.boton_Volver);
@@ -420,6 +422,7 @@
             this.Controls.Add(this.boton_Limpiar);
             this.Controls.Add(this.boton_Buscar);
             this.Controls.Add(this.group_Datos);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "Busqueda_Rol";
             this.Text = "Busqueda de Roles";
             this.group_Datos.ResumeLayout(false);
@@ -450,7 +453,6 @@
         private System.Windows.Forms.CheckBox check_Depos;
         private System.Windows.Forms.CheckBox check_Transf;
         private System.Windows.Forms.CheckBox check_Extraer;
-        private System.Windows.Forms.Button boton_Eliminar;
         private System.Windows.Forms.CheckBox check_asociar_tarjeta;
         private System.Windows.Forms.CheckBox check_Func_Estadisticas;
         private System.Windows.Forms.CheckBox check_Func_Saldo;
@@ -466,5 +468,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMClientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionABMUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn FuncionAsociarTarjeta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estadistica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn consultar;
     }
 }
