@@ -16,6 +16,12 @@ GO
 /* ******************************************************************************************************************** */
 /*	****************************************	BORRO TABLAS DEL SISTEMA	******************************************* */
 
+IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Fecha_Sistema')
+BEGIN
+	Print 'La tabla FECHA DE SISTEMA ya existe, SE BORRARA';
+	DROP TABLE DEVGURUS.Fecha_Sistema
+END
+
 IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Log_Inhabilitaciones')
 BEGIN
 	Print 'La tabla LOG INAHBILITACIONES ya existe, SE BORRARA';
@@ -153,6 +159,12 @@ END
 /*	********************************************	CREACION DE TABLAS	*********************************************** */
 
 BEGIN TRAN CreacionTablas
+
+/* 	TABLA: FECHA DE SISTEMA
+	DESCRIPCION: Contiene la fecha seteada desde la aplicación
+*/
+Create Table DEVGURUS.Fecha_Sistema		(	Fecha_Seteada datetime)
+Print 'La tabla FECHA DE SISTEMA se ha creado con exito';
 
 /* 	TABLA: PAISES
 	DESCRIPCION: Datos de los Paises con su correspondiente Id proveniente del Maestro
@@ -468,7 +480,7 @@ Print 'La tabla TARJETAS se ha cargado con exito';
 /* CUENTAS */ 
 /* VER QUE FECHA CREACION ESTA HARDCODEADO PORQUE EN TABLA MAESTRA LA FECHA NO ES COHERENTE */
 Insert into DEVGURUS.Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente, Cuenta_Saldo)
-select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo, DATEADD(DAY, -5, GETDATE()), CL.Cliente_Id, 0
+select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo, DATEADD(DAY, -5, DEVGURUS.fecha_actual()), CL.Cliente_Id, 0
 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
 
@@ -543,6 +555,23 @@ BEGIN
 END;
 GO
 Print 'La función PAIS NOMBRE se ha creado correctamente';
+
+
+/* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'fecha_actual')
+	DROP FUNCTION DEVGURUS.fecha_actual;
+	Print 'La función FECHA ACTUAL ya existe, SE BORRARA';
+GO
+
+CREATE FUNCTION DEVGURUS.fecha_actual()
+RETURNS varchar(255)
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+	RETURN(select * from DEVGURUS.Fecha_Sistema)
+END;
+GO
+Print 'La función FECHA ACTUAL se ha creado correctamente';
 
 
 /* LA FUNCION DEVUELVE EL NOMBRE DEL TIPO DE DOCUMENTO DANDOLE EL ID */
@@ -631,11 +660,11 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'eliminar_Cuenta')
 	Print 'El procedimiento ELIMINAR CUENTA ya existe, SE BORRARA';
 GO
 
-CREATE PROCEDURE DEVGURUS.eliminar_Cuenta
+create PROCEDURE DEVGURUS.eliminar_Cuenta
 	@Id_Cuenta numeric (18,0)
 AS
 	UPDATE DEVGURUS.Cuentas SET Cuenta_Estado = 'Cerrado' WHERE Cuenta_Nro = @Id_Cuenta;
-	UPDATE DEVGURUS.Cuentas SET Cuenta_Fec_Cierre = GETDATE() WHERE Cuenta_Nro = @Id_Cuenta;
+	UPDATE DEVGURUS.Cuentas SET Cuenta_Fec_Cierre = DEVGURUS.fecha_actual() WHERE Cuenta_Nro = @Id_Cuenta;
 GO
 	Print 'El procedimiento ELIMINAR CUENTA se ha creado correctamente';
 	
@@ -691,7 +720,7 @@ AS
 	INSERT INTO Depositos (Deposito_Id, Deposito_Cuenta, Deposito_Fecha, Deposito_Importe, Deposito_Tarjeta, Deposito_TipoMoneda)
 	VALUES ((SELECT TOP 1 Deposito_Id + 1  FROM Depositos ORDER BY Deposito_Id DESC), 
 			@Id_Cuenta, 
-			GETDATE(), 
+			DEVGURUS.fecha_actual(), 
 			@importe, 
 			@id_tarjeta, 
 			@id_tipo_moneda)
@@ -743,7 +772,7 @@ AS
 	where Cuenta_Nro = @cuenta_Nro
 	insert into DEVGURUS.Transaccion_Pendiente (Transaccion_Pendiente_Importe, Transaccion_Pendiente_Descr, 
 	Transaccion_Pendiente_Cliente, Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Cuenta_Nro)
-	values(@tipo_Cuenta_Nueva_Costo, 'Cambio del Tipo de Cuenta', @cuenta_Cliente, GETDATE(), 
+	values(@tipo_Cuenta_Nueva_Costo, 'Cambio del Tipo de Cuenta', @cuenta_Cliente, DEVGURUS.fecha_actual(), 
 	@cuenta_Nro)
 	END
 GO
@@ -792,21 +821,21 @@ AS
 	BEGIN
 	select 'No existe' MENSAJE
 	insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo)
-	values (@usuario, GETDATE(), 'Incorrecto')
+	values (@usuario, DEVGURUS.fecha_actual(), 'Incorrecto')
 	END
 	
 	ELSE IF (@validation_Rol is null)
 	BEGIN
 	select 'No rol valido' MENSAJE
 	insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo)
-	values (@usuario, GETDATE(), 'Incorrecto')
+	values (@usuario, DEVGURUS.fecha_actual(), 'Incorrecto')
 	END
 	
 	ELSE IF (@nro_Intento = 3)
 	BEGIN
 	select 'Bloqueado' MENSAJE
 	insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo, Login_Auditoria_Intento)
-	values (@usuario, GETDATE(), 'Fallido', @nro_Intento + 1)
+	values (@usuario, DEVGURUS.fecha_actual(), 'Fallido', @nro_Intento + 1)
 	END
 	
 	ELSE IF (@usuario_Pass <> @password)
@@ -816,16 +845,16 @@ AS
 		IF (@nro_Intento is null)
 		BEGIN
 		insert into DEVGURUS.Login_Incorrecto (Login_Incorrecto_User, Login_Incorrecto_Pass, Login_Incorrecto_Intento, Login_Incorrecto_Fecha)
-		values (@usuario_Id, @password, 1, GETDATE())
+		values (@usuario_Id, @password, 1, DEVGURUS.fecha_actual())
 		insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo, Login_Auditoria_Intento)
-		values (@usuario, GETDATE(), 'Fallido', 1)
+		values (@usuario, DEVGURUS.fecha_actual(), 'Fallido', 1)
 		END
 		ELSE
 		BEGIN
 		insert into DEVGURUS.Login_Incorrecto (Login_Incorrecto_User, Login_Incorrecto_Pass, Login_Incorrecto_Intento, Login_Incorrecto_Fecha)
-		values (@usuario_Id, @password, @nro_Intento + 1, GETDATE())
+		values (@usuario_Id, @password, @nro_Intento + 1, DEVGURUS.fecha_actual())
 		insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo, Login_Auditoria_Intento)
-		values (@usuario, GETDATE(), 'Fallido', @nro_Intento + 1)
+		values (@usuario, DEVGURUS.fecha_actual(), 'Fallido', @nro_Intento + 1)
 		END
 	END
 	
@@ -833,7 +862,7 @@ AS
 	BEGIN
 	select 'Correcto' MENSAJE
 	insert into DEVGURUS.Login_Auditoria (Login_Auditoria_Ingresado, Login_Auditoria_Fecha, Login_Auditoria_Tipo)
-	values (@usuario, GETDATE(), 'Correcto')
+	values (@usuario, DEVGURUS.fecha_actual(), 'Correcto')
 	delete from DEVGURUS.Login_Incorrecto where Login_Incorrecto_User = @usuario_Id
 	END
 GO	
@@ -867,7 +896,7 @@ SET @Apertura_Cuenta_Nro = (select Cuenta_Nro from inserted)
 insert into DEVGURUS.Transaccion_Pendiente (Transaccion_Pendiente_Importe, Transaccion_Pendiente_Descr,
 Transaccion_Pendiente_Cliente, Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Cuenta_Nro)
 values (@Apertura_Tipo_Cuenta_Costo, 'Apertura', @Apertura_Cliente,
-GETDATE(), @Apertura_Cuenta_Nro)
+DEVGURUS.fecha_actual(), @Apertura_Cuenta_Nro)
 
 END
 GO
@@ -892,7 +921,7 @@ CREATE PROCEDURE DEVGURUS.insertarEnCuentas
 		
 			
 as
-	Declare @Cuenta_Fec_Cre datetime = GETDATE()
+	Declare @Cuenta_Fec_Cre datetime = DEVGURUS.fecha_actual()
 	
 	Declare @pais_id int
 	select @pais_id = Pais_Id from Paises where Pais_Nombre = @Cuenta_PaisAsignado
@@ -987,7 +1016,7 @@ AS
 		(	Usuarios_Name, Usuarios_Pass, Usuarios_FechaCreacion, Usuarios_FechaUltimaModificacion, 
 			Usuarios_PreguntaSecreta, Usuarios_RespuestaSecreta, Usuarios_Estado)
 	VALUES
-		(@nombre, @password, GETDATE(), GETDATE(), @pregunta, @respuesta, @estado)
+		(@nombre, @password, DEVGURUS.fecha_actual(), DEVGURUS.fecha_actual(), @pregunta, @respuesta, @estado)
 	
 	
 	SET @id_User = (select MAX(Usuarios_Id) from DEVGURUS.Usuarios)
@@ -1040,7 +1069,7 @@ where Cuenta_Nro = @Transaccion_Pendiente_Cuenta_Nro)
 insert into DEVGURUS.Transaccion_Pendiente (Transaccion_Pendiente_Importe, Transaccion_Pendiente_Descr,
 Transaccion_Pendiente_Cliente, Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Cuenta_Nro)
 values (@Transaccion_Pendiente_Importe, 'Transferencia', @Transaccion_Pendiente_Cliente,
-GETDATE(), @Transaccion_Pendiente_Cuenta_Nro)
+DEVGURUS.fecha_actual(), @Transaccion_Pendiente_Cuenta_Nro)
 
 END
 GO
@@ -1073,7 +1102,7 @@ AS
 			Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Importe, Transaccion_Pendiente_Cuenta_Nro)
 	VALUES ((SELECT Cuenta_Cliente FROM Cuentas WHERE Cuenta_Nro = @cuenta_origen),   
 			'Transferencia de ' + CAST(@importe AS VARCHAR) + ' ' + CAST((SELECT TM.Tipo_De_Moneda_Nombre FROM Cuentas CU, Tipo_De_Moneda TM WHERE Cuenta_Nro = @cuenta_origen AND CU.Cuenta_Moneda = TM.Tipo_De_Moneda_Id) AS VARCHAR) + ' de la cuenta ' + CAST(@cuenta_origen AS VARCHAR) + ' a la cuenta ' + CAST(@cuenta_destino AS VARCHAR),
-			GETDATE(),
+			DEVGURUS.fecha_actual(),
 			@costo,
 			@cuenta_origen)
 GO	
@@ -1104,10 +1133,10 @@ AS
 	SET @retiro_id = (SELECT TOP 1 Retiro_Id + 1  FROM DEVGURUS.Retiros ORDER BY Retiro_Id DESC)
 	
 	INSERT INTO DEVGURUS.Cheques (Cheque_Id, Cheque_Fecha, Cheque_Importe) 
-		VALUES (@cheque_id, GETDATE(), @importe)
+		VALUES (@cheque_id, DEVGURUS.fecha_actual(), @importe)
 	
 	INSERT INTO DEVGURUS.Retiros (Retiro_Id, Retiro_Cheque, Retiro_Cuenta, Retiro_Fecha, Retiro_Importe)
-		VALUES (@retiro_id, @cheque_id, @cuenta, GETDATE(), @importe)
+		VALUES (@retiro_id, @cheque_id, @cuenta, DEVGURUS.fecha_actual(), @importe)
 	
 	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe*@num_a_multiplicar WHERE Cuenta_Nro = @cuenta
 GO	
@@ -1129,7 +1158,7 @@ AS
 	
 	insert into DEVGURUS.Facturas (Factura_Numero, Factura_Fecha, Factura_Descripcion, Factura_Importe,
 	Factura_Cliente)
-	values (@numero_Factura, GETDATE(), 'Facturación Bancaria', 0, @numero_Cliente)
+	values (@numero_Factura, DEVGURUS.fecha_actual(), 'Facturación Bancaria', 0, @numero_Cliente)
 	
 	select @numero_Factura Numero_Factura
 GO	
@@ -1163,11 +1192,11 @@ AS
 	BEGIN
 	update DEVGURUS.Cuentas SET Cuenta_Estado = 'Inhabilitado' where Cuenta_Nro = @cuenta
 	Insert into DEVGURUS.Log_Inhabilitaciones
-	values (@cliente, @cuenta, GETDATE())
+	values (@cliente, @cuenta, DEVGURUS.fecha_actual())
 	END
 	
 	Insert into DEVGURUS.Log_Transaccion_Pendiente
-	values (@importe, GETDATE(), @tipo_Cuenta)
+	values (@importe, DEVGURUS.fecha_actual(), @tipo_Cuenta)
 	
 GO	
 	Print 'El gatillo VALIDAR CUENTA INHABILITADA se ha creado correctamente';
@@ -1387,6 +1416,8 @@ COMMIT TRAN InicializacionDeProcedures
 
 
 /* SE CREAN LOS CUATRO USUARIOS DE DESARROLLADORES Y EL USUARIO 'ADMIN'*/
+/* LA CREACION DE ESTOS USUARIOS SE GENERARAN DESDE LA APLICACION*/
+/*
 EXECUTE DEVGURUS.insertarNuevoUsuario
 	@nombre = 'admin',
 	@password = 'w23e', 
@@ -1404,3 +1435,4 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 	@respuesta = 'Argentina',
 	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
+*/
