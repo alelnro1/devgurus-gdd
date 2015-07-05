@@ -22,6 +22,7 @@ namespace PagoElectronico
         private UsuarioDAO usuarioDAO;
         private ClienteDAO clienteDAO;
         private RolDAO rolDAO;
+        private SystemDAO systemaDAO;
 
         public Login()
         {
@@ -31,7 +32,8 @@ namespace PagoElectronico
             usuario = new Usuario_Bean();
             rolDAO = new RolDAO();
             clienteDAO = new ClienteDAO();
-            setearRolesEnComboBox();
+            systemaDAO = new SystemDAO();
+            setearRolesEnComboBox(); 
         }
 
         private void leerArchivoConfiguracion()
@@ -88,6 +90,7 @@ namespace PagoElectronico
         private void button_Ingreso_Click(object sender, EventArgs e)
         {
             iniciarPorPrimeraVez();
+            enviarFechaDeSistema();
             string nombre_Rol;
             string id_Usuario;
             string id_Cliente;
@@ -115,6 +118,11 @@ namespace PagoElectronico
                     borrar.Close();
                 };
             }
+        }
+
+        private void enviarFechaDeSistema()
+        {
+            systemaDAO.setearLaFechaDelSistema();
         }
 
         private void boton_NewCliente_Click(object sender, EventArgs e)

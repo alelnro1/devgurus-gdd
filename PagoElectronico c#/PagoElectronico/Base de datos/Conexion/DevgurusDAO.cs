@@ -6,6 +6,9 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using PagoElectronico.Conexion;
+using PagoElectronico.Excepciones;
+using System.Security.Cryptography;
+using System.Collections;
 
 namespace PagoElectronico.Conexion
 {
