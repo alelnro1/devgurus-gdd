@@ -135,10 +135,12 @@
     <Compile Include="Base de datos\Conexion\DevgurusDAO.cs" />
     <Compile Include="Base de datos\Conexion\ClienteDAO.cs" />
     <Compile Include="Base de datos\Conexion\Constantes BD.cs" />
+    <Compile Include="Base de datos\Conexion\EstadisticasDAO.cs" />
     <Compile Include="Base de datos\Conexion\FacturacionDAO.cs" />
     <Compile Include="Base de datos\Conexion\RetirosDAO.cs" />
     <Compile Include="Base de datos\Conexion\RolDAO.cs" />
     <Compile Include="Base de datos\Conexion\SQLServerBD.cs" />
+    <Compile Include="Base de datos\Conexion\SystemDAO.cs" />
     <Compile Include="Base de datos\Conexion\TarjetaDAO.cs" />
     <Compile Include="Base de datos\Conexion\TransferenciasDAO.cs" />
     <Compile Include="Base de datos\Conexion\UsuarioDAO.cs" />
@@ -174,6 +176,42 @@
     </Compile>
     <Compile Include="Habilitar Usuario\Habilitar_usuario.Designer.cs">
       <DependentUpon>Habilitar_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Facturación.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Facturación.Designer.cs">
+      <DependentUpon>Estadistico Cliente Facturación.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Inhab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Inhab.Designer.cs">
+      <DependentUpon>Estadistico Cliente Inhab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Mayor Trans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Estadistico Cliente Mayor Trans.Designer.cs">
+      <DependentUpon>Estadistico Cliente Mayor Trans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Estadistico Paises.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Estadistico Paises.Designer.cs">
+      <DependentUpon>Estadistico Paises.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Menu Listados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Menu Listados.Designer.cs">
+      <DependentUpon>Menu Listados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\Total Facturado por Cuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\Total Facturado por Cuenta.Designer.cs">
+      <DependentUpon>Total Facturado por Cuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\NewUser.cs">
       <SubType>Form</SubType>
@@ -243,6 +281,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Habilitar Usuario\Habilitar_usuario.resx">
       <DependentUpon>Habilitar_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Estadistico Cliente Facturación.resx">
+      <DependentUpon>Estadistico Cliente Facturación.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Estadistico Cliente Inhab.resx">
+      <DependentUpon>Estadistico Cliente Inhab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Estadistico Cliente Mayor Trans.resx">
+      <DependentUpon>Estadistico Cliente Mayor Trans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Estadistico Paises.resx">
+      <DependentUpon>Estadistico Paises.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Menu Listados.resx">
+      <DependentUpon>Menu Listados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\Total Facturado por Cuenta.resx">
+      <DependentUpon>Total Facturado por Cuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -328,7 +384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ABM de Usuario\" />
-    <Folder Include="Listados\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

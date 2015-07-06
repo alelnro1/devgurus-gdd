@@ -25,6 +25,17 @@ namespace PagoElectronico.Conexion
             this.GD1C2015.abrir();
         }
 
+        public DateTime dame_fecha_sql()
+        {
+            String sql= "SElECT * from DEVGURUS.Fecha_Sistema";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sql);
+            lector.Read();
+            DateTime fechaSistema_sql = (DateTime)lector["Fecha_Seteada"];
+            lector.Close();
+
+            return fechaSistema_sql;
+        }
+
         public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo, String parametro, String columna, String tabla)
         {
             SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [" + columna + "] from " + tabla);
@@ -46,7 +57,7 @@ namespace PagoElectronico.Conexion
 
             lector.Close();
 
-            if (fecha_vencimiento > DateTime.Now.Date)
+            if (fecha_vencimiento > this.dame_fecha_sql())
             {
                 return true;
             }

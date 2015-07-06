@@ -22,7 +22,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             String sql = "Delete from DEVGURUS.Fecha_Sistema";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
-            String sql2 = "Insert into DEVGURUS.Fecha_Sistema values('" + ConstantesBD.fechaSistema + "');";
+            String sql2 = "Insert into DEVGURUS.Fecha_Sistema values(CAST('" + ConstantesBD.fechaSistema + "' AS datetime));";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql2);
         }
     }

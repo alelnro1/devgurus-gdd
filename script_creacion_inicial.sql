@@ -238,7 +238,8 @@ Create Table DEVGURUS.Clientes (	Cliente_Id integer identity (1,1) PRIMARY KEY N
 									Cliente_Fecha_Nac datetime,
 									Cliente_Mail varchar(255),
 									Cliente_User integer FOREIGN KEY REFERENCES DEVGURUS.Usuarios(Usuarios_ID) unique)
-Print 'La tabla CLIENTES se ha creado con exito';
+Print 'La tabla 
+ se ha creado con exito';
 
 /* 	TABLA: Tipo_De_Cuentas
 	DESCRIPCION: Tabla con tipos de cuentas (Inventadas)
@@ -407,8 +408,31 @@ COMMIT TRAN CreacionTablas
 /* ******************************************************************************************************************** */
 /* ***************************************** INICIALIZACION DE DATOS ************************************************** */
 
+
+/* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'fecha_actual')
+	DROP FUNCTION DEVGURUS.fecha_actual;
+	Print 'La función FECHA ACTUAL ya existe, SE BORRARA';
+GO
+
+CREATE FUNCTION DEVGURUS.fecha_actual()
+RETURNS DATETIME
+WITH EXECUTE AS CALLER
+AS
+BEGIN
+	RETURN(select * from DEVGURUS.Fecha_Sistema)
+END;
+GO
+Print 'La función FECHA ACTUAL se ha creado correctamente';
+
+
+
 BEGIN TRAN InicializacionDeDatos
 
+/*Seteamos la fecha del sistema*/
+Declare @fecha_a_meter datetime
+select @fecha_a_meter =  MIN (Cuenta_Fecha_Creacion) from gd_esquema.Maestra 
+insert into DEVGURUS.Fecha_Sistema(Fecha_Seteada) VALUES (@fecha_a_meter)
 
 /*	INSERTAMOS PAISES	*/
 Insert into DEVGURUS.Paises (Pais_Id, Pais_Nombre)	select distinct Cli_Pais_Codigo, Cli_Pais_Desc from gd_esquema.Maestra union 
@@ -442,7 +466,7 @@ Print 'La tabla ROLES se ha cargado con exito';
 Insert into DEVGURUS.Usuarios (Usuarios_Name, Usuarios_Pass, Usuarios_FechaCreacion, Usuarios_FechaUltimaModificacion, Usuarios_PreguntaSecreta, Usuarios_RespuestaSecreta)
 select distinct REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(Cli_Apellido +  CAST  (Cli_Nro_Doc AS varchar(255)), 'á', 'a'), 'é','e'), 'í', 'i'), 'ó', 'o'), 'ú','u'), 
 SUBSTRING(Cli_Apellido, 1, 1)+SUBSTRING(Cli_Apellido, 1, 1)+SUBSTRING(Cli_Apellido, 1, 1)+SUBSTRING(Cli_Apellido, 1, 1)+'4321',
-GETDATE(), GETDATE(), '¿En que pais naciste?', Cli_Pais_Desc from gd_esquema.Maestra
+DEVGURUS.fecha_actual(), DEVGURUS.fecha_actual(), '¿En que pais naciste?', Cli_Pais_Desc from gd_esquema.Maestra
 Print 'La tabla USUARIOS se ha cargado con exito';
 
 /* ROL_X_USUARIO */
@@ -480,7 +504,7 @@ Print 'La tabla TARJETAS se ha cargado con exito';
 /* CUENTAS */ 
 /* VER QUE FECHA CREACION ESTA HARDCODEADO PORQUE EN TABLA MAESTRA LA FECHA NO ES COHERENTE */
 Insert into DEVGURUS.Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente, Cuenta_Saldo)
-select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo, DATEADD(DAY, -5, DEVGURUS.fecha_actual()), CL.Cliente_Id, 0
+select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo,MA.Cuenta_Fecha_Creacion, CL.Cliente_Id, 0
 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
 
@@ -557,14 +581,14 @@ GO
 Print 'La función PAIS NOMBRE se ha creado correctamente';
 
 
-/* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION */
+/* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION 
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'fecha_actual')
 	DROP FUNCTION DEVGURUS.fecha_actual;
 	Print 'La función FECHA ACTUAL ya existe, SE BORRARA';
 GO
 
 CREATE FUNCTION DEVGURUS.fecha_actual()
-RETURNS varchar(255)
+RETURNS DATETIME
 WITH EXECUTE AS CALLER
 AS
 BEGIN
@@ -572,7 +596,7 @@ BEGIN
 END;
 GO
 Print 'La función FECHA ACTUAL se ha creado correctamente';
-
+*/
 
 /* LA FUNCION DEVUELVE EL NOMBRE DEL TIPO DE DOCUMENTO DANDOLE EL ID */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'tipo_doc_name')
@@ -1417,7 +1441,7 @@ COMMIT TRAN InicializacionDeProcedures
 
 /* SE CREAN LOS CUATRO USUARIOS DE DESARROLLADORES Y EL USUARIO 'ADMIN'*/
 /* LA CREACION DE ESTOS USUARIOS SE GENERARAN DESDE LA APLICACION*/
-/*
+
 EXECUTE DEVGURUS.insertarNuevoUsuario
 	@nombre = 'admin',
 	@password = 'w23e', 
@@ -1435,4 +1459,4 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 	@respuesta = 'Argentina',
 	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
-*/
+
