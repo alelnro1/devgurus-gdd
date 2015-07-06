@@ -128,8 +128,8 @@ namespace PagoElectronico
         private void boton_NewCliente_Click(object sender, EventArgs e)
         {
             NewUser nuevoUsuario = new NewUser(usuario);
-            nuevoUsuario.Show();
-            this.Hide();
+            nuevoUsuario.ShowDialog();
+ 
         }
 
         private void iniciarPorPrimeraVez()

@@ -59,8 +59,6 @@ namespace PagoElectronico
             if (cancelar == DialogResult.Yes)
             {
                 this.Close();
-                Login nuevoLogin = new Login();
-                nuevoLogin.Show();
             }
         }
 
@@ -99,8 +97,6 @@ namespace PagoElectronico
             {
                 DialogResult alerta = MessageBox.Show("La solicitud se ha enviado correctamente", "PC Banking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
-                Login nuevoLogin = new Login();
-                nuevoLogin.Show();
             }
             else
             {
