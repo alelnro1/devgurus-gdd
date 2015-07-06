@@ -117,10 +117,10 @@
     <Compile Include="ABM Rol\EditarRol.Designer.cs">
       <DependentUpon>EditarRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Asignar Rol\Asignar_nuevo_rol.cs">
+    <Compile Include="ABM de Usuario\Asignar_nuevo_rol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Asignar Rol\Asignar_nuevo_rol.Designer.cs">
+    <Compile Include="ABM de Usuario\Asignar_nuevo_rol.Designer.cs">
       <DependentUpon>Asignar_nuevo_rol.cs</DependentUpon>
     </Compile>
     <Compile Include="Asociar Tarjeta\AsociarTarjeta.cs">
@@ -171,10 +171,10 @@
     <Compile Include="Facturacion\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Habilitar Usuario\Habilitar_usuario.cs">
+    <Compile Include="ABM de Usuario\Habilitar_usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Habilitar Usuario\Habilitar_usuario.Designer.cs">
+    <Compile Include="ABM de Usuario\Habilitar_usuario.Designer.cs">
       <DependentUpon>Habilitar_usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Listados\Estadistico Cliente Facturación.cs">
@@ -213,10 +213,10 @@
     <Compile Include="Listados\Total Facturado por Cuenta.Designer.cs">
       <DependentUpon>Total Facturado por Cuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\NewUser.cs">
+    <Compile Include="ABM de Usuario\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Form1.Designer.cs">
+    <Compile Include="ABM de Usuario\Form1.Designer.cs">
       <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu\MenuPrincipal.cs">
@@ -267,7 +267,7 @@
     <EmbeddedResource Include="ABM Rol\EditarRol.resx">
       <DependentUpon>EditarRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Asignar Rol\Asignar_nuevo_rol.resx">
+    <EmbeddedResource Include="ABM de Usuario\Asignar_nuevo_rol.resx">
       <DependentUpon>Asignar_nuevo_rol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Asociar Tarjeta\AsociarTarjeta.resx">
@@ -279,7 +279,7 @@
     <EmbeddedResource Include="Facturacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Habilitar Usuario\Habilitar_usuario.resx">
+    <EmbeddedResource Include="ABM de Usuario\Habilitar_usuario.resx">
       <DependentUpon>Habilitar_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\Estadistico Cliente Facturación.resx">
@@ -303,7 +303,7 @@
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\NewUser.resx">
+    <EmbeddedResource Include="ABM de Usuario\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu\MenuPrincipal.resx">
@@ -383,7 +383,7 @@
     <Content Include="bin\Release\PagoElectronico.pdb" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ABM de Usuario\" />
+    <Folder Include="Asignar Rol\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

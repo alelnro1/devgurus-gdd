@@ -45,7 +45,7 @@
             this.nombre_usuario});
             this.data_usuarios.Location = new System.Drawing.Point(12, 12);
             this.data_usuarios.Name = "data_usuarios";
-            this.data_usuarios.Size = new System.Drawing.Size(245, 290);
+            this.data_usuarios.Size = new System.Drawing.Size(262, 617);
             this.data_usuarios.TabIndex = 0;
             // 
             // id_de_usuario
@@ -60,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(279, 103);
+            this.button1.Location = new System.Drawing.Point(342, 95);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 41);
             this.button1.TabIndex = 1;
@@ -72,7 +72,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(266, 53);
+            this.comboBox1.Location = new System.Drawing.Point(329, 45);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 28);
+            this.label1.Location = new System.Drawing.Point(326, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 13);
             this.label1.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 314);
+            this.ClientSize = new System.Drawing.Size(475, 641);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
