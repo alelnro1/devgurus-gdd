@@ -1439,6 +1439,23 @@ Print 'Se ha creado el lote de PROCEDURES, FUNCIONES y TRIGGERS correctamente';
 COMMIT TRAN InicializacionDeProcedures
 
 
+
+/* EL PROCEDIMIENTO SE UTILIZA PARA HABILITAR A LOS USUARIOS QUE HAYAN PAGADO SUS FACTURAS Y SE LES HAYA DESHABILITADO POR ESO*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'habilitarCuentaConCondicion')
+	DROP PROCEDURE DEVGURUS.habilitarCuentaConCondicion;
+	Print 'El procedimiento habilitarCuentaConCondicion ya existe, SE BORRARA';
+GO
+
+alter procedure habilitarCuentaConCondicion @cuenta_Nro numeric (18,0)
+AS
+declare @cant int
+select @cant =  count (Transaccion_Pendiente_Cuenta_Nro) from DEVGURUS.Transaccion_Pendiente where Transaccion_Pendiente_Cuenta_Nro = @cuenta_Nro
+IF (@cant < 5 ) 
+BEGIN
+update DEVGURUS.Cuentas set Cuenta_Estado= 'Habilitado' where Cuenta_Nro= @cuenta_Nro; 
+END
+GO
+
 /* SE CREAN LOS CUATRO USUARIOS DE DESARROLLADORES Y EL USUARIO 'ADMIN'*/
 /* LA CREACION DE ESTOS USUARIOS SE GENERARAN DESDE LA APLICACION*/
 
@@ -1460,3 +1477,10 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
 
+go
+
+
+
+
+
+Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';

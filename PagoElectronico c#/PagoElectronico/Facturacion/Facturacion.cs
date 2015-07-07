@@ -54,15 +54,21 @@ namespace PagoElectronico
             lector.Close();
             tansacciones_pendientes_data_grid.Rows.AddRange(filas.ToArray());
         }
+
+
+
+
         private void rendirButton_Click(object sender, EventArgs e)
         {
             string id_factura=facturacion_DAO.generar_factura(cliente_id_para_facturacion.getCliente_Id());
             foreach (DataGridViewRow cell in tansacciones_pendientes_data_grid.SelectedRows)
             {
                 facturacion_DAO.asignar_item(cell.Cells[0].Value.ToString(), id_factura);
-
+               
             }
             MessageBox.Show("Se Correctamente generó la factura ID N°"+ id_factura, "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          
+            facturacion_DAO.habilitar_cuenta(cliente_id_para_facturacion.getCliente_Id());
             this.Close();
         }
 
