@@ -1511,6 +1511,15 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "aponzo" con password "1558" y rol de "Administrador"';
 
+EXECUTE DEVGURUS.insertarNuevoUsuario
+	@nombre = 'lbenitez',
+	@password = '1558', 
+	@rol = 'Administrador', 
+	@pregunta = '¿En que pais naciste?', 
+	@respuesta = 'Argentina',
+	@estado = 'Habilitado';
+Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
+
 
 
 
