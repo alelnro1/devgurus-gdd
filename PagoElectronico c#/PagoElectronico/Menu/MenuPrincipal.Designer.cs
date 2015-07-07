@@ -267,7 +267,7 @@
             this.boton_Extraer.Name = "boton_Extraer";
             this.boton_Extraer.Size = new System.Drawing.Size(126, 28);
             this.boton_Extraer.TabIndex = 53;
-            this.boton_Extraer.Text = "Extraer";
+            this.boton_Extraer.Text = "Retiro";
             this.boton_Extraer.UseVisualStyleBackColor = true;
             this.boton_Extraer.Click += new System.EventHandler(this.boton_Extraer_Click);
             // 
