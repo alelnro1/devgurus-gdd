@@ -177,15 +177,20 @@ namespace PagoElectronico
 
         private void boton_Editar_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 DataGridViewRow fila = dataGridView1.SelectedRows[0];
+                if(fila.Cells[1].Value.ToString() != "Pendiente"){
+                
                 String id_Cuenta;
 
                 id_Cuenta = (fila.Cells[0].Value.ToString());
                 EditarCuentas editarCuenta = new EditarCuentas(id_Cuenta);
                 editarCuenta.ShowDialog();
                 this.boton_Buscar_Click(sender, e);
+                }
+                else{ MessageBox.Show("La cuenta esta pendiente, debe pagar el costo de Apertura de cuenta para poder habilitarla", "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);}
 
             }
             catch

@@ -74,6 +74,7 @@
             // 
             this.lista_Tarjetas.AllowUserToAddRows = false;
             this.lista_Tarjetas.AllowUserToDeleteRows = false;
+            this.lista_Tarjetas.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lista_Tarjetas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lista_Tarjetas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
@@ -83,6 +84,7 @@
             this.estado});
             this.lista_Tarjetas.Location = new System.Drawing.Point(47, 25);
             this.lista_Tarjetas.Name = "lista_Tarjetas";
+            this.lista_Tarjetas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lista_Tarjetas.Size = new System.Drawing.Size(550, 216);
             this.lista_Tarjetas.TabIndex = 223293;
             // 
