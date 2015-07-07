@@ -37,6 +37,7 @@
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nro_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.volverButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tansacciones_pendientes_data_grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             // rendirButton
             // 
-            this.rendirButton.Location = new System.Drawing.Point(671, 330);
+            this.rendirButton.Location = new System.Drawing.Point(671, 344);
             this.rendirButton.Name = "rendirButton";
             this.rendirButton.Size = new System.Drawing.Size(75, 43);
             this.rendirButton.TabIndex = 2;
@@ -74,7 +75,7 @@
             this.fecha,
             this.nro_cuenta});
             this.tansacciones_pendientes_data_grid.GridColor = System.Drawing.SystemColors.Window;
-            this.tansacciones_pendientes_data_grid.Location = new System.Drawing.Point(41, 53);
+            this.tansacciones_pendientes_data_grid.Location = new System.Drawing.Point(41, 91);
             this.tansacciones_pendientes_data_grid.Name = "tansacciones_pendientes_data_grid";
             this.tansacciones_pendientes_data_grid.ReadOnly = true;
             this.tansacciones_pendientes_data_grid.RowHeadersVisible = false;
@@ -115,7 +116,7 @@
             // 
             // volverButton
             // 
-            this.volverButton.Location = new System.Drawing.Point(41, 330);
+            this.volverButton.Location = new System.Drawing.Point(41, 344);
             this.volverButton.Name = "volverButton";
             this.volverButton.Size = new System.Drawing.Size(76, 43);
             this.volverButton.TabIndex = 3;
@@ -123,11 +124,25 @@
             this.volverButton.UseVisualStyleBackColor = true;
             this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.richTextBox1.Location = new System.Drawing.Point(275, 12);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(471, 59);
+            this.richTextBox1.TabIndex = 4;
+            this.richTextBox1.Text = "Si desea facturar mas de una transaccion pendiente presione\"Control +Click\" en ca" +
+                "da una de  las filas que desee, lugo presione \"Generar Facturación\"";
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 412);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.volverButton);
             this.Controls.Add(this.rendirButton);
             this.Controls.Add(this.tansacciones_pendientes_data_grid);
@@ -154,5 +169,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn nro_cuenta;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
