@@ -1446,7 +1446,7 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'habilitarCuentaConCondici
 	Print 'El procedimiento habilitarCuentaConCondicion ya existe, SE BORRARA';
 GO
 
-alter procedure habilitarCuentaConCondicion @cuenta_Nro numeric (18,0)
+create procedure DEVGURUS.habilitarCuentaConCondicion @cuenta_Nro numeric (18,0)
 AS
 declare @cant int
 select @cant =  count (Transaccion_Pendiente_Cuenta_Nro) from DEVGURUS.Transaccion_Pendiente where Transaccion_Pendiente_Cuenta_Nro = @cuenta_Nro
