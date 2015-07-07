@@ -38,20 +38,5 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
 
-
-
-        public void habilitar_cuenta(String cliente_id_para_facturacion)
-        {
-            string sentenciaSQLParaAveriguarLasCuentasDelCliente = "select Cuenta_Nro from DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente_id_para_facturacion;
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQLParaAveriguarLasCuentasDelCliente);
-            while(lector.Read()){
-            
-            String Cuenta_Cliente = lector["Cuenta_Nro"].ToString();
-            string sql = "exec habilitarCuentaConCondicion " + Cuenta_Cliente;
-            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
-            
-            }
-            lector.Close();
-        }
     }
 }

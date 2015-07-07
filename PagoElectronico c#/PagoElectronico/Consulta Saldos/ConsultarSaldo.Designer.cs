@@ -77,6 +77,7 @@
             this.dataGridViewDepositos.AllowUserToAddRows = false;
             this.dataGridViewDepositos.AllowUserToDeleteRows = false;
             this.dataGridViewDepositos.AllowUserToResizeRows = false;
+            this.dataGridViewDepositos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewDepositos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDepositos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaDeposito,
@@ -84,6 +85,7 @@
             this.MonedaDeposito});
             this.dataGridViewDepositos.Location = new System.Drawing.Point(15, 61);
             this.dataGridViewDepositos.Name = "dataGridViewDepositos";
+            this.dataGridViewDepositos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDepositos.Size = new System.Drawing.Size(343, 141);
             this.dataGridViewDepositos.TabIndex = 3;
             // 
@@ -113,12 +115,14 @@
             this.dataGridViewRetiros.AllowUserToAddRows = false;
             this.dataGridViewRetiros.AllowUserToDeleteRows = false;
             this.dataGridViewRetiros.AllowUserToResizeRows = false;
+            this.dataGridViewRetiros.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewRetiros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRetiros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaRetiro,
             this.ImporteRetiro});
             this.dataGridViewRetiros.Location = new System.Drawing.Point(385, 61);
             this.dataGridViewRetiros.Name = "dataGridViewRetiros";
+            this.dataGridViewRetiros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRetiros.Size = new System.Drawing.Size(244, 141);
             this.dataGridViewRetiros.TabIndex = 4;
             // 
@@ -168,6 +172,7 @@
             this.dataGridViewTransferencias.AllowUserToAddRows = false;
             this.dataGridViewTransferencias.AllowUserToDeleteRows = false;
             this.dataGridViewTransferencias.AllowUserToResizeRows = false;
+            this.dataGridViewTransferencias.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewTransferencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTransferencias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FechaTransferencia,
@@ -176,6 +181,7 @@
             this.CostoTransferencia});
             this.dataGridViewTransferencias.Location = new System.Drawing.Point(15, 248);
             this.dataGridViewTransferencias.Name = "dataGridViewTransferencias";
+            this.dataGridViewTransferencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTransferencias.Size = new System.Drawing.Size(614, 231);
             this.dataGridViewTransferencias.TabIndex = 8;
             // 

@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rendirButton = new System.Windows.Forms.Button();
             this.tansacciones_pendientes_data_grid = new System.Windows.Forms.DataGridView();
-            this.volverButton = new System.Windows.Forms.Button();
             this.identicicador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nro_cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volverButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tansacciones_pendientes_data_grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.tansacciones_pendientes_data_grid.AllowUserToDeleteRows = false;
             this.tansacciones_pendientes_data_grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tansacciones_pendientes_data_grid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.tansacciones_pendientes_data_grid.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.tansacciones_pendientes_data_grid.BackgroundColor = System.Drawing.Color.White;
             this.tansacciones_pendientes_data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tansacciones_pendientes_data_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.identicicador,
@@ -82,16 +82,6 @@
             this.tansacciones_pendientes_data_grid.Size = new System.Drawing.Size(705, 247);
             this.tansacciones_pendientes_data_grid.TabIndex = 0;
             this.tansacciones_pendientes_data_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOperaciones_CellContentClick);
-            // 
-            // volverButton
-            // 
-            this.volverButton.Location = new System.Drawing.Point(41, 330);
-            this.volverButton.Name = "volverButton";
-            this.volverButton.Size = new System.Drawing.Size(76, 43);
-            this.volverButton.TabIndex = 3;
-            this.volverButton.Text = "< < Volver";
-            this.volverButton.UseVisualStyleBackColor = true;
-            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
             // 
             // identicicador
             // 
@@ -122,6 +112,16 @@
             this.nro_cuenta.HeaderText = "Numero De Cuenta";
             this.nro_cuenta.Name = "nro_cuenta";
             this.nro_cuenta.ReadOnly = true;
+            // 
+            // volverButton
+            // 
+            this.volverButton.Location = new System.Drawing.Point(41, 330);
+            this.volverButton.Name = "volverButton";
+            this.volverButton.Size = new System.Drawing.Size(76, 43);
+            this.volverButton.TabIndex = 3;
+            this.volverButton.Text = "< < Volver";
+            this.volverButton.UseVisualStyleBackColor = true;
+            this.volverButton.Click += new System.EventHandler(this.volverButton_Click);
             // 
             // Facturacion
             // 

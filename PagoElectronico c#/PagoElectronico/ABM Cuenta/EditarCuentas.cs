@@ -45,7 +45,7 @@ namespace PagoElectronico
             cuenta_Bean.set_tipo_cuenta(combo_tipo_cuenta.Text);
 
             cuenta_DAO.modificarUnaCuenta(cuenta_Bean);
-            MessageBox.Show("Se editó correctamente la cuneta Nro° "+ cuenta_Bean.get_nro_cuenta(), "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Se editó correctamente la cuenta Nro° "+ cuenta_Bean.get_nro_cuenta(), "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

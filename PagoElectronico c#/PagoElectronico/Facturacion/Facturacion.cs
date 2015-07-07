@@ -61,15 +61,24 @@ namespace PagoElectronico
         private void rendirButton_Click(object sender, EventArgs e)
         {
             string id_factura=facturacion_DAO.generar_factura(cliente_id_para_facturacion.getCliente_Id());
+            bool entre = false;
             foreach (DataGridViewRow cell in tansacciones_pendientes_data_grid.SelectedRows)
             {
+                
                 facturacion_DAO.asignar_item(cell.Cells[0].Value.ToString(), id_factura);
-               
+                entre = true;
             }
-            MessageBox.Show("Se Correctamente generó la factura ID N°"+ id_factura, "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          
-            facturacion_DAO.habilitar_cuenta(cliente_id_para_facturacion.getCliente_Id());
-            this.Close();
+            if (entre == true)
+            {
+                
+                MessageBox.Show("Se Correctamente generó la factura ID N°" + id_factura, "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.ejecutarBusquedaTransacciones();
+            }
+            else {
+                MessageBox.Show("Debe seleccionar al menos una Transaccion" , "Devgurus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+                        
+
         }
 
         private void Facturacion_Load(object sender, EventArgs e)

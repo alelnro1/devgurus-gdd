@@ -12,10 +12,15 @@ BEGIN
 END
 GO
 
-
 /* ******************************************************************************************************************** */
 /*	****************************************	BORRO TABLAS DEL SISTEMA	******************************************* */
-
+/*
+IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = '#Cuentas_Con_Saldo')
+BEGIN
+	Print 'La tabla Cuentas_Con_Saldo ya existe, SE BORRARA';
+	DROP TABLE DEVGURUS.#Cuentas_Con_Saldo
+END
+*/
 IF EXISTS (SELECT 1 AS existe FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'DEVGURUS' AND  TABLE_NAME = 'Fecha_Sistema')
 BEGIN
 	Print 'La tabla FECHA DE SISTEMA ya existe, SE BORRARA';
@@ -403,10 +408,29 @@ Create Table DEVGURUS.Log_Transaccion_Pendiente	(	Log_Transaccion_Pendiente_Impo
 												Log_Transaccion_Pendiente_Tipo_Cuenta tinyint foreign key references DEVGURUS.Tipo_De_Cuentas(Tipo_De_Cuentas_Id))
 Print 'La tabla LOG TRANSACCIONES PENDIENTES se ha creado con exito';
 
+/* 	TABLA TEMPORAL: #Cuentas_Con_Saldo
+	DESCRIPCION: Tabla creada para almacenar temporalmente los saldos correspondiente a cada una de las cuentas
+*/
+Create Table #Cuentas_Con_Saldo 
+(Cuenta_Nro numeric (18,0), saldo float)
+
+Print 'La tabla temporal CUENTAS CON SALDO se ha creado con exito';
+
 COMMIT TRAN CreacionTablas
 
 /* ******************************************************************************************************************** */
 /* ***************************************** INICIALIZACION DE DATOS ************************************************** */
+
+insert into #Cuentas_Con_Saldo
+select Cuenta_Numero_Id, (depositos + transfPos - retiro - trnsfNeg) saldo
+FROM   
+(select MA1.Cuenta_Numero Cuenta_Numero_Id, sum(MA1.Deposito_Importe) depositos, sum(MA1.Retiro_Importe) retiro, sum(MA1.Trans_Importe) trnsfNeg from gd_esquema.Maestra MA1
+GROUP BY MA1.Cuenta_Numero) tabla1
+INNER JOIN
+(select MA2.Cuenta_Dest_Numero Cuenta_Numero_I, sum(MA2.Trans_Importe) transfPos from gd_esquema.Maestra MA2
+GROUP BY MA2.Cuenta_Dest_Numero) tabla2
+ON tabla1.Cuenta_Numero_Id = tabla2.Cuenta_Numero_I
+
 
 
 /* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION */
@@ -504,12 +528,11 @@ Print 'La tabla TARJETAS se ha cargado con exito';
 /* CUENTAS */ 
 /* VER QUE FECHA CREACION ESTA HARDCODEADO PORQUE EN TABLA MAESTRA LA FECHA NO ES COHERENTE */
 Insert into DEVGURUS.Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente, Cuenta_Saldo)
-select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo,MA.Cuenta_Fecha_Creacion, CL.Cliente_Id, 0
-from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
-where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null
+select distinct MA.Cuenta_Numero, 4, MA.Cli_Pais_Codigo, MA.Cuenta_Pais_Codigo,MA.Cuenta_Fecha_Creacion, CL.Cliente_Id, temp.saldo
+from gd_esquema.Maestra MA, DEVGURUS.Clientes CL, #Cuentas_Con_Saldo temp
+where CL.Cliente_Nro_Doc= MA.Cli_Nro_Doc and MA.Cuenta_Numero is not null and temp.Cuenta_Nro = MA.Cuenta_Numero
 
-
-
+DROP TABLE DEVGURUS.#Cuentas_Con_Saldo
 Print 'La tabla CUENTAS se ha cargado con exito';
 
 /* DEPOSTIOS */
@@ -564,6 +587,8 @@ COMMIT TRAN InicializacionDeDatos
 
 BEGIN TRAN InicializacionDeProcedures
 
+
+
 /* LA FUNCION DEVUELVE EL NOMBRE DEL PAIS DANDOLE EL ID */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'pais_name')
 	DROP FUNCTION DEVGURUS.pais_name;
@@ -580,23 +605,6 @@ END;
 GO
 Print 'La función PAIS NOMBRE se ha creado correctamente';
 
-
-/* LA FUNCION DEVUELVE LA FECHA ACTUAL SETEADA POR LA APLICACION 
-IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'fecha_actual')
-	DROP FUNCTION DEVGURUS.fecha_actual;
-	Print 'La función FECHA ACTUAL ya existe, SE BORRARA';
-GO
-
-CREATE FUNCTION DEVGURUS.fecha_actual()
-RETURNS DATETIME
-WITH EXECUTE AS CALLER
-AS
-BEGIN
-	RETURN(select * from DEVGURUS.Fecha_Sistema)
-END;
-GO
-Print 'La función FECHA ACTUAL se ha creado correctamente';
-*/
 
 /* LA FUNCION DEVUELVE EL NOMBRE DEL TIPO DE DOCUMENTO DANDOLE EL ID */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'tipo_doc_name')
@@ -894,6 +902,7 @@ GO
 
 
 
+
 /* EL TRIGGER GENERA REGISTROS EN LA TABLA TRANSACCIONES PENDIENTES*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'insertAperturasPendientes')
 	DROP TRIGGER DEVGURUS.insertAperturasPendientes;
@@ -926,6 +935,30 @@ END
 GO
 	Print 'El trigger INSERTAR APERTURAS PENDIENTES se ha creado correctamente';
 
+/* El trigger habilitarCuentaSiTieneMenosDe5TransaccionPendientes habilita la cuenta cuando se factura lo que corresponde */
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'habilitarCuentaSiTieneMenosDe5TransaccionPendientes')
+	DROP trigger DEVGURUS.habilitarCuentaSiTieneMenosDe5TransaccionPendientes;
+	Print 'El procedimiento habilitarCuentaSiTieneMenosDe5TransaccionPendientes ya existe, SE BORRARA';
+GO
+create trigger DEVGURUS.habilitarCuentaSiTieneMenosDe5TransaccionPendientes 
+ON  DEVGURUS.Transaccion_Pendiente
+after delete
+AS
+BEGIN
+
+declare @cuentaAValidar numeric(18,0)
+SET @cuentaAValidar = (select Transaccion_Pendiente_Cuenta_Nro from deleted)
+
+declare @cant int
+select @cant =  count (Transaccion_Pendiente_Cuenta_Nro) from DEVGURUS.Transaccion_Pendiente where Transaccion_Pendiente_Cuenta_Nro = @cuentaAValidar
+IF (@cant < 5 ) 
+BEGIN
+update DEVGURUS.Cuentas set Cuenta_Estado= 'Habilitado' where Cuenta_Nro= @cuentaAValidar; 
+END
+
+END
+GO
+Print 'El procedimiento habilitarCuentaSiTieneMenosDe5TransaccionPendientes se creo correctamente';
 
 
 /* EL PROCEDIMIENTO GENERA REGISTROS EN LA TABLA CUENTAS*/
@@ -1439,23 +1472,6 @@ Print 'Se ha creado el lote de PROCEDURES, FUNCIONES y TRIGGERS correctamente';
 COMMIT TRAN InicializacionDeProcedures
 
 
-
-/* EL PROCEDIMIENTO SE UTILIZA PARA HABILITAR A LOS USUARIOS QUE HAYAN PAGADO SUS FACTURAS Y SE LES HAYA DESHABILITADO POR ESO*/
-IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'habilitarCuentaConCondicion')
-	DROP PROCEDURE DEVGURUS.habilitarCuentaConCondicion;
-	Print 'El procedimiento habilitarCuentaConCondicion ya existe, SE BORRARA';
-GO
-
-create procedure DEVGURUS.habilitarCuentaConCondicion @cuenta_Nro numeric (18,0)
-AS
-declare @cant int
-select @cant =  count (Transaccion_Pendiente_Cuenta_Nro) from DEVGURUS.Transaccion_Pendiente where Transaccion_Pendiente_Cuenta_Nro = @cuenta_Nro
-IF (@cant < 5 ) 
-BEGIN
-update DEVGURUS.Cuentas set Cuenta_Estado= 'Habilitado' where Cuenta_Nro= @cuenta_Nro; 
-END
-GO
-
 /* SE CREAN LOS CUATRO USUARIOS DE DESARROLLADORES Y EL USUARIO 'ADMIN'*/
 /* LA CREACION DE ESTOS USUARIOS SE GENERARAN DESDE LA APLICACION*/
 
@@ -1469,18 +1485,32 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 Print 'Se ha creado el usuario "ADMIN" con password "w23e" y rol de "Administrador General"';
 
 EXECUTE DEVGURUS.insertarNuevoUsuario
-	@nombre = 'lbenitez',
+	@nombre = 'jmarino',
 	@password = '1558', 
 	@rol = 'Administrador', 
 	@pregunta = '¿En que pais naciste?', 
 	@respuesta = 'Argentina',
 	@estado = 'Habilitado';
-Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
+Print 'Se ha creado el usuario "jmarino" con password "1558" y rol de "Administrador"';
 
-go
+EXECUTE DEVGURUS.insertarNuevoUsuario
+	@nombre = 'mbolia',
+	@password = '1558', 
+	@rol = 'Administrador', 
+	@pregunta = '¿En que pais naciste?', 
+	@respuesta = 'Argentina',
+	@estado = 'Habilitado';
+Print 'Se ha creado el usuario "mbolia" con password "1558" y rol de "Administrador"';
+
+EXECUTE DEVGURUS.insertarNuevoUsuario
+	@nombre = 'aponzo',
+	@password = '1558', 
+	@rol = 'Administrador', 
+	@pregunta = '¿En que pais naciste?', 
+	@respuesta = 'Argentina',
+	@estado = 'Habilitado';
+Print 'Se ha creado el usuario "aponzo" con password "1558" y rol de "Administrador"';
 
 
 
 
-
-Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';

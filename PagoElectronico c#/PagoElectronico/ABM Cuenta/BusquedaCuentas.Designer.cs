@@ -43,10 +43,6 @@
             this.combo_Tipo_Moneda = new System.Windows.Forms.Label();
             this.combo_moneda = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
-            this.combo_estado = new System.Windows.Forms.ComboBox();
             this.IdCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Moneda = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,10 @@
             this.fecha_cierre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.combo_pais_origen2 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pais_asignado_combo = new System.Windows.Forms.ComboBox();
+            this.combo_estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,8 +214,84 @@
             this.Saldo});
             this.dataGridView1.Location = new System.Drawing.Point(28, 238);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1119, 303);
             this.dataGridView1.TabIndex = 223291;
+            // 
+            // IdCuenta
+            // 
+            this.IdCuenta.HeaderText = "Id Cuenta";
+            this.IdCuenta.Name = "IdCuenta";
+            this.IdCuenta.ReadOnly = true;
+            this.IdCuenta.Width = 135;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 135;
+            // 
+            // Moneda
+            // 
+            this.Moneda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Moneda.HeaderText = "Moneda";
+            this.Moneda.Name = "Moneda";
+            this.Moneda.ReadOnly = true;
+            this.Moneda.Width = 71;
+            // 
+            // TipoCuenta
+            // 
+            this.TipoCuenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TipoCuenta.HeaderText = "Tipo Cuenta";
+            this.TipoCuenta.Name = "TipoCuenta";
+            this.TipoCuenta.ReadOnly = true;
+            this.TipoCuenta.Width = 83;
+            // 
+            // p
+            // 
+            this.p.HeaderText = "Pais Origen";
+            this.p.Name = "p";
+            this.p.ReadOnly = true;
+            this.p.Width = 135;
+            // 
+            // Pais_asignado
+            // 
+            this.Pais_asignado.HeaderText = "Pais Asignado";
+            this.Pais_asignado.Name = "Pais_asignado";
+            this.Pais_asignado.ReadOnly = true;
+            this.Pais_asignado.Width = 135;
+            // 
+            // FechaCreacion
+            // 
+            this.FechaCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FechaCreacion.HeaderText = "Fecha Creacion";
+            this.FechaCreacion.Name = "FechaCreacion";
+            this.FechaCreacion.ReadOnly = true;
+            this.FechaCreacion.Width = 98;
+            // 
+            // fecha_cierre
+            // 
+            this.fecha_cierre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.fecha_cierre.HeaderText = "Fecha Cierre";
+            this.fecha_cierre.Name = "fecha_cierre";
+            this.fecha_cierre.ReadOnly = true;
+            this.fecha_cierre.Width = 85;
+            // 
+            // IdCliente
+            // 
+            this.IdCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.IdCliente.HeaderText = "Cliente";
+            this.IdCliente.Name = "IdCliente";
+            this.IdCliente.ReadOnly = true;
+            this.IdCliente.Width = 64;
+            // 
+            // Saldo
+            // 
+            this.Saldo.HeaderText = "Saldo";
+            this.Saldo.Name = "Saldo";
+            this.Saldo.ReadOnly = true;
+            this.Saldo.Width = 135;
             // 
             // combo_pais_origen2
             // 
@@ -257,77 +333,6 @@
             this.combo_estado.Name = "combo_estado";
             this.combo_estado.Size = new System.Drawing.Size(121, 21);
             this.combo_estado.TabIndex = 223295;
-            // 
-            // IdCuenta
-            // 
-            this.IdCuenta.HeaderText = "Id Cuenta";
-            this.IdCuenta.Name = "IdCuenta";
-            this.IdCuenta.ReadOnly = true;
-            this.IdCuenta.Width = 135;
-            // 
-            // Estado
-            // 
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
-            // 
-            // Moneda
-            // 
-            this.Moneda.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Moneda.HeaderText = "Moneda";
-            this.Moneda.Name = "Moneda";
-            this.Moneda.ReadOnly = true;
-            this.Moneda.Width = 71;
-            // 
-            // TipoCuenta
-            // 
-            this.TipoCuenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TipoCuenta.HeaderText = "Tipo Cuenta";
-            this.TipoCuenta.Name = "TipoCuenta";
-            this.TipoCuenta.ReadOnly = true;
-            this.TipoCuenta.Width = 90;
-            // 
-            // p
-            // 
-            this.p.HeaderText = "Pais Origen";
-            this.p.Name = "p";
-            this.p.ReadOnly = true;
-            // 
-            // Pais_asignado
-            // 
-            this.Pais_asignado.HeaderText = "Pais Asignado";
-            this.Pais_asignado.Name = "Pais_asignado";
-            this.Pais_asignado.ReadOnly = true;
-            // 
-            // FechaCreacion
-            // 
-            this.FechaCreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.FechaCreacion.HeaderText = "Fecha Creacion";
-            this.FechaCreacion.Name = "FechaCreacion";
-            this.FechaCreacion.ReadOnly = true;
-            this.FechaCreacion.Width = 98;
-            // 
-            // fecha_cierre
-            // 
-            this.fecha_cierre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.fecha_cierre.HeaderText = "Fecha Cierre";
-            this.fecha_cierre.Name = "fecha_cierre";
-            this.fecha_cierre.ReadOnly = true;
-            this.fecha_cierre.Width = 85;
-            // 
-            // IdCliente
-            // 
-            this.IdCliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.IdCliente.HeaderText = "Cliente";
-            this.IdCliente.Name = "IdCliente";
-            this.IdCliente.ReadOnly = true;
-            this.IdCliente.Width = 64;
-            // 
-            // Saldo
-            // 
-            this.Saldo.HeaderText = "Saldo";
-            this.Saldo.Name = "Saldo";
-            this.Saldo.ReadOnly = true;
             // 
             // BusquedaCuentas
             // 

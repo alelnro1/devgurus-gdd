@@ -1,7 +1,7 @@
 Fecha Sistema: 22/12/2018
 
 Parametros Conexion:
-	URL Servidor: AR-LBENITEZ\SQLSERVER2008
+	URL Servidor: julian-pc\SQLSERVER2008
 	Nombre de Usuario: gd
 	Password: gd2015
 	Nombre de base de Datos: GD1C2015

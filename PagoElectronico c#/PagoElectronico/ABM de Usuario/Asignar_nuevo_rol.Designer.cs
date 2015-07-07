@@ -39,12 +39,14 @@
             // 
             // data_usuarios
             // 
+            this.data_usuarios.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.data_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data_usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_de_usuario,
             this.nombre_usuario});
             this.data_usuarios.Location = new System.Drawing.Point(12, 12);
             this.data_usuarios.Name = "data_usuarios";
+            this.data_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.data_usuarios.Size = new System.Drawing.Size(262, 617);
             this.data_usuarios.TabIndex = 0;
             // 

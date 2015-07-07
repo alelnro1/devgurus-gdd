@@ -273,6 +273,9 @@
     <EmbeddedResource Include="Asociar Tarjeta\AsociarTarjeta.resx">
       <DependentUpon>AsociarTarjeta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consulta Saldos\ConsultarSaldo.resx">
+      <DependentUpon>ConsultarSaldo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Depositos\Depositos.resx">
       <DependentUpon>Depositos.cs</DependentUpon>
     </EmbeddedResource>
