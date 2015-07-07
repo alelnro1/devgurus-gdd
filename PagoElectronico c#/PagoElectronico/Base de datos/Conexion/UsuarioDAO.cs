@@ -154,5 +154,12 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             sql = "UPDATE " + ConstantesBD.t_usuarios + " SET Usuarios_Estado = '" + valor + "' WHERE Usuarios_Id = " + id_usuario;
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
+
+        internal void actualizar_monto_tipo_de_cuenta(string monto, string tipo_cuenta)
+        {
+            string sql;
+            sql = "update DEVGURUS.Tipo_De_Cuentas SET Tipo_De_Cuentas_Costo = " + monto + " where Tipo_De_Cuentas_Nombre = '" + tipo_cuenta + "'";
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+        }
     }
 }

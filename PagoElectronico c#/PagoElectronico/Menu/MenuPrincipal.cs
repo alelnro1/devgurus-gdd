@@ -103,12 +103,14 @@ namespace PagoElectronico
             {
                 button1.Enabled = false;
                 button2.Enabled = false;
+                editar_tipo_cuenta.Enabled = false;
                 groupBoxusuarios.ForeColor = System.Drawing.Color.Gray;
             }
             else
             {
                 button1.Enabled = true;
                 button2.Enabled = true;
+                editar_tipo_cuenta.Enabled = true;
                 groupBoxusuarios.ForeColor = System.Drawing.Color.Black;
             }
 
@@ -440,6 +442,12 @@ namespace PagoElectronico
         {
             Menu_Listados menuEstadistico = new Menu_Listados();
             menuEstadistico.ShowDialog();
+        }
+
+        private void editar_tipo_cuenta_Click(object sender, EventArgs e)
+        {
+            Editar_tipo_cuenta editar_tipo_cuenta = new Editar_tipo_cuenta();
+            editar_tipo_cuenta.ShowDialog();
         }        
     }    
 }

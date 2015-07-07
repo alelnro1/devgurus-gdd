@@ -99,6 +99,12 @@
     <Compile Include="ABM Cuenta\EditarCuentas.Designer.cs">
       <DependentUpon>EditarCuentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ABM de Usuario\Editar_tipo_cuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM de Usuario\Editar_tipo_cuenta.Designer.cs">
+      <DependentUpon>Editar_tipo_cuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABM Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Cuenta\EditarCuentas.resx">
       <DependentUpon>EditarCuentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM de Usuario\Editar_tipo_cuenta.resx">
+      <DependentUpon>Editar_tipo_cuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>

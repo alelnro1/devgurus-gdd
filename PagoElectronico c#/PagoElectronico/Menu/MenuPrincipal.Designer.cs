@@ -56,6 +56,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBoxusuarios = new System.Windows.Forms.GroupBox();
+            this.editar_tipo_cuenta = new System.Windows.Forms.Button();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -354,6 +355,7 @@
             // 
             // groupBoxusuarios
             // 
+            this.groupBoxusuarios.Controls.Add(this.editar_tipo_cuenta);
             this.groupBoxusuarios.Controls.Add(this.button1);
             this.groupBoxusuarios.Controls.Add(this.button2);
             this.groupBoxusuarios.Location = new System.Drawing.Point(670, 60);
@@ -362,6 +364,16 @@
             this.groupBoxusuarios.TabIndex = 9;
             this.groupBoxusuarios.TabStop = false;
             this.groupBoxusuarios.Text = "Menu Usuarios";
+            // 
+            // editar_tipo_cuenta
+            // 
+            this.editar_tipo_cuenta.Location = new System.Drawing.Point(26, 105);
+            this.editar_tipo_cuenta.Name = "editar_tipo_cuenta";
+            this.editar_tipo_cuenta.Size = new System.Drawing.Size(125, 22);
+            this.editar_tipo_cuenta.TabIndex = 60;
+            this.editar_tipo_cuenta.Text = "Editar Tipo Cuenta";
+            this.editar_tipo_cuenta.UseVisualStyleBackColor = true;
+            this.editar_tipo_cuenta.Click += new System.EventHandler(this.editar_tipo_cuenta_Click);
             // 
             // MenuPrincipal
             // 
@@ -430,5 +442,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBoxusuarios;
+        private System.Windows.Forms.Button editar_tipo_cuenta;
     }
 }
