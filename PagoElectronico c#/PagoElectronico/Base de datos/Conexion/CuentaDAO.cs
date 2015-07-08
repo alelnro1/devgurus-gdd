@@ -29,7 +29,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             
             String Cuenta_Nro = "";
-            String Cuenta_Fecha_Creacion = "";
+            //String Cuenta_Fecha_Creacion = "";
             //string pais = cuenta.get_pais_origen();
             string tipo_moneda_nombre = cuenta.get_tipo_moneda();
             string tipo_de_cuenta = cuenta.get_tipo_cuenta();
@@ -126,15 +126,6 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
         }
 
-
-
-        public void setearEnComboBoxElParametroDeLaColumnaDeLaTabla(ComboBox combo, String parametro, String columna, String tabla)
-        {
-            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select [" + columna + "] from " + tabla);
-            while (lector.Read())
-            { combo.Items.Add(lector[parametro]); }
-            lector.Close();
-        }
 
         public SqlDataReader dameLaCuenta(String id_Cuenta)
         {

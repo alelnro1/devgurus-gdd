@@ -19,7 +19,7 @@ namespace PagoElectronico
     {
         private Cuenta_Bean cuenta_Bean;
         private CuentaDAO cuenta_DAO;
-        private Form menuBusquedaCuentas;
+
 
         public EditarCuentas(String id_Cuenta)
         {

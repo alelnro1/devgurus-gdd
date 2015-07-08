@@ -18,7 +18,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         private static String fecha_cierre;
         private static String cliente;
         private static String tarjeta;
-        private static String saldo;
+        //private static String saldo;
 
         public String get_nro_cuenta()
         {
@@ -78,10 +78,10 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         {
             return tarjeta;
         }
-        public String get_Saldo()
+       /* public String get_Saldo()
         {
             return saldo;
-        }
+        }*/
 
         //empiezan los set..son 11//
 
