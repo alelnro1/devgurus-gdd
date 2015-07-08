@@ -38,6 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tarjeta_combobox = new System.Windows.Forms.ComboBox();
             this.boton_Cancel = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -63,9 +64,9 @@
             // 
             this.cuenta_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cuenta_combobox.FormattingEnabled = true;
-            this.cuenta_combobox.Location = new System.Drawing.Point(65, 13);
+            this.cuenta_combobox.Location = new System.Drawing.Point(78, 13);
             this.cuenta_combobox.Name = "cuenta_combobox";
-            this.cuenta_combobox.Size = new System.Drawing.Size(139, 21);
+            this.cuenta_combobox.Size = new System.Drawing.Size(142, 21);
             this.cuenta_combobox.TabIndex = 2;
             this.cuenta_combobox.SelectedIndexChanged += new System.EventHandler(this.cuenta_combobox_SelectedIndexChanged);
             // 
@@ -80,10 +81,10 @@
             // 
             // importe_textbox
             // 
-            this.importe_textbox.Location = new System.Drawing.Point(65, 92);
+            this.importe_textbox.Location = new System.Drawing.Point(78, 92);
             this.importe_textbox.MaxLength = 15;
             this.importe_textbox.Name = "importe_textbox";
-            this.importe_textbox.Size = new System.Drawing.Size(139, 20);
+            this.importe_textbox.Size = new System.Drawing.Size(142, 20);
             this.importe_textbox.TabIndex = 4;
             this.importe_textbox.TextChanged += new System.EventHandler(this.importe_textbox_TextChanged);
             // 
@@ -100,9 +101,9 @@
             // 
             this.moneda_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.moneda_combobox.FormattingEnabled = true;
-            this.moneda_combobox.Location = new System.Drawing.Point(65, 38);
+            this.moneda_combobox.Location = new System.Drawing.Point(78, 38);
             this.moneda_combobox.Name = "moneda_combobox";
-            this.moneda_combobox.Size = new System.Drawing.Size(139, 21);
+            this.moneda_combobox.Size = new System.Drawing.Size(142, 21);
             this.moneda_combobox.TabIndex = 6;
             // 
             // label4
@@ -117,10 +118,10 @@
             // tarjeta_combobox
             // 
             this.tarjeta_combobox.FormattingEnabled = true;
-            this.tarjeta_combobox.Location = new System.Drawing.Point(65, 65);
+            this.tarjeta_combobox.Location = new System.Drawing.Point(158, 65);
             this.tarjeta_combobox.MaxLength = 100;
             this.tarjeta_combobox.Name = "tarjeta_combobox";
-            this.tarjeta_combobox.Size = new System.Drawing.Size(139, 21);
+            this.tarjeta_combobox.Size = new System.Drawing.Size(62, 21);
             this.tarjeta_combobox.TabIndex = 8;
             this.tarjeta_combobox.SelectedIndexChanged += new System.EventHandler(this.tarjeta_combobox_SelectedIndexChanged);
             // 
@@ -134,11 +135,22 @@
             this.boton_Cancel.UseVisualStyleBackColor = true;
             this.boton_Cancel.Click += new System.EventHandler(this.boton_Cancel_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.textBox1.Location = new System.Drawing.Point(78, 65);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(80, 20);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "XXX-XXX-XXX-";
+            // 
             // Depositos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(223, 178);
+            this.ClientSize = new System.Drawing.Size(252, 178);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.boton_Cancel);
             this.Controls.Add(this.tarjeta_combobox);
             this.Controls.Add(this.label4);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox tarjeta_combobox;
         private System.Windows.Forms.Button boton_Cancel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
