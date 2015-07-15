@@ -36,6 +36,8 @@
             this.nro_doc_textbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.boton_Cancel = new System.Windows.Forms.Button();
+            this.banco_Combo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +94,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(119, 111);
+            this.button1.Location = new System.Drawing.Point(119, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -102,7 +104,7 @@
             // 
             // boton_Cancel
             // 
-            this.boton_Cancel.Location = new System.Drawing.Point(19, 111);
+            this.boton_Cancel.Location = new System.Drawing.Point(19, 149);
             this.boton_Cancel.Name = "boton_Cancel";
             this.boton_Cancel.Size = new System.Drawing.Size(75, 23);
             this.boton_Cancel.TabIndex = 7;
@@ -110,11 +112,31 @@
             this.boton_Cancel.UseVisualStyleBackColor = true;
             this.boton_Cancel.Click += new System.EventHandler(this.boton_Cancel_Click);
             // 
+            // banco_Combo
+            // 
+            this.banco_Combo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.banco_Combo.FormattingEnabled = true;
+            this.banco_Combo.Location = new System.Drawing.Point(72, 99);
+            this.banco_Combo.Name = "banco_Combo";
+            this.banco_Combo.Size = new System.Drawing.Size(121, 21);
+            this.banco_Combo.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Banco";
+            // 
             // Retiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 159);
+            this.ClientSize = new System.Drawing.Size(212, 195);
+            this.Controls.Add(this.banco_Combo);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.boton_Cancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.nro_doc_textbox);
@@ -140,5 +162,7 @@
         private System.Windows.Forms.TextBox nro_doc_textbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button boton_Cancel;
+        private System.Windows.Forms.ComboBox banco_Combo;
+        private System.Windows.Forms.Label label3;
     }
 }

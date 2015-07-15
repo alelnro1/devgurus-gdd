@@ -26,6 +26,7 @@ namespace PagoElectronico
             cliente.setCliente_Id(id_cliente);
             InitializeComponent();
             retiros_DAO.setearEnComboBoxElParametroDeLaColumnaDeLaTabla(cuenta_combobox, "Cuenta_Nro", "Cuenta_Nro", "DEVGURUS.Cuentas where Cuenta_Cliente = " + cliente.getCliente_Id() + "and Cuenta_Estado = 'Habilitado' ");
+            retiros_DAO.setearTodosLosBancos(banco_Combo);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,18 +34,20 @@ namespace PagoElectronico
             String cuenta  = cuenta_combobox.Text;
             String nro_doc = nro_doc_textbox.Text;
             String importe = importe_textbox.Text;
+            String banco   = banco_Combo.Text;
 
-            if (!String.IsNullOrEmpty(importe) && !String.IsNullOrEmpty(nro_doc) && !String.IsNullOrEmpty(importe))
+            if (!String.IsNullOrEmpty(importe) && !String.IsNullOrEmpty(nro_doc) && !String.IsNullOrEmpty(importe) && !String.IsNullOrEmpty(banco))
             {
                 if (retiros_DAO.numeroEsFloat(importe))
                 {
                     if (retiros_DAO.cuentaHabilitada(cuenta))
                     {
-                        if (retiros_DAO.tieneSaldo(cuenta) && retiros_DAO.tieneSuficienteSaldo(cuenta, importe))
+                        //if (retiros_DAO.tieneSaldo(cuenta) && retiros_DAO.tieneSuficienteSaldo(cuenta, importe))
+                        if (retiros_DAO.tieneSuficienteSaldo(cuenta, importe))
                         {
                             if (retiros_DAO.documentoValidoParaCuenta(cuenta, nro_doc))
                             {
-                                retiros_DAO.realizarRetiro(cuenta, importe);
+                                retiros_DAO.realizarRetiro(cuenta, importe, banco);
                                 MessageBox.Show("El retiro se realizó y se registro el cheque", "Atención", MessageBoxButtons.OK);
                                 this.Close();
                             }

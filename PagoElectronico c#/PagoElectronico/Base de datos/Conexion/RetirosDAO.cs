@@ -75,10 +75,18 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             return resultado;
         }
 
-        public void realizarRetiro(String cuenta, String importe)
+        public void realizarRetiro(String cuenta, String importe, String banco)
         {
-            String sql = "exec DEVGURUS.retirar '" + cuenta + "','" + importe + "'";
+            String sql = "exec DEVGURUS.retirar '" + cuenta + "', '" + importe + "', '" + banco + "'";
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+        }
+
+        public void setearTodosLosBancos(ComboBox banco_Combo)
+        {
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno("select Banco_Nombre from " + ConstantesBD.t_bancos);
+            while (lector.Read())
+            { banco_Combo.Items.Add(lector["Banco_Nombre"]); }
+            lector.Close();
         }
     }
 }

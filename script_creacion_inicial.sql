@@ -1132,7 +1132,9 @@ END
 GO
 	Print 'El procedimiento INSERTAR TRANSFERENCIAS PENDIENTES se ha creado correctamente';
 
-
+/* POR EL MOMENTO SE INAHBILITA EL GATILLO - PRESCINDIBLE */
+DISABLE trigger DEVGURUS.insertTransferenciasPendientes
+ON DEVGURUS.Transferencia
 
 /* EL PROCEDIMIENTO SE UTILIZA PARA REALIZAR UNA TRANSFERENCIA */
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'realizar_transferencia')
@@ -1155,6 +1157,10 @@ AS
 	ELSE
 		SET @costo = (SELECT Tipo_De_Cuentas_Costo FROM DEVGURUS.Tipo_De_Cuentas WHERE Tipo_De_Cuentas_Id = (SELECT Cuenta_Tipo FROM Cuentas WHERE Cuenta_Nro = @cuenta_origen))
 	
+	INSERT INTO DEVGURUS.Transferencia (Transferencia_Fecha, Transferencia_Importe, Transferencia_Costo_Transf, 
+	Transferencia_Cuenta_Emisora, Transferencia_Cuenta_Destino)
+	VALUES (DEVGURUS.fecha_actual(), @importe, @costo, @cuenta_origen, @cuenta_destino)
+	
 	INSERT INTO DEVGURUS.Transaccion_Pendiente (Transaccion_Pendiente_Cliente, Transaccion_Pendiente_Descr, 
 			Transaccion_Pendiente_Fecha, Transaccion_Pendiente_Importe, Transaccion_Pendiente_Cuenta_Nro)
 	VALUES ((SELECT Cuenta_Cliente FROM Cuentas WHERE Cuenta_Nro = @cuenta_origen),   
@@ -1173,29 +1179,33 @@ IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'retirar')
 	Print 'El procedimiento RETIRAR ya existe, SE BORRARA';
 GO
 
-CREATE PROCEDURE DEVGURUS.retirar
+Create PROCEDURE DEVGURUS.retirar
 	@cuenta numeric (18,0),
-	@importe float
+	@importe varchar(50),
+	@banco varchar(100)
 AS
 	DECLARE @cheque_id numeric (18,0)
 	DECLARE @retiro_id numeric (18,0)
 	DECLARE @tipo_moneda_cuenta tinyint
 	DECLARE @num_a_multiplicar float
+	DECLARE @importe_Aux float
+	DECLARE @banco_Id numeric(18,0)
 	
 	select @tipo_moneda_cuenta= Cuenta_Moneda from DEVGURUS.Cuentas where Cuenta_Nro=@cuenta
 	select @num_a_multiplicar= Tipo_De_Moneda_Equivalente_en_dolar from DEVGURUS.Tipo_De_Moneda
 	
-	
+	SET @banco_Id = (SELECT TOP(1) Banco_Id FROM DEVGURUS.Bancos where Banco_Nombre = @banco)
+	SET @importe_Aux = REPLACE(@importe,',','.')
 	SET @cheque_id = (SELECT TOP 1 Cheque_Id + 1  FROM DEVGURUS.Cheques ORDER BY Cheque_Id DESC)
 	SET @retiro_id = (SELECT TOP 1 Retiro_Id + 1  FROM DEVGURUS.Retiros ORDER BY Retiro_Id DESC)
 	
-	INSERT INTO DEVGURUS.Cheques (Cheque_Id, Cheque_Fecha, Cheque_Importe) 
-		VALUES (@cheque_id, DEVGURUS.fecha_actual(), @importe)
+	INSERT INTO DEVGURUS.Cheques (Cheque_Id, Cheque_Fecha, Cheque_Importe, Cheque_Banco) 
+		VALUES (@cheque_id, DEVGURUS.fecha_actual(), @importe_Aux, @banco_Id)
 	
 	INSERT INTO DEVGURUS.Retiros (Retiro_Id, Retiro_Cheque, Retiro_Cuenta, Retiro_Fecha, Retiro_Importe)
-		VALUES (@retiro_id, @cheque_id, @cuenta, DEVGURUS.fecha_actual(), @importe)
+		VALUES (@retiro_id, @cheque_id, @cuenta, DEVGURUS.fecha_actual(), @importe_Aux)
 	
-	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe*@num_a_multiplicar WHERE Cuenta_Nro = @cuenta
+	UPDATE DEVGURUS.Cuentas SET Cuenta_Saldo = Cuenta_Saldo - @importe_Aux*@num_a_multiplicar WHERE Cuenta_Nro = @cuenta
 GO	
 	Print 'El procedimiento RETIRAR se ha creado correctamente';
 

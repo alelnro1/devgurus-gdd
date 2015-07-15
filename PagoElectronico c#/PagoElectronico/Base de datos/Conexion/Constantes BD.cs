@@ -27,6 +27,7 @@ namespace PagoElectronico.BaseDeDatos.Conexion
         public static String t_tarjetas              = "DEVGURUS.Tarjetas";
         public static String t_login_auditoria       = "DEVGURUS.Login_Auditoria";
         public static String t_transaccion_pendiente = "DEVGURUS.Transaccion_Pendiente";
+        public static String t_bancos                = "DEVGURUS.Bancos";
 
         public static String proc_nuevo_Usuario = "DEVGURUS.insertarNuevoUsuario";
         public static String proc_logearse = "DEVGURUS.logearse";
