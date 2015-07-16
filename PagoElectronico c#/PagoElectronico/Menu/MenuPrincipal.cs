@@ -37,7 +37,6 @@ namespace PagoElectronico
             nombre_rol_Actual = nombre_rol;
             setearInformacion(user);
             habilitarComandos(nombre_rol);
-            
          }
 
         public MenuPrincipal()
@@ -51,6 +50,7 @@ namespace PagoElectronico
             //else { cliente_Info.Text = " - "; }
             user_Info.Text = usuario;
             rol_Info.Text = this.nombre_rol_Actual;
+            fecha_Sistema.Text = ConstantesBD.fechaSistema.ToString();
         }
 
         private void habilitarComandos(String nombre_rol)
@@ -97,8 +97,6 @@ namespace PagoElectronico
                 groupBox1.ForeColor = System.Drawing.Color.Black;
             }
 
-
-
             if (lector["Func_ABM_Usuarios"].Equals("Inhabilitado"))
             {
                 button1.Enabled = false;
@@ -113,9 +111,6 @@ namespace PagoElectronico
                 editar_tipo_cuenta.Enabled = true;
                 groupBoxusuarios.ForeColor = System.Drawing.Color.Black;
             }
-
-
-
 
             if (lector["Func_Transferir"].Equals("Inhabilitado"))
             {
@@ -167,7 +162,6 @@ namespace PagoElectronico
         {
             EditRol nuevaAltaRol = new EditRol();
             nuevaAltaRol.ShowDialog();
-
         }
 
         private void button3_Click(object sender, EventArgs e) //BOTON DE EDITAR
@@ -207,7 +201,6 @@ namespace PagoElectronico
                AltaCuentas nuevaCuenta = new AltaCuentas(this.id_Cliente_Actual);
                nuevaCuenta.ShowDialog();
            }
-
         }
 
         private void boton_Editar_cuenta_Click(object sender, EventArgs e) {
@@ -224,7 +217,6 @@ namespace PagoElectronico
                     BusquedaCuentas buscarCuenta = new BusquedaCuentas(cliente);
                     buscarCuenta.ShowDialog();
                     cliente = Program.Cliente_id_seleccionado;
-
                 }
             }
             else
@@ -235,10 +227,6 @@ namespace PagoElectronico
                 cliente = Program.Cliente_id_seleccionado;
             }
         }
-
-
-
-      
 
         private void boton_Crear_Cliente_Click(object sender, EventArgs e)
         {
@@ -258,7 +246,6 @@ namespace PagoElectronico
                 EditarCliente editarCliente = new EditarCliente(cliente,this);
                 editarCliente.ShowDialog();
             }
-         
         }
 
         private void boton_eliminar_cliente_Click(object sender, EventArgs e)
@@ -288,7 +275,6 @@ namespace PagoElectronico
                     Transferencias trasferencia = new Transferencias(cliente);//LEAAA ACA CUENTDO LO CAMBIES NO LE MANDES EL MENU EEEEE -> OK JULY
                     trasferencia.ShowDialog();
                 }
-
             }
             else
             {
@@ -310,17 +296,13 @@ namespace PagoElectronico
             Depositos altaCliente = new Depositos(cliente);           
             altaCliente.ShowDialog();
                 }
-
             }
             else
             {
             Depositos altaCliente = new Depositos(this.id_Cliente_Actual);           
             altaCliente.ShowDialog();
             }
-        }
-
-
-        
+        }        
 
         private void boton_Extraer_Click(object sender, EventArgs e)
         {
@@ -335,7 +317,6 @@ namespace PagoElectronico
                     Retiros retiro = new Retiros(cliente);
                     retiro.ShowDialog(); 
                 }
-
             }
             else
             {
@@ -357,16 +338,12 @@ namespace PagoElectronico
                     AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta(cliente);
                     asociar_Tarjeta.ShowDialog();
                 }
-
             }
             else
             {
                 AsociarTarjeta asociar_Tarjeta = new AsociarTarjeta(this.id_Cliente_Actual);
                 asociar_Tarjeta.ShowDialog();
             }
-
-
-
         }
 
         private void boton_Consul_Click(object sender, EventArgs e)
@@ -411,19 +388,6 @@ namespace PagoElectronico
                 Facturacion facturar = new Facturacion(this.id_Cliente_Actual);
                 facturar.ShowDialog();
             }
-            
-            
-
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -448,6 +412,6 @@ namespace PagoElectronico
         {
             Editar_tipo_cuenta editar_tipo_cuenta = new Editar_tipo_cuenta();
             editar_tipo_cuenta.ShowDialog();
-        }        
+        }     
     }    
 }
