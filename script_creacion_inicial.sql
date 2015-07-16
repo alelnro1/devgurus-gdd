@@ -828,6 +828,7 @@ AS
 	DECLARE @validation_Rol int
 	DECLARE @estatus_Usuario varchar (255)
 	DECLARE @estado_rol varchar(20)
+	DECLARE @chekeo_de_alta numeric(18,0)
 	
 	SET @rol_Id = (SELECT Rol_Id FROM DEVGURUS.Roles WHERE Rol_Desc = @rol)
 	SET @usuario_Id = (SELECT Usuarios_Id FROM DEVGURUS.Usuarios WHERE Usuarios_Name = @usuario)
@@ -838,11 +839,18 @@ AS
 	Rol_X_Usuario_Usuario = @usuario_Id and Rol_X_Usuario_Rol = @rol_Id)
 	SET @estatus_Usuario = (SELECT Usuarios_Estado from DEVGURUS.Usuarios where Usuarios_Id = @usuario_Id)
 	SELECT @estado_rol = Rol_Estado from DEVGURUS.Roles Where Rol_Id = @rol_Id
+	select @chekeo_de_alta = Cliente_User from DEVGURUS.Clientes where Cliente_User = @usuario_Id
 	
 	IF(@estado_rol = 'No activo')
 	BEGIN
 	SELECT 'Inactivo' MENSAJE
 	END
+	
+	IF(@chekeo_de_alta != @usuario_Id)
+	BEGIN
+	SELECT 'No tiene alta' MENSAJE
+	END
+	
 	
 	IF (@estatus_Usuario != 'Habilitado')
 	BEGIN

@@ -44,6 +44,14 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no ha sido aprobado por el administrador.", "Atención!", MessageBoxButtons.OK);
                 lector.Close();
                 return false;}
+
+            if (lector["MENSAJE"].Equals("No tiene alta"))
+            {
+                MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no recibió el alta Cliente por parte del administrador.", "Atención!", MessageBoxButtons.OK);
+                lector.Close();
+                return false;
+            }
+
             if (lector["MENSAJE"].Equals("No existe"))
             {   MessageBox.Show("El Usuario " + usuario.getUser_Name() + " no existe.", "Atención!", MessageBoxButtons.OK);
                 lector.Close();

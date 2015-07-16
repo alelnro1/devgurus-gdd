@@ -42,7 +42,7 @@
             // 
             // button_Ingreso
             // 
-            this.button_Ingreso.Location = new System.Drawing.Point(39, 231);
+            this.button_Ingreso.Location = new System.Drawing.Point(74, 204);
             this.button_Ingreso.Name = "button_Ingreso";
             this.button_Ingreso.Size = new System.Drawing.Size(94, 25);
             this.button_Ingreso.TabIndex = 6;
@@ -52,7 +52,7 @@
             // 
             // boton_Salir
             // 
-            this.boton_Salir.Location = new System.Drawing.Point(200, 233);
+            this.boton_Salir.Location = new System.Drawing.Point(233, 206);
             this.boton_Salir.Name = "boton_Salir";
             this.boton_Salir.Size = new System.Drawing.Size(94, 23);
             this.boton_Salir.TabIndex = 7;
@@ -103,9 +103,9 @@
             // 
             // boton_NewCliente
             // 
-            this.boton_NewCliente.Location = new System.Drawing.Point(109, 179);
+            this.boton_NewCliente.Location = new System.Drawing.Point(293, 67);
             this.boton_NewCliente.Name = "boton_NewCliente";
-            this.boton_NewCliente.Size = new System.Drawing.Size(145, 23);
+            this.boton_NewCliente.Size = new System.Drawing.Size(105, 23);
             this.boton_NewCliente.TabIndex = 2;
             this.boton_NewCliente.Text = "Nuevo Usuario";
             this.boton_NewCliente.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             // 
             // Login
             // 
-            this.ClientSize = new System.Drawing.Size(315, 275);
+            this.ClientSize = new System.Drawing.Size(413, 265);
             this.Controls.Add(this.combo_Roles);
             this.Controls.Add(this.text_Pass);
             this.Controls.Add(this.text_User);
