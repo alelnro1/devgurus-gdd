@@ -57,18 +57,22 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBoxusuarios = new System.Windows.Forms.GroupBox();
             this.editar_tipo_cuenta = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.fecha_Sistema = new System.Windows.Forms.TextBox();
             this.groupABMroles.SuspendLayout();
             this.groupABMCuentas.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxusuarios.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // boton_Salir
             // 
             this.boton_Salir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.boton_Salir.ForeColor = System.Drawing.Color.Maroon;
-            this.boton_Salir.Location = new System.Drawing.Point(452, 374);
+            this.boton_Salir.Location = new System.Drawing.Point(659, 372);
             this.boton_Salir.Name = "boton_Salir";
             this.boton_Salir.Size = new System.Drawing.Size(141, 34);
             this.boton_Salir.TabIndex = 5;
@@ -100,7 +104,7 @@
             // 
             this.groupABMroles.Controls.Add(this.boton_Editar_rol);
             this.groupABMroles.Controls.Add(this.boton_Nuevo_Rol);
-            this.groupABMroles.Location = new System.Drawing.Point(43, 60);
+            this.groupABMroles.Location = new System.Drawing.Point(42, 69);
             this.groupABMroles.Name = "groupABMroles";
             this.groupABMroles.Size = new System.Drawing.Size(205, 133);
             this.groupABMroles.TabIndex = 8;
@@ -113,7 +117,7 @@
             this.user_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.user_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_Info.ForeColor = System.Drawing.Color.DarkRed;
-            this.user_Info.Location = new System.Drawing.Point(90, 9);
+            this.user_Info.Location = new System.Drawing.Point(95, 31);
             this.user_Info.Name = "user_Info";
             this.user_Info.ReadOnly = true;
             this.user_Info.Size = new System.Drawing.Size(116, 15);
@@ -125,7 +129,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(21, 9);
+            this.label2.Location = new System.Drawing.Point(26, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 48;
@@ -136,7 +140,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label3.Location = new System.Drawing.Point(376, 9);
+            this.label3.Location = new System.Drawing.Point(472, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 49;
@@ -147,7 +151,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(212, 9);
+            this.label1.Location = new System.Drawing.Point(217, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 50;
@@ -159,7 +163,7 @@
             this.cliente_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cliente_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cliente_Info.ForeColor = System.Drawing.Color.DarkRed;
-            this.cliente_Info.Location = new System.Drawing.Point(442, 10);
+            this.cliente_Info.Location = new System.Drawing.Point(538, 31);
             this.cliente_Info.Name = "cliente_Info";
             this.cliente_Info.ReadOnly = true;
             this.cliente_Info.Size = new System.Drawing.Size(202, 15);
@@ -172,10 +176,10 @@
             this.rol_Info.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rol_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rol_Info.ForeColor = System.Drawing.Color.DarkRed;
-            this.rol_Info.Location = new System.Drawing.Point(254, 9);
+            this.rol_Info.Location = new System.Drawing.Point(259, 31);
             this.rol_Info.Name = "rol_Info";
             this.rol_Info.ReadOnly = true;
-            this.rol_Info.Size = new System.Drawing.Size(116, 15);
+            this.rol_Info.Size = new System.Drawing.Size(207, 15);
             this.rol_Info.TabIndex = 52;
             this.rol_Info.TabStop = false;
             // 
@@ -183,7 +187,7 @@
             // 
             this.groupABMCuentas.Controls.Add(this.boton_Editar_cuenta);
             this.groupABMCuentas.Controls.Add(this.boton_Nueva_Cuenta);
-            this.groupABMCuentas.Location = new System.Drawing.Point(321, 234);
+            this.groupABMCuentas.Location = new System.Drawing.Point(327, 249);
             this.groupABMCuentas.Name = "groupABMCuentas";
             this.groupABMCuentas.Size = new System.Drawing.Size(205, 112);
             this.groupABMCuentas.TabIndex = 9;
@@ -215,7 +219,7 @@
             this.groupBox1.Controls.Add(this.boton_eliminar_cliente);
             this.groupBox1.Controls.Add(this.boton_Editar_Cliente);
             this.groupBox1.Controls.Add(this.boton_Crear_Cliente);
-            this.groupBox1.Location = new System.Drawing.Point(43, 210);
+            this.groupBox1.Location = new System.Drawing.Point(42, 219);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(205, 142);
             this.groupBox1.TabIndex = 10;
@@ -254,7 +258,7 @@
             // 
             // boton_trans
             // 
-            this.boton_trans.Location = new System.Drawing.Point(321, 72);
+            this.boton_trans.Location = new System.Drawing.Point(18, 29);
             this.boton_trans.Name = "boton_trans";
             this.boton_trans.Size = new System.Drawing.Size(126, 28);
             this.boton_trans.TabIndex = 9;
@@ -264,7 +268,7 @@
             // 
             // boton_Extraer
             // 
-            this.boton_Extraer.Location = new System.Drawing.Point(321, 116);
+            this.boton_Extraer.Location = new System.Drawing.Point(18, 73);
             this.boton_Extraer.Name = "boton_Extraer";
             this.boton_Extraer.Size = new System.Drawing.Size(126, 28);
             this.boton_Extraer.TabIndex = 53;
@@ -274,7 +278,7 @@
             // 
             // boton_Depositar
             // 
-            this.boton_Depositar.Location = new System.Drawing.Point(478, 72);
+            this.boton_Depositar.Location = new System.Drawing.Point(159, 29);
             this.boton_Depositar.Name = "boton_Depositar";
             this.boton_Depositar.Size = new System.Drawing.Size(126, 28);
             this.boton_Depositar.TabIndex = 54;
@@ -284,7 +288,7 @@
             // 
             // boton_Asoc_Tarj
             // 
-            this.boton_Asoc_Tarj.Location = new System.Drawing.Point(478, 116);
+            this.boton_Asoc_Tarj.Location = new System.Drawing.Point(159, 73);
             this.boton_Asoc_Tarj.Name = "boton_Asoc_Tarj";
             this.boton_Asoc_Tarj.Size = new System.Drawing.Size(126, 28);
             this.boton_Asoc_Tarj.TabIndex = 55;
@@ -294,7 +298,7 @@
             // 
             // boton_Consul
             // 
-            this.boton_Consul.Location = new System.Drawing.Point(321, 160);
+            this.boton_Consul.Location = new System.Drawing.Point(18, 117);
             this.boton_Consul.Name = "boton_Consul";
             this.boton_Consul.Size = new System.Drawing.Size(126, 28);
             this.boton_Consul.TabIndex = 56;
@@ -305,17 +309,16 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.boton_facturar);
-            this.groupBox2.Location = new System.Drawing.Point(570, 234);
+            this.groupBox2.Location = new System.Drawing.Point(603, 277);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(205, 112);
+            this.groupBox2.Size = new System.Drawing.Size(196, 84);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Facturacion de Costos";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // boton_facturar
             // 
-            this.boton_facturar.Location = new System.Drawing.Point(6, 29);
+            this.boton_facturar.Location = new System.Drawing.Point(19, 30);
             this.boton_facturar.Name = "boton_facturar";
             this.boton_facturar.Size = new System.Drawing.Size(171, 28);
             this.boton_facturar.TabIndex = 7;
@@ -325,9 +328,9 @@
             // 
             // estadisticas
             // 
-            this.estadisticas.Location = new System.Drawing.Point(478, 159);
+            this.estadisticas.Location = new System.Drawing.Point(159, 116);
             this.estadisticas.Name = "estadisticas";
-            this.estadisticas.Size = new System.Drawing.Size(143, 29);
+            this.estadisticas.Size = new System.Drawing.Size(126, 29);
             this.estadisticas.TabIndex = 57;
             this.estadisticas.Text = "Generar Estadisticas";
             this.estadisticas.UseVisualStyleBackColor = true;
@@ -335,9 +338,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 34);
+            this.button1.Location = new System.Drawing.Point(10, 29);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.Size = new System.Drawing.Size(141, 28);
             this.button1.TabIndex = 58;
             this.button1.Text = "Habilitar Usuario";
             this.button1.UseVisualStyleBackColor = true;
@@ -345,9 +348,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(26, 70);
+            this.button2.Location = new System.Drawing.Point(10, 73);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.Size = new System.Drawing.Size(141, 28);
             this.button2.TabIndex = 59;
             this.button2.Text = "Asignar Rol ";
             this.button2.UseVisualStyleBackColor = true;
@@ -358,36 +361,72 @@
             this.groupBoxusuarios.Controls.Add(this.editar_tipo_cuenta);
             this.groupBoxusuarios.Controls.Add(this.button1);
             this.groupBoxusuarios.Controls.Add(this.button2);
-            this.groupBoxusuarios.Location = new System.Drawing.Point(670, 60);
+            this.groupBoxusuarios.Location = new System.Drawing.Point(632, 69);
             this.groupBoxusuarios.Name = "groupBoxusuarios";
-            this.groupBoxusuarios.Size = new System.Drawing.Size(205, 133);
+            this.groupBoxusuarios.Size = new System.Drawing.Size(167, 164);
             this.groupBoxusuarios.TabIndex = 9;
             this.groupBoxusuarios.TabStop = false;
             this.groupBoxusuarios.Text = "Menu Usuarios";
             // 
             // editar_tipo_cuenta
             // 
-            this.editar_tipo_cuenta.Location = new System.Drawing.Point(26, 105);
+            this.editar_tipo_cuenta.Location = new System.Drawing.Point(10, 116);
             this.editar_tipo_cuenta.Name = "editar_tipo_cuenta";
-            this.editar_tipo_cuenta.Size = new System.Drawing.Size(125, 22);
+            this.editar_tipo_cuenta.Size = new System.Drawing.Size(141, 29);
             this.editar_tipo_cuenta.TabIndex = 60;
             this.editar_tipo_cuenta.Text = "Editar Tipo Cuenta";
             this.editar_tipo_cuenta.UseVisualStyleBackColor = true;
             this.editar_tipo_cuenta.Click += new System.EventHandler(this.editar_tipo_cuenta_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.boton_Consul);
+            this.groupBox3.Controls.Add(this.boton_trans);
+            this.groupBox3.Controls.Add(this.estadisticas);
+            this.groupBox3.Controls.Add(this.boton_Extraer);
+            this.groupBox3.Controls.Add(this.boton_Depositar);
+            this.groupBox3.Controls.Add(this.boton_Asoc_Tarj);
+            this.groupBox3.Location = new System.Drawing.Point(297, 69);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(306, 164);
+            this.groupBox3.TabIndex = 58;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Movimientos";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(149, 15);
+            this.label4.TabIndex = 59;
+            this.label4.Text = "FECHA DEL SISTEMA:";
+            // 
+            // fecha_Sistema
+            // 
+            this.fecha_Sistema.BackColor = System.Drawing.SystemColors.Control;
+            this.fecha_Sistema.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fecha_Sistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_Sistema.ForeColor = System.Drawing.Color.DarkRed;
+            this.fecha_Sistema.Location = new System.Drawing.Point(167, 10);
+            this.fecha_Sistema.Name = "fecha_Sistema";
+            this.fecha_Sistema.ReadOnly = true;
+            this.fecha_Sistema.Size = new System.Drawing.Size(170, 15);
+            this.fecha_Sistema.TabIndex = 60;
+            this.fecha_Sistema.TabStop = false;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(982, 429);
+            this.ClientSize = new System.Drawing.Size(851, 429);
+            this.Controls.Add(this.fecha_Sistema);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBoxusuarios);
-            this.Controls.Add(this.estadisticas);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.boton_Consul);
-            this.Controls.Add(this.boton_Asoc_Tarj);
-            this.Controls.Add(this.boton_Depositar);
-            this.Controls.Add(this.boton_Extraer);
-            this.Controls.Add(this.boton_trans);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupABMCuentas);
             this.Controls.Add(this.rol_Info);
@@ -401,12 +440,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MenuPrincipal";
             this.Text = "MenuPrincipal";
-            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.groupABMroles.ResumeLayout(false);
             this.groupABMCuentas.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBoxusuarios.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,5 +482,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBoxusuarios;
         private System.Windows.Forms.Button editar_tipo_cuenta;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox fecha_Sistema;
     }
 }

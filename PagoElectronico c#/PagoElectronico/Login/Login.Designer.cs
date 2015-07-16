@@ -42,7 +42,7 @@
             // 
             // button_Ingreso
             // 
-            this.button_Ingreso.Location = new System.Drawing.Point(33, 241);
+            this.button_Ingreso.Location = new System.Drawing.Point(39, 231);
             this.button_Ingreso.Name = "button_Ingreso";
             this.button_Ingreso.Size = new System.Drawing.Size(94, 25);
             this.button_Ingreso.TabIndex = 6;
@@ -52,7 +52,7 @@
             // 
             // boton_Salir
             // 
-            this.boton_Salir.Location = new System.Drawing.Point(235, 243);
+            this.boton_Salir.Location = new System.Drawing.Point(200, 233);
             this.boton_Salir.Name = "boton_Salir";
             this.boton_Salir.Size = new System.Drawing.Size(94, 23);
             this.boton_Salir.TabIndex = 7;
@@ -85,7 +85,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 122);
+            this.label7.Location = new System.Drawing.Point(23, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 16);
             this.label7.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(71, 178);
+            this.label8.Location = new System.Drawing.Point(71, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 16);
             this.label8.TabIndex = 5;
@@ -103,9 +103,9 @@
             // 
             // boton_NewCliente
             // 
-            this.boton_NewCliente.Location = new System.Drawing.Point(235, 68);
+            this.boton_NewCliente.Location = new System.Drawing.Point(109, 179);
             this.boton_NewCliente.Name = "boton_NewCliente";
-            this.boton_NewCliente.Size = new System.Drawing.Size(94, 23);
+            this.boton_NewCliente.Size = new System.Drawing.Size(145, 23);
             this.boton_NewCliente.TabIndex = 2;
             this.boton_NewCliente.Text = "Nuevo Usuario";
             this.boton_NewCliente.UseVisualStyleBackColor = true;
@@ -116,30 +116,30 @@
             this.text_User.Location = new System.Drawing.Point(109, 70);
             this.text_User.MaxLength = 100;
             this.text_User.Name = "text_User";
-            this.text_User.Size = new System.Drawing.Size(120, 20);
+            this.text_User.Size = new System.Drawing.Size(145, 20);
             this.text_User.TabIndex = 1;
             // 
             // text_Pass
             // 
-            this.text_Pass.Location = new System.Drawing.Point(109, 122);
+            this.text_Pass.Location = new System.Drawing.Point(109, 106);
             this.text_Pass.MaxLength = 100;
             this.text_Pass.Name = "text_Pass";
             this.text_Pass.PasswordChar = '*';
-            this.text_Pass.Size = new System.Drawing.Size(120, 20);
+            this.text_Pass.Size = new System.Drawing.Size(145, 20);
             this.text_Pass.TabIndex = 3;
             // 
             // combo_Roles
             // 
             this.combo_Roles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_Roles.FormattingEnabled = true;
-            this.combo_Roles.Location = new System.Drawing.Point(109, 177);
+            this.combo_Roles.Location = new System.Drawing.Point(109, 141);
             this.combo_Roles.Name = "combo_Roles";
-            this.combo_Roles.Size = new System.Drawing.Size(120, 21);
+            this.combo_Roles.Size = new System.Drawing.Size(145, 21);
             this.combo_Roles.TabIndex = 5;
             // 
             // Login
             // 
-            this.ClientSize = new System.Drawing.Size(358, 286);
+            this.ClientSize = new System.Drawing.Size(315, 275);
             this.Controls.Add(this.combo_Roles);
             this.Controls.Add(this.text_Pass);
             this.Controls.Add(this.text_User);
