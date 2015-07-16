@@ -135,6 +135,12 @@
     <Compile Include="Asociar Tarjeta\AsociarTarjeta.Designer.cs">
       <DependentUpon>AsociarTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Asociar Tarjeta\EditarTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asociar Tarjeta\EditarTarjeta.Designer.cs">
+      <DependentUpon>EditarTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Base de datos\Conexion\ConsultarSaldoDAO.cs" />
     <Compile Include="Base de datos\Conexion\CuentaDAO.cs" />
     <Compile Include="Base de datos\Conexion\DepositosDAO.cs" />
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Asociar Tarjeta\AsociarTarjeta.resx">
       <DependentUpon>AsociarTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asociar Tarjeta\EditarTarjeta.resx">
+      <DependentUpon>EditarTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consulta Saldos\ConsultarSaldo.resx">
       <DependentUpon>ConsultarSaldo.cs</DependentUpon>

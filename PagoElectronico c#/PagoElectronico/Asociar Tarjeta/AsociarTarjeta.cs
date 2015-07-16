@@ -136,6 +136,17 @@ namespace PagoElectronico
             }
         }
 
+        private void editar_Click(object sender, EventArgs e)
+        {
+              DataGridViewRow fila = lista_Tarjetas.SelectedRows[0];
+              String id_tarjeta;
+
+              id_tarjeta = (fila.Cells[0].Value.ToString());
+              EditarTarjeta editar_tarj = new EditarTarjeta(id_tarjeta,cliente_id_para_tarjetas.getCliente_Id());
+              editar_tarj.ShowDialog();
+              this.ejecutarBusquedaTarjetas();
+        }
+
         
     }
 }

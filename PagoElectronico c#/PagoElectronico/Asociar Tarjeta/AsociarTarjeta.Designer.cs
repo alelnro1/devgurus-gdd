@@ -47,6 +47,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_codigoSeguridad = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.editar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Tarjetas)).BeginInit();
             this.NuevaTarjeta.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +64,7 @@
             // 
             // boton_Desasociar
             // 
-            this.boton_Desasociar.Location = new System.Drawing.Point(173, 260);
+            this.boton_Desasociar.Location = new System.Drawing.Point(199, 260);
             this.boton_Desasociar.Name = "boton_Desasociar";
             this.boton_Desasociar.Size = new System.Drawing.Size(147, 41);
             this.boton_Desasociar.TabIndex = 223291;
@@ -232,11 +233,22 @@
             this.label3.TabIndex = 223316;
             this.label3.Text = "Codigo Seguridad";
             // 
+            // editar
+            // 
+            this.editar.Location = new System.Drawing.Point(47, 260);
+            this.editar.Name = "editar";
+            this.editar.Size = new System.Drawing.Size(129, 41);
+            this.editar.TabIndex = 223297;
+            this.editar.Text = "Editar";
+            this.editar.UseVisualStyleBackColor = true;
+            this.editar.Click += new System.EventHandler(this.editar_Click);
+            // 
             // AsociarTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1108, 313);
+            this.Controls.Add(this.editar);
             this.Controls.Add(this.NuevaTarjeta);
             this.Controls.Add(this.lista_Tarjetas);
             this.Controls.Add(this.buttom_Asociar);
@@ -273,5 +285,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_codigoSeguridad;
+        private System.Windows.Forms.Button editar;
     }
 }

@@ -45,9 +45,21 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             sentenciaSql = "declare @fecha_A_usar datetime"
                            +" select @fecha_A_usar = Fecha_Seteada from DEVGURUS.Fecha_Sistema " +
             " insert into " + ConstantesBD.t_tarjetas +
-                " (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc) values (" +
-                    (nro_tarjeta + "," + cliente_id_para_tarjetas + "," + ultimos_cuatro_digitos + ",@fecha_A_usar, CAST(" + fecha_vencimiento + " AS datetime) ," + "123" + ", '" + emisor + "')");
+                " (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc , Tarjeta_Asociada) values (" +
+                    (nro_tarjeta + "," + cliente_id_para_tarjetas + "," + ultimos_cuatro_digitos + ",@fecha_A_usar, CAST('" + fecha_vencimiento + "' AS datetime) ," + "123" + ", '" + emisor + "', 'Desasociada')");
             this.GD1C2015.ejecutarSentenciaSinRetorno(sentenciaSql);
+        }
+
+
+        internal void actualizar_tarjeta(string id_tarjetita_editar, string id_clientito, string fechita)
+        {
+            string sql;
+            sql = "declare @fecha_A_usar datetime "
+                + " select @fecha_A_usar = CAST('" + fechita + "' AS datetime) " +
+            " UPDATE DEVGURUS.Tarjetas SET Tarjeta_Fecha_Vencimiento = @fecha_A_usar where Tarjeta_Cliente = " + id_clientito + " and Tarjeta_Digitos_Visibles = " + id_tarjetita_editar;
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
+
         }
     }
 }
+ 
