@@ -37,5 +37,17 @@ namespace PagoElectronico.BaseDeDatos.Conexion
 
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
         }
+
+        internal void agregarTarjetaACliente(String cliente_id_para_tarjetas , String nro_tarjeta , String emisor,String fecha_apertura , String fecha_vencimiento )
+        {   String ultimos_cuatro_digitos = nro_tarjeta.Substring(nro_tarjeta.Length -4);
+            String sentenciaSql;
+           
+            sentenciaSql = "declare @fecha_A_usar datetime"
+                           +" select @fecha_A_usar = Fecha_Seteada from DEVGURUS.Fecha_Sistema " +
+            " insert into " + ConstantesBD.t_tarjetas +
+                " (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc) values (" +
+                    (nro_tarjeta + "," + cliente_id_para_tarjetas + "," + ultimos_cuatro_digitos + ",@fecha_A_usar, CAST(" + fecha_vencimiento + " AS datetime) ," + "123" + ", '" + emisor + "')");
+            this.GD1C2015.ejecutarSentenciaSinRetorno(sentenciaSql);
+        }
     }
 }

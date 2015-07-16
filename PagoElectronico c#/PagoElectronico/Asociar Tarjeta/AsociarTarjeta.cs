@@ -27,6 +27,7 @@ namespace PagoElectronico
             tarjetaDAO = new TarjetaDAO();
             InitializeComponent();
             ejecutarBusquedaTarjetas();
+            dateTimePicker_vencimiento.MinDate = tarjetaDAO.dame_fecha_sql();
         }
 
        private void  ejecutarBusquedaTarjetas(){
@@ -90,6 +91,49 @@ namespace PagoElectronico
         private void boton_Desasociar_Click_1(object sender, EventArgs e)
         {
             cambiar_asociamiento_tarjeta(sender, e, "Desasociada");
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) // BOTON PARA GENERAR NUEVA TARJETA
+        {
+            if (!String.IsNullOrEmpty(textBox_nroTarjeta.Text) && !String.IsNullOrEmpty(comboBox_Emisor.Text) && !String.IsNullOrEmpty(dateTimePicker_vencimiento.Text) && !String.IsNullOrEmpty(textBox_codigoSeguridad.Text))
+            {
+                if (tarjetaDAO.numeroEsInt(textBox_nroTarjeta.Text) && tarjetaDAO.numeroEsInt(textBox_codigoSeguridad.Text) )
+                {
+
+
+                    if (textBox_nroTarjeta.Text.Length == 16)
+                    {
+                        if (textBox_codigoSeguridad.Text.Length == 3)
+                        {
+                            tarjetaDAO.agregarTarjetaACliente(cliente_id_para_tarjetas.getCliente_Id(), textBox_nroTarjeta.Text, comboBox_Emisor.Text, ConstantesBD.fechaSistema, dateTimePicker_vencimiento.Text);
+                            MessageBox.Show("Se creo la Tarjeta Nro: " + textBox_nroTarjeta.Text + " \n Emisor: " + comboBox_Emisor.Text + " \n Fecha Creacion: " + ConstantesBD.fechaSistema + " \n Fecha Vencimiento: " + dateTimePicker_vencimiento.Text, "Atención", MessageBoxButtons.OK);
+                            this.ejecutarBusquedaTarjetas();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El codigo de seguridad debe tener 3 digitos ", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                     }
+                    else
+                    {
+                        MessageBox.Show("El numero de tarjeta debe ser de 16 digitos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nro de tarjeta y codigo de seguridad deben ser numerico", "Atención", MessageBoxButtons.OK , MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Complete todos los campos para crear una Nueva Tarjeta ", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            }
         }
 
         

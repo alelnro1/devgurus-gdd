@@ -37,12 +37,23 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox_nroTarjeta = new System.Windows.Forms.TextBox();
+            this.NuevaTarjeta = new System.Windows.Forms.GroupBox();
+            this.comboBox_Emisor = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker_vencimiento = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_codigoSeguridad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.lista_Tarjetas)).BeginInit();
+            this.NuevaTarjeta.SuspendLayout();
             this.SuspendLayout();
             // 
             // boton_Volver
             // 
-            this.boton_Volver.Location = new System.Drawing.Point(880, 12);
+            this.boton_Volver.Location = new System.Drawing.Point(963, 12);
             this.boton_Volver.Name = "boton_Volver";
             this.boton_Volver.Size = new System.Drawing.Size(145, 28);
             this.boton_Volver.TabIndex = 223289;
@@ -52,7 +63,7 @@
             // 
             // boton_Desasociar
             // 
-            this.boton_Desasociar.Location = new System.Drawing.Point(664, 140);
+            this.boton_Desasociar.Location = new System.Drawing.Point(173, 260);
             this.boton_Desasociar.Name = "boton_Desasociar";
             this.boton_Desasociar.Size = new System.Drawing.Size(147, 41);
             this.boton_Desasociar.TabIndex = 223291;
@@ -62,7 +73,7 @@
             // 
             // buttom_Asociar
             // 
-            this.buttom_Asociar.Location = new System.Drawing.Point(664, 72);
+            this.buttom_Asociar.Location = new System.Drawing.Point(368, 260);
             this.buttom_Asociar.Name = "buttom_Asociar";
             this.buttom_Asociar.Size = new System.Drawing.Size(147, 41);
             this.buttom_Asociar.TabIndex = 223292;
@@ -118,11 +129,115 @@
             this.estado.Name = "estado";
             this.estado.ReadOnly = true;
             // 
+            // textBox_nroTarjeta
+            // 
+            this.textBox_nroTarjeta.Location = new System.Drawing.Point(116, 26);
+            this.textBox_nroTarjeta.MaxLength = 18;
+            this.textBox_nroTarjeta.Name = "textBox_nroTarjeta";
+            this.textBox_nroTarjeta.Size = new System.Drawing.Size(132, 20);
+            this.textBox_nroTarjeta.TabIndex = 223295;
+            // 
+            // NuevaTarjeta
+            // 
+            this.NuevaTarjeta.Controls.Add(this.label3);
+            this.NuevaTarjeta.Controls.Add(this.textBox_codigoSeguridad);
+            this.NuevaTarjeta.Controls.Add(this.button1);
+            this.NuevaTarjeta.Controls.Add(this.label2);
+            this.NuevaTarjeta.Controls.Add(this.label1);
+            this.NuevaTarjeta.Controls.Add(this.label11);
+            this.NuevaTarjeta.Controls.Add(this.dateTimePicker_vencimiento);
+            this.NuevaTarjeta.Controls.Add(this.comboBox_Emisor);
+            this.NuevaTarjeta.Controls.Add(this.textBox_nroTarjeta);
+            this.NuevaTarjeta.Location = new System.Drawing.Point(626, 25);
+            this.NuevaTarjeta.Name = "NuevaTarjeta";
+            this.NuevaTarjeta.Size = new System.Drawing.Size(313, 246);
+            this.NuevaTarjeta.TabIndex = 223296;
+            this.NuevaTarjeta.TabStop = false;
+            this.NuevaTarjeta.Text = "Nueva Tarjeta";
+            this.NuevaTarjeta.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // comboBox_Emisor
+            // 
+            this.comboBox_Emisor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Emisor.FormattingEnabled = true;
+            this.comboBox_Emisor.Items.AddRange(new object[] {
+            "Visa",
+            "Master Card",
+            "American Express"});
+            this.comboBox_Emisor.Location = new System.Drawing.Point(116, 111);
+            this.comboBox_Emisor.Name = "comboBox_Emisor";
+            this.comboBox_Emisor.Size = new System.Drawing.Size(132, 21);
+            this.comboBox_Emisor.TabIndex = 223296;
+            // 
+            // dateTimePicker_vencimiento
+            // 
+            this.dateTimePicker_vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker_vencimiento.Location = new System.Drawing.Point(116, 162);
+            this.dateTimePicker_vencimiento.Name = "dateTimePicker_vencimiento";
+            this.dateTimePicker_vencimiento.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePicker_vencimiento.TabIndex = 223310;
+            this.dateTimePicker_vencimiento.Value = new System.DateTime(2018, 2, 1, 0, 0, 0, 0);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 162);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(98, 13);
+            this.label11.TabIndex = 223311;
+            this.label11.Text = "Fecha Vencimiento";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(66, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 223312;
+            this.label1.Text = "Emisor";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 223313;
+            this.label2.Text = "Nro Tarjeta";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(105, 204);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 23);
+            this.button1.TabIndex = 223314;
+            this.button1.Text = "Generar Nueva Tarejta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox_codigoSeguridad
+            // 
+            this.textBox_codigoSeguridad.Location = new System.Drawing.Point(116, 69);
+            this.textBox_codigoSeguridad.MaxLength = 6;
+            this.textBox_codigoSeguridad.Name = "textBox_codigoSeguridad";
+            this.textBox_codigoSeguridad.Size = new System.Drawing.Size(132, 20);
+            this.textBox_codigoSeguridad.TabIndex = 223315;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 13);
+            this.label3.TabIndex = 223316;
+            this.label3.Text = "Codigo Seguridad";
+            // 
             // AsociarTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 262);
+            this.ClientSize = new System.Drawing.Size(1108, 313);
+            this.Controls.Add(this.NuevaTarjeta);
             this.Controls.Add(this.lista_Tarjetas);
             this.Controls.Add(this.buttom_Asociar);
             this.Controls.Add(this.boton_Desasociar);
@@ -131,6 +246,8 @@
             this.Text = "AsociarTarjeta";
             this.Load += new System.EventHandler(this.AsociarTarjeta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lista_Tarjetas)).EndInit();
+            this.NuevaTarjeta.ResumeLayout(false);
+            this.NuevaTarjeta.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -146,5 +263,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn estado;
+        private System.Windows.Forms.TextBox textBox_nroTarjeta;
+        private System.Windows.Forms.GroupBox NuevaTarjeta;
+        private System.Windows.Forms.ComboBox comboBox_Emisor;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_vencimiento;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_codigoSeguridad;
     }
 }
