@@ -259,7 +259,7 @@ Print 'La tabla TIPO DE CUENTAS se ha creado con exito';
 	DESCRIPCION: Tabla migrada de la tabla maestra con los datos de las tarjetas
 */
 Create Table DEVGURUS.Tarjetas (		Tarjeta_Id integer IDENTITY (1,1) PRIMARY KEY NOT NULL,
-										Tarjeta_Nro varchar(16)  NOT NULL,
+										Tarjeta_Nro varchar(125)  NOT NULL,
 										Tarjeta_Cliente integer FOREIGN KEY REFERENCES DEVGURUS.Clientes(Cliente_Id),
 										Tarjeta_Digitos_Visibles varchar(4),
 										Tarjeta_Fecha_Emision datetime,
@@ -520,7 +520,7 @@ Print 'La tabla TIPOS DE CUENTA se ha cargado con exito';
 /* TARJETAS */
 /* LAS FECHAS SON FUTURICAS */
 Insert into DEVGURUS.Tarjetas (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc)
-select distinct MA.Tarjeta_Numero, CL.Cliente_Id, RIGHT(MA.Tarjeta_Numero,4), MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, MA.Tarjeta_Codigo_Seg, 
+select distinct HASHBYTES('SHA', MA.Tarjeta_Numero), CL.Cliente_Id, RIGHT(MA.Tarjeta_Numero,4), MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, MA.Tarjeta_Codigo_Seg, 
 MA.Tarjeta_Emisor_Descripcion from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Apellido+CL.Cliente_Nombre = MA.Cli_Apellido+MA.Cli_Nombre and Tarjeta_Numero is not null
 Print 'La tabla TARJETAS se ha cargado con exito';
@@ -1269,6 +1269,27 @@ GO
 	Print 'El gatillo VALIDAR CUENTA INHABILITADA se ha creado correctamente';
 
 
+/* EL GATILLO SE UTILIZA PARA ENCRIPTAR LOS NUMEROS DE TARJETAS QUE SE INGRESEN AL SISTEMA*/
+IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'encriptar_Tarjeta')
+	DROP Trigger DEVGURUS.encriptar_Tarjeta;
+	Print 'El gatillo ENCRIPTAR TARJETA ya existe, SE BORRARA';
+GO
+
+Create TRIGGER DEVGURUS.encriptar_Tarjeta
+ON DEVGURUS.Tarjetas
+AFTER INSERT
+AS
+	DECLARE @numAux varchar(255)
+	
+	SET @numAux = (Select Tarjeta_Nro from Inserted)
+	
+	UPDATE DEVGURUS.Tarjetas
+	SET Tarjeta_Nro = HASHBYTES('SHA', @numAux) 
+	where Tarjeta_Nro = @numAux
+GO	
+	Print 'El gatillo ENCRIPTAR TARJETA se ha creado correctamente';
+
+
 /* EL PROCEDIMIENTO SE UTILIZA PARA CONSULTAR LAS CUENTAS INHABILITADAS*/
 IF EXISTS (SELECT id FROM sys.sysobjects WHERE name = 'listarCuentasInhabilitadas')
 	DROP PROCEDURE DEVGURUS.listarCuentasInhabilitadas;
@@ -1529,7 +1550,3 @@ EXECUTE DEVGURUS.insertarNuevoUsuario
 	@respuesta = 'Argentina',
 	@estado = 'Habilitado';
 Print 'Se ha creado el usuario "lbenitez" con password "1558" y rol de "Administrador"';
-
-
-
-
