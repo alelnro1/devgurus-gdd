@@ -60,13 +60,14 @@
             this.nombre_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Cancelar = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Generar
             // 
-            this.Generar.Location = new System.Drawing.Point(375, 350);
+            this.Generar.Location = new System.Drawing.Point(376, 397);
             this.Generar.Name = "Generar";
             this.Generar.Size = new System.Drawing.Size(75, 23);
             this.Generar.TabIndex = 29;
@@ -76,11 +77,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(14, 270);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(463, 63);
+            this.groupBox2.Size = new System.Drawing.Size(484, 109);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Usuario";
@@ -90,7 +92,7 @@
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(126, 30);
+            this.comboBox1.Location = new System.Drawing.Point(111, 67);
             this.comboBox1.MaxLength = 100;
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(129, 21);
@@ -100,7 +102,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(57, 33);
+            this.label10.Location = new System.Drawing.Point(43, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 0;
@@ -136,7 +138,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(465, 243);
+            this.groupBox1.Size = new System.Drawing.Size(486, 243);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Cliente";
@@ -447,7 +449,7 @@
             // 
             // Cancelar
             // 
-            this.Cancelar.Location = new System.Drawing.Point(50, 350);
+            this.Cancelar.Location = new System.Drawing.Point(44, 397);
             this.Cancelar.Name = "Cancelar";
             this.Cancelar.Size = new System.Drawing.Size(75, 23);
             this.Cancelar.TabIndex = 30;
@@ -455,11 +457,22 @@
             this.Cancelar.UseVisualStyleBackColor = true;
             this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.ForeColor = System.Drawing.Color.Red;
+            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(471, 29);
+            this.richTextBox1.TabIndex = 31;
+            this.richTextBox1.Text = "Debe escribir el nombre de usuario al cual quiere darle de alta como cliente";
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 448);
+            this.ClientSize = new System.Drawing.Size(513, 438);
             this.Controls.Add(this.Cancelar);
             this.Controls.Add(this.Generar);
             this.Controls.Add(this.groupBox2);
@@ -509,6 +522,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox_nroCalle;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
 
     }
