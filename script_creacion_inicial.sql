@@ -264,7 +264,7 @@ Create Table DEVGURUS.Tarjetas (		Tarjeta_Id integer IDENTITY (1,1) PRIMARY KEY 
 										Tarjeta_Digitos_Visibles varchar(4),
 										Tarjeta_Fecha_Emision datetime,
 										Tarjeta_Fecha_Vencimiento datetime,
-										Tarjeta_Cod_Seg varchar(3),
+										Tarjeta_Cod_Seg varchar(125),
 										Tarjeta_Emisor_Desc varchar (255),
 										Tarjeta_Asociada varchar(25) default 'Asociada')
 Print 'La tabla TARJETAS se ha creado con exito';
@@ -520,7 +520,7 @@ Print 'La tabla TIPOS DE CUENTA se ha cargado con exito';
 /* TARJETAS */
 /* LAS FECHAS SON FUTURICAS */
 Insert into DEVGURUS.Tarjetas (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc)
-select distinct HASHBYTES('SHA', MA.Tarjeta_Numero), CL.Cliente_Id, RIGHT(MA.Tarjeta_Numero,4), MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, MA.Tarjeta_Codigo_Seg, 
+select distinct HASHBYTES('MD5', MA.Tarjeta_Numero), CL.Cliente_Id, RIGHT(MA.Tarjeta_Numero,4), MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, HASHBYTES('MD5', MA.Tarjeta_Codigo_Seg), 
 MA.Tarjeta_Emisor_Descripcion from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Apellido+CL.Cliente_Nombre = MA.Cli_Apellido+MA.Cli_Nombre and Tarjeta_Numero is not null
 Print 'La tabla TARJETAS se ha cargado con exito';
@@ -1292,7 +1292,11 @@ AS
 	SET @numAux = (Select Tarjeta_Nro from Inserted)
 	
 	UPDATE DEVGURUS.Tarjetas
-	SET Tarjeta_Nro = HASHBYTES('SHA', @numAux) 
+	SET Tarjeta_Nro = HASHBYTES('MD5', Tarjeta_Nro) 
+	where Tarjeta_Nro = @numAux
+	
+	UPDATE DEVGURUS.Tarjetas
+	SET Tarjeta_Cod_Seg = HASHBYTES('MD5', Tarjeta_Cod_Seg) 
 	where Tarjeta_Nro = @numAux
 GO	
 	Print 'El gatillo ENCRIPTAR TARJETA se ha creado correctamente';
