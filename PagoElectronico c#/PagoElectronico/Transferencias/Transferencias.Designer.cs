@@ -60,7 +60,7 @@
             // cuenta_destino_text
             // 
             this.cuenta_destino_text.Location = new System.Drawing.Point(95, 40);
-            this.cuenta_destino_text.MaxLength = 100;
+            this.cuenta_destino_text.MaxLength = 18;
             this.cuenta_destino_text.Name = "cuenta_destino_text";
             this.cuenta_destino_text.Size = new System.Drawing.Size(121, 20);
             this.cuenta_destino_text.TabIndex = 3;

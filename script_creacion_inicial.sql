@@ -866,7 +866,7 @@ AS
 	SELECT 'Inactivo' MENSAJE
 	END
 	
-	IF(@chekeo_de_alta != @usuario_Id)
+	IF(@chekeo_de_alta is null and @rol='Cliente' and @usuario_Id is not null)
 	BEGIN
 	SELECT 'No tiene alta' MENSAJE
 	END

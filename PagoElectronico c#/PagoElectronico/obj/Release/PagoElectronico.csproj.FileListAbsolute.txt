@@ -31,19 +31,6 @@ D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectron
 D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
 D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.exe
 D:\UTN\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.pdb
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Release\PagoElectronico.exe
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\bin\Release\PagoElectronico.pdb
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditRol.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Busqueda_Rol.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarRol.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Login.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.NewUser.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.MenuPrincipal.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.exe
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.pdb
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.ABM_Cliente.AltaCliente.resources
 C:\Users\Maxi\Desktop\WORKSPACE\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.ABM_Cliente.Asociar_Tarjeta.resources
@@ -148,22 +135,3 @@ C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico 
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.exe
 C:\Users\Julian\U T N\Gestion de datos\Repositorio\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.pdb
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.AltaCliente.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.BusquedaClientes.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarCliente.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.AltaCuentas.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.BusquedaCuentas.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.EditarCuentas.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Editar_tipo_cuenta.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Asignar_nuevo_rol.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.AsociarTarjeta.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.ConsultarSaldo.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Depositos.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Facturacion.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Habilitar_usuario.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Estadistico_Cliente_Facturación.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Estadistico_Cliente_Inhab.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Estadistico_Cliente_Mayor_Trans.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Estadistico_Pais.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Menu_Listados.resources
-C:\REPOSITORIO GESTION DE DATOS\Repositorio Gestion De datos\devgurus-gdd\PagoElectronico c#\PagoElectronico\obj\Release\PagoElectronico.Total_Facturado_por_Cuenta.resources
