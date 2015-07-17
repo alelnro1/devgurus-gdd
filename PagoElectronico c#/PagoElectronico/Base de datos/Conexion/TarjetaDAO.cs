@@ -60,6 +60,26 @@ namespace PagoElectronico.BaseDeDatos.Conexion
             this.GD1C2015.ejecutarSentenciaSinRetorno(sql);
 
         }
+
+        internal bool hayTarjetaDuplicada(string tarjetaNro)
+        {
+            bool resultado = false;
+            String sentenciaSQL;
+            sentenciaSQL = "select *from "+ ConstantesBD.t_tarjetas +" where Tarjeta_Nro = HASHBYTES('MD5','" + tarjetaNro + "')";
+            SqlDataReader lector = this.GD1C2015.ejecutarSentenciaConRetorno(sentenciaSQL);
+            
+            lector.Read();
+
+            if (lector.HasRows)
+            {
+                resultado = true;
+            }
+             
+            
+            lector.Close();
+
+            return resultado;
+        }
     }
 }
  

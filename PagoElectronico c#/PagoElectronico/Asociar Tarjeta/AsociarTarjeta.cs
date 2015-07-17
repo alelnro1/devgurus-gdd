@@ -110,9 +110,18 @@ namespace PagoElectronico
                     {
                         if (textBox_codigoSeguridad.Text.Length == 3)
                         {
-                            tarjetaDAO.agregarTarjetaACliente(cliente_id_para_tarjetas.getCliente_Id(), textBox_nroTarjeta.Text, comboBox_Emisor.Text, ConstantesBD.fechaSistema, dateTimePicker_vencimiento.Text);
-                            MessageBox.Show("Se creo la Tarjeta Nro: " + textBox_nroTarjeta.Text + " \n Emisor: " + comboBox_Emisor.Text + " \n Fecha Creacion: " + ConstantesBD.fechaSistema + " \n Fecha Vencimiento: " + dateTimePicker_vencimiento.Text, "Atención", MessageBoxButtons.OK);
-                            this.ejecutarBusquedaTarjetas();
+                            if (! tarjetaDAO.hayTarjetaDuplicada(textBox_nroTarjeta.Text))
+                            {
+                                tarjetaDAO.agregarTarjetaACliente(cliente_id_para_tarjetas.getCliente_Id(), textBox_nroTarjeta.Text, comboBox_Emisor.Text, ConstantesBD.fechaSistema, dateTimePicker_vencimiento.Text);
+                                MessageBox.Show("Se creo la Tarjeta Nro: " + textBox_nroTarjeta.Text + " \n Emisor: " + comboBox_Emisor.Text + " \n Fecha Creacion: " + ConstantesBD.fechaSistema + " \n Fecha Vencimiento: " + dateTimePicker_vencimiento.Text, "Atención", MessageBoxButtons.OK);
+                                this.ejecutarBusquedaTarjetas();
+                                this.limpiarNuevaTarjeta();
+                            }
+                            else
+                            {
+                                MessageBox.Show("La tarjeta que quiere ingresar ya se encuentra registrada ", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  
+                            }
                         }
                         else
                         {
@@ -147,6 +156,11 @@ namespace PagoElectronico
               this.ejecutarBusquedaTarjetas();
         }
 
+        private void limpiarNuevaTarjeta() {
+            comboBox_Emisor.SelectedIndex = -1;
+            textBox_nroTarjeta.Text = "";
+            textBox_codigoSeguridad.Text = "";
+        }
         
     }
 }
