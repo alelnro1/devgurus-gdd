@@ -416,6 +416,17 @@ Create Table #Cuentas_Con_Saldo
 
 Print 'La tabla temporal CUENTAS CON SALDO se ha creado con exito';
 
+Create Table #Tarjetas_sin_encriptar (	Tarjeta_Id integer IDENTITY (1,1) PRIMARY KEY NOT NULL,
+										Tarjeta_Nro varchar(125)  NOT NULL,
+										Tarjeta_Cliente integer FOREIGN KEY REFERENCES DEVGURUS.Clientes(Cliente_Id),
+										Tarjeta_Digitos_Visibles varchar(4),
+										Tarjeta_Fecha_Emision datetime,
+										Tarjeta_Fecha_Vencimiento datetime,
+										Tarjeta_Cod_Seg varchar(125),
+										Tarjeta_Emisor_Desc varchar (255),
+										Tarjeta_Asociada varchar(25) default 'Asociada')
+Print 'La tabla temporal TARJETAS_sin_encriptar se ha creado con exito';
+
 COMMIT TRAN CreacionTablas
 
 /* ******************************************************************************************************************** */
@@ -525,6 +536,13 @@ MA.Tarjeta_Emisor_Descripcion from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
 where CL.Cliente_Apellido+CL.Cliente_Nombre = MA.Cli_Apellido+MA.Cli_Nombre and Tarjeta_Numero is not null
 Print 'La tabla TARJETAS se ha cargado con exito';
 
+Insert into #Tarjetas_sin_encriptar (Tarjeta_Nro, Tarjeta_Cliente, Tarjeta_Digitos_Visibles, Tarjeta_Fecha_Emision, Tarjeta_Fecha_Vencimiento, Tarjeta_Cod_Seg, Tarjeta_Emisor_Desc)
+select distinct MA.Tarjeta_Numero, CL.Cliente_Id, RIGHT(MA.Tarjeta_Numero,4), MA.Tarjeta_Fecha_Emision, MA.Tarjeta_Fecha_Vencimiento, MA.Tarjeta_Codigo_Seg, 
+MA.Tarjeta_Emisor_Descripcion from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
+where CL.Cliente_Apellido+CL.Cliente_Nombre = MA.Cli_Apellido+MA.Cli_Nombre and Tarjeta_Numero is not null
+Print 'La tabla #Tarjetas_sin_encriptar se ha cargado con exito';
+
+
 /* CUENTAS */ 
 /* VER QUE FECHA CREACION ESTA HARDCODEADO PORQUE EN TABLA MAESTRA LA FECHA NO ES COHERENTE */
 Insert into DEVGURUS.Cuentas (Cuenta_Nro, Cuenta_Tipo, Cuenta_PaisOrigen, Cuenta_PaisAsignado, Cuenta_Fec_Cre, Cuenta_Cliente, Cuenta_Saldo)
@@ -537,10 +555,12 @@ Print 'La tabla CUENTAS se ha cargado con exito';
 
 /* DEPOSTIOS */
 Insert into DEVGURUS.Depositos (Deposito_Id, Deposito_Fecha, Deposito_Importe, Deposito_TipoMoneda, Deposito_Cuenta, Deposito_Tarjeta)
-select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, 1, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, DEVGURUS.Tarjetas TA
+select distinct MA.Deposito_Codigo, MA.Deposito_Fecha, MA.Deposito_Importe, 1, MA.Cuenta_Numero, TA.Tarjeta_Id from gd_esquema.Maestra MA, #Tarjetas_sin_encriptar TA
 where TA.Tarjeta_Nro = MA.Tarjeta_Numero and Deposito_Codigo is not null
 Print 'La tabla DEPOSITOS se ha cargado con exito';
 
+drop table #Tarjetas_sin_encriptar
+Print 'La tabla #Tarjetas_sin_encriptar se dropio despues de usarla';
 /* FACTURAS */
 Insert into DEVGURUS.Facturas (Factura_Numero, Factura_Fecha, Factura_Cliente, Factura_Importe)
 select distinct MA.Factura_Numero, MA.Factura_Fecha, CL.Cliente_Id, 0 from gd_esquema.Maestra MA, DEVGURUS.Clientes CL
