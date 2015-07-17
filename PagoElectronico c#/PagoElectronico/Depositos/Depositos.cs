@@ -40,7 +40,7 @@ namespace PagoElectronico
             {
                 if (depositos_DAO.numeroEsFloat(importe))
                 {
-                    if (depositos_DAO.importeEsMayorANumero(importe, "1"))
+                    if (depositos_DAO.importeEsMayorANumero(importe, "0"))
                     {
                         if (depositos_DAO.tarjetaNoEstaVencida(tarjeta_digitos_visibles, cliente.getCliente_Id()))
                         {
@@ -62,7 +62,7 @@ namespace PagoElectronico
                     }
                     else
                     {
-                        MessageBox.Show("El importe debe ser mayor a 1", "Atención", MessageBoxButtons.OK);
+                        MessageBox.Show("El importe debe ser mayor a 0", "Atención", MessageBoxButtons.OK);
                     }
                 }
                 else
